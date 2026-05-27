@@ -40,7 +40,7 @@ export default function ReelStrip() {
               key={dish.slug}
               className="w-[60vw] shrink-0 snap-start sm:w-[232px]"
             >
-              <ReelCard slug={dish.slug} />
+              <ReelCard slug={dish.slug} eager />
             </div>
           ))}
         </Reveal>

@@ -98,7 +98,7 @@ body {
 }
 
 .marquee-track {
-  animation: marquee 160s linear infinite;
+  animation: marquee 320s linear infinite;
   will-change: transform;
 }
 

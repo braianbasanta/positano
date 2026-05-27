@@ -13,9 +13,12 @@ import { useReelViewer } from "./ReelViewerProvider";
 export default function ReelCard({
   slug,
   className,
+  eager = false,
 }: {
   slug: string;
   className?: string;
+  /** Si true, fuerza preload="auto" — para los reels destacados de la home. */
+  eager?: boolean;
 }) {
   const { open } = useReelViewer();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -42,7 +45,7 @@ export default function ReelCard({
           video.pause();
         }
       },
-      { threshold: 0.5 },
+      { threshold: 0.1, rootMargin: "0px 300px 0px 300px" },
     );
 
     observer.observe(video);
@@ -65,7 +68,7 @@ export default function ReelCard({
         muted
         loop
         playsInline
-        preload="none"
+        preload={eager ? "auto" : "metadata"}
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
       />
 
