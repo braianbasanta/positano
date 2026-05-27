@@ -2,7 +2,7 @@ import Lemon from "../Lemon";
 import LemonBranch from "../LemonBranch";
 import Reveal from "../Reveal";
 import { featured } from "@/data/menu";
-import ReelCard from "./ReelCard";
+import ReelCarousel from "./ReelCarousel";
 
 /**
  * Teaser de reels en el homepage. Tira horizontal de platos destacados;
@@ -31,18 +31,8 @@ export default function ReelStrip() {
           </p>
         </Reveal>
 
-        <Reveal
-          delay={120}
-          className="mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4"
-        >
-          {featured.map((dish) => (
-            <div
-              key={dish.slug}
-              className="w-[60vw] shrink-0 snap-start sm:w-[232px]"
-            >
-              <ReelCard slug={dish.slug} eager />
-            </div>
-          ))}
+        <Reveal delay={120} className="mt-12">
+          <ReelCarousel items={featured} />
         </Reveal>
 
         <Reveal className="mt-12 flex flex-col items-center gap-5 text-center">
