@@ -24,7 +24,7 @@ export default function CartaPage() {
           <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
           <LemonBranch className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
           <div className="relative mx-auto max-w-2xl">
-            <span className="flex items-center justify-center gap-3 text-[0.72rem] uppercase tracking-[0.34em] text-lemon">
+            <span className="flex items-center justify-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
               <Lemon className="h-5 w-5" />
               La Carta
             </span>
@@ -63,7 +63,7 @@ export default function CartaPage() {
           </div>
 
           <div className="mx-auto mt-20 max-w-5xl">
-            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[0.78rem] uppercase tracking-[0.22em] text-ink-soft">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[0.88rem] uppercase tracking-[0.22em] text-ink-soft">
               <span>Menú del día · 14,90 €</span>
               <span className="hidden h-3 w-px bg-ink/25 sm:block" />
               <span>Suplemento de terraza · 10 %</span>
@@ -74,7 +74,7 @@ export default function CartaPage() {
             <div className="mt-10 flex justify-center">
               <a
                 href="/reservas"
-                className="rounded-full bg-ink px-9 py-4 text-[0.8rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink hover:tracking-[0.27em]"
+                className="rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink hover:tracking-[0.27em]"
               >
                 Reservar mesa
               </a>

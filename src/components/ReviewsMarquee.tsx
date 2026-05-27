@@ -25,7 +25,7 @@ export default function ReviewsMarquee() {
               <p className="font-display text-base uppercase tracking-[0.16em] text-ink">
                 {review.name}
               </p>
-              <p className="mt-1 text-[0.6rem] uppercase tracking-[0.3em] text-ink-soft">
+              <p className="mt-1 text-[0.82rem] uppercase tracking-[0.3em] text-ink-soft">
                 Reseña de Google
               </p>
             </div>

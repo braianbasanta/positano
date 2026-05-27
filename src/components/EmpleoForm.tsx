@@ -179,7 +179,7 @@ export default function EmpleoForm() {
   if (status?.type === "ok") {
     return (
       <div className="border border-ink/15 bg-cream/40 px-6 py-14 text-center md:px-12 md:py-20">
-        <p className="text-[0.72rem] uppercase tracking-[0.34em] text-lemon">
+        <p className="text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
           ¡Gracias!
         </p>
         <h2 className="mt-4 font-display text-4xl uppercase leading-tight tracking-[0.03em] text-ink md:text-5xl">
@@ -199,10 +199,10 @@ export default function EmpleoForm() {
       {/* Progreso */}
       <div className="mb-9">
         <div className="flex items-center justify-between gap-3">
-          <p className="text-[0.7rem] uppercase tracking-[0.3em] text-lemon">
+          <p className="text-[0.78rem] uppercase tracking-[0.3em] text-lemon">
             Paso {step + 1} / 4 · {STEPS[step].title}
           </p>
-          <p className="hidden text-[0.7rem] uppercase tracking-[0.24em] text-ink-soft sm:block">
+          <p className="hidden text-[0.78rem] uppercase tracking-[0.24em] text-ink-soft sm:block">
             {STEPS[step].hint}
           </p>
         </div>
@@ -400,7 +400,7 @@ export default function EmpleoForm() {
               className="mt-4 flex w-full items-center justify-between gap-4 border border-dashed border-ink/35 bg-cream/60 px-5 py-5 text-left transition-colors hover:border-lemon hover:bg-cream"
             >
               <span>
-                <span className="block text-[0.72rem] uppercase tracking-[0.24em] text-ink-soft">
+                <span className="block text-[0.82rem] uppercase tracking-[0.24em] text-ink-soft">
                   {cv ? "Archivo seleccionado" : "Selecciona un archivo"}
                 </span>
                 <span className="mt-1 block font-serif text-lg text-ink">
@@ -441,7 +441,7 @@ export default function EmpleoForm() {
           type="button"
           onClick={goBack}
           disabled={step === 0 || submitting}
-          className="text-[0.78rem] uppercase tracking-[0.24em] text-ink-soft transition-colors hover:text-ink disabled:opacity-30"
+          className="text-[0.88rem] uppercase tracking-[0.24em] text-ink-soft transition-colors hover:text-ink disabled:opacity-30"
         >
           ← Atrás
         </button>
@@ -451,7 +451,7 @@ export default function EmpleoForm() {
             type="button"
             onClick={goNext}
             disabled={!stepValid}
-            className="rounded-full bg-ink px-9 py-4 text-[0.78rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink disabled:cursor-not-allowed disabled:bg-ink/40"
+            className="rounded-full bg-ink px-9 py-4 text-[0.88rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink disabled:cursor-not-allowed disabled:bg-ink/40"
           >
             Continuar
           </button>
@@ -460,7 +460,7 @@ export default function EmpleoForm() {
             type="button"
             onClick={submit}
             disabled={!stepValid || submitting}
-            className="rounded-full bg-lemon px-9 py-4 text-[0.78rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-ink hover:text-cream disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-full bg-lemon px-9 py-4 text-[0.88rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-ink hover:text-cream disabled:cursor-not-allowed disabled:opacity-50"
           >
             {submitting ? "Enviando…" : "Enviar candidatura"}
           </button>
@@ -484,7 +484,7 @@ function Field({
 }) {
   return (
     <label className={`block ${className}`}>
-      <span className="block text-[0.7rem] uppercase tracking-[0.24em] text-ink-soft">
+      <span className="block text-[0.78rem] uppercase tracking-[0.24em] text-ink-soft">
         {label}
       </span>
       <span className="mt-2 block">{children}</span>
@@ -494,7 +494,7 @@ function Field({
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[0.7rem] uppercase tracking-[0.24em] text-ink-soft">
+    <p className="text-[0.78rem] uppercase tracking-[0.24em] text-ink-soft">
       {children}
     </p>
   );

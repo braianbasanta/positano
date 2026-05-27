@@ -59,20 +59,20 @@ export default function Hero() {
           >
             <a
               href="/reservas"
-              className="rounded-full bg-lemon px-9 py-4 text-center text-[0.8rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
+              className="rounded-full bg-lemon px-9 py-4 text-center text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
             >
               Reservar mesa
             </a>
             <div className="grid grid-cols-2 gap-4">
               <a
                 href="/pizza-domicilio"
-                className="flex items-center justify-center rounded-full border border-cream/45 px-6 py-4 text-center text-[0.8rem] uppercase tracking-[0.22em] text-cream transition-colors duration-300 hover:bg-cream hover:text-ink"
+                className="flex items-center justify-center rounded-full border border-cream/45 px-6 py-4 text-center text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-colors duration-300 hover:bg-cream hover:text-ink"
               >
                 Pedir online
               </a>
               <a
                 href="/carta"
-                className="flex items-center justify-center rounded-full border border-cream/45 px-6 py-4 text-center text-[0.8rem] uppercase tracking-[0.22em] text-cream transition-colors duration-300 hover:bg-cream hover:text-ink"
+                className="flex items-center justify-center rounded-full border border-cream/45 px-6 py-4 text-center text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-colors duration-300 hover:bg-cream hover:text-ink"
               >
                 Ver carta
               </a>
@@ -88,7 +88,7 @@ export default function Hero() {
         className="hero-rise absolute inset-x-0 bottom-7 z-20 flex flex-col items-center gap-2"
         style={{ animationDelay: "0.95s" }}
       >
-        <span className="text-[0.6rem] uppercase tracking-[0.4em] text-cream/55">
+        <span className="text-[0.82rem] uppercase tracking-[0.4em] text-cream/55">
           Descubre
         </span>
         <svg

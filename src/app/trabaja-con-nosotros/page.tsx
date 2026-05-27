@@ -23,7 +23,7 @@ export default function TrabajaConNosotrosPage() {
           <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
           <LemonBranch className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
           <div className="relative mx-auto max-w-2xl">
-            <span className="flex items-center justify-center gap-3 text-[0.72rem] uppercase tracking-[0.34em] text-lemon">
+            <span className="flex items-center justify-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
               <Lemon className="h-5 w-5" />
               Trabaja con nosotros
             </span>
@@ -42,7 +42,7 @@ export default function TrabajaConNosotrosPage() {
         <section className="bg-cream px-6 py-16 md:py-24">
           <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-[1fr_1.4fr] md:gap-16">
             <Reveal className="md:sticky md:top-28 md:self-start">
-              <p className="text-[0.72rem] uppercase tracking-[0.32em] text-lemon">
+              <p className="text-[0.82rem] uppercase tracking-[0.32em] text-lemon">
                 Nuestro equipo
               </p>
               <h2 className="mt-4 font-display text-3xl uppercase leading-tight tracking-[0.04em] text-ink md:text-4xl">

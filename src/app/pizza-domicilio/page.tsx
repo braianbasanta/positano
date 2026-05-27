@@ -51,7 +51,7 @@ export default function PizzaDomicilioPage() {
           <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
           <LemonBranch className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
           <div className="relative mx-auto max-w-2xl">
-            <span className="flex items-center justify-center gap-3 text-[0.72rem] uppercase tracking-[0.34em] text-lemon">
+            <span className="flex items-center justify-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
               <Lemon className="h-5 w-5" />
               A domicilio en Barcelona
             </span>
@@ -72,7 +72,7 @@ export default function PizzaDomicilioPage() {
                 href={UBER_EATS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 rounded-full bg-lemon px-9 py-4 text-[0.8rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
+                className="group inline-flex items-center gap-3 rounded-full bg-lemon px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
               >
                 Pedir en Uber Eats
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -83,7 +83,7 @@ export default function PizzaDomicilioPage() {
                 href={GLOVO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 rounded-full bg-lemon px-9 py-4 text-[0.8rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
+                className="group inline-flex items-center gap-3 rounded-full bg-lemon px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
               >
                 Pedir en Glovo
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -99,7 +99,7 @@ export default function PizzaDomicilioPage() {
           <LemonBranch className="pointer-events-none absolute -bottom-16 -left-14 h-80 w-auto -rotate-12 text-lemon/20" />
           <div className="relative mx-auto max-w-6xl">
             <Reveal className="flex flex-col items-center text-center">
-              <span className="flex items-center gap-3 text-[0.72rem] uppercase tracking-[0.34em] text-lemon">
+              <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
                 <Lemon className="h-5 w-5" />
                 Cómo funciona
               </span>
@@ -138,7 +138,7 @@ export default function PizzaDomicilioPage() {
           <div className="relative mx-auto max-w-3xl">
             <Reveal>
               <div className="border border-ink/15 bg-cream/50 p-9 text-center md:p-14">
-                <span className="text-[0.64rem] uppercase tracking-[0.3em] text-lemon">
+                <span className="text-[0.84rem] uppercase tracking-[0.3em] text-lemon">
                   Reparto a domicilio
                 </span>
                 <h2 className="mt-4 font-display text-3xl leading-tight text-ink md:text-4xl">
@@ -157,7 +157,7 @@ export default function PizzaDomicilioPage() {
                   <span className="h-px flex-1 bg-ink/15" />
                 </div>
 
-                <h3 className="mt-9 text-[0.72rem] uppercase tracking-[0.28em] text-ink">
+                <h3 className="mt-9 text-[0.82rem] uppercase tracking-[0.28em] text-ink">
                   Horario de entrega
                 </h3>
                 <ul className="mt-4 space-y-1.5">
@@ -172,7 +172,7 @@ export default function PizzaDomicilioPage() {
                   ))}
                 </ul>
 
-                <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[0.74rem] uppercase tracking-[0.18em] text-ink-soft">
+                <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[0.84rem] uppercase tracking-[0.18em] text-ink-soft">
                   <span>★ 4,3 · 90 reseñas</span>
                   <span className="hidden h-3 w-px bg-ink/25 sm:block" />
                   <span>Aceptamos Ticket Restaurant®</span>
@@ -183,7 +183,7 @@ export default function PizzaDomicilioPage() {
                     href={UBER_EATS}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-4 text-[0.8rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink"
+                    className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink"
                   >
                     Pedir en Uber Eats
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -194,7 +194,7 @@ export default function PizzaDomicilioPage() {
                     href={GLOVO}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-4 text-[0.8rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink"
+                    className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink"
                   >
                     Pedir en Glovo
                     <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -211,7 +211,7 @@ export default function PizzaDomicilioPage() {
               </p>
               <a
                 href="/reservas"
-                className="rounded-full border border-ink/45 px-9 py-4 text-[0.8rem] uppercase tracking-[0.22em] text-ink transition-colors duration-300 hover:bg-ink hover:text-cream"
+                className="rounded-full border border-ink/45 px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-colors duration-300 hover:bg-ink hover:text-cream"
               >
                 Reservar mesa
               </a>

@@ -53,7 +53,7 @@ export default function SiteHeader() {
               POSITANO
             </span>
             <span
-              className={`mt-1 block text-[0.56rem] tracking-[0.4em] transition-colors ${
+              className={`mt-1 block text-[0.78rem] tracking-[0.4em] transition-colors ${
                 solid ? "text-ink-soft" : "text-cream/60"
               }`}
             >
@@ -85,7 +85,7 @@ export default function SiteHeader() {
           <div className="flex items-center gap-3">
             <a
               href={RESERVAS}
-              className={`hidden rounded-full px-5 py-2 text-[0.74rem] uppercase tracking-[0.2em] transition-all duration-300 sm:block ${
+              className={`hidden rounded-full px-5 py-2 text-[0.84rem] uppercase tracking-[0.2em] transition-all duration-300 sm:block ${
                 solid
                   ? "bg-lemon text-ink hover:bg-ink hover:text-cream"
                   : "border border-cream/50 text-cream hover:bg-cream hover:text-ink"
@@ -141,7 +141,7 @@ export default function SiteHeader() {
         <a
           href={RESERVAS}
           onClick={() => setOpen(false)}
-          className="mt-4 rounded-full bg-ink px-8 py-3.5 text-[0.78rem] uppercase tracking-[0.22em] text-cream"
+          className="mt-4 rounded-full bg-ink px-8 py-3.5 text-[0.88rem] uppercase tracking-[0.22em] text-cream"
         >
           Reservar mesa
         </a>

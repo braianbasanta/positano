@@ -13,7 +13,7 @@ export default function LaCasa() {
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2 md:gap-20">
         <Reveal className="order-2 md:order-1">
-          <span className="flex items-center gap-3 text-[0.72rem] uppercase tracking-[0.34em] text-lemon">
+          <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
             <Lemon className="h-5 w-5" />
             La Casa
           </span>

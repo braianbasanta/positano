@@ -43,7 +43,7 @@ export default function LaMasa() {
           <div className="relative">
             <div className="absolute -left-4 -top-4 hidden h-full w-full border border-lemon/40 md:block" />
             <div className="relative bg-cream-deep px-8 py-12 sm:px-12 sm:py-14">
-              <div className="mb-10 flex items-center justify-between text-[0.6rem] uppercase tracking-[0.3em] text-ink-soft/55">
+              <div className="mb-10 flex items-center justify-between text-[0.82rem] uppercase tracking-[0.3em] text-ink-soft/55">
                 <span>El viaje de la masa</span>
                 <span>48 h · 22 °C</span>
               </div>
@@ -66,7 +66,7 @@ export default function LaMasa() {
                     </div>
                     <div>
                       <div className="flex items-baseline gap-3">
-                        <span className="font-display text-[0.65rem] uppercase tracking-[0.32em] text-lemon">
+                        <span className="font-display text-[0.84rem] uppercase tracking-[0.32em] text-lemon">
                           {dia.eyebrow}
                         </span>
                         <span
@@ -91,7 +91,7 @@ export default function LaMasa() {
         </Reveal>
 
         <Reveal delay={120}>
-          <span className="flex items-center gap-3 text-[0.72rem] uppercase tracking-[0.34em] text-lemon">
+          <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
             <Lemon className="h-5 w-5" />
             La masa
           </span>
@@ -115,7 +115,7 @@ export default function LaMasa() {
             {ingredientes.map((item) => (
               <li key={item.name} className="flex items-baseline gap-3">
                 <span className="h-1 w-1 shrink-0 translate-y-[-3px] rounded-full bg-lemon" />
-                <span className="text-[0.7rem] uppercase tracking-[0.22em] text-ink-soft">
+                <span className="text-[0.78rem] uppercase tracking-[0.22em] text-ink-soft">
                   <span className="text-ink">{item.name}</span> · {item.origin}
                 </span>
               </li>

@@ -40,7 +40,7 @@ export default function SiteFooter() {
               height={373}
               className="h-auto w-56"
             />
-            <p className="mt-3 text-[0.6rem] tracking-[0.42em] text-cream/55">
+            <p className="mt-3 text-[0.82rem] tracking-[0.42em] text-cream/55">
               BARCELONA
             </p>
             <div className="mt-5 flex items-center gap-3">
@@ -56,7 +56,7 @@ export default function SiteFooter() {
 
           {columns.map((column) => (
             <div key={column.title}>
-              <h3 className="text-[0.72rem] uppercase tracking-[0.28em] text-lemon">
+              <h3 className="text-[0.82rem] uppercase tracking-[0.28em] text-lemon">
                 {column.title}
               </h3>
               <ul className="mt-5 space-y-3">

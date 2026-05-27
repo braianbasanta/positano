@@ -13,7 +13,7 @@ export default function LaCarta() {
 
       <div className="relative mx-auto max-w-6xl">
         <Reveal className="flex flex-col items-center text-center">
-          <span className="flex items-center gap-3 text-[0.72rem] uppercase tracking-[0.34em] text-lemon">
+          <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
             <Lemon className="h-5 w-5" />
             La Carta
           </span>
@@ -31,7 +31,7 @@ export default function LaCarta() {
           {featured.map((dish, index) => (
             <Reveal key={dish.name} delay={index * 70}>
               <div className="group flex h-full flex-col gap-2 border border-ink/15 bg-cream/40 p-7 transition-colors duration-300 hover:border-lemon/60">
-                <span className="text-[0.64rem] uppercase tracking-[0.28em] text-lemon">
+                <span className="text-[0.84rem] uppercase tracking-[0.28em] text-lemon">
                   {dish.tag}
                 </span>
                 <div className="flex items-baseline justify-between gap-3">
@@ -57,7 +57,7 @@ export default function LaCarta() {
           </p>
           <a
             href="/carta"
-            className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-4 text-[0.8rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink"
+            className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink"
           >
             Ver la carta completa
             <span className="transition-transform duration-300 group-hover:translate-x-1">

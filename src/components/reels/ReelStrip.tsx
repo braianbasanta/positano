@@ -18,7 +18,7 @@ export default function ReelStrip() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         <Reveal className="flex flex-col items-center text-center">
-          <span className="flex items-center gap-3 text-[0.72rem] uppercase tracking-[0.34em] text-lemon">
+          <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
             <Lemon className="h-5 w-5" />
             Carta en vídeo
           </span>
@@ -42,7 +42,7 @@ export default function ReelStrip() {
           </p>
           <a
             href="/carta"
-            className="group inline-flex items-center gap-3 rounded-full bg-lemon px-9 py-4 text-[0.8rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
+            className="group inline-flex items-center gap-3 rounded-full bg-lemon px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
           >
             Ver la carta completa
             <span className="transition-transform duration-300 group-hover:translate-x-1">

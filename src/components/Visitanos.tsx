@@ -53,7 +53,7 @@ export default function Visitanos() {
 
       <div className="relative mx-auto max-w-6xl">
         <Reveal className="flex flex-col items-center text-center">
-          <span className="flex items-center gap-3 text-[0.72rem] uppercase tracking-[0.34em] text-lemon">
+          <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
             <Lemon className="h-5 w-5" />
             Visítanos
           </span>
@@ -128,7 +128,7 @@ export default function Visitanos() {
                 href={PLACE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute bottom-5 right-5 rounded-full bg-ink px-6 py-3 text-[0.74rem] uppercase tracking-[0.2em] text-cream shadow-[0_8px_24px_rgba(29,39,80,0.35)] transition-colors duration-300 hover:bg-lemon hover:text-ink"
+                className="absolute bottom-5 right-5 rounded-full bg-ink px-6 py-3 text-[0.84rem] uppercase tracking-[0.2em] text-cream shadow-[0_8px_24px_rgba(29,39,80,0.35)] transition-colors duration-300 hover:bg-lemon hover:text-ink"
               >
                 Ver en Google Maps
               </a>
@@ -139,13 +139,13 @@ export default function Visitanos() {
         <Reveal className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
             href="/reservas"
-            className="rounded-full bg-ink px-9 py-4 text-[0.8rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink hover:tracking-[0.27em]"
+            className="rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink hover:tracking-[0.27em]"
           >
             Reservar mesa
           </a>
           <a
             href="tel:+34933515913"
-            className="rounded-full border border-ink/45 px-9 py-4 text-[0.8rem] uppercase tracking-[0.22em] text-ink transition-colors duration-300 hover:bg-ink hover:text-cream"
+            className="rounded-full border border-ink/45 px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-colors duration-300 hover:bg-ink hover:text-cream"
           >
             Llámanos
           </a>

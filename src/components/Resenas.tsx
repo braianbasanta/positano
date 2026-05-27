@@ -12,7 +12,7 @@ export default function Resenas() {
 
       <div className="relative mx-auto max-w-5xl px-6">
         <Reveal className="flex flex-col items-center text-center">
-          <span className="flex items-center gap-3 text-[0.72rem] uppercase tracking-[0.34em] text-lemon">
+          <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
             <Lemon className="h-5 w-5" />
             Reseñas
           </span>
@@ -41,7 +41,7 @@ export default function Resenas() {
             href={reviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 text-[0.78rem] uppercase tracking-[0.22em] text-cream transition-colors duration-300 hover:text-lemon"
+            className="group inline-flex items-center gap-3 text-[0.88rem] uppercase tracking-[0.22em] text-cream transition-colors duration-300 hover:text-lemon"
           >
             Ver todas las reseñas en Google
             <span className="transition-transform duration-300 group-hover:translate-x-1">
