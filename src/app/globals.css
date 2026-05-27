@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #f3ecdc;
+  --color-cream-deep: #ece4d1;
+  --color-ink: #1d2750;
+  --color-ink-soft: #343a52;
+  --color-lemon: #c6a253;
+
+  --font-display: var(--font-bodoni);
+  --font-serif: var(--font-cormorant);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-lemon);
+  color: var(--color-ink);
+}
+
+/* --- Animaciones de la hero --- */
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cueBob {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+}
+
+.hero-rise {
+  opacity: 0;
+  animation: heroRise 1.15s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+/* Halo navy para separar el texto de la ilustración */
+.hero-glow {
+  text-shadow:
+    0 0 24px rgba(29, 39, 80, 0.98),
+    0 0 55px rgba(29, 39, 80, 0.92),
+    0 0 100px rgba(29, 39, 80, 0.8);
+}
+
+.hero-cue {
+  animation: cueBob 2.4s ease-in-out infinite;
+}
+
+@keyframes reviewFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.review-fade {
+  animation: reviewFade 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Carrusel continuo de reseñas */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 160s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* --- Revelado al hacer scroll --- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+[data-reveal][data-visible] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-rise,
+  .hero-cue,
+  .review-fade {
+    animation: none;
+    opacity: 1;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
