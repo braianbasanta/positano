@@ -338,18 +338,18 @@ export type FeaturedDish = Dish & { tag: string };
 
 export const featured: FeaturedDish[] = [
   {
-    tag: "Antipasti",
-    name: "Burrata Frita Pugliese",
-    slug: "burrata-frita-pugliese",
-    price: "14,50 €",
-    desc: "Frita en base de pistacho y rellena de mermelada de tomate.",
-  },
-  {
     tag: "Pizza",
     name: "Margherita",
     slug: "margherita",
     price: "9,00 €",
     desc: "Tomate Marrazzo, fior di latte campano y albahaca.",
+  },
+  {
+    tag: "Pizza",
+    name: "Tartufo",
+    slug: "tartufo",
+    price: "21,90 €",
+    desc: "Crema de trufa, yema de huevo y grana padano 24 meses.",
   },
   {
     tag: "Pasta",
@@ -360,10 +360,10 @@ export const featured: FeaturedDish[] = [
   },
   {
     tag: "Pizza",
-    name: "Tartufo",
-    slug: "tartufo",
-    price: "21,90 €",
-    desc: "Crema de trufa, yema de huevo y grana padano 24 meses.",
+    name: "Diavola",
+    slug: "diavola",
+    price: "14,90 €",
+    desc: "Tomate Marrazzo, fior di latte campano y spianata picante.",
   },
   {
     tag: "Pasta",
