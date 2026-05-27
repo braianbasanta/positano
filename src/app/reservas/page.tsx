@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import Reveal from "@/components/Reveal";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
 
@@ -42,12 +41,12 @@ export default function ReservasPage() {
 
         {/* Widget DISH */}
         <section className="bg-cream px-6 py-16 md:py-20">
-          <Reveal className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-3xl">
             <div className="border border-ink/15 bg-cream/40 p-2 sm:p-4 md:p-6">
               <iframe
                 src={DISH_WIDGET_URL}
                 title="Reservar mesa en Positano"
-                className="block h-[620px] w-full border-0 sm:h-[640px]"
+                className="block h-[420px] w-full border-0 sm:h-[460px]"
                 loading="lazy"
               />
             </div>
@@ -61,7 +60,7 @@ export default function ReservasPage() {
               </a>
               .
             </p>
-          </Reveal>
+          </div>
         </section>
       </main>
       <Script

@@ -16,6 +16,12 @@ export default function Reveal({ children, delay = 0, className }: RevealProps) 
     const el = ref.current;
     if (!el) return;
 
+    // En móvil mostramos todo desde el principio — sin observer ni esperas.
+    if (typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -23,7 +29,7 @@ export default function Reveal({ children, delay = 0, className }: RevealProps) 
           observer.disconnect();
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+      { threshold: 0, rootMargin: "0px 0px 200px 0px" },
     );
 
     observer.observe(el);

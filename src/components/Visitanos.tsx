@@ -3,7 +3,7 @@ import LemonBranch from "./LemonBranch";
 import Reveal from "./Reveal";
 
 const PLACE_URL =
-  "https://www.google.com/maps/place/?q=place_id:ChIJsRxSfvqjpBIR1V-jzgurn2U";
+  "https://www.google.com/maps/search/?api=1&query=Positano+Pizzeria+Carrer+del+Rossell%C3%B3+24+Barcelona&query_place_id=ChIJsRxSfvqjpBIR1V-jzgurn2U";
 
 const MAP_EMBED =
   "https://maps.google.com/maps?q=Positano%20Pizzeria%2C%20Carrer%20del%20Rossell%C3%B3%2C%2024%2C%2008029%20Barcelona&z=16&hl=es&output=embed";
