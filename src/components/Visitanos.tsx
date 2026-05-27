@@ -8,7 +8,10 @@ const PLACE_URL =
 const MAP_EMBED =
   "https://maps.google.com/maps?q=Positano%20Pizzeria%2C%20Carrer%20del%20Rossell%C3%B3%2C%2024%2C%2008029%20Barcelona&z=16&hl=es&output=embed";
 
-const info = [
+type InfoLine = { text: string; href?: string };
+type InfoBlock = { title: string; lines: InfoLine[] };
+
+const info: InfoBlock[] = [
   {
     title: "Dónde estamos",
     lines: [
