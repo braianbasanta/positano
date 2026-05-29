@@ -9,7 +9,12 @@ const MAP_EMBED =
   "https://maps.google.com/maps?q=Positano%20Pizzeria%2C%20Carrer%20del%20Rossell%C3%B3%2C%2024%2C%2008029%20Barcelona&z=16&hl=es&output=embed";
 
 type InfoLine = { text: string; href?: string };
-type InfoBlock = { title: string; lines: InfoLine[] };
+type ScheduleRow = { day: string; hours: string };
+type InfoBlock = {
+  title: string;
+  lines?: InfoLine[];
+  schedule?: ScheduleRow[];
+};
 
 const info: InfoBlock[] = [
   {
@@ -21,10 +26,12 @@ const info: InfoBlock[] = [
   },
   {
     title: "Horario",
-    lines: [
-      { text: "Martes a Domingo" },
-      { text: "13:00 – 17:00 · 20:00 – 00:00" },
-      { text: "Lunes cerrado" },
+    schedule: [
+      { day: "Mar – Jue", hours: "13:00 – 16:00 · 20:00 – 23:30" },
+      { day: "Viernes", hours: "13:00 – 16:00 · 20:00 – 00:00" },
+      { day: "Sábado", hours: "13:00 – 00:00" },
+      { day: "Domingo", hours: "13:00 – 23:30" },
+      { day: "Lunes", hours: "Cerrado" },
     ],
   },
   {
@@ -34,10 +41,6 @@ const info: InfoBlock[] = [
       {
         text: "positanopizzeria2023@gmail.com",
         href: "mailto:positanopizzeria2023@gmail.com",
-      },
-      {
-        text: "@positanopizzeriabcn",
-        href: "https://instagram.com/positanopizzeriabcn/",
       },
     ],
   },
@@ -66,26 +69,46 @@ export default function Visitanos() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 md:gap-8">
-          {/* Info — izquierda */}
-          <Reveal className="md:h-[460px]">
-            <div className="grid h-full gap-px overflow-hidden border border-ink/15 bg-ink/15 md:grid-rows-3">
+        <div className="mt-16 grid items-stretch gap-6 md:grid-cols-2 md:gap-8">
+          {/* Info — izquierda en desktop, debajo en móvil */}
+          <Reveal className="order-2 md:order-1">
+            <div className="flex h-full flex-col divide-y divide-ink/15 overflow-hidden border border-ink/15 bg-cream">
               {info.map((block) => (
-                <div key={block.title} className="bg-cream">
-                  <div className="flex h-full flex-col justify-center gap-3 p-8 text-center">
-                    <h3 className="font-display text-xl uppercase tracking-[0.16em] text-ink">
-                      {block.title}
-                    </h3>
+                <div
+                  key={block.title}
+                  className="flex flex-1 flex-col items-center justify-center gap-4 px-6 py-10 text-center"
+                >
+                  <h3 className="font-display text-xl uppercase tracking-[0.16em] text-ink">
+                    {block.title}
+                  </h3>
+                  {block.schedule ? (
+                    <div className="space-y-2.5">
+                      {block.schedule.map((row) => (
+                        <div
+                          key={row.day}
+                          className="flex flex-col items-center gap-x-2 leading-snug sm:flex-row sm:justify-center"
+                        >
+                          <span className="font-serif text-lg text-ink">
+                            {row.day}
+                          </span>
+                          <span className="hidden text-ink-soft/40 sm:inline">
+                            ·
+                          </span>
+                          <span className="font-serif text-base text-ink-soft sm:text-lg">
+                            {row.hours}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
                     <div className="space-y-1">
-                      {block.lines.map((line) =>
+                      {block.lines?.map((line) =>
                         line.href ? (
                           <a
                             key={line.text}
                             href={line.href}
                             target={
-                              line.href.startsWith("http")
-                                ? "_blank"
-                                : undefined
+                              line.href.startsWith("http") ? "_blank" : undefined
                             }
                             rel={
                               line.href.startsWith("http")
@@ -106,14 +129,14 @@ export default function Visitanos() {
                         ),
                       )}
                     </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </div>
           </Reveal>
 
-          {/* Mapa — derecha */}
-          <Reveal delay={120} className="md:h-[460px]">
+          {/* Mapa — derecha en desktop, primero en móvil */}
+          <Reveal delay={120} className="order-1 md:order-2 md:h-full">
             <div className="relative h-[360px] overflow-hidden border border-ink/15 md:h-full">
               <iframe
                 src={MAP_EMBED}
@@ -124,14 +147,6 @@ export default function Visitanos() {
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
-              <a
-                href={PLACE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-5 right-5 rounded-full bg-ink px-6 py-3 text-[0.84rem] uppercase tracking-[0.2em] text-cream shadow-[0_8px_24px_rgba(29,39,80,0.35)] transition-colors duration-300 hover:bg-lemon hover:text-ink"
-              >
-                Ver en Google Maps
-              </a>
             </div>
           </Reveal>
         </div>

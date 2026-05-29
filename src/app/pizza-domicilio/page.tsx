@@ -36,8 +36,10 @@ const steps = [
 ];
 
 const horario = [
-  { dia: "Martes a Viernes", horas: "13:00 – 16:00 · 20:00 – 23:00" },
-  { dia: "Sábado y Domingo", horas: "13:00 – 23:00" },
+  { dia: "Martes a Jueves", horas: "13:00 – 16:00 · 20:00 – 23:30" },
+  { dia: "Viernes", horas: "13:00 – 16:00 · 20:00 – 00:00" },
+  { dia: "Sábado", horas: "13:00 – 00:00" },
+  { dia: "Domingo", horas: "13:00 – 23:30" },
   { dia: "Lunes", horas: "Cerrado" },
 ];
 

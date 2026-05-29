@@ -59,20 +59,20 @@ export default function Hero() {
           >
             <a
               href="/reservas"
-              className="rounded-full bg-lemon px-9 py-[1.1rem] text-center font-semibold text-base uppercase tracking-[0.22em] text-ink shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-all duration-300 hover:bg-cream hover:tracking-[0.27em] md:text-[1.05rem]"
+              className="rounded-full bg-lemon px-9 py-[1.35rem] text-center font-bold text-[1.1rem] uppercase tracking-[0.22em] text-ink shadow-[0_12px_32px_rgba(0,0,0,0.4)] transition-all duration-300 hover:bg-cream hover:tracking-[0.27em] md:text-[1.25rem]"
             >
               Reservar mesa
             </a>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <a
                 href="/pizza-domicilio"
-                className="flex items-center justify-center rounded-full border-2 border-cream/85 bg-ink/55 px-6 py-[1.1rem] text-center font-semibold text-base uppercase tracking-[0.22em] text-cream backdrop-blur-sm shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:bg-cream hover:text-ink md:text-[1.05rem]"
+                className="flex items-center justify-center whitespace-nowrap rounded-full border-2 border-cream/85 bg-ink/55 px-2 py-[1.1rem] text-center font-semibold text-sm uppercase tracking-[0.12em] text-cream backdrop-blur-sm shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:bg-cream hover:text-ink sm:px-6 sm:text-base sm:tracking-[0.2em]"
               >
                 Pedir online
               </a>
               <a
                 href="/carta"
-                className="flex items-center justify-center rounded-full border-2 border-cream/85 bg-ink/55 px-6 py-[1.1rem] text-center font-semibold text-base uppercase tracking-[0.22em] text-cream backdrop-blur-sm shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:bg-cream hover:text-ink md:text-[1.05rem]"
+                className="flex items-center justify-center whitespace-nowrap rounded-full border-2 border-cream/85 bg-ink/55 px-2 py-[1.1rem] text-center font-semibold text-sm uppercase tracking-[0.12em] text-cream backdrop-blur-sm shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:bg-cream hover:text-ink sm:px-6 sm:text-base sm:tracking-[0.2em]"
               >
                 Ver carta
               </a>
