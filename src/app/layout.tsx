@@ -121,6 +121,11 @@ export default function RootLayout({
       className={`${bodoni.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        {/* Sin JS, las animaciones de revelado no se disparan: forzamos
+            todo el contenido visible para bots sin JS y robustez. */}
+        <noscript>
+          <style>{`.hero-rise,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;}`}</style>
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}

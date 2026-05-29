@@ -27,9 +27,12 @@ export default function Hero() {
       <div className="relative z-20 mx-auto flex h-full max-w-7xl items-center px-6 md:px-12">
         <div className="max-w-xl">
           <h1 className="hero-rise" style={{ animationDelay: "0.15s" }}>
+            <span className="sr-only">
+              Positano · Pizzería Napolitana en el Eixample, Barcelona
+            </span>
             <Image
               src="/positano-wordmark.png"
-              alt="Positano · Pizzería Napolitana en el Eixample, Barcelona"
+              alt=""
               width={1443}
               height={373}
               priority
