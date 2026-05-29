@@ -59,20 +59,20 @@ export default function Hero() {
           >
             <a
               href="/reservas"
-              className="rounded-full bg-lemon px-9 py-4 text-center text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
+              className="rounded-full bg-lemon px-9 py-[1.1rem] text-center font-semibold text-base uppercase tracking-[0.22em] text-ink shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-all duration-300 hover:bg-cream hover:tracking-[0.27em] md:text-[1.05rem]"
             >
               Reservar mesa
             </a>
             <div className="grid grid-cols-2 gap-4">
               <a
                 href="/pizza-domicilio"
-                className="flex items-center justify-center rounded-full border border-cream/45 px-6 py-4 text-center text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-colors duration-300 hover:bg-cream hover:text-ink"
+                className="flex items-center justify-center rounded-full border-2 border-cream/85 bg-ink/55 px-6 py-[1.1rem] text-center font-semibold text-base uppercase tracking-[0.22em] text-cream backdrop-blur-sm shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:bg-cream hover:text-ink md:text-[1.05rem]"
               >
                 Pedir online
               </a>
               <a
                 href="/carta"
-                className="flex items-center justify-center rounded-full border border-cream/45 px-6 py-4 text-center text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-colors duration-300 hover:bg-cream hover:text-ink"
+                className="flex items-center justify-center rounded-full border-2 border-cream/85 bg-ink/55 px-6 py-[1.1rem] text-center font-semibold text-base uppercase tracking-[0.22em] text-cream backdrop-blur-sm shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:bg-cream hover:text-ink md:text-[1.05rem]"
               >
                 Ver carta
               </a>
