@@ -79,7 +79,7 @@ export default function LaMasa() {
               {ingredientes.map((item) => (
                 <li key={item.name} className="flex items-baseline gap-3">
                   <span className="h-1 w-1 shrink-0 translate-y-[-3px] rounded-full bg-lemon" />
-                  <span className="text-[0.78rem] uppercase tracking-[0.22em] text-ink-soft">
+                  <span className="text-[0.78rem] uppercase tracking-[0.22em] text-ink-soft lining-nums">
                     <span className="text-ink">{item.name}</span> · {item.origin}
                   </span>
                 </li>

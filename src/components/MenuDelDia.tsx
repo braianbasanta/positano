@@ -23,7 +23,7 @@ export default function MenuDelDia() {
           </h2>
           <p className="mt-6 max-w-xl font-serif text-lg leading-relaxed text-ink-soft">
             Primero, segundo, pan, bebida y postre. Un menú completo que
-            renovamos cada semana, recién pensado por nuestra cocina.
+            renovamos cada semana con producto fresco de mercado.
           </p>
         </Reveal>
 

@@ -175,8 +175,6 @@ export default function PizzaDomicilioPage() {
                 </ul>
 
                 <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[0.84rem] uppercase tracking-[0.18em] text-ink-soft">
-                  <span>★ 4,3 · 90 reseñas</span>
-                  <span className="hidden h-3 w-px bg-ink/25 sm:block" />
                   <span>Aceptamos Ticket Restaurant®</span>
                 </div>
 
