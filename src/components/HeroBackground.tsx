@@ -3,29 +3,51 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+type NetworkInfo = { saveData?: boolean; effectiveType?: string };
+
 /**
  * Fondo del hero: vídeo del restaurante (vertical en móvil, horizontal en
  * desktop) sobre un poster que cubre el LCP al instante. El vídeo va muted,
- * en bucle y sin audio; si el usuario prefiere menos movimiento, se queda solo
- * el poster. La elección de fuente se hace en cliente con matchMedia para no
- * descargar los dos vídeos a la vez.
+ * en bucle y sin audio.
+ *
+ * Clave de rendimiento: el vídeo NO se monta hasta que la página ha cargado lo
+ * crítico (evento `load` + idle). Así el poster (que es el LCP) no compite por
+ * ancho de banda con los ~2-4 MB del vídeo en redes móviles lentas. Además se
+ * omite del todo si el usuario pide menos movimiento, activa "ahorro de datos"
+ * o está en 2G.
  */
 export default function HeroBackground({ alt }: { alt: string }) {
-  // null = aún sin decidir (SSR / primer paint): mostramos solo el poster.
   const [variant, setVariant] = useState<"mobile" | "desktop" | null>(null);
-  const [reduced, setReduced] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (motion.matches) {
-      setReduced(true);
-      return;
-    }
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const conn = (navigator as Navigator & { connection?: NetworkInfo }).connection;
+    const slow =
+      conn?.saveData === true ||
+      /(^|\b)(slow-2g|2g)$/.test(conn?.effectiveType ?? "");
+    if (reduced || slow) return; // solo poster
+
     const mq = window.matchMedia("(min-width: 768px)");
-    const apply = () => setVariant(mq.matches ? "desktop" : "mobile");
-    apply();
-    mq.addEventListener("change", apply);
-    return () => mq.removeEventListener("change", apply);
+    const applyVariant = () => setVariant(mq.matches ? "desktop" : "mobile");
+    applyVariant();
+    mq.addEventListener("change", applyVariant);
+
+    let idleId: number | undefined;
+    const ric = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 200));
+    const start = () => {
+      idleId = ric(() => setShowVideo(true)) as unknown as number;
+    };
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
+
+    return () => {
+      mq.removeEventListener("change", applyVariant);
+      window.removeEventListener("load", start);
+      if (idleId !== undefined) {
+        (window.cancelIdleCallback ?? window.clearTimeout)(idleId);
+      }
+    };
   }, []);
 
   const isMobile = variant === "mobile";
@@ -46,14 +68,14 @@ export default function HeroBackground({ alt }: { alt: string }) {
         className="object-cover object-[50%_55%]"
       />
 
-      {!reduced && variant && (
+      {showVideo && variant && (
         <video
           key={variant}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           poster={poster}
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover object-[50%_55%]"

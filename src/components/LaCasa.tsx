@@ -65,6 +65,7 @@ export default function LaCasa({ lang = "es" }: { lang?: Locale }) {
               alt={t.alt}
               width={1400}
               height={933}
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="relative aspect-[4/5] w-full object-cover"
             />
           </div>

@@ -129,6 +129,7 @@ export default function PizzeriaNapolitanaPage() {
                   alt="Positano, pizzería napolitana en Barcelona con recetas traídas de Campania"
                   width={1400}
                   height={933}
+                  sizes="(min-width: 768px) 50vw, 100vw"
                   className="relative aspect-[4/5] w-full object-cover"
                 />
               </div>

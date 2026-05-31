@@ -61,6 +61,7 @@ export default function Hero({ lang = "es" }: { lang?: Locale }) {
               width={1443}
               height={373}
               priority
+              sizes="(min-width: 768px) 448px, 240px"
               className="h-auto w-[clamp(15rem,42vw,28rem)] drop-shadow-[0_8px_22px_rgba(0,0,0,0.4)]"
             />
           </h1>

@@ -11,10 +11,14 @@ const GTM_ID = "GTM-5RTLR3HF";
 // así que lo ponemos a mano). El banner de cookies lo actualiza a "concedido"
 // cuando el usuario acepta. Sin esto, en España mediríamos sin consentimiento
 // y, peor, las conversiones de Ads no dispararían tras la migración.
-// Se carga afterInteractive para no penalizar el LCP.
+// Se carga lazyOnload (tras el evento load) para sacar los ~328 KB de GTM de
+// la ventana crítica y no penalizar FCP/LCP/TBT en móvil. El Consent Mode
+// default va dentro del mismo script, así que se fija justo antes de cargar
+// GTM; las conversiones disparan en acción del usuario (submit de reserva),
+// mucho después de la carga, por lo que no se pierde tracking.
 export function GtmScript() {
   return (
-    <Script id="gtm-base" strategy="afterInteractive">
+    <Script id="gtm-base" strategy="lazyOnload">
       {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('consent','default',{

@@ -70,7 +70,7 @@ export default function ReelCard({
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
       />
 
