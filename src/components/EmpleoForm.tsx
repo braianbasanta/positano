@@ -1,44 +1,120 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
+import type { Locale } from "@/lib/i18n";
 
 type Step = 0 | 1 | 2 | 3;
 
-const PUESTOS = [
-  "Pizzaiolo / Pizzero",
-  "Cocinero",
-  "Ayudante de cocina",
-  "Camarero / Sala",
-  "Bartender / Barra",
-  "Lavavajillas / Office",
-  "Encargado / Maître",
-  "Otro",
-];
-
-const EXPERIENCIA = [
-  "Sin experiencia",
-  "Menos de 1 año",
-  "1 – 2 años",
-  "3 – 5 años",
-  "Más de 5 años",
-];
-
-const IDIOMAS = ["Español", "Catalán", "Italiano", "Inglés", "Francés"];
-
-const DISPONIBILIDAD = [
-  "Inmediata",
-  "En 1 – 2 semanas",
-  "En un mes",
-  "Más de un mes",
-];
-
-const JORNADA = ["Completa", "Parcial", "Fines de semana", "Indiferente"];
-
-const DOCUMENTACION = [
-  "Sí, en regla (UE / permiso de trabajo)",
-  "En trámite",
-  "Aún no tengo",
-];
+const DICT = {
+  es: {
+    puestos: [
+      "Pizzaiolo / Pizzero",
+      "Cocinero",
+      "Ayudante de cocina",
+      "Camarero / Sala",
+      "Bartender / Barra",
+      "Lavavajillas / Office",
+      "Encargado / Maître",
+      "Otro",
+    ],
+    experiencia: ["Sin experiencia", "Menos de 1 año", "1 – 2 años", "3 – 5 años", "Más de 5 años"],
+    idiomas: ["Español", "Catalán", "Italiano", "Inglés", "Francés"],
+    disponibilidad: ["Inmediata", "En 1 – 2 semanas", "En un mes", "Más de un mes"],
+    jornada: ["Completa", "Parcial", "Fines de semana", "Indiferente"],
+    documentacion: ["Sí, en regla (UE / permiso de trabajo)", "En trámite", "Aún no tengo"],
+    steps: [
+      { title: "Datos personales", hint: "Cuéntanos quién eres" },
+      { title: "Tu perfil", hint: "Puesto y experiencia" },
+      { title: "Detalles", hint: "Idiomas, jornada y disponibilidad" },
+      { title: "Tu CV", hint: "Adjunta tu currículum y envíalo" },
+    ],
+    fileTooBig: (mb: number) => `El archivo supera ${mb} MB.`,
+    sendError: "No se pudo enviar la candidatura.",
+    genericError: "Error al enviar el formulario.",
+    okEyebrow: "¡Gracias!",
+    okTitle: "Tu candidatura está en camino",
+    okBodyPre: "Hemos recibido tu CV. Te escribiremos a",
+    okBodyPost: "si tu perfil encaja con alguna de nuestras vacantes.",
+    progress: (n: number, title: string) => `Paso ${n} / 4 · ${title}`,
+    nombre: "Nombre completo *",
+    email: "Email *",
+    telefono: "Teléfono *",
+    nacimiento: "Fecha de nacimiento",
+    ciudad: "Ciudad de residencia",
+    puestoLabel: "Puesto al que aplicas *",
+    expLabel: "Años de experiencia *",
+    idiomasLabel: "Idiomas que hablas",
+    dispLabel: "Disponibilidad *",
+    jornadaLabel: "Tipo de jornada *",
+    docLabel: "Documentación para trabajar en España *",
+    motivacion: "¿Por qué quieres trabajar en Positano? (opcional)",
+    motivacionPlaceholder: "Cuéntanos algo sobre ti…",
+    cvLabel: "Adjunta tu CV *",
+    cvFormats: (mb: number) => `Formatos aceptados: PDF, Word, RTF, JPG, PNG. Máx. ${mb} MB.`,
+    cvSelected: "Archivo seleccionado",
+    cvSelect: "Selecciona un archivo",
+    cvUpload: "Subir CV",
+    atras: "← Atrás",
+    continuar: "Continuar",
+    enviando: "Enviando…",
+    enviar: "Enviar candidatura",
+    placeholderCiudad: "Barcelona",
+  },
+  en: {
+    puestos: [
+      "Pizzaiolo / Pizza chef",
+      "Cook",
+      "Kitchen assistant",
+      "Waiter / Front of house",
+      "Bartender",
+      "Dishwasher / Back of house",
+      "Manager / Maître",
+      "Other",
+    ],
+    experiencia: ["No experience", "Less than 1 year", "1 – 2 years", "3 – 5 years", "More than 5 years"],
+    idiomas: ["Spanish", "Catalan", "Italian", "English", "French"],
+    disponibilidad: ["Immediate", "In 1 – 2 weeks", "In a month", "More than a month"],
+    jornada: ["Full-time", "Part-time", "Weekends", "No preference"],
+    documentacion: ["Yes, in order (EU / work permit)", "In progress", "Not yet"],
+    steps: [
+      { title: "Personal details", hint: "Tell us who you are" },
+      { title: "Your profile", hint: "Role and experience" },
+      { title: "Details", hint: "Languages, hours and availability" },
+      { title: "Your CV", hint: "Attach your CV and send it" },
+    ],
+    fileTooBig: (mb: number) => `The file exceeds ${mb} MB.`,
+    sendError: "We couldn't send your application.",
+    genericError: "Error sending the form.",
+    okEyebrow: "Thank you!",
+    okTitle: "Your application is on its way",
+    okBodyPre: "We've received your CV. We'll write to",
+    okBodyPost: "if your profile matches one of our openings.",
+    progress: (n: number, title: string) => `Step ${n} / 4 · ${title}`,
+    nombre: "Full name *",
+    email: "Email *",
+    telefono: "Phone *",
+    nacimiento: "Date of birth",
+    ciudad: "City of residence",
+    puestoLabel: "Role you're applying for *",
+    expLabel: "Years of experience *",
+    idiomasLabel: "Languages you speak",
+    dispLabel: "Availability *",
+    jornadaLabel: "Type of contract *",
+    docLabel: "Documentation to work in Spain *",
+    motivacion: "Why do you want to work at Positano? (optional)",
+    motivacionPlaceholder: "Tell us something about yourself…",
+    cvLabel: "Attach your CV *",
+    cvFormats: (mb: number) => `Accepted formats: PDF, Word, RTF, JPG, PNG. Max. ${mb} MB.`,
+    cvSelected: "Selected file",
+    cvSelect: "Choose a file",
+    cvUpload: "Upload CV",
+    atras: "← Back",
+    continuar: "Continue",
+    enviando: "Sending…",
+    enviar: "Send application",
+    placeholderCiudad: "Barcelona",
+  },
+} as const;
 
 const ACCEPTED_TYPES = ".pdf,.doc,.docx,.rtf,.jpg,.jpeg,.png";
 const MAX_SIZE_MB = 5;
@@ -73,14 +149,8 @@ const INITIAL: FormState = {
   motivacion: "",
 };
 
-const STEPS = [
-  { title: "Datos personales", hint: "Cuéntanos quién eres" },
-  { title: "Tu perfil", hint: "Puesto y experiencia" },
-  { title: "Detalles", hint: "Idiomas, jornada y disponibilidad" },
-  { title: "Tu CV", hint: "Adjunta tu currículum y envíalo" },
-] as const;
-
-export default function EmpleoForm() {
+export default function EmpleoForm({ lang = "es" }: { lang?: Locale }) {
+  const t = DICT[lang];
   const [step, setStep] = useState<Step>(0);
   const [data, setData] = useState<FormState>(INITIAL);
   const [cv, setCv] = useState<File | null>(null);
@@ -134,10 +204,7 @@ export default function EmpleoForm() {
       return;
     }
     if (file.size > MAX_SIZE_MB * 1024 * 1024) {
-      setStatus({
-        type: "error",
-        message: `El archivo supera ${MAX_SIZE_MB} MB.`,
-      });
+      setStatus({ type: "error", message: t.fileTooBig(MAX_SIZE_MB) });
       return;
     }
     setStatus(null);
@@ -162,14 +229,13 @@ export default function EmpleoForm() {
       const res = await fetch("/api/empleo", { method: "POST", body });
       const json = await res.json().catch(() => ({}));
       if (!res.ok || !json?.ok) {
-        throw new Error(json?.error || "No se pudo enviar la candidatura.");
+        throw new Error(json?.error || t.sendError);
       }
       setStatus({ type: "ok" });
     } catch (error) {
       setStatus({
         type: "error",
-        message:
-          error instanceof Error ? error.message : "Error al enviar el formulario.",
+        message: error instanceof Error ? error.message : t.genericError,
       });
     } finally {
       setSubmitting(false);
@@ -180,15 +246,13 @@ export default function EmpleoForm() {
     return (
       <div className="border border-ink/15 bg-cream/40 px-6 py-14 text-center md:px-12 md:py-20">
         <p className="text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
-          ¡Gracias!
+          {t.okEyebrow}
         </p>
         <h2 className="mt-4 font-display text-4xl uppercase leading-tight tracking-[0.03em] text-ink md:text-5xl">
-          Tu candidatura está en camino
+          {t.okTitle}
         </h2>
         <p className="mx-auto mt-5 max-w-lg font-serif text-lg text-ink-soft md:text-xl">
-          Hemos recibido tu CV. Te escribiremos a{" "}
-          <span className="text-ink">{data.email}</span> si tu perfil encaja con
-          alguna de nuestras vacantes.
+          {t.okBodyPre} <span className="text-ink">{data.email}</span> {t.okBodyPost}
         </p>
       </div>
     );
@@ -200,14 +264,14 @@ export default function EmpleoForm() {
       <div className="mb-9">
         <div className="flex items-center justify-between gap-3">
           <p className="text-[0.78rem] uppercase tracking-[0.3em] text-lemon">
-            Paso {step + 1} / 4 · {STEPS[step].title}
+            {t.progress(step + 1, t.steps[step].title)}
           </p>
           <p className="hidden text-[0.78rem] uppercase tracking-[0.24em] text-ink-soft sm:block">
-            {STEPS[step].hint}
+            {t.steps[step].hint}
           </p>
         </div>
         <div className="mt-4 flex gap-2">
-          {STEPS.map((_, index) => (
+          {t.steps.map((_, index) => (
             <span
               key={index}
               className={`h-1 flex-1 transition-colors ${
@@ -221,7 +285,7 @@ export default function EmpleoForm() {
       {/* Paso 0 */}
       {step === 0 && (
         <div className="grid gap-5 md:grid-cols-2">
-          <Field label="Nombre completo *">
+          <Field label={t.nombre}>
             <input
               type="text"
               value={data.nombre}
@@ -231,17 +295,17 @@ export default function EmpleoForm() {
               autoComplete="name"
             />
           </Field>
-          <Field label="Email *">
+          <Field label={t.email}>
             <input
               type="email"
               value={data.email}
               onChange={(event) => update("email", event.target.value)}
               className={inputClass}
-              placeholder="mario@ejemplo.com"
+              placeholder="mario@example.com"
               autoComplete="email"
             />
           </Field>
-          <Field label="Teléfono *">
+          <Field label={t.telefono}>
             <input
               type="tel"
               value={data.telefono}
@@ -251,7 +315,7 @@ export default function EmpleoForm() {
               autoComplete="tel"
             />
           </Field>
-          <Field label="Fecha de nacimiento">
+          <Field label={t.nacimiento}>
             <input
               type="date"
               value={data.fechaNacimiento}
@@ -259,13 +323,13 @@ export default function EmpleoForm() {
               className={inputClass}
             />
           </Field>
-          <Field label="Ciudad de residencia" className="md:col-span-2">
+          <Field label={t.ciudad} className="md:col-span-2">
             <input
               type="text"
               value={data.ciudad}
               onChange={(event) => update("ciudad", event.target.value)}
               className={inputClass}
-              placeholder="Barcelona"
+              placeholder={t.placeholderCiudad}
               autoComplete="address-level2"
             />
           </Field>
@@ -276,9 +340,9 @@ export default function EmpleoForm() {
       {step === 1 && (
         <div className="space-y-8">
           <div>
-            <Label>Puesto al que aplicas *</Label>
+            <Label>{t.puestoLabel}</Label>
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
-              {PUESTOS.map((opt) => (
+              {t.puestos.map((opt) => (
                 <ChoicePill
                   key={opt}
                   active={data.puesto === opt}
@@ -290,9 +354,9 @@ export default function EmpleoForm() {
             </div>
           </div>
           <div>
-            <Label>Años de experiencia *</Label>
+            <Label>{t.expLabel}</Label>
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
-              {EXPERIENCIA.map((opt) => (
+              {t.experiencia.map((opt) => (
                 <ChoicePill
                   key={opt}
                   active={data.experiencia === opt}
@@ -310,9 +374,9 @@ export default function EmpleoForm() {
       {step === 2 && (
         <div className="space-y-8">
           <div>
-            <Label>Idiomas que hablas</Label>
+            <Label>{t.idiomasLabel}</Label>
             <div className="mt-4 flex flex-wrap gap-2">
-              {IDIOMAS.map((opt) => (
+              {t.idiomas.map((opt) => (
                 <ChoicePill
                   key={opt}
                   active={data.idiomas.includes(opt)}
@@ -325,9 +389,9 @@ export default function EmpleoForm() {
           </div>
           <div className="grid gap-8 md:grid-cols-2">
             <div>
-              <Label>Disponibilidad *</Label>
+              <Label>{t.dispLabel}</Label>
               <div className="mt-4 grid gap-2">
-                {DISPONIBILIDAD.map((opt) => (
+                {t.disponibilidad.map((opt) => (
                   <ChoicePill
                     key={opt}
                     active={data.disponibilidad === opt}
@@ -339,9 +403,9 @@ export default function EmpleoForm() {
               </div>
             </div>
             <div>
-              <Label>Tipo de jornada *</Label>
+              <Label>{t.jornadaLabel}</Label>
               <div className="mt-4 grid gap-2">
-                {JORNADA.map((opt) => (
+                {t.jornada.map((opt) => (
                   <ChoicePill
                     key={opt}
                     active={data.jornada === opt}
@@ -354,9 +418,9 @@ export default function EmpleoForm() {
             </div>
           </div>
           <div>
-            <Label>Documentación para trabajar en España *</Label>
+            <Label>{t.docLabel}</Label>
             <div className="mt-4 grid gap-2">
-              {DOCUMENTACION.map((opt) => (
+              {t.documentacion.map((opt) => (
                 <ChoicePill
                   key={opt}
                   active={data.documentacion === opt}
@@ -373,19 +437,19 @@ export default function EmpleoForm() {
       {/* Paso 3 */}
       {step === 3 && (
         <div className="space-y-6">
-          <Field label="¿Por qué quieres trabajar en Positano? (opcional)">
+          <Field label={t.motivacion}>
             <textarea
               value={data.motivacion}
               onChange={(event) => update("motivacion", event.target.value)}
               className={`${inputClass} min-h-[140px] resize-y`}
-              placeholder="Cuéntanos algo sobre ti…"
+              placeholder={t.motivacionPlaceholder}
               maxLength={1500}
             />
           </Field>
           <div>
-            <Label>Adjunta tu CV *</Label>
+            <Label>{t.cvLabel}</Label>
             <p className="mt-2 font-serif text-base text-ink-soft">
-              Formatos aceptados: PDF, Word, RTF, JPG, PNG. Máx. {MAX_SIZE_MB} MB.
+              {t.cvFormats(MAX_SIZE_MB)}
             </p>
             <input
               ref={fileRef}
@@ -401,10 +465,10 @@ export default function EmpleoForm() {
             >
               <span>
                 <span className="block text-[0.82rem] uppercase tracking-[0.24em] text-ink-soft">
-                  {cv ? "Archivo seleccionado" : "Selecciona un archivo"}
+                  {cv ? t.cvSelected : t.cvSelect}
                 </span>
                 <span className="mt-1 block font-serif text-lg text-ink">
-                  {cv ? cv.name : "Subir CV"}
+                  {cv ? cv.name : t.cvUpload}
                 </span>
                 {cv && (
                   <span className="mt-1 block text-sm text-ink-soft">
@@ -443,7 +507,7 @@ export default function EmpleoForm() {
           disabled={step === 0 || submitting}
           className="text-[0.88rem] uppercase tracking-[0.24em] text-ink-soft transition-colors hover:text-ink disabled:opacity-30"
         >
-          ← Atrás
+          {t.atras}
         </button>
 
         {step < 3 ? (
@@ -453,7 +517,7 @@ export default function EmpleoForm() {
             disabled={!stepValid}
             className="rounded-full bg-ink px-9 py-4 text-[0.88rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink disabled:cursor-not-allowed disabled:bg-ink/40"
           >
-            Continuar
+            {t.continuar}
           </button>
         ) : (
           <button
@@ -462,7 +526,7 @@ export default function EmpleoForm() {
             disabled={!stepValid || submitting}
             className="rounded-full bg-lemon px-9 py-4 text-[0.88rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-ink hover:text-cream disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {submitting ? "Enviando…" : "Enviar candidatura"}
+            {submitting ? t.enviando : t.enviar}
           </button>
         )}
       </div>

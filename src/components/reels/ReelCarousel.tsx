@@ -2,9 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { FeaturedDish } from "@/data/menu";
+import type { Locale } from "@/lib/i18n";
 import ReelCard from "./ReelCard";
 
-export default function ReelCarousel({ items }: { items: FeaturedDish[] }) {
+export default function ReelCarousel({
+  items,
+  lang = "es",
+}: {
+  items: FeaturedDish[];
+  lang?: Locale;
+}) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
@@ -45,7 +52,7 @@ export default function ReelCarousel({ items }: { items: FeaturedDish[] }) {
             key={dish.slug}
             className="w-[60vw] shrink-0 snap-start sm:w-[232px]"
           >
-            <ReelCard slug={dish.slug} eager />
+            <ReelCard slug={dish.slug} lang={lang} />
           </div>
         ))}
       </div>
@@ -55,7 +62,7 @@ export default function ReelCarousel({ items }: { items: FeaturedDish[] }) {
         type="button"
         onClick={() => scrollBy(-1)}
         disabled={!canPrev}
-        aria-label="Anterior"
+        aria-label={lang === "en" ? "Previous" : "Anterior"}
         className="absolute left-2 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/10 text-cream backdrop-blur-sm transition-all duration-300 hover:bg-lemon hover:text-ink disabled:pointer-events-none disabled:opacity-0 md:flex"
       >
         <Arrow direction="left" />
@@ -64,7 +71,7 @@ export default function ReelCarousel({ items }: { items: FeaturedDish[] }) {
         type="button"
         onClick={() => scrollBy(1)}
         disabled={!canNext}
-        aria-label="Siguiente"
+        aria-label={lang === "en" ? "Next" : "Siguiente"}
         className="absolute right-2 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/10 text-cream backdrop-blur-sm transition-all duration-300 hover:bg-lemon hover:text-ink disabled:pointer-events-none disabled:opacity-0 md:flex"
       >
         <Arrow direction="right" />

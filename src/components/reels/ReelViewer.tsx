@@ -13,11 +13,13 @@ import {
 } from "react";
 import { allDishes } from "@/data/menu";
 import { getReel } from "@/data/reels";
+import type { Locale } from "@/lib/i18n";
 
 type ReelViewerProps = {
   slugs: string[];
   startIndex: number;
   onClose: () => void;
+  lang?: Locale;
 };
 
 const DRAG_RATIO = 0.18; // fracción del ancho para confirmar el cambio
@@ -28,7 +30,21 @@ export default function ReelViewer({
   slugs,
   startIndex,
   onClose,
+  lang = "es",
 }: ReelViewerProps) {
+  const en = lang === "en";
+  const dishName = (d: { name: string; nameEn?: string }) =>
+    en ? d.nameEn ?? d.name : d.name;
+  const dishDesc = (d: { desc?: string; descEn?: string }) =>
+    en ? d.descEn ?? d.desc : d.desc;
+  const t = {
+    close: en ? "Close" : "Cerrar",
+    closeVideo: en ? "Close video" : "Cerrar vídeo",
+    prev: en ? "Previous dish" : "Plato anterior",
+    next: en ? "Next dish" : "Plato siguiente",
+    dishFallback: en ? "Dish video" : "Vídeo del plato",
+    videoOf: (name: string) => (en ? `Video of ${name}` : `Vídeo de ${name}`),
+  };
   const n = slugs.length;
   const [index, setIndex] = useState(() =>
     Math.min(Math.max(startIndex, 0), n - 1),
@@ -195,14 +211,14 @@ export default function ReelViewer({
       role="dialog"
       aria-modal="true"
       aria-label={
-        currentDish ? `Vídeo de ${currentDish.name}` : "Vídeo del plato"
+        currentDish ? t.videoOf(dishName(currentDish)) : t.dishFallback
       }
       className="fixed inset-0 z-[100] flex items-center justify-center"
     >
       {/* Fondo — clic fuera del reel cierra */}
       <button
         type="button"
-        aria-label="Cerrar"
+        aria-label={t.close}
         onClick={onClose}
         className="absolute inset-0 cursor-default bg-ink/95 backdrop-blur-md"
       />
@@ -252,14 +268,14 @@ export default function ReelViewer({
                 {dish ? (
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/55 to-transparent px-6 pb-7 pt-20">
                     <h2 className="font-display text-2xl leading-tight text-cream md:text-3xl">
-                      {dish.name}
+                      {dishName(dish)}
                     </h2>
                     <p className="mt-1 font-serif text-lg text-lemon">
                       {dish.price}
                     </p>
-                    {dish.desc ? (
+                    {dishDesc(dish) ? (
                       <p className="mt-2 max-w-md font-serif text-base italic leading-snug text-cream/75">
-                        {dish.desc}
+                        {dishDesc(dish)}
                       </p>
                     ) : null}
                   </div>
@@ -280,7 +296,7 @@ export default function ReelViewer({
         ref={closeRef}
         type="button"
         onClick={onClose}
-        aria-label="Cerrar vídeo"
+        aria-label={t.closeVideo}
         className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border border-cream/30 text-cream transition-colors duration-300 hover:border-lemon hover:text-lemon"
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden>
@@ -297,7 +313,7 @@ export default function ReelViewer({
       <button
         type="button"
         onClick={() => navigate(-1)}
-        aria-label="Plato anterior"
+        aria-label={t.prev}
         className="absolute left-2 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-cream/70 transition-colors duration-300 hover:text-lemon sm:left-5 md:h-14 md:w-14"
       >
         <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden>
@@ -316,7 +332,7 @@ export default function ReelViewer({
       <button
         type="button"
         onClick={() => navigate(1)}
-        aria-label="Plato siguiente"
+        aria-label={t.next}
         className="absolute right-2 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-cream/70 transition-colors duration-300 hover:text-lemon sm:right-5 md:h-14 md:w-14"
       >
         <svg viewBox="0 0 24 24" className="h-7 w-7" aria-hidden>

@@ -1,20 +1,41 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { type Locale, alternatePath } from "@/lib/i18n";
 
-const links = [
-  { label: "La Carta", href: "/carta" },
-  { label: "Pedir online", href: "/pizza-domicilio" },
-  { label: "Visítanos", href: "/#visitanos" },
-  { label: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
-];
+const NAV: Record<Locale, { label: string; href: string }[]> = {
+  es: [
+    { label: "La Carta", href: "/menu" },
+    { label: "Menú del día", href: "/menu-del-dia" },
+    { label: "Pedir online", href: "/pizza-domicilio" },
+    { label: "Visítanos", href: "/#visitanos" },
+    { label: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
+  ],
+  en: [
+    { label: "Menu", href: "/en/menu" },
+    { label: "Menu of the Day", href: "/en/lunch-menu-barcelona" },
+    { label: "Order Online", href: "/en/pizza-delivery-barcelona" },
+    { label: "Visit Us", href: "/en#visitanos" },
+    { label: "Careers", href: "/en/careers" },
+  ],
+};
 
-const RESERVAS = "/reservas";
+const COPY: Record<Locale, { home: string; reservas: string; reservar: string; abrir: string; cerrar: string }> = {
+  es: { home: "/", reservas: "/reservas", reservar: "Reservar", abrir: "Abrir menú", cerrar: "Cerrar menú" },
+  en: { home: "/en", reservas: "/en/book-a-table", reservar: "Book", abrir: "Open menu", cerrar: "Close menu" },
+};
 
-export default function SiteHeader() {
+export default function SiteHeader({ lang = "es" }: { lang?: Locale }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const solid = scrolled || open;
+  const pathname = usePathname();
+
+  const links = NAV[lang];
+  const copy = COPY[lang];
+  const other: Locale = lang === "es" ? "en" : "es";
+  const switchHref = alternatePath(pathname ?? copy.home, other);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -35,25 +56,25 @@ export default function SiteHeader() {
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
           solid
-            ? "bg-cream/95 shadow-[0_1px_0_rgba(29,39,80,0.14)] backdrop-blur-sm"
+            ? "bg-cream shadow-[0_1px_0_rgba(29,39,80,0.14)]"
             : "bg-transparent"
         }`}
       >
         <div
           className={`mx-auto flex max-w-7xl items-center justify-between px-6 transition-all duration-500 md:px-12 ${
-            scrolled ? "py-3.5" : "py-6 md:py-7"
+            scrolled ? "py-3" : "py-4 md:py-5"
           }`}
         >
-          <a href="/" onClick={() => setOpen(false)} className="leading-none">
+          <a href={copy.home} onClick={() => setOpen(false)} className="leading-none">
             <span
-              className={`block font-display text-lg tracking-[0.32em] transition-colors md:text-xl ${
+              className={`block font-display text-base tracking-[0.32em] transition-colors md:text-lg ${
                 solid ? "text-ink" : "text-cream"
               }`}
             >
               POSITANO
             </span>
             <span
-              className={`mt-1 block text-[0.78rem] tracking-[0.4em] transition-colors ${
+              className={`mt-0.5 block text-[0.66rem] tracking-[0.4em] transition-colors ${
                 solid ? "text-ink-soft" : "text-cream/60"
               }`}
             >
@@ -61,12 +82,12 @@ export default function SiteHeader() {
             </span>
           </a>
 
-          <nav className="hidden items-center gap-9 lg:flex">
+          <nav className="hidden items-center gap-7 lg:flex">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`group relative text-[0.9rem] uppercase tracking-[0.16em] transition-colors ${
+                className={`group relative text-[0.8rem] uppercase tracking-[0.16em] transition-colors ${
                   solid
                     ? "text-ink-soft hover:text-ink"
                     : "text-cream/75 hover:text-cream"
@@ -84,19 +105,28 @@ export default function SiteHeader() {
 
           <div className="flex items-center gap-3">
             <a
-              href={RESERVAS}
-              className={`hidden rounded-full px-5 py-2 text-[0.84rem] uppercase tracking-[0.2em] transition-all duration-300 sm:block ${
+              href={switchHref}
+              aria-label={lang === "es" ? "Switch to English" : "Cambiar a español"}
+              className={`hidden text-[0.82rem] font-medium uppercase tracking-[0.18em] transition-colors lg:block ${
+                solid ? "text-ink-soft hover:text-ink" : "text-cream/70 hover:text-cream"
+              }`}
+            >
+              {other.toUpperCase()}
+            </a>
+            <a
+              href={copy.reservas}
+              className={`hidden rounded-full px-4 py-1.5 text-[0.76rem] uppercase tracking-[0.2em] transition-all duration-300 sm:block ${
                 solid
                   ? "bg-lemon text-ink hover:bg-ink hover:text-cream"
                   : "border border-cream/50 text-cream hover:bg-cream hover:text-ink"
               }`}
             >
-              Reservar
+              {copy.reservar}
             </a>
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              aria-label={open ? "Cerrar menú" : "Abrir menú"}
+              aria-label={open ? copy.cerrar : copy.abrir}
               aria-expanded={open}
               className="flex h-10 w-10 items-center justify-center lg:hidden"
             >
@@ -139,11 +169,19 @@ export default function SiteHeader() {
           </a>
         ))}
         <a
-          href={RESERVAS}
+          href={copy.reservas}
           onClick={() => setOpen(false)}
           className="mt-4 rounded-full bg-ink px-8 py-3.5 text-[0.88rem] uppercase tracking-[0.22em] text-cream"
         >
-          Reservar mesa
+          {lang === "es" ? "Reservar mesa" : "Book a table"}
+        </a>
+        <a
+          href={switchHref}
+          onClick={() => setOpen(false)}
+          aria-label={lang === "es" ? "Switch to English" : "Cambiar a español"}
+          className="absolute bottom-6 right-6 text-[0.84rem] uppercase tracking-[0.24em] text-ink-soft transition-colors hover:text-ink"
+        >
+          {other.toUpperCase()}
         </a>
       </div>
     </>

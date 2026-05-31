@@ -56,7 +56,7 @@ export default function LaCarta() {
             pescados y 18 pizzas napolitanas.
           </p>
           <a
-            href="/carta"
+            href="/menu"
             className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink"
           >
             Ver la carta completa

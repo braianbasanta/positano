@@ -1,33 +1,87 @@
 import Image from "next/image";
 import Lemon from "./Lemon";
 import SocialLinks from "./SocialLinks";
+import type { Locale } from "@/lib/i18n";
 
-const columns = [
-  {
-    title: "Navegación",
-    links: [
-      { label: "Nuestra historia", href: "/#la-casa" },
-      { label: "La Carta", href: "/carta" },
-      { label: "Pizza a domicilio", href: "/pizza-domicilio" },
-      { label: "Visítanos", href: "/#visitanos" },
-      { label: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
-    ],
-  },
-  {
-    title: "Contacto",
-    links: [
-      { label: "Carrer del Rosselló, 24", href: "/#visitanos" },
-      { label: "08029 · Barcelona", href: "/#visitanos" },
-      { label: "+34 933 515 913", href: "tel:+34933515913" },
-      {
-        label: "positanopizzeria2023@gmail.com",
-        href: "mailto:positanopizzeria2023@gmail.com",
-      },
-    ],
-  },
-];
+type Column = { title: string; links: { label: string; href: string }[] };
 
-export default function SiteFooter() {
+const COLUMNS: Record<Locale, Column[]> = {
+  es: [
+    {
+      title: "Navegación",
+      links: [
+        { label: "Nuestra historia", href: "/#la-casa" },
+        { label: "La Carta", href: "/menu" },
+        { label: "Pizzería napolitana", href: "/nuestra-historia" },
+        { label: "Menú del día", href: "/menu-del-dia" },
+        { label: "Pizzería en el Eixample", href: "/pizzeria-eixample" },
+        { label: "Pizza a domicilio", href: "/pizza-domicilio" },
+        { label: "Visítanos", href: "/#visitanos" },
+        { label: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
+      ],
+    },
+    {
+      title: "Contacto",
+      links: [
+        { label: "Carrer del Rosselló, 24", href: "/#visitanos" },
+        { label: "08029 · Barcelona", href: "/#visitanos" },
+        { label: "+34 933 515 913", href: "tel:+34933515913" },
+        {
+          label: "positanopizzeria2023@gmail.com",
+          href: "mailto:positanopizzeria2023@gmail.com",
+        },
+      ],
+    },
+  ],
+  en: [
+    {
+      title: "Navigation",
+      links: [
+        { label: "Our story", href: "/en#la-casa" },
+        { label: "Menu", href: "/en/menu" },
+        { label: "Neapolitan pizza", href: "/en/neapolitan-pizza-barcelona" },
+        { label: "Menu of the Day", href: "/en/lunch-menu-barcelona" },
+        { label: "Italian restaurant in the Eixample", href: "/en/italian-restaurant-eixample" },
+        { label: "Pizza delivery", href: "/en/pizza-delivery-barcelona" },
+        { label: "Visit us", href: "/en#visitanos" },
+        { label: "Careers", href: "/en/careers" },
+      ],
+    },
+    {
+      title: "Contact",
+      links: [
+        { label: "Carrer del Rosselló, 24", href: "/en#visitanos" },
+        { label: "08029 · Barcelona", href: "/en#visitanos" },
+        { label: "+34 933 515 913", href: "tel:+34933515913" },
+        {
+          label: "positanopizzeria2023@gmail.com",
+          href: "mailto:positanopizzeria2023@gmail.com",
+        },
+      ],
+    },
+  ],
+};
+
+const TAGLINE: Record<Locale, string> = {
+  es: "El sabor de Nápoles, en el corazón de Barcelona.",
+  en: "A taste of Naples, in the heart of Barcelona.",
+};
+
+const LEGAL: Record<Locale, { label: string; href: string }[]> = {
+  es: [
+    { label: "Aviso legal", href: "/aviso-legal" },
+    { label: "Privacidad", href: "/politica-de-privacidad" },
+    { label: "Cookies", href: "/politica-de-cookies-ue" },
+  ],
+  en: [
+    { label: "Legal notice", href: "/en/legal-notice" },
+    { label: "Privacy", href: "/en/privacy-policy" },
+    { label: "Cookies", href: "/en/cookie-policy" },
+  ],
+};
+
+export default function SiteFooter({ lang = "es" }: { lang?: Locale }) {
+  const columns = COLUMNS[lang];
   return (
     <footer className="bg-ink px-6 py-16 text-cream md:py-20">
       <div className="mx-auto max-w-6xl">
@@ -49,7 +103,7 @@ export default function SiteFooter() {
               <span className="h-px w-10 bg-cream/25" />
             </div>
             <p className="mt-5 max-w-xs font-serif text-base italic leading-relaxed text-cream/65">
-              El sabor de Nápoles, en el corazón de Barcelona.
+              {TAGLINE[lang]}
             </p>
             <SocialLinks className="mt-6" />
           </div>
@@ -81,12 +135,26 @@ export default function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-col gap-2 border-t border-cream/15 pt-6 text-sm text-cream/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} Positano · Pizzería Lounge Bar —
-            Barcelona
-          </p>
-          <p className="italic">Fatto con amore.</p>
+        <div className="mt-14 flex flex-col gap-4 border-t border-cream/15 pt-6 text-sm text-cream/45">
+          <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            {LEGAL[lang].map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="transition-colors hover:text-cream/80"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              © {new Date().getFullYear()} Positano · Pizzería Lounge Bar —
+              Barcelona
+            </p>
+            <p className="italic">Fatto con amore.</p>
+          </div>
         </div>
       </div>
     </footer>

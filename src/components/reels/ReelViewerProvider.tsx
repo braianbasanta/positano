@@ -9,6 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import type { Locale } from "@/lib/i18n";
 
 // El visor es pesado y solo se usa tras una interacción: se carga aparte del
 // bundle inicial y nunca en el servidor.
@@ -33,8 +34,10 @@ export function useReelViewer(): ReelViewerContextValue {
 
 export default function ReelViewerProvider({
   children,
+  lang = "es",
 }: {
   children: ReactNode;
+  lang?: Locale;
 }) {
   const [state, setState] = useState<ViewerState>(null);
 
@@ -53,6 +56,7 @@ export default function ReelViewerProvider({
           slugs={state.slugs}
           startIndex={state.index}
           onClose={() => setState(null)}
+          lang={lang}
         />
       ) : null}
     </ReelViewerContext.Provider>

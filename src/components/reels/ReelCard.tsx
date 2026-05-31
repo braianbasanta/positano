@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { allDishes } from "@/data/menu";
 import { getReel, orderedReelSlugs } from "@/data/reels";
 import { useReelViewer } from "./ReelViewerProvider";
+import type { Locale } from "@/lib/i18n";
 
 /**
  * Tarjeta de reel 9:16 con autoplay silenciado en loop perezoso.
@@ -13,12 +14,11 @@ import { useReelViewer } from "./ReelViewerProvider";
 export default function ReelCard({
   slug,
   className,
-  eager = false,
+  lang = "es",
 }: {
   slug: string;
   className?: string;
-  /** Si true, fuerza preload="auto" — para los reels destacados de la home. */
-  eager?: boolean;
+  lang?: Locale;
 }) {
   const { open } = useReelViewer();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -54,11 +54,13 @@ export default function ReelCard({
 
   if (!reel || !dish) return null;
 
+  const dishName = lang === "en" ? dish.nameEn ?? dish.name : dish.name;
+
   return (
     <button
       type="button"
       onClick={() => open(orderedReelSlugs, orderedReelSlugs.indexOf(slug))}
-      aria-label={`Ver vídeo de ${dish.name}`}
+      aria-label={lang === "en" ? `Watch video of ${dishName}` : `Ver vídeo de ${dishName}`}
       className={`group relative block aspect-[9/16] w-full overflow-hidden bg-ink outline-none ring-lemon/0 transition-all duration-300 hover:ring-2 hover:ring-lemon/70 focus-visible:ring-2 focus-visible:ring-lemon ${className ?? ""}`}
     >
       <video
@@ -68,7 +70,7 @@ export default function ReelCard({
         muted
         loop
         playsInline
-        preload={eager ? "auto" : "metadata"}
+        preload="metadata"
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
       />
 
@@ -85,7 +87,7 @@ export default function ReelCard({
       {/* Degradado + nombre y precio */}
       <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-ink via-ink/45 to-transparent px-4 pb-4 pt-14 text-left">
         <span className="font-display text-base leading-tight text-cream">
-          {dish.name}
+          {dishName}
         </span>
         <span className="shrink-0 font-serif text-sm text-lemon">
           {dish.price}

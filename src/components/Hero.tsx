@@ -1,25 +1,52 @@
 import Image from "next/image";
 import Lemon from "./Lemon";
+import HeroBackground from "./HeroBackground";
+import type { Locale } from "@/lib/i18n";
 
-export default function Hero() {
+const COPY = {
+  es: {
+    srHeading: "Positano · Pizzería Napolitana en el Eixample, Barcelona",
+    tagline:
+      "Pizzería napolitana. El sabor de Nápoles en el corazón del Eixample, Barcelona.",
+    reservar: "Reservar mesa",
+    reservasHref: "/reservas",
+    pedir: "Pedir online",
+    pedirHref: "/pizza-domicilio",
+    carta: "Ver carta",
+    cartaHref: "/menu",
+    descubre: "Descubre",
+    scrollAria: "Bajar a la siguiente sección",
+    bgAlt: "Positano, pizzería napolitana en el Eixample de Barcelona — ilustración del pueblo de la Costa Amalfitana",
+  },
+  en: {
+    srHeading: "Positano · Neapolitan Pizzeria & Italian Restaurant in Barcelona",
+    tagline:
+      "Neapolitan pizzeria. The taste of Naples in the heart of the Eixample, Barcelona.",
+    reservar: "Book a table",
+    reservasHref: "/en/book-a-table",
+    pedir: "Order online",
+    pedirHref: "/en/pizza-delivery-barcelona",
+    carta: "View menu",
+    cartaHref: "/en/menu",
+    descubre: "Discover",
+    scrollAria: "Scroll to the next section",
+    bgAlt: "Positano, a Neapolitan pizzeria in the Eixample, Barcelona — illustration of the Amalfi Coast village",
+  },
+} satisfies Record<Locale, Record<string, string>>;
+
+export default function Hero({ lang = "es" }: { lang?: Locale }) {
+  const t = COPY[lang];
   return (
     <section
       id="top"
       className="relative h-svh min-h-[640px] w-full overflow-hidden bg-ink"
     >
-      {/* Ilustración de Positano en azul y dorado de marca */}
-      <Image
-        src="/hero/positano-azul.png"
-        alt="Positano, pizzería napolitana en el Eixample de Barcelona — ilustración del pueblo de la Costa Amalfitana"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-[50%_58%]"
-      />
+      {/* Vídeo del restaurante (vertical en móvil, horizontal en desktop) */}
+      <HeroBackground alt={t.bgAlt} />
 
       {/* Armonización con el navy de marca + legibilidad */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-ink/35" />
-      <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(100deg,rgba(29,39,80,0.96)_0%,rgba(29,39,80,0.62)_40%,rgba(29,39,80,0.16)_60%,rgba(29,39,80,0)_76%)]" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-ink/15" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(100deg,rgba(29,39,80,0.82)_0%,rgba(29,39,80,0.42)_38%,rgba(29,39,80,0.08)_60%,rgba(29,39,80,0)_76%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40 bg-gradient-to-b from-ink/85 to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-44 bg-gradient-to-t from-ink to-transparent" />
 
@@ -27,9 +54,7 @@ export default function Hero() {
       <div className="relative z-20 mx-auto flex h-full max-w-7xl items-center px-6 md:px-12">
         <div className="max-w-xl">
           <h1 className="hero-rise" style={{ animationDelay: "0.15s" }}>
-            <span className="sr-only">
-              Positano · Pizzería Napolitana en el Eixample, Barcelona
-            </span>
+            <span className="sr-only">{t.srHeading}</span>
             <Image
               src="/positano-wordmark.png"
               alt=""
@@ -52,8 +77,7 @@ export default function Hero() {
             className="hero-rise hero-glow mt-7 max-w-md font-serif text-xl leading-relaxed text-cream/85 md:text-2xl"
             style={{ animationDelay: "0.6s" }}
           >
-            Pizzería napolitana. El sabor de Nápoles en el corazón del
-            Eixample, Barcelona.
+            {t.tagline}
           </p>
 
           <div
@@ -61,23 +85,23 @@ export default function Hero() {
             style={{ animationDelay: "0.74s" }}
           >
             <a
-              href="/reservas"
+              href={t.reservasHref}
               className="rounded-full bg-lemon px-9 py-[1.35rem] text-center font-bold text-[1.1rem] uppercase tracking-[0.22em] text-ink shadow-[0_12px_32px_rgba(0,0,0,0.4)] transition-all duration-300 hover:bg-cream hover:tracking-[0.27em] md:text-[1.25rem]"
             >
-              Reservar mesa
+              {t.reservar}
             </a>
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <a
-                href="/pizza-domicilio"
+                href={t.pedirHref}
                 className="flex items-center justify-center whitespace-nowrap rounded-full border-2 border-cream/85 bg-ink/55 px-2 py-[1.1rem] text-center font-semibold text-sm uppercase tracking-[0.12em] text-cream backdrop-blur-sm shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:bg-cream hover:text-ink sm:px-6 sm:text-base sm:tracking-[0.2em]"
               >
-                Pedir online
+                {t.pedir}
               </a>
               <a
-                href="/carta"
+                href={t.cartaHref}
                 className="flex items-center justify-center whitespace-nowrap rounded-full border-2 border-cream/85 bg-ink/55 px-2 py-[1.1rem] text-center font-semibold text-sm uppercase tracking-[0.12em] text-cream backdrop-blur-sm shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:bg-cream hover:text-ink sm:px-6 sm:text-base sm:tracking-[0.2em]"
               >
-                Ver carta
+                {t.carta}
               </a>
             </div>
           </div>
@@ -87,12 +111,12 @@ export default function Hero() {
       {/* Indicador de scroll */}
       <a
         href="#la-casa"
-        aria-label="Bajar a la siguiente sección"
+        aria-label={t.scrollAria}
         className="hero-rise absolute inset-x-0 bottom-7 z-20 flex flex-col items-center gap-2"
         style={{ animationDelay: "0.95s" }}
       >
         <span className="text-[0.82rem] uppercase tracking-[0.4em] text-cream/55">
-          Descubre
+          {t.descubre}
         </span>
         <svg
           className="hero-cue h-4 w-4 text-cream/55"

@@ -1,12 +1,13 @@
 import Lemon from "./Lemon";
 import LemonBranch from "./LemonBranch";
 import Reveal from "./Reveal";
+import type { Locale } from "@/lib/i18n";
 
 const PLACE_URL =
   "https://www.google.com/maps/search/?api=1&query=Positano+Pizzeria+Carrer+del+Rossell%C3%B3+24+Barcelona&query_place_id=ChIJsRxSfvqjpBIR1V-jzgurn2U";
 
-const MAP_EMBED =
-  "https://maps.google.com/maps?q=Positano%20Pizzeria%2C%20Carrer%20del%20Rossell%C3%B3%2C%2024%2C%2008029%20Barcelona&z=16&hl=es&output=embed";
+const mapEmbed = (hl: string) =>
+  `https://maps.google.com/maps?q=Positano%20Pizzeria%2C%20Carrer%20del%20Rossell%C3%B3%2C%2024%2C%2008029%20Barcelona&z=16&hl=${hl}&output=embed`;
 
 type InfoLine = { text: string; href?: string };
 type ScheduleRow = { day: string; hours: string };
@@ -16,37 +17,79 @@ type InfoBlock = {
   schedule?: ScheduleRow[];
 };
 
-const info: InfoBlock[] = [
-  {
-    title: "Dónde estamos",
-    lines: [
-      { text: "Carrer del Rosselló, 24", href: PLACE_URL },
-      { text: "08029 · Barcelona", href: PLACE_URL },
-    ],
-  },
-  {
-    title: "Horario",
-    schedule: [
-      { day: "Mar – Jue", hours: "13:00 – 16:00 · 20:00 – 23:30" },
-      { day: "Viernes", hours: "13:00 – 16:00 · 20:00 – 00:00" },
-      { day: "Sábado", hours: "13:00 – 00:00" },
-      { day: "Domingo", hours: "13:00 – 23:30" },
-      { day: "Lunes", hours: "Cerrado" },
-    ],
-  },
-  {
-    title: "Contacto",
-    lines: [
-      { text: "+34 933 515 913", href: "tel:+34933515913" },
-      {
-        text: "positanopizzeria2023@gmail.com",
-        href: "mailto:positanopizzeria2023@gmail.com",
-      },
-    ],
-  },
+const CONTACT_LINES: InfoLine[] = [
+  { text: "+34 933 515 913", href: "tel:+34933515913" },
+  { text: "positanopizzeria2023@gmail.com", href: "mailto:positanopizzeria2023@gmail.com" },
 ];
 
-export default function Visitanos() {
+const COPY = {
+  es: {
+    eyebrow: "Visítanos",
+    heading: "Te esperamos en el Eixample de Barcelona",
+    intro:
+      "Reserva tu mesa o pásate a tomar algo en la barra. La casa siempre tiene un sitio para ti.",
+    mapHl: "es",
+    mapTitle: "Ubicación de Positano Pizzería en Barcelona",
+    reservar: "Reservar mesa",
+    reservasHref: "/reservas",
+    llamar: "Llámanos",
+    info: [
+      {
+        title: "Dónde estamos",
+        lines: [
+          { text: "Carrer del Rosselló, 24", href: PLACE_URL },
+          { text: "08029 · Barcelona", href: PLACE_URL },
+        ],
+      },
+      {
+        title: "Horario",
+        schedule: [
+          { day: "Mar – Jue", hours: "13:00 – 16:00 · 20:00 – 23:30" },
+          { day: "Viernes", hours: "13:00 – 16:00 · 20:00 – 00:00" },
+          { day: "Sábado", hours: "13:00 – 00:00" },
+          { day: "Domingo", hours: "13:00 – 23:30" },
+          { day: "Lunes", hours: "Cerrado" },
+        ],
+      },
+      { title: "Contacto", lines: CONTACT_LINES },
+    ] as InfoBlock[],
+  },
+  en: {
+    eyebrow: "Visit us",
+    heading: "We're waiting for you in the Eixample, Barcelona",
+    intro:
+      "Book a table or drop by for a drink at the bar. The house always has a seat for you.",
+    mapHl: "en",
+    mapTitle: "Location of Positano Pizzería in Barcelona",
+    reservar: "Book a table",
+    reservasHref: "/en/book-a-table",
+    llamar: "Call us",
+    info: [
+      {
+        title: "Where we are",
+        lines: [
+          { text: "Carrer del Rosselló, 24", href: PLACE_URL },
+          { text: "08029 · Barcelona", href: PLACE_URL },
+        ],
+      },
+      {
+        title: "Opening hours",
+        schedule: [
+          { day: "Tue – Thu", hours: "1:00 – 4:00 pm · 8:00 – 11:30 pm" },
+          { day: "Friday", hours: "1:00 – 4:00 pm · 8:00 pm – 12:00 am" },
+          { day: "Saturday", hours: "1:00 pm – 12:00 am" },
+          { day: "Sunday", hours: "1:00 – 11:30 pm" },
+          { day: "Monday", hours: "Closed" },
+        ],
+      },
+      { title: "Contact", lines: CONTACT_LINES },
+    ] as InfoBlock[],
+  },
+} satisfies Record<Locale, Record<string, unknown>>;
+
+export default function Visitanos({ lang = "es" }: { lang?: Locale }) {
+  const t = COPY[lang];
+  const info = t.info;
   return (
     <section
       id="visitanos"
@@ -58,14 +101,13 @@ export default function Visitanos() {
         <Reveal className="flex flex-col items-center text-center">
           <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
             <Lemon className="h-5 w-5" />
-            Visítanos
+            {t.eyebrow}
           </span>
           <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] text-ink md:text-5xl">
-            Te esperamos en el Eixample de Barcelona
+            {t.heading}
           </h2>
           <p className="mt-5 max-w-xl font-serif text-lg leading-relaxed text-ink-soft">
-            Reserva tu mesa o pásate a tomar algo en la barra. La casa siempre
-            tiene un sitio para ti.
+            {t.intro}
           </p>
         </Reveal>
 
@@ -139,8 +181,8 @@ export default function Visitanos() {
           <Reveal delay={120} className="order-1 md:order-2 md:h-full">
             <div className="relative h-[360px] overflow-hidden border border-ink/15 md:h-full">
               <iframe
-                src={MAP_EMBED}
-                title="Ubicación de Positano Pizzería en Barcelona"
+                src={mapEmbed(t.mapHl)}
+                title={t.mapTitle}
                 className="block h-full w-full"
                 style={{ border: 0 }}
                 loading="lazy"
@@ -153,16 +195,16 @@ export default function Visitanos() {
 
         <Reveal className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href="/reservas"
+            href={t.reservasHref}
             className="rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink hover:tracking-[0.27em]"
           >
-            Reservar mesa
+            {t.reservar}
           </a>
           <a
             href="tel:+34933515913"
             className="rounded-full border border-ink/45 px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-colors duration-300 hover:bg-ink hover:text-cream"
           >
-            Llámanos
+            {t.llamar}
           </a>
         </Reveal>
       </div>
