@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, Cormorant_Garamond } from "next/font/google";
 import "@/app/globals.css";
 import ReelViewerProvider from "@/components/reels/ReelViewerProvider";
-import { GtmScript, GtmNoScript } from "@/components/Analytics";
+import { GtmScript, GtmNoScript, GtmConsentDefault } from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
 import { SITE_URL, alternatesForEn } from "@/lib/i18n";
 import { reviewStats } from "@/data/reviews";
@@ -141,6 +141,7 @@ export default function EnLayout({
       className={`${bodoni.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        <GtmConsentDefault />
         <GtmNoScript />
         <noscript>
           <style>{`.hero-rise,[data-reveal]{opacity:1!important;transform:none!important;animation:none!important;}`}</style>
