@@ -12,6 +12,7 @@ const COLUMNS: Record<Locale, Column[]> = {
       links: [
         { label: "Nuestra historia", href: "/#la-casa" },
         { label: "La Carta", href: "/menu" },
+        { label: "Bebidas", href: "/bebidas" },
         { label: "Pizzería napolitana", href: "/nuestra-historia" },
         { label: "Menú del día", href: "/menu-del-dia" },
         { label: "Pizzería en el Eixample", href: "/pizzeria-eixample" },
@@ -39,6 +40,7 @@ const COLUMNS: Record<Locale, Column[]> = {
       links: [
         { label: "Our story", href: "/en#la-casa" },
         { label: "Menu", href: "/en/menu" },
+        { label: "Drinks", href: "/en/drinks" },
         { label: "Neapolitan pizza", href: "/en/neapolitan-pizza-barcelona" },
         { label: "Menu of the Day", href: "/en/lunch-menu-barcelona" },
         { label: "Italian restaurant in the Eixample", href: "/en/italian-restaurant-eixample" },

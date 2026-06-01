@@ -4,6 +4,7 @@ import "@/app/globals.css";
 import ReelViewerProvider from "@/components/reels/ReelViewerProvider";
 import { GtmScript, GtmNoScript, GtmConsentDefault } from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
+import { Analytics } from "@vercel/analytics/next";
 import { SITE_URL, alternatesForEn } from "@/lib/i18n";
 import { reviewStats } from "@/data/reviews";
 
@@ -153,6 +154,7 @@ export default function EnLayout({
         <ReelViewerProvider lang="en">{children}</ReelViewerProvider>
         <ConsentBanner lang="en" />
         <GtmScript />
+        <Analytics />
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 // Mapeo archivo original .mp4 -> slug del plato (compartido por compress + upload).
-// 47 entradas: cada plato de src/data/menu.ts tiene exactamente un reel.
-// Los 15 archivos restantes de la carpeta WeTransfer (postres + salados no
-// listados en la carta + duplicado de burrata) quedan fuera de alcance.
+// 61 entradas: usa todos los vídeos de la carpeta WeTransfer.
+// Único plato de la carta SIN vídeo en WeTransfer: Bambino Felice (pizza),
+// más oreo, tortino-vesuvio y tortino-pastiera (postres sin clip).
 
 export const SOURCE_DIR =
   "/Users/braian/Downloads/wetransfer_tartufo_positano_gourmeats-mp4_2026-04-21_1502";
@@ -62,4 +62,21 @@ export const REELS = [
   { file: "ROMA_POSITANO_GOURMEATS.mp4", slug: "roma" },
   { file: "EBOLI_POSITANO_GOURMEATS.mp4", slug: "eboli" },
   { file: "TARTUFO_POSITANO_GOURMEATS.mp4", slug: "tartufo" },
+  // Dolci
+  { file: "TIRAMISU_POSITANO_GOURMEATS.mp4", slug: "tiramisu" },
+  { file: "TIRAMISU PISTACCHIO_POSITANO_GOURMEATS.mp4", slug: "tiramisu-pistacho" },
+  { file: "NUTELLOTO_POSITANO_GOURMEATS.mp4", slug: "nutelloto" },
+  { file: "RAFFAELLO_POSITANO_GOURMEATS.mp4", slug: "rafaello" },
+  { file: "BABA_POSITANO_GOURMEATS.mp4", slug: "baba" },
+  { file: "PAN DI STELLE_POSITANO_GOURMEATS.mp4", slug: "pan-di-stelle" },
+  { file: "CHEESECAKE FRUTOS ROJOS_POSITANO_GOURMEATS.mp4", slug: "cheesecake-frutti-di-bosco" },
+  { file: "DELIZIA A LIMONE_POSITANO_GOURMEATS.mp4", slug: "delizia-al-limone" },
+  { file: "TRES CHOCOLATES_POSITANO_GOURMEATS.mp4", slug: "tre-cioccolato" },
+  // Antipasti / Pane (añadidos a la carta el 2026-06-01)
+  { file: "Burrata Pugliese_Positano_Gourmeats.mp4", slug: "burrata-pugliese" },
+  { file: "FOCACCIA_POSITANO_GOURMEATS.mp4", slug: "focaccia" },
+  { file: "FOCACCIA TOMATE_POSITANO_GOURMEATS.mp4", slug: "focaccia-tomate" },
+  // Le Nostre Pizze (añadidos a la carta el 2026-06-01)
+  { file: "TONNO_POSITANO_GOURMEATS.mp4", slug: "tonno" },
+  { file: "NONNA_POSITANO_GOURMEATS.mp4", slug: "nonna" },
 ];

@@ -12,6 +12,7 @@ export const SITE_URL = "https://positanopizzeriabcn.com";
 export const ROUTE_PAIRS: { es: string; en: string }[] = [
   { es: "/", en: "/en" },
   { es: "/menu", en: "/en/menu" },
+  { es: "/bebidas", en: "/en/drinks" },
   { es: "/nuestra-historia", en: "/en/neapolitan-pizza-barcelona" },
   { es: "/pizzeria-eixample", en: "/en/italian-restaurant-eixample" },
   { es: "/menu-del-dia", en: "/en/lunch-menu-barcelona" },

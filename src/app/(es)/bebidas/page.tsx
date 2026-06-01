@@ -4,76 +4,83 @@ import SiteFooter from "@/components/SiteFooter";
 import Reveal from "@/components/Reveal";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
-import DishRow from "@/components/DishRow";
+import WineRow from "@/components/WineRow";
+import WineFeature from "@/components/WineFeature";
+import BottleViewerProvider from "@/components/bebidas/BottleViewerProvider";
 import JsonLd from "@/components/JsonLd";
-import { menu } from "@/data/menu";
-import { menuJsonLd, breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesForEn } from "@/lib/i18n";
+import { wines, beers, featuredWines } from "@/data/wines";
+import { breadcrumbJsonLd } from "@/lib/seo";
+import { alternatesFor } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "Menu · Positano — Neapolitan Pizzeria in Barcelona",
+  title: "Carta de Bebidas · Positano — Barcelona",
   description:
-    "Positano's menu: 48-hour fermented Neapolitan pizza, fresh pasta, antipasti, risotti and mains. Italian restaurant in the Eixample, Barcelona.",
-  alternates: alternatesForEn("/en/menu"),
+    "Vinos italianos y cervezas seleccionadas para acompañar nuestra pizza napolitana y pasta fresca: tintos, blancos, rosados, burbujas y cervezas. Restaurante italiano en el Eixample, Barcelona.",
+  alternates: alternatesFor("/bebidas"),
 };
 
-export default function MenuEnPage() {
+const categories = [...wines, ...beers];
+
+export default function BebidasPage() {
   return (
     <>
-      <JsonLd data={menuJsonLd("en")} />
       <JsonLd
         data={breadcrumbJsonLd([
-          { name: "Home", path: "/en" },
-          { name: "Menu", path: "/en/menu" },
+          { name: "Inicio", path: "/" },
+          { name: "Bebidas", path: "/bebidas" },
         ])}
       />
-      <SiteHeader lang="en" />
+      <SiteHeader />
+      <BottleViewerProvider>
       <main>
-        {/* Title band */}
+        {/* Banda de título + Lambruscos destacados */}
         <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-36 text-center md:pt-44">
           <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
           <LemonBranch className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
           <div className="relative mx-auto max-w-2xl">
             <span className="flex items-center justify-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
               <Lemon className="h-5 w-5" />
-              The Menu
+              Carta de Bebidas
             </span>
             <h1 className="mt-5 font-display text-5xl uppercase leading-[1] tracking-[0.03em] text-lemon md:text-7xl">
-              Our Menu
+              Nuestras Bebidas
             </h1>
             <p className="mt-6 font-serif text-lg leading-relaxed text-cream/85 md:text-xl">
-              48-hour fermented Neapolitan pizza, baked at 400&nbsp;°C with
-              100&nbsp;% Italian ingredients. Every dish, a story from southern
-              Italy.
+              Una selección italiana para acompañar cada plato. Del Vesubio al
+              Salento, vinos y cervezas pensados para nuestra mesa.
             </p>
-            <div className="mt-8 flex justify-center">
-              <a
-                href="/en/drinks"
-                className="inline-flex items-center gap-2 rounded-full border border-lemon/60 px-7 py-3 text-[0.85rem] uppercase tracking-[0.22em] text-lemon transition-all duration-300 hover:bg-lemon hover:text-ink hover:tracking-[0.27em]"
-              >
-                <Lemon className="h-4 w-4" />
-                View drinks
-              </a>
-            </div>
           </div>
+
+          {featuredWines.length > 0 ? (
+            <div className="relative mx-auto mt-16 max-w-4xl">
+              <p className="text-[0.8rem] uppercase tracking-[0.3em] text-cream/60">
+                Los favoritos de la casa
+              </p>
+              <div className="mt-6 grid gap-6 md:grid-cols-2">
+                {featuredWines.map((wine) => (
+                  <WineFeature key={wine.name} wine={wine} />
+                ))}
+              </div>
+            </div>
+          ) : null}
         </section>
 
-        {/* Menu body */}
+        {/* Cuerpo de la carta de bebidas */}
         <div className="bg-cream px-6 py-20 md:py-28">
           <div className="mx-auto flex max-w-5xl flex-col gap-20">
-            {menu.map((category) => (
+            {categories.map((category) => (
               <Reveal key={category.id}>
                 <section id={category.id} className="scroll-mt-24">
                   <div className="flex items-center justify-center gap-5">
                     <span className="h-px w-10 bg-lemon/50 sm:w-16" />
                     <h2 className="text-center font-display text-3xl uppercase tracking-[0.14em] text-lemon md:text-4xl">
-                      {category.nameEn ?? category.name}
+                      {category.name}
                     </h2>
                     <span className="h-px w-10 bg-lemon/50 sm:w-16" />
                   </div>
                   <ul className="mx-auto mt-10 grid max-w-4xl gap-x-14 gap-y-7 md:grid-cols-2">
-                    {category.items.map((dish) => (
-                      <DishRow key={dish.name} dish={dish} lang="en" />
+                    {category.items.map((wine) => (
+                      <WineRow key={wine.name} wine={wine} />
                     ))}
                   </ul>
                 </section>
@@ -82,26 +89,23 @@ export default function MenuEnPage() {
           </div>
 
           <div className="mx-auto mt-20 max-w-5xl">
-            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[0.88rem] uppercase tracking-[0.22em] text-ink-soft">
-              <span>Menu of the day · €14.90</span>
-              <span className="hidden h-3 w-px bg-ink/25 sm:block" />
-              <span>Terrace surcharge · 10 %</span>
-            </div>
-            <p className="mt-4 text-center font-serif text-base italic text-ink-soft">
-              Please let our team know of any allergy or intolerance.
+            <p className="text-center font-serif text-base italic text-ink-soft">
+              IVA incluido. Consulta a nuestro equipo por nuestra selección de
+              copas del día.
             </p>
             <div className="mt-10 flex justify-center">
               <a
-                href="/en/book-a-table"
+                href="/reservas"
                 className="rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink hover:tracking-[0.27em]"
               >
-                Book a table
+                Reservar mesa
               </a>
             </div>
           </div>
         </div>
       </main>
-      <SiteFooter lang="en" />
+      </BottleViewerProvider>
+      <SiteFooter />
     </>
   );
 }

@@ -197,6 +197,62 @@ export const reels: Record<string, Reel> = {
     videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/tartufo.mp4",
     posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/tartufo.jpg",
   },
+  "tiramisu": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/tiramisu.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/tiramisu.jpg",
+  },
+  "tiramisu-pistacho": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/tiramisu-pistacho.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/tiramisu-pistacho.jpg",
+  },
+  "nutelloto": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/nutelloto.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/nutelloto.jpg",
+  },
+  "rafaello": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/rafaello.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/rafaello.jpg",
+  },
+  "baba": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/baba.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/baba.jpg",
+  },
+  "pan-di-stelle": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/pan-di-stelle.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/pan-di-stelle.jpg",
+  },
+  "cheesecake-frutti-di-bosco": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/cheesecake-frutti-di-bosco.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/cheesecake-frutti-di-bosco.jpg",
+  },
+  "delizia-al-limone": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/delizia-al-limone.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/delizia-al-limone.jpg",
+  },
+  "tre-cioccolato": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/tre-cioccolato.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/tre-cioccolato.jpg",
+  },
+  "burrata-pugliese": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/burrata-pugliese.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/burrata-pugliese.jpg",
+  },
+  "focaccia": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/focaccia.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/focaccia.jpg",
+  },
+  "focaccia-tomate": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/focaccia-tomate.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/focaccia-tomate.jpg",
+  },
+  "tonno": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/tonno.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/tonno.jpg",
+  },
+  "nonna": {
+    videoUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/nonna.mp4",
+    posterUrl: "https://qlvwguodykkormm1.public.blob.vercel-storage.com/reels/nonna.jpg",
+  },
 };
 
 export const getReel = (slug: string): Reel | undefined => reels[slug];

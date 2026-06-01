@@ -46,6 +46,15 @@ export default function CartaPage() {
               400&nbsp;°C e ingredientes 100&nbsp;% italianos. Cada plato, una
               historia del sur de Italia.
             </p>
+            <div className="mt-8 flex justify-center">
+              <a
+                href="/bebidas"
+                className="inline-flex items-center gap-2 rounded-full border border-lemon/60 px-7 py-3 text-[0.85rem] uppercase tracking-[0.22em] text-lemon transition-all duration-300 hover:bg-lemon hover:text-ink hover:tracking-[0.27em]"
+              >
+                <Lemon className="h-4 w-4" />
+                Ver carta de bebidas
+              </a>
+            </div>
           </div>
         </section>
 

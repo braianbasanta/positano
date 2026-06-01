@@ -2,3 +2,11 @@ node_modules
 .next
 .git
 public/reels
+
+# Archivos de trabajo que no forman parte del sitio
+positano-instagram-fotos
+*.pdf
+*.csv
+baseline-gbp-*.md
+propuesta-seo-sem-positano.md
+https___positanopizzeriabcn.com_*

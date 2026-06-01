@@ -11,6 +11,14 @@ const nextConfig: NextConfig = {
   experimental: {
     globalNotFound: true,
   },
+  // /vinos y /en/wines se unificaron en /bebidas y /en/drinks. Mantenemos el
+  // 308 para no romper el enlace ya publicado ni perder el poco SEO acumulado.
+  async redirects() {
+    return [
+      { source: "/vinos", destination: "/bebidas", permanent: true },
+      { source: "/en/wines", destination: "/en/drinks", permanent: true },
+    ];
+  },
   // Las 7 URLs del WordPress antiguo (positanopizzeriabcn.com) se conservan con
   // el MISMO slug en esta web (/, /menu, /reservas, /nuestra-historia,
   // /aviso-legal, /politica-de-privacidad, /politica-de-cookies-ue), así que no
