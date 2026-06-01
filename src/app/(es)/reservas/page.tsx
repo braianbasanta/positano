@@ -30,7 +30,7 @@ export default function ReservasPage() {
       <SiteHeader />
       <main>
         {/* Banda de título */}
-        <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-36 text-center md:pt-44">
+        <section className="relative overflow-hidden bg-ink px-6 pb-10 pt-28 text-center md:pb-12 md:pt-32">
           <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
           <LemonBranch className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
           <div className="relative mx-auto max-w-2xl">
@@ -49,13 +49,13 @@ export default function ReservasPage() {
         </section>
 
         {/* Widget DISH */}
-        <section className="bg-cream px-6 py-16 md:py-20">
+        <section className="bg-cream px-6 py-10 md:py-12">
           <div className="mx-auto max-w-3xl">
             <div className="border border-ink/15 bg-cream/40 p-2 sm:p-4 md:p-6">
               <iframe
                 src={DISH_WIDGET_URL}
                 title="Reservar mesa en Positano"
-                className="block h-[420px] w-full border-0 sm:h-[460px]"
+                className="block h-[500px] w-full border-0 sm:h-[540px]"
                 loading="lazy"
               />
             </div>
