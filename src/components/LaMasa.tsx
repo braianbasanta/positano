@@ -16,9 +16,9 @@ const COPY = {
     ctaHref: "/nuestra-historia",
     journey: "El viaje de la masa",
     dias: [
-      { num: "01", eyebrow: "Día uno", title: "Preparamos la fermentación", text: "Mezclamos harina tipo 0 multicereales italiana, agua, sal marina y apenas una pizca de levadura. Amasamos hasta lograr una textura sedosa y la dejamos en reposo en frío." },
-      { num: "02", eyebrow: "Día dos", title: "La masa madura", text: "Veinticuatro horas a temperatura controlada. El gluten se relaja, los alvéolos aparecen y la masa empieza a respirar." },
-      { num: "03", eyebrow: "Día tres", title: "Lista para el horno", text: "Cuarenta y ocho horas cumplidas. Formamos las bolitas a mano y, al pedirla, va al horno a 400 °C: ligera, alveolada y digestiva." },
+      { num: "01", eyebrow: "0 h", title: "Preparamos la fermentación", text: "Mezclamos harina tipo 0 multicereales italiana, agua, sal marina y apenas una pizca de levadura. Amasamos hasta lograr una textura sedosa y la dejamos en reposo en frío." },
+      { num: "02", eyebrow: "24 h", title: "La masa madura", text: "A temperatura controlada, el gluten se relaja, los alvéolos aparecen y la masa empieza a respirar." },
+      { num: "03", eyebrow: "48 h", title: "Lista para el horno", text: "Fermentación cumplida. Formamos las bolitas a mano y, al pedirla, va al horno a 400 °C: ligera, alveolada y digestiva." },
     ],
     ingredientes: [
       { name: "Harina tipo 0 multicereales", origin: "Molino Casillo · Puglia" },
@@ -38,9 +38,9 @@ const COPY = {
     ctaHref: "/en/neapolitan-pizza-barcelona",
     journey: "The dough's journey",
     dias: [
-      { num: "01", eyebrow: "Day one", title: "We start the ferment", text: "We mix Italian type-0 multigrain flour, water, sea salt and just a pinch of yeast. We knead until silky and leave it to rest in the cold." },
-      { num: "02", eyebrow: "Day two", title: "The dough matures", text: "Twenty-four hours at a controlled temperature. The gluten relaxes, the air pockets form and the dough begins to breathe." },
-      { num: "03", eyebrow: "Day three", title: "Ready for the oven", text: "Forty-eight hours complete. We shape the dough balls by hand and, once ordered, it goes into the 400 °C oven: light, airy and digestible." },
+      { num: "01", eyebrow: "0 h", title: "We start the ferment", text: "We mix Italian type-0 multigrain flour, water, sea salt and just a pinch of yeast. We knead until silky and leave it to rest in the cold." },
+      { num: "02", eyebrow: "24 h", title: "The dough matures", text: "At a controlled temperature, the gluten relaxes, the air pockets form and the dough begins to breathe." },
+      { num: "03", eyebrow: "48 h", title: "Ready for the oven", text: "Fermentation complete. We shape the dough balls by hand and, once ordered, it goes into the 400 °C oven: light, airy and digestible." },
     ],
     ingredientes: [
       { name: "Type-0 multigrain flour", origin: "Molino Casillo · Puglia" },
