@@ -90,8 +90,8 @@ export default function SiteFooter({ lang = "es" }: { lang?: Locale }) {
             <Image
               src="/positano-wordmark.png"
               alt="Positano · Pizzería Lounge Bar — Barcelona"
-              width={1443}
-              height={373}
+              width={1539}
+              height={417}
               className="h-auto w-56"
             />
             <p className="mt-3 text-[0.82rem] tracking-[0.42em] text-cream/55">

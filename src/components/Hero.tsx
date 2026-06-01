@@ -58,8 +58,8 @@ export default function Hero({ lang = "es" }: { lang?: Locale }) {
             <Image
               src="/positano-wordmark.png"
               alt=""
-              width={1443}
-              height={373}
+              width={1539}
+              height={417}
               priority
               sizes="(min-width: 768px) 448px, 240px"
               className="h-auto w-[clamp(15rem,42vw,28rem)] drop-shadow-[0_8px_22px_rgba(0,0,0,0.4)]"
