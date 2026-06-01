@@ -6,7 +6,7 @@ export type Review = {
 
 export const reviewStats = {
   rating: "4,8",
-  count: "1.399",
+  count: "+1.400",
 };
 
 export const reviewsUrl = "https://www.google.com/maps?cid=7322759586327519189";
