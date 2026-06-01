@@ -3,7 +3,7 @@ import LemonBranch from "./LemonBranch";
 import Reveal from "./Reveal";
 import Stars from "./Stars";
 import ReviewsMarquee from "./ReviewsMarquee";
-import { reviewStats, reviewsUrl } from "@/data/reviews";
+import { reviewStats, reviewsUrl, forkStats, forkUrl } from "@/data/reviews";
 import type { Locale } from "@/lib/i18n";
 
 const COPY = {
@@ -11,12 +11,14 @@ const COPY = {
     eyebrow: "Reseñas",
     heading: "Lo que dicen nuestros clientes",
     count: "reseñas en Google",
+    forkCount: "opiniones en TheFork",
     cta: "Ver todas las reseñas en Google",
   },
   en: {
     eyebrow: "Reviews",
     heading: "What our guests are saying",
     count: "reviews on Google",
+    forkCount: "reviews on TheFork",
     cta: "Read all reviews on Google",
   },
 } satisfies Record<Locale, Record<string, string>>;
@@ -36,14 +38,36 @@ export default function Resenas({ lang = "es" }: { lang?: Locale }) {
           <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] md:text-5xl">
             {t.heading}
           </h2>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-            <Stars className="h-5 w-5" />
-            <span className="font-display text-2xl text-cream">
-              {reviewStats.rating}
-            </span>
-            <span className="font-serif text-lg text-cream/70">
-              · {reviewStats.count} {t.count}
-            </span>
+          <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+            {/* Google (escala /5) */}
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+              <Stars className="h-5 w-5" />
+              <span className="font-display text-2xl text-cream">
+                {reviewStats.rating}
+                <span className="text-cream/50"> /5</span>
+              </span>
+              <span className="font-serif text-lg text-cream/70">
+                · {reviewStats.count} {t.count}
+              </span>
+            </div>
+
+            <span className="hidden h-8 w-px bg-cream/20 sm:block" />
+
+            {/* TheFork (escala /10) */}
+            <a
+              href={forkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-wrap items-center justify-center gap-x-3 gap-y-1 transition-colors duration-300"
+            >
+              <span className="font-display text-2xl text-cream">
+                {forkStats.rating}
+                <span className="text-cream/50">/10</span>
+              </span>
+              <span className="font-serif text-lg text-cream/70 transition-colors duration-300 group-hover:text-lemon">
+                · {forkStats.count} {t.forkCount}
+              </span>
+            </a>
           </div>
         </Reveal>
       </div>

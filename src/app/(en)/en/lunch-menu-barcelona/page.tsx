@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
 import JsonLd from "@/components/JsonLd";
+import PaymentLogos from "@/components/PaymentLogos";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
 
@@ -16,7 +17,7 @@ const INSTAGRAM_URL = "https://instagram.com/positanopizzeriabcn/";
 export const metadata: Metadata = {
   title: "Menu of the Day in Barcelona · Positano — Eat in the Eixample",
   description:
-    "Menu of the day at Positano, an Italian pizzeria in the Eixample, Barcelona, for €14.90. Homemade Italian food Tuesday to Friday. We accept Ticket Restaurant®.",
+    "Menu of the day at Positano, an Italian pizzeria in the Eixample, Barcelona, for €14.90. Homemade food Tuesday to Friday. We accept Ticket Restaurant®.",
   alternates: alternatesForEn("/en/lunch-menu-barcelona"),
 };
 
@@ -150,6 +151,7 @@ export default function LunchMenuPage() {
                 your menu of the day with Ticket Restaurant®, Edenred and other meal
                 vouchers. The perfect spot for your midday break in the Eixample.
               </p>
+              <PaymentLogos lang="en" className="mt-6" />
             </Reveal>
           </div>
         </section>

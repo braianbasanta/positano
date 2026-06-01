@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
 import JsonLd from "@/components/JsonLd";
+import PaymentLogos from "@/components/PaymentLogos";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
 
@@ -16,7 +17,7 @@ const INSTAGRAM_URL = "https://instagram.com/positanopizzeriabcn/";
 export const metadata: Metadata = {
   title: "Menú del Día en Barcelona · Positano — Comer en el Eixample",
   description:
-    "Menú del día en Positano, pizzería italiana en el Eixample de Barcelona, por 14,90 €. Comida italiana casera de martes a viernes. Aceptamos Ticket Restaurant®.",
+    "Menú del día en Positano, pizzería italiana en el Eixample, Barcelona, por 14,90 €. Comida casera de martes a viernes. Aceptamos Ticket Restaurant®.",
   alternates: alternatesFor("/menu-del-dia"),
 };
 
@@ -151,6 +152,7 @@ export default function MenuDelDiaPage() {
                 tarjetas restaurante. El sitio perfecto para tu pausa del
                 mediodía en el Eixample.
               </p>
+              <PaymentLogos lang="es" className="mt-6" />
             </Reveal>
           </div>
         </section>

@@ -11,6 +11,15 @@ export const reviewStats = {
 
 export const reviewsUrl = "https://www.google.com/maps?cid=7322759586327519189";
 
+// TheFork usa escala /10 (no /5 como Google). Solo se muestra de forma visual
+// en la sección de reseñas; NO entra en el aggregateRating del schema JSON-LD.
+export const forkStats = {
+  rating: "9,2",
+  count: "+500",
+};
+
+export const forkUrl = "https://www.thefork.es/restaurante/positano-r804685";
+
 export const reviews: Review[] = [
   {
     name: "Pavli G.",
