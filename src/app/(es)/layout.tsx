@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Positano · Pizzería Napolitana en el Eixample, Barcelona",
   description:
-    "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Pizza de masa fermentada 48 h, pasta fresca y cócteles. El sabor de Nápoles en Barcelona.",
+    "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Masa fermentada 48 h, pasta fresca y cócteles. El auténtico sabor de Nápoles.",
   keywords: [
     "pizzería napolitana Barcelona",
     "pizzería Barcelona",

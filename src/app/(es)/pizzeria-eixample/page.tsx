@@ -17,7 +17,7 @@ const MAP_EMBED =
 export const metadata: Metadata = {
   title: "Pizzería en el Eixample · Restaurante Italiano Barcelona",
   description:
-    "Positano es una pizzería napolitana y restaurante italiano en el Eixample, Barcelona. Pizza de masa fermentada 48 h en horno de leña, pasta fresca y antipasti.",
+    "Positano, pizzería napolitana y restaurante italiano en el Eixample, Barcelona. Masa fermentada 48 h en horno de leña, pasta fresca y antipasti.",
   alternates: alternatesFor("/pizzeria-eixample"),
 };
 

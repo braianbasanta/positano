@@ -44,3 +44,6 @@ next-env.d.ts
 # reels generados localmente (producción usa Vercel Blob)
 /public/reels/
 .env*.local
+
+# Credenciales locales (respaldo)
+CREDENCIALES.local.md

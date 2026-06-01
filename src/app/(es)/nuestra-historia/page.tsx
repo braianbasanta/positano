@@ -12,7 +12,7 @@ import { alternatesFor } from "@/lib/i18n";
 export const metadata: Metadata = {
   title: "Pizzería y Restaurante Napolitano en Barcelona · Positano",
   description:
-    "Positano es una pizzería y restaurante napolitano auténtico en Barcelona. Recetas de Campania, masa de fermentación 48 h, horno de leña e ingredientes DOP italianos.",
+    "Positano, pizzería y restaurante napolitano en Barcelona. Recetas de Campania, masa de fermentación 48 h, horno de leña e ingredientes DOP italianos.",
   alternates: alternatesFor("/nuestra-historia"),
 };
 

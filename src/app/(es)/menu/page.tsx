@@ -13,7 +13,7 @@ import { alternatesFor } from "@/lib/i18n";
 export const metadata: Metadata = {
   title: "La Carta de Positano · Pizza Napolitana en Barcelona",
   description:
-    "La carta de Positano: pizza napolitana de masa fermentada 48 h, pasta fresca, antipasti, risotti y secondi. Restaurante italiano en el Eixample de Barcelona.",
+    "La carta de Positano: pizza napolitana de masa fermentada 48 h, pasta fresca, antipasti y risotti. Restaurante italiano en el Eixample, Barcelona.",
   alternates: alternatesFor("/menu"),
 };
 
