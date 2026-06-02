@@ -38,16 +38,19 @@ export default function Resenas({ lang = "es" }: { lang?: Locale }) {
           <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] md:text-5xl">
             {t.heading}
           </h2>
-          <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+          <div className="mt-6 flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-6">
             {/* Google (escala /5) */}
-            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
-              <Stars className="h-5 w-5" />
-              <span className="font-display text-2xl text-cream">
-                {reviewStats.rating}
-                <span className="text-cream/50"> /5</span>
+            <div className="flex flex-col items-center gap-1.5 text-center sm:flex-row sm:flex-wrap sm:gap-x-3 sm:gap-y-1">
+              <span className="flex items-center gap-3">
+                <Stars className="h-5 w-5" />
+                <span className="font-display text-2xl text-cream">
+                  {reviewStats.rating}
+                  <span className="text-cream/50"> /5</span>
+                </span>
               </span>
-              <span className="font-serif text-lg text-cream/70">
-                · {reviewStats.count} {t.count}
+              <span className="font-serif text-base text-cream/70 sm:text-lg">
+                <span className="hidden sm:inline">· </span>
+                {reviewStats.count} {t.count}
               </span>
             </div>
 
@@ -58,14 +61,15 @@ export default function Resenas({ lang = "es" }: { lang?: Locale }) {
               href={forkUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-wrap items-center justify-center gap-x-3 gap-y-1 transition-colors duration-300"
+              className="group flex flex-col items-center gap-1.5 text-center transition-colors duration-300 sm:flex-row sm:flex-wrap sm:gap-x-3 sm:gap-y-1"
             >
               <span className="font-display text-2xl text-cream">
                 {forkStats.rating}
                 <span className="text-cream/50">/10</span>
               </span>
-              <span className="font-serif text-lg text-cream/70 transition-colors duration-300 group-hover:text-lemon">
-                · {forkStats.count} {t.forkCount}
+              <span className="font-serif text-base text-cream/70 transition-colors duration-300 group-hover:text-lemon sm:text-lg">
+                <span className="hidden sm:inline">· </span>
+                {forkStats.count} {t.forkCount}
               </span>
             </a>
           </div>
