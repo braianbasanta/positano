@@ -9,6 +9,8 @@
 
   --font-display: var(--font-bodoni);
   --font-serif: var(--font-cormorant);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -100,6 +102,10 @@ body {
 .marquee-track {
   animation: marquee 320s linear infinite;
   will-change: transform;
+}
+
+.marquee-track--reverse {
+  animation-direction: reverse;
 }
 
 .marquee:hover .marquee-track {

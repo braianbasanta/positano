@@ -1,37 +1,42 @@
-import Stars from "./Stars";
-import { reviews } from "@/data/reviews";
+import ReviewCard from "./ReviewCard";
+import { reviews, forkReviews, type Review } from "@/data/reviews";
 
-export default function ReviewsMarquee() {
-  const loop = [...reviews, ...reviews];
-
+function MarqueeRow({
+  items,
+  source,
+  reverse = false,
+}: {
+  items: Review[];
+  source: "google" | "fork";
+  reverse?: boolean;
+}) {
+  const loop = [...items, ...items];
   return (
     <div className="marquee relative overflow-hidden py-2">
       {/* Difuminado en los bordes */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-ink to-transparent sm:w-32" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-ink to-transparent sm:w-32" />
 
-      <div className="marquee-track flex w-max">
+      <div
+        className={`marquee-track flex w-max gap-6${
+          reverse ? " marquee-track--reverse" : ""
+        }`}
+      >
         {loop.map((review, i) => (
-          <article
-            key={i}
-            aria-hidden={i >= reviews.length}
-            className="mr-6 flex h-[280px] w-[320px] shrink-0 flex-col border border-ink/15 bg-cream p-7 sm:w-[380px]"
-          >
-            <Stars className="h-4 w-4" />
-            <p className="mt-4 line-clamp-5 font-serif text-base leading-relaxed text-ink">
-              {review.text.replace(/\n+/g, " ")}
-            </p>
-            <div className="mt-auto pt-5">
-              <p className="font-display text-base uppercase tracking-[0.16em] text-ink">
-                {review.name}
-              </p>
-              <p className="mt-1 text-[0.82rem] uppercase tracking-[0.3em] text-ink-soft">
-                Reseña de Google
-              </p>
-            </div>
-          </article>
+          <div key={i} aria-hidden={i >= items.length}>
+            <ReviewCard review={review} source={source} />
+          </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+export default function ReviewsMarquee() {
+  return (
+    <div className="flex flex-col gap-6">
+      <MarqueeRow items={reviews} source="google" />
+      <MarqueeRow items={forkReviews} source="fork" reverse />
     </div>
   );
 }

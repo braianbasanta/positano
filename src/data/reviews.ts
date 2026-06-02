@@ -122,3 +122,88 @@ export const reviews: Review[] = [
     text: "Comimos en la terraza un sábado al mediodía y muy a gusto. Carta amplia, las pizzas son lo más destacable. El servicio iba un poco justo de personal pero los chicos lo dieron todo.",
   },
 ];
+
+// Opiniones reales de TheFork. La plataforma puntúa sobre 10, así que el rating
+// se guarda en esa escala y las tarjetas lo muestran como "X/10".
+export const forkReviews: Review[] = [
+  {
+    name: "Vanessa M.",
+    rating: 10,
+    text: "Reservamos con poco tiempo de antelación y, aun así, la atención, el servicio y la comida han sido excelentes. Fuimos con dos nenes de 2 años y han estado muy atentos con ellos.",
+  },
+  {
+    name: "Sergio R.",
+    rating: 10,
+    text: "Hemos estado hoy y la verdad nos ha sorprendido lo bueno que estaba todo, tanto la pizza como los spaghetti. Seguro que repetiremos.",
+  },
+  {
+    name: "Pamela J.",
+    rating: 10,
+    text: "Deliciosa comida, pizzas italianas de verdad, muchas variedades interesantes en combinación y el tiramisú delicioso. Y la atención de 10. Volveremos sin duda.",
+  },
+  {
+    name: "Eric L.",
+    rating: 10,
+    text: "El trato amable, muy buen servicio, camareros y dueño muy agradables, y la pizza es estupenda, la mejor que he probado sin duda. Espectacular.",
+  },
+  {
+    name: "Carmelo C.",
+    rating: 10,
+    text: "El ambiente, el personal y la comida son realmente magníficos. La pizza está deliciosa, con ingredientes de calidad y muy bien elaborada.",
+  },
+  {
+    name: "Álvaro R.",
+    rating: 10,
+    text: "Todo lo que pedimos estaba buenísimo: los espaguetis a la carbonara, el tagliatelle con albóndigas y las pizzas. A los niños les encantó.",
+  },
+  {
+    name: "Jennifer Q.",
+    rating: 9.5,
+    text: "Las pizzas buenísimas y el servicio muy majos. No es la primera vez que venimos ni será la última.",
+  },
+  {
+    name: "Eliana S.",
+    rating: 10,
+    text: "Bel locale, personale accogliente e gentile. Ottima pizza, tipica napoletana. Top, lo consiglio!",
+  },
+  {
+    name: "Valentina M.",
+    rating: 10,
+    text: "Tutto super buono! Lo consiglio vivamente e tornerò sicuramente: è tra le pizze più buone che abbia mangiato a Barcellona.",
+  },
+  {
+    name: "Mauro D.",
+    rating: 9.5,
+    text: "Ottima pizza in stile napoletano. Buono anche il tiramisù. Servizio accogliente, sembra quasi di essere a Napoli.",
+  },
+  {
+    name: "Sarah U.",
+    rating: 10,
+    text: "Pizza ottima, camerieri super cordiali, locale veramente carino! Stra-consiglio.",
+  },
+  {
+    name: "Jade W.",
+    rating: 10,
+    text: "We love it here, we keep coming back! The gnocchi is soooo good and the margherita pizza is also great quality.",
+  },
+  {
+    name: "Celia M.",
+    rating: 9.5,
+    text: "Fuimos recomendados por una amiga italiana y nos encantó. Las pizzas Siciliana y Provola e Peppe, espectaculares. Volveremos.",
+  },
+  {
+    name: "Sonia M.",
+    rating: 8,
+    text: "Las pizzas increíbles. Probamos el risotto de calabacín y el calamar frito, todo un acierto. No dejéis de probar el tiramisú de pistacho.",
+  },
+  {
+    name: "Mario V.",
+    rating: 10,
+    text: "Cocina napolitana de 10. Una pizza auténtica y un trato cercano. Volveremos seguro.",
+  },
+  {
+    name: "denise p.",
+    rating: 10,
+    text: "Posto molto carino, personale cordiale e disponibile. Cibo ottimo e di qualità. Consigliatissimo.",
+  },
+];
