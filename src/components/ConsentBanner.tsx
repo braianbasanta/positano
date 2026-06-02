@@ -37,18 +37,27 @@ const COPY: Record<
 
 function pushConsentUpdate(granted: boolean) {
   const value = granted ? "granted" : "denied";
-  const w = window as unknown as { dataLayer?: unknown[] };
+  const w = window as unknown as {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  };
   w.dataLayer = w.dataLayer || [];
-  w.dataLayer.push([
-    "consent",
-    "update",
-    {
-      ad_storage: value,
-      ad_user_data: value,
-      ad_personalization: value,
-      analytics_storage: value,
-    },
-  ]);
+  // Consent Mode solo reconoce el comando cuando llega al dataLayer como objeto
+  // `arguments` (vía la función gtag), NO como un array literal. Reutilizamos el
+  // gtag global que define GtmConsentDefault; si no existiera, creamos uno
+  // equivalente que empuje `arguments` igual que aquél.
+  const gtag: (...args: unknown[]) => void =
+    w.gtag ||
+    function () {
+      // eslint-disable-next-line prefer-rest-params
+      (w.dataLayer as unknown[]).push(arguments);
+    };
+  gtag("consent", "update", {
+    ad_storage: value,
+    ad_user_data: value,
+    ad_personalization: value,
+    analytics_storage: value,
+  });
 }
 
 export default function ConsentBanner({ lang = "es" }: { lang?: Lang }) {
