@@ -40,27 +40,19 @@ function Seccion({
 export default function MenuSemanal() {
   const m = menuDelDia;
   return (
-    <section className="relative overflow-hidden bg-cream px-6 py-24 md:py-32">
+    <section className="relative overflow-hidden bg-cream px-6 pb-16 pt-10 md:pb-20 md:pt-12">
       <LemonBranch className="pointer-events-none absolute -right-16 -top-12 h-80 w-auto rotate-[150deg] text-lemon/20" />
 
       <div className="relative mx-auto max-w-3xl">
         <Reveal className="flex flex-col items-center text-center">
           <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
             <Lemon className="h-5 w-5" />
-            El menú de esta semana
+            La carta del mediodía
           </span>
           <h2 className="mt-5 font-display text-4xl leading-[1.1] text-ink md:text-5xl">
-            Primero · Segundo · Pan · Bebida · Postre
+            Los platos de esta semana
           </h2>
-          <p className="mt-4 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1 font-serif text-lg text-ink-soft">
-            <span className="font-display text-3xl text-ink md:text-4xl">
-              {m.precio}
-            </span>
-            <span className="italic">
-              · Suplemento terraza {m.suplementoTerraza}
-            </span>
-          </p>
-          <p className="mt-2 text-[0.78rem] uppercase tracking-[0.24em] text-ink-soft/60">
+          <p className="mt-4 text-[0.78rem] uppercase tracking-[0.24em] text-ink-soft/60">
             {m.semana}
           </p>
         </Reveal>

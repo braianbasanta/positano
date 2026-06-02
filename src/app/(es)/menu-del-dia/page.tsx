@@ -82,11 +82,8 @@ export default function MenuDelDiaPage() {
           </div>
         </section>
 
-        {/* Menú de la semana (se actualiza desde src/data/menuDelDia.ts) */}
-        <MenuSemanal />
-
         {/* Qué incluye */}
-        <section className="relative overflow-hidden bg-cream px-6 py-24 md:py-32">
+        <section className="relative overflow-hidden bg-cream px-6 pt-24 pb-6 md:pt-32 md:pb-8">
           <LemonBranch className="pointer-events-none absolute -bottom-16 -left-14 h-80 w-auto -rotate-12 text-lemon/20" />
           <div className="relative mx-auto max-w-3xl">
             <Reveal className="flex flex-col items-center text-center">
@@ -95,15 +92,27 @@ export default function MenuDelDiaPage() {
                 Qué incluye
               </span>
               <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] text-ink md:text-5xl">
-                Un menú completo por 14,90 €
+                Un menú completo por{" "}
+                <span className="whitespace-nowrap">14,90 €</span>
               </h2>
+              <p className="mt-3 font-serif text-base italic text-ink-soft/70">
+                Suplemento terraza 10%
+              </p>
               <p className="mt-5 max-w-xl font-serif text-lg leading-relaxed text-ink-soft">
                 Primero, segundo, pan, bebida y postre. Cocina italiana casera,
                 pensada para comer bien y volver al trabajo a tiempo.
               </p>
             </Reveal>
+          </div>
+        </section>
 
-            <Reveal className="mx-auto mt-12 max-w-3xl border border-lemon/40 bg-cream/40 p-8 text-center">
+        {/* Menú de la semana (se actualiza desde src/data/menuDelDia.ts) */}
+        <MenuSemanal />
+
+        {/* Pago con tarjetas restaurante */}
+        <section className="relative overflow-hidden bg-cream px-6 pb-24 pt-4 md:pb-28">
+          <div className="relative mx-auto max-w-3xl">
+            <Reveal className="mx-auto max-w-3xl border border-lemon/40 bg-cream/40 p-8 text-center">
               <p className="font-display text-2xl leading-snug text-ink">
                 Aceptamos Ticket Restaurant® y Edenred
               </p>
