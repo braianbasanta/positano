@@ -89,7 +89,15 @@ const restaurantJsonLd = {
   hasMap:
     "https://www.google.com/maps/search/?api=1&query=Positano+Pizzeria&query_place_id=ChIJsRxSfvqjpBIR1V-jzgurn2U",
   areaServed: "Barcelona",
-  sameAs: ["https://instagram.com/positanopizzeriabcn/"],
+  sameAs: [
+    "https://www.instagram.com/positanopizzeriabcn/",
+    "https://www.facebook.com/positanopizzeriabcn/",
+    "https://www.thefork.es/restaurante/positano-r804685",
+    "https://www.tripadvisor.es/Restaurant_Review-g187497-d25455989-Reviews-POSITANO_PIZZERIA-Barcelona_Catalonia.html",
+    "https://www.google.com/maps?cid=7322759586327519189",
+    "https://glovoapp.com/en/es/barcelona/stores/positano-pizzeria-barcelona",
+    "https://www.ubereats.com/es/store/positano-pizzeria/ciPAhMptSOeZGNeUsyhjKA",
+  ],
   hasMenu: `${SITE_URL}/menu`,
   openingHoursSpecification: [
     {
