@@ -123,39 +123,45 @@ export default function ConsentBanner({ lang = "es" }: { lang?: Lang }) {
   if (!visible) return null;
 
   return (
-    <div
-      role="dialog"
-      aria-live="polite"
-      aria-label={lang === "es" ? "Aviso de cookies" : "Cookie notice"}
-      className="fixed inset-x-0 bottom-0 z-[100] border-t border-lemon/30 bg-ink/95 px-5 py-4 text-cream backdrop-blur-sm"
-    >
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-3 sm:flex-row sm:justify-between">
-        <p className="text-center font-serif text-sm leading-relaxed sm:text-left">
-          {t.text}{" "}
-          <a
-            href={t.href}
-            className="text-lemon underline underline-offset-2 hover:text-cream"
-          >
-            {t.link}
-          </a>
-        </p>
-        <div className="flex shrink-0 gap-3">
-          <button
-            type="button"
-            onClick={() => decide(false)}
-            className="rounded-full border border-cream/40 px-5 py-2 text-sm font-medium text-cream transition-colors hover:border-cream"
-          >
-            {t.reject}
-          </button>
-          <button
-            type="button"
-            onClick={() => decide(true)}
-            className="rounded-full bg-lemon px-6 py-2 text-sm font-semibold text-ink transition-opacity hover:opacity-90"
-          >
-            {t.accept}
-          </button>
+    <>
+      {/* Oscurecemos la web para que la decisión no pase desapercibida: el
+          banner anterior era tan discreto que casi nadie aceptaba, y sin
+          consentimiento GA4/Ads no cuentan la visita. */}
+      <div className="fixed inset-0 z-[99] bg-ink/70 backdrop-blur-sm" aria-hidden />
+      <div
+        role="dialog"
+        aria-live="polite"
+        aria-label={lang === "es" ? "Aviso de cookies" : "Cookie notice"}
+        className="fixed inset-x-0 bottom-0 z-[100] border-t-2 border-lemon/50 bg-ink px-6 py-6 text-cream shadow-[0_-12px_44px_rgba(0,0,0,0.55)] md:py-7"
+      >
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-5 sm:flex-row sm:justify-between">
+          <p className="text-center font-serif text-base leading-relaxed sm:text-left md:text-lg">
+            {t.text}{" "}
+            <a
+              href={t.href}
+              className="text-lemon underline underline-offset-2 hover:text-cream"
+            >
+              {t.link}
+            </a>
+          </p>
+          <div className="flex w-full shrink-0 gap-3 sm:w-auto">
+            <button
+              type="button"
+              onClick={() => decide(false)}
+              className="flex-1 rounded-full border border-cream/40 px-7 py-3 text-base font-medium text-cream transition-colors hover:border-cream sm:flex-none"
+            >
+              {t.reject}
+            </button>
+            <button
+              type="button"
+              onClick={() => decide(true)}
+              className="flex-1 rounded-full bg-lemon px-9 py-3 text-base font-semibold text-ink transition-opacity hover:opacity-90 sm:flex-none"
+            >
+              {t.accept}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
