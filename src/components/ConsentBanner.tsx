@@ -20,14 +20,14 @@ const COPY: Record<
   { text: string; accept: string; reject: string; link: string; href: string }
 > = {
   es: {
-    text: "Usamos cookies para medir el tráfico y mejorar tu experiencia.",
+    text: "Usamos cookies para mejorar tu experiencia y entender qué te gusta. Acéptalas y nos ayudas a seguir mejorando.",
     accept: "Aceptar",
     reject: "Rechazar",
     link: "Más información",
     href: "/politica-de-cookies-ue",
   },
   en: {
-    text: "We use cookies to measure traffic and improve your experience.",
+    text: "We use cookies to improve your experience and understand what you like. Accept them and help us keep getting better.",
     accept: "Accept",
     reject: "Decline",
     link: "Learn more",
@@ -60,6 +60,32 @@ function pushConsentUpdate(granted: boolean) {
   });
 }
 
+// La vista de la página de entrada se envía al cargar con el consentimiento aún
+// en "denied" (el visitante todavía no ha pulsado Aceptar), así que GA4 la
+// descarta y NO la reenvía al conceder después. Resultado: la primera página de
+// cada visitante que acepta (casi siempre la home) se pierde. Para recuperarla,
+// reenviamos un page_view de la página actual JUSTO tras conceder. Solo se llama
+// desde el clic en "Aceptar" (no al reaplicar una decisión guardada), de modo
+// que un visitante recurrente —cuya vista inicial ya contó con consent granted—
+// no genere un page_view duplicado.
+function pushPageView() {
+  const w = window as unknown as {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  };
+  w.dataLayer = w.dataLayer || [];
+  const gtag: (...args: unknown[]) => void =
+    w.gtag ||
+    function () {
+      // eslint-disable-next-line prefer-rest-params
+      (w.dataLayer as unknown[]).push(arguments);
+    };
+  gtag("event", "page_view", {
+    page_location: window.location.href,
+    page_title: document.title,
+  });
+}
+
 export default function ConsentBanner({ lang = "es" }: { lang?: Lang }) {
   const [visible, setVisible] = useState(false);
   const t = COPY[lang];
@@ -83,6 +109,9 @@ export default function ConsentBanner({ lang = "es" }: { lang?: Lang }) {
 
   function decide(granted: boolean) {
     pushConsentUpdate(granted);
+    // Tras conceder, recuperamos la vista de la página actual que se perdió por
+    // el default "denied" (ver pushPageView). Solo en el clic, no al reaplicar.
+    if (granted) pushPageView();
     try {
       localStorage.setItem(STORAGE_KEY, granted ? "granted" : "denied");
     } catch {
