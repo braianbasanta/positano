@@ -42,6 +42,8 @@ const COLUMNS: Record<Locale, Column[]> = {
         { label: "Menu", href: "/en/menu" },
         { label: "Drinks", href: "/en/drinks" },
         { label: "Neapolitan pizza", href: "/en/neapolitan-pizza-barcelona" },
+        { label: "Best pizza in Barcelona", href: "/en/best-pizza-barcelona" },
+        { label: "Italian restaurant in Barcelona", href: "/en/italian-restaurant-barcelona" },
         { label: "Menu of the Day", href: "/en/lunch-menu-barcelona" },
         { label: "Italian restaurant in the Eixample", href: "/en/italian-restaurant-eixample" },
         { label: "Pizza delivery", href: "/en/pizza-delivery-barcelona" },

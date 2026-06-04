@@ -6,6 +6,8 @@ import { SITE_URL, alternatePath } from "@/lib/i18n";
 const PAIRED: { path: string; priority: number }[] = [
   { path: "/", priority: 1 },
   { path: "/menu", priority: 0.8 },
+  { path: "/reservas", priority: 0.9 },
+  { path: "/bebidas", priority: 0.6 },
   { path: "/nuestra-historia", priority: 0.8 },
   { path: "/pizzeria-eixample", priority: 0.7 },
   { path: "/menu-del-dia", priority: 0.8 },
