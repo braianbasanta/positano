@@ -7,6 +7,12 @@ export type Dish = {
   price: string;
   desc?: string;
   descEn?: string;
+  /**
+   * Régimen alimentario del plato (criterio lacto-ovo: vegetariano incluye
+   * quesos y huevo). "vegan" implica también vegetariano en los filtros.
+   * Sin valor = contiene carne o pescado.
+   */
+  diet?: "veg" | "vegan";
 };
 
 export type MenuCategory = {
@@ -34,6 +40,7 @@ export const menu: MenuCategory[] = [
         name: "Ensalada de Queso de Cabra",
         nameEn: "Goat Cheese Salad",
         slug: "ensalada-queso-cabra",
+        diet: "veg",
         price: "12,90 €",
         desc: "Queso de cabra con rúcula, nueces y miel.",
         descEn: "Goat cheese with rocket, walnuts and honey.",
@@ -49,23 +56,27 @@ export const menu: MenuCategory[] = [
         name: "Olivas Sicilianas",
         nameEn: "Sicilian Olives",
         slug: "olivas-sicilianas",
+        diet: "vegan",
         price: "4,50 €",
       },
       {
         name: "Focaccia",
         slug: "focaccia",
+        diet: "vegan",
         price: "4,90 €",
       },
       {
         name: "Focaccia Tomate",
         nameEn: "Tomato Focaccia",
         slug: "focaccia-tomate",
+        diet: "vegan",
         price: "5,90 €",
       },
       {
         name: "Burrata Pugliese",
         nameEn: "Pugliese Burrata",
         slug: "burrata-pugliese",
+        diet: "veg",
         price: "12,90 €",
         desc: "Burrata pugliese de 125 g con tomate verde, datterino y amarillo.",
         descEn: "125 g Pugliese burrata with green, datterino and yellow tomatoes.",
@@ -74,6 +85,7 @@ export const menu: MenuCategory[] = [
         name: "Burrata Frita Pugliese",
         nameEn: "Fried Pugliese Burrata",
         slug: "burrata-frita-pugliese",
+        diet: "veg",
         price: "14,50 €",
         desc: "Frita en base de pistacho y rellena de mermelada de tomate.",
         descEn: "Fried in a pistachio crust and filled with tomato jam.",
@@ -82,6 +94,7 @@ export const menu: MenuCategory[] = [
         name: "Caprese de Búfala Campana DOP 2.0",
         nameEn: "Campania Buffalo DOP Caprese 2.0",
         slug: "caprese-bufala-dop",
+        diet: "veg",
         price: "13,90 €",
         desc: "Búfala campana DOP con trío de tomate amarillo, datterino y tomate seco.",
         descEn: "Campania buffalo DOP with a trio of yellow, datterino and sun-dried tomatoes.",
@@ -90,6 +103,7 @@ export const menu: MenuCategory[] = [
         name: "Provolone al Horno",
         nameEn: "Baked Provolone",
         slug: "provolone-al-horno",
+        diet: "veg",
         price: "13,90 €",
         desc: "Al horno con tomate cherry y pesto, acompañado de focaccia.",
         descEn: "Baked with cherry tomatoes and pesto, served with focaccia.",
@@ -98,6 +112,7 @@ export const menu: MenuCategory[] = [
         name: "Parmesana de Berenjena",
         nameEn: "Aubergine Parmigiana",
         slug: "parmesana-berenjena",
+        diet: "veg",
         price: "12,90 €",
         desc: "Berenjena gratinada en horno de leña.",
         descEn: "Aubergine gratinated in the wood-fired oven.",
@@ -106,6 +121,7 @@ export const menu: MenuCategory[] = [
         name: "Montanaras Fritas",
         nameEn: "Fried Montanare",
         slug: "montanaras-fritas",
+        diet: "veg",
         price: "13,90 €",
         desc: "Delicada masa de pizza frita con tomate y parmesano.",
         descEn: "Delicate fried pizza dough with tomato and parmesan.",
@@ -161,6 +177,7 @@ export const menu: MenuCategory[] = [
         name: "Lasaña Vegetariana",
         nameEn: "Vegetarian Lasagne",
         slug: "lasana-vegetariana",
+        diet: "veg",
         price: "14,50 €",
         desc: "Pasta fresca gratinada con calabacín, pimiento, cebolla, champiñón y mozzarella.",
         descEn: "Baked fresh pasta with courgette, pepper, onion, mushroom and mozzarella.",
@@ -184,6 +201,7 @@ export const menu: MenuCategory[] = [
         name: "Scialatelli a la Scarpariello",
         nameEn: "Scialatelli alla Scarpariello",
         slug: "scialatelli-scarpariello",
+        diet: "veg",
         price: "14,90 €",
         desc: "Con tomatitos datterino y queso ahumado.",
         descEn: "With datterino tomatoes and smoked cheese.",
@@ -199,6 +217,7 @@ export const menu: MenuCategory[] = [
         name: "Tagliatelle con Trufa Fresca",
         nameEn: "Tagliatelle with Fresh Truffle",
         slug: "tagliatelle-trufa",
+        diet: "veg",
         price: "21,90 €",
         desc: "Pasta fresca con trufa negra recién rallada.",
         descEn: "Fresh pasta with freshly grated black truffle.",
@@ -236,6 +255,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Raviolotto",
         slug: "raviolotto",
+        diet: "veg",
         price: "15,90 €",
         desc: "Relleno de ricotta y espinacas con salsa de mantequilla y salvia.",
         descEn: "Filled with ricotta and spinach in a butter and sage sauce.",
@@ -243,6 +263,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Panciotti",
         slug: "panciotti",
+        diet: "veg",
         price: "15,90 €",
         desc: "Relleno de berenjena y scamorza con salsa de mantequilla y albahaca.",
         descEn: "Filled with aubergine and scamorza in a butter and basil sauce.",
@@ -251,6 +272,7 @@ export const menu: MenuCategory[] = [
         name: "Gnocchi Sorrentina",
         nameEn: "Gnocchi alla Sorrentina",
         slug: "gnocchi-sorrentina",
+        diet: "veg",
         price: "13,90 €",
         desc: "Salsa de tomate, mozzarella, albahaca y parmesano DOP gratinado al horno.",
         descEn: "Tomato sauce, mozzarella, basil and DOP parmesan, oven-gratinated.",
@@ -273,6 +295,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Risotto ai Funghi",
         slug: "risotto-ai-funghi",
+        diet: "veg",
         price: "18,90 €",
         desc: "Con mixto de setas y aceite de trufa.",
         descEn: "With mixed mushrooms and truffle oil.",
@@ -310,6 +333,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Marinara",
         slug: "marinara",
+        diet: "vegan",
         price: "7,90 €",
         desc: "Tomate Marrazzo, ajo, albahaca y aceite EVO.",
         descEn: "Marrazzo tomato, garlic, basil and EVO oil.",
@@ -317,6 +341,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Margherita",
         slug: "margherita",
+        diet: "veg",
         price: "9,00 €",
         desc: "Tomate Marrazzo, fior di latte campano, albahaca y aceite EVO.",
         descEn: "Marrazzo tomato, Campania fior di latte, basil and EVO oil.",
@@ -352,6 +377,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Siciliana",
         slug: "siciliana",
+        diet: "veg",
         price: "17,00 €",
         desc: "Tomate Marrazzo, fior di latte campano, berenjena frita, láminas de ricotta salada y albahaca.",
         descEn: "Marrazzo tomato, Campania fior di latte, fried aubergine, salted ricotta shavings and basil.",
@@ -374,6 +400,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Provola e Pepe",
         slug: "provola-e-pepe",
+        diet: "veg",
         price: "14,00 €",
         desc: "Tomate Marrazzo, provola ahumada, pimienta negra, albahaca y aceite EVO.",
         descEn: "Marrazzo tomato, smoked provola, black pepper, basil and EVO oil.",
@@ -382,6 +409,7 @@ export const menu: MenuCategory[] = [
         name: "Búfala",
         nameEn: "Bufala",
         slug: "bufala",
+        diet: "veg",
         price: "14,90 €",
         desc: "Tomate Marrazzo, búfala campana DOP, albahaca y aceite EVO.",
         descEn: "Marrazzo tomato, Campania buffalo DOP, basil and EVO oil.",
@@ -389,6 +417,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Ortolana",
         slug: "ortolana",
+        diet: "veg",
         price: "14,50 €",
         desc: "Tomate Marrazzo, fior di latte campano, cebolla roja, pimiento y champiñones.",
         descEn: "Marrazzo tomato, Campania fior di latte, red onion, pepper and mushrooms.",
@@ -403,6 +432,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Cinque Formaggi",
         slug: "cinque-formaggi",
+        diet: "veg",
         price: "16,90 €",
         desc: "Fior di latte campano, gorgonzola DOP, grana padano 24 meses, provolone y ricotta.",
         descEn: "Campania fior di latte, gorgonzola DOP, 24-month grana padano, provolone and ricotta.",
@@ -431,6 +461,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Tartufo",
         slug: "tartufo",
+        diet: "veg",
         price: "21,90 €",
         desc: "Fior di latte campano, crema de trufa, yema de huevo, grana padano 24 meses y albahaca.",
         descEn: "Campania fior di latte, truffle cream, egg yolk, 24-month grana padano and basil.",
@@ -466,6 +497,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Tiramisú",
         slug: "tiramisu",
+        diet: "veg",
         price: "6,50 €",
         desc: "El clásico napolitano de mascarpone, café y cacao.",
         descEn: "The Neapolitan classic of mascarpone, coffee and cocoa.",
@@ -474,6 +506,7 @@ export const menu: MenuCategory[] = [
         name: "Tiramisú de Pistacho",
         nameEn: "Pistachio Tiramisu",
         slug: "tiramisu-pistacho",
+        diet: "veg",
         price: "6,50 €",
         desc: "Tiramisú con crema de pistacho de Bronte.",
         descEn: "Tiramisu with Bronte pistachio cream.",
@@ -481,6 +514,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Nutelloto",
         slug: "nutelloto",
+        diet: "veg",
         price: "6,50 €",
         desc: "Postre cremoso de avellana y cacao.",
         descEn: "Creamy hazelnut and cocoa dessert.",
@@ -488,6 +522,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Rafaello",
         slug: "rafaello",
+        diet: "veg",
         price: "6,50 €",
         desc: "Dulce de coco y almendra.",
         descEn: "Coconut and almond sweet.",
@@ -495,6 +530,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Babà",
         slug: "baba",
+        diet: "veg",
         price: "6,50 €",
         desc: "Bizcocho napolitano empapado en ron.",
         descEn: "Neapolitan sponge cake soaked in rum.",
@@ -502,6 +538,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Pan di Stelle",
         slug: "pan-di-stelle",
+        diet: "veg",
         price: "6,50 €",
         desc: "Crema de avellana y galleta de cacao.",
         descEn: "Hazelnut cream and cocoa biscuit.",
@@ -509,6 +546,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Cheesecake ai Frutti di Bosco",
         slug: "cheesecake-frutti-di-bosco",
+        diet: "veg",
         price: "6,50 €",
         desc: "Tarta de queso con frutos del bosque.",
         descEn: "Cheesecake with forest berries.",
@@ -516,6 +554,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Delizia al Limone",
         slug: "delizia-al-limone",
+        diet: "veg",
         price: "6,50 €",
         desc: "El clásico de la Costa Amalfitana, con crema de limón.",
         descEn: "The Amalfi Coast classic, with lemon cream.",
@@ -523,6 +562,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Oreo",
         slug: "oreo",
+        diet: "veg",
         price: "6,90 €",
         desc: "Postre cremoso de galleta Oreo.",
         descEn: "Creamy Oreo biscuit dessert.",
@@ -531,6 +571,7 @@ export const menu: MenuCategory[] = [
         name: "Tre Cioccolato",
         nameEn: "Three Chocolate",
         slug: "tre-cioccolato",
+        diet: "veg",
         price: "6,90 €",
         desc: "Mousse de tres chocolates.",
         descEn: "Three-chocolate mousse.",
@@ -538,6 +579,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Tortino Vesuvio con Ceresa",
         slug: "tortino-vesuvio",
+        diet: "veg",
         price: "8,50 €",
         desc: "Tortino con corazón fundente y cereza.",
         descEn: "Warm cake with a molten heart and cherry.",
@@ -545,6 +587,7 @@ export const menu: MenuCategory[] = [
       {
         name: "Tortino Essenza Napoletana (Pastiera)",
         slug: "tortino-pastiera",
+        diet: "veg",
         price: "8,50 €",
         desc: "La pastiera napolitana, tarta de ricotta y trigo.",
         descEn: "The Neapolitan pastiera, a ricotta and wheat tart.",

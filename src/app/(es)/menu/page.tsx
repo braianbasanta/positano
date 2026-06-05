@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import Reveal from "@/components/Reveal";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
-import DishRow from "@/components/DishRow";
+import MenuExplorer from "@/components/MenuExplorer";
 import JsonLd from "@/components/JsonLd";
-import { menu } from "@/data/menu";
 import { menuJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
 
@@ -60,26 +58,7 @@ export default function CartaPage() {
 
         {/* Cuerpo de la carta */}
         <div className="bg-cream px-6 py-20 md:py-28">
-          <div className="mx-auto flex max-w-5xl flex-col gap-20">
-            {menu.map((category) => (
-              <Reveal key={category.id}>
-                <section id={category.id} className="scroll-mt-24">
-                  <div className="flex items-center justify-center gap-5">
-                    <span className="h-px w-10 bg-lemon/50 sm:w-16" />
-                    <h2 className="text-center font-display text-3xl uppercase tracking-[0.14em] text-lemon md:text-4xl">
-                      {category.name}
-                    </h2>
-                    <span className="h-px w-10 bg-lemon/50 sm:w-16" />
-                  </div>
-                  <ul className="mx-auto mt-10 grid max-w-4xl gap-x-14 gap-y-7 md:grid-cols-2">
-                    {category.items.map((dish) => (
-                      <DishRow key={dish.name} dish={dish} />
-                    ))}
-                  </ul>
-                </section>
-              </Reveal>
-            ))}
-          </div>
+          <MenuExplorer />
 
           <div className="mx-auto mt-20 max-w-5xl">
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-[0.88rem] uppercase tracking-[0.22em] text-ink-soft">
