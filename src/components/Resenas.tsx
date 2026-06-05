@@ -23,7 +23,15 @@ const COPY = {
   },
 } satisfies Record<Locale, Record<string, string>>;
 
-export default function Resenas({ lang = "es" }: { lang?: Locale }) {
+export default function Resenas({
+  lang = "es",
+  offset = 0,
+  limit,
+}: {
+  lang?: Locale;
+  offset?: number;
+  limit?: number;
+}) {
   const t = COPY[lang];
   return (
     <section className="relative overflow-hidden bg-ink py-24 text-cream md:py-32">
@@ -77,7 +85,7 @@ export default function Resenas({ lang = "es" }: { lang?: Locale }) {
       </div>
 
       <Reveal className="relative mt-14">
-        <ReviewsMarquee />
+        <ReviewsMarquee offset={offset} limit={limit} />
       </Reveal>
 
       <div className="relative mx-auto mt-12 flex max-w-5xl justify-center px-6">

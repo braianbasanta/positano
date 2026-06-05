@@ -30,9 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const { path, priority } of PAIRED) {
     const enPath = alternatePath(path, "en");
+    const esUrl = `${SITE_URL}${path === "/" ? "" : path}`;
     const languages = {
-      "es-ES": `${SITE_URL}${path === "/" ? "" : path}`,
+      "es-ES": esUrl,
       en: `${SITE_URL}${enPath}`,
+      "x-default": esUrl,
     };
     entries.push({
       url: `${SITE_URL}${path === "/" ? "" : path}`,

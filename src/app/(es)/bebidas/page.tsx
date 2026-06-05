@@ -15,7 +15,7 @@ import { alternatesFor } from "@/lib/i18n";
 export const metadata: Metadata = {
   title: "Carta de Bebidas · Positano — Barcelona",
   description:
-    "Vinos italianos y cervezas seleccionadas para acompañar nuestra pizza napolitana y pasta fresca: tintos, blancos, rosados, burbujas y cervezas. Restaurante italiano en el Eixample, Barcelona.",
+    "Vinos italianos y cervezas seleccionadas para acompañar nuestra pizza napolitana y pasta fresca en Positano, restaurante italiano en el Eixample, Barcelona.",
   alternates: alternatesFor("/bebidas"),
 };
 

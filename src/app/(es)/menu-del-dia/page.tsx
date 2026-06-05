@@ -7,6 +7,7 @@ import LemonBranch from "@/components/LemonBranch";
 import JsonLd from "@/components/JsonLd";
 import PaymentLogos from "@/components/PaymentLogos";
 import MenuSemanal from "@/components/MenuSemanal";
+import Resenas from "@/components/Resenas";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
 
@@ -27,6 +28,39 @@ const horario = [
   { dia: "Lunes", horas: "Cerrado" },
 ];
 
+const faqs = [
+  {
+    q: "¿Cuánto cuesta el menú del día?",
+    a: "El menú del día cuesta 14,90 € e incluye primero, segundo, pan, bebida y postre. En terraza se aplica un suplemento del 10%.",
+  },
+  {
+    q: "¿Qué días hay menú del día?",
+    a: "Servimos el menú del día de martes a viernes al mediodía, de 13:00 a 16:00. Los sábados y domingos trabajamos con la carta completa, y los lunes cerramos.",
+  },
+  {
+    q: "¿Aceptáis Ticket Restaurant® o Edenred para el menú del día?",
+    a: "Sí. Puedes pagar tu menú del día con Ticket Restaurant®, Edenred y otras tarjetas restaurante. Es el sitio ideal para tu pausa del mediodía en el Eixample.",
+  },
+  {
+    q: "¿El menú del día cambia cada semana?",
+    a: "Sí, lo renovamos cada semana con platos caseros del sur de Italia: pastas como los rigatoni al pesto, ensaladas, segundos de carne o pescado y una pizza napolitana a elegir (Margherita, Diavola, Ortolana y más).",
+  },
+  {
+    q: "¿Hay que reservar para comer el menú del día?",
+    a: "No es imprescindible, pero al mediodía el Eixample se llena: si vienes en grupo o con poco tiempo, te recomendamos reservar online o llamar al +34 933 51 59 13.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function MenuDelDiaPage() {
   return (
     <>
@@ -36,6 +70,7 @@ export default function MenuDelDiaPage() {
           { name: "Menú del día", path: "/menu-del-dia" },
         ])}
       />
+      <JsonLd data={faqJsonLd} />
       <SiteHeader />
       <main>
         {/* Banda de título */}
@@ -123,6 +158,44 @@ export default function MenuDelDiaPage() {
                 mediodía en el Eixample.
               </p>
               <PaymentLogos lang="es" className="mt-6" />
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Reseñas */}
+        <Resenas offset={6} limit={12} />
+
+        {/* Preguntas frecuentes */}
+        <section className="relative overflow-hidden bg-cream px-6 py-24 md:py-32">
+          <LemonBranch className="pointer-events-none absolute -left-16 -top-14 h-80 w-auto -rotate-[135deg] text-lemon/20" />
+          <div className="relative mx-auto max-w-3xl">
+            <Reveal className="flex flex-col items-center text-center">
+              <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
+                <Lemon className="h-5 w-5" />
+                Preguntas frecuentes
+              </span>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] text-ink md:text-5xl">
+                El menú del día, al detalle
+              </h2>
+            </Reveal>
+
+            <Reveal className="mt-14">
+              <div className="divide-y divide-ink/15 border-y border-ink/15">
+                {faqs.map((item) => (
+                  <details key={item.q} className="group px-1 py-6">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-xl leading-snug text-ink transition-colors hover:text-lemon md:text-2xl [&::-webkit-details-marker]:hidden">
+                      {item.q}
+                      <span className="relative mt-1 h-4 w-4 shrink-0">
+                        <span className="absolute left-1/2 top-1/2 h-px w-4 -translate-x-1/2 -translate-y-1/2 bg-lemon" />
+                        <span className="absolute left-1/2 top-1/2 h-4 w-px -translate-x-1/2 -translate-y-1/2 bg-lemon transition-transform duration-300 group-open:rotate-90 group-open:opacity-0" />
+                      </span>
+                    </summary>
+                    <p className="mt-4 font-serif text-lg leading-relaxed text-ink-soft">
+                      {item.a}
+                    </p>
+                  </details>
+                ))}
+              </div>
             </Reveal>
           </div>
         </section>

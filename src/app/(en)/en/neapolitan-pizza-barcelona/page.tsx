@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Reveal from "@/components/Reveal";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
+import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
@@ -14,6 +15,39 @@ export const metadata: Metadata = {
   description:
     "Positano is an authentic Neapolitan pizzeria in Barcelona. Recipes from Campania, 48-hour fermented dough, wood-fired oven and Italian DOP ingredients.",
   alternates: alternatesForEn("/en/neapolitan-pizza-barcelona"),
+};
+
+const faqs = [
+  {
+    q: "Where can I find an authentic Neapolitan restaurant in Barcelona?",
+    a: "Positano is a Neapolitan restaurant in the Eixample district of Barcelona (Carrer del Rosselló, 24). It is run by three Neapolitans from Campania who cook just like they do in Naples: pizza with 48-hour fermented dough baked in a wood-fired oven, homemade fresh pasta and antipasti made with Italian DOP produce.",
+  },
+  {
+    q: "What sets a Neapolitan pizzeria apart from a regular pizzeria?",
+    a: "Real Neapolitan pizza is defined by its long-fermented dough (48 hours), a wood-fired oven at 400 °C that bakes it in under 90 seconds, and the tall, airy crust — the cornicione — with its characteristic leopard spots. At Positano we follow that tradition without shortcuts.",
+  },
+  {
+    q: "Is Positano a good Italian restaurant in Barcelona?",
+    a: "Yes. Beyond Neapolitan pizza, Positano serves southern Italian cuisine: fresh pasta, antipasti, salads and homemade desserts, with recipes brought directly from Campania. An Italian restaurant in the heart of Barcelona's Eixample.",
+  },
+  {
+    q: "Who is behind Positano?",
+    a: "Positano was founded by Antonio, Massimo and Vincenzo, three Neapolitans from Campania who brought the recipes of their homeland to Barcelona. Italians cooking the way it's done in Naples, with no adaptations and no shortcuts.",
+  },
+  {
+    q: "Does Positano deliver Neapolitan pizza?",
+    a: "Yes, we deliver our Neapolitan pizza, fresh pasta and antipasti in Barcelona via Uber Eats and Glovo. We also accept Ticket Restaurant®.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
 };
 
 const keys = [
@@ -40,6 +74,7 @@ export default function NeapolitanPizzaPage() {
           { name: "Neapolitan pizza", path: "/en/neapolitan-pizza-barcelona" },
         ])}
       />
+      <JsonLd data={faqJsonLd} />
       <SiteHeader lang="en" />
       <main>
         {/* Title band */}
@@ -156,6 +191,44 @@ export default function NeapolitanPizzaPage() {
               >
                 Book a table
               </a>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Reviews */}
+        <Resenas lang="en" offset={18} limit={12} />
+
+        {/* Frequently asked questions */}
+        <section className="relative overflow-hidden bg-cream px-6 py-24 md:py-32">
+          <LemonBranch className="pointer-events-none absolute -left-16 -top-14 h-80 w-auto -rotate-[135deg] text-lemon/20" />
+          <div className="relative mx-auto max-w-3xl">
+            <Reveal className="flex flex-col items-center text-center">
+              <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
+                <Lemon className="h-5 w-5" />
+                Frequently asked questions
+              </span>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] text-ink md:text-5xl">
+                Neapolitan restaurant in Barcelona
+              </h2>
+            </Reveal>
+
+            <Reveal className="mt-14">
+              <div className="divide-y divide-ink/15 border-y border-ink/15">
+                {faqs.map((item) => (
+                  <details key={item.q} className="group px-1 py-6">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-xl leading-snug text-ink transition-colors hover:text-lemon md:text-2xl [&::-webkit-details-marker]:hidden">
+                      {item.q}
+                      <span className="relative mt-1 h-4 w-4 shrink-0">
+                        <span className="absolute left-1/2 top-1/2 h-px w-4 -translate-x-1/2 -translate-y-1/2 bg-lemon" />
+                        <span className="absolute left-1/2 top-1/2 h-4 w-px -translate-x-1/2 -translate-y-1/2 bg-lemon transition-transform duration-300 group-open:rotate-90 group-open:opacity-0" />
+                      </span>
+                    </summary>
+                    <p className="mt-4 max-w-2xl font-serif text-lg leading-relaxed text-ink-soft">
+                      {item.a}
+                    </p>
+                  </details>
+                ))}
+              </div>
             </Reveal>
           </div>
         </section>

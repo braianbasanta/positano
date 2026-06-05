@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Reveal from "@/components/Reveal";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
+import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
@@ -28,6 +29,14 @@ const faqs = [
   {
     q: "¿Es Positano un buen restaurante italiano en Barcelona?",
     a: "Sí. Además de la pizza napolitana, en Positano servimos cocina italiana del sur: pasta fresca, antipasti, ensaladas y postres caseros, con recetas traídas directamente de Campania. Un restaurante italiano en pleno Eixample de Barcelona.",
+  },
+  {
+    q: "¿Quién está detrás de Positano?",
+    a: "Positano nace de Antonio, Massimo y Vincenzo, tres napolitanos de Campania que trajeron a Barcelona las recetas de su tierra. Italianos cocinando como se hace en Nápoles, sin adaptaciones ni atajos.",
+  },
+  {
+    q: "¿Positano hace pizza napolitana a domicilio?",
+    a: "Sí, llevamos nuestra pizza napolitana, pasta fresca y antipasti a domicilio en Barcelona a través de Uber Eats y Glovo. También aceptamos Ticket Restaurant®.",
   },
 ];
 
@@ -186,6 +195,9 @@ export default function PizzeriaNapolitanaPage() {
             </Reveal>
           </div>
         </section>
+
+        {/* Reseñas */}
+        <Resenas offset={18} limit={12} />
 
         {/* Preguntas frecuentes */}
         <section className="relative overflow-hidden bg-cream px-6 py-24 md:py-32">

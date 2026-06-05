@@ -4,6 +4,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Reveal from "@/components/Reveal";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
+import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
@@ -46,6 +47,39 @@ const horario = [
   { dia: "Lunes", horas: "Cerrado" },
 ];
 
+const faqs = [
+  {
+    q: "¿Cómo pido pizza a domicilio en Positano?",
+    a: "Haz tu pedido online en Uber Eats o Glovo. Elige tus platos, introduce tu dirección de Barcelona y te lo llevamos a casa recién hecho.",
+  },
+  {
+    q: "¿A qué zonas de Barcelona repartís?",
+    a: "Repartimos en Barcelona a través de Uber Eats y Glovo. El radio exacto de reparto lo verás al introducir tu dirección en la plataforma.",
+  },
+  {
+    q: "¿Qué puedo pedir a domicilio?",
+    a: "Toda nuestra carta: pizza napolitana de masa fermentada 48 horas, pasta fresca casera, antipasti y postres. Recién hechos y listos para disfrutar en casa.",
+  },
+  {
+    q: "¿Aceptáis Ticket Restaurant® a domicilio?",
+    a: "Sí, aceptamos Ticket Restaurant® también en los pedidos a domicilio, según la plataforma desde la que hagas el pedido.",
+  },
+  {
+    q: "¿Cuál es el horario de entrega a domicilio?",
+    a: "Servimos a domicilio de martes a jueves de 13:00 a 16:00 y de 20:00 a 23:30, viernes hasta las 00:00, sábado de 13:00 a 00:00 y domingo de 13:00 a 23:30. Los lunes cerramos.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function PizzaDomicilioPage() {
   return (
     <>
@@ -55,6 +89,7 @@ export default function PizzaDomicilioPage() {
           { name: "Pizza a domicilio", path: "/pizza-domicilio" },
         ])}
       />
+      <JsonLd data={faqJsonLd} />
       <SiteHeader />
       <main>
         {/* Banda de título */}
@@ -140,6 +175,44 @@ export default function PizzaDomicilioPage() {
                 </Reveal>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Reseñas */}
+        <Resenas offset={12} limit={12} />
+
+        {/* Preguntas frecuentes */}
+        <section className="relative overflow-hidden bg-cream px-6 py-24 md:py-32">
+          <LemonBranch className="pointer-events-none absolute -left-16 -top-14 h-80 w-auto -rotate-[135deg] text-lemon/20" />
+          <div className="relative mx-auto max-w-3xl">
+            <Reveal className="flex flex-col items-center text-center">
+              <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
+                <Lemon className="h-5 w-5" />
+                Preguntas frecuentes
+              </span>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] text-ink md:text-5xl">
+                Pizza a domicilio, al detalle
+              </h2>
+            </Reveal>
+
+            <Reveal className="mt-14">
+              <div className="divide-y divide-ink/15 border-y border-ink/15">
+                {faqs.map((item) => (
+                  <details key={item.q} className="group px-1 py-6">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-xl leading-snug text-ink transition-colors hover:text-lemon md:text-2xl [&::-webkit-details-marker]:hidden">
+                      {item.q}
+                      <span className="relative mt-1 h-4 w-4 shrink-0">
+                        <span className="absolute left-1/2 top-1/2 h-px w-4 -translate-x-1/2 -translate-y-1/2 bg-lemon" />
+                        <span className="absolute left-1/2 top-1/2 h-4 w-px -translate-x-1/2 -translate-y-1/2 bg-lemon transition-transform duration-300 group-open:rotate-90 group-open:opacity-0" />
+                      </span>
+                    </summary>
+                    <p className="mt-4 font-serif text-lg leading-relaxed text-ink-soft">
+                      {item.a}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
 

@@ -1,6 +1,16 @@
 import ReviewCard from "./ReviewCard";
 import { reviews, forkReviews, type Review } from "@/data/reviews";
 
+// Rota el array empezando en `offset` (con módulo seguro). Permite que cada
+// landing muestre una ventana distinta de reseñas y no se repita el mismo
+// bloque idéntico en todas las páginas.
+function rotate<T>(arr: T[], offset: number): T[] {
+  const n = arr.length;
+  if (n === 0) return arr;
+  const k = ((offset % n) + n) % n;
+  return [...arr.slice(k), ...arr.slice(0, k)];
+}
+
 function MarqueeRow({
   items,
   source,
@@ -32,11 +42,19 @@ function MarqueeRow({
   );
 }
 
-export default function ReviewsMarquee() {
+export default function ReviewsMarquee({
+  offset = 0,
+  limit,
+}: {
+  offset?: number;
+  limit?: number;
+}) {
+  const google = rotate(reviews, offset).slice(0, limit ?? reviews.length);
+  const fork = rotate(forkReviews, offset).slice(0, limit ?? forkReviews.length);
   return (
     <div className="flex flex-col gap-6">
-      <MarqueeRow items={reviews} source="google" />
-      <MarqueeRow items={forkReviews} source="fork" reverse />
+      <MarqueeRow items={google} source="google" />
+      <MarqueeRow items={fork} source="fork" reverse />
     </div>
   );
 }

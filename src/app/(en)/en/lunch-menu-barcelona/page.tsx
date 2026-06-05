@@ -6,6 +6,7 @@ import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
 import JsonLd from "@/components/JsonLd";
 import PaymentLogos from "@/components/PaymentLogos";
+import Resenas from "@/components/Resenas";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
 
@@ -15,7 +16,7 @@ const PLACE_URL =
 const INSTAGRAM_URL = "https://instagram.com/positanopizzeriabcn/";
 
 export const metadata: Metadata = {
-  title: "Menu of the Day in Barcelona · Positano — Eat in the Eixample",
+  title: "Lunch Menu in Barcelona · Positano — Eixample",
   description:
     "Menu of the day at Positano, an Italian pizzeria in the Eixample, Barcelona, for €14.90. Homemade food Tuesday to Friday. We accept Ticket Restaurant®.",
   alternates: alternatesForEn("/en/lunch-menu-barcelona"),
@@ -28,6 +29,39 @@ const hours = [
   { day: "Monday", time: "Closed" },
 ];
 
+const faqs = [
+  {
+    q: "How much does the lunch menu cost?",
+    a: "The lunch menu costs €14.90 and includes a starter, main course, bread, a drink and dessert. A 10% supplement applies for terrace seating.",
+  },
+  {
+    q: "Which days is the lunch menu available?",
+    a: "We serve the lunch menu Tuesday to Friday at midday, from 1:00 to 4:00 pm. On Saturdays and Sundays we work from the full à la carte menu, and on Mondays we are closed.",
+  },
+  {
+    q: "Do you accept Ticket Restaurant® or Edenred for the lunch menu?",
+    a: "Yes. You can pay for your lunch menu with Ticket Restaurant®, Edenred and other meal vouchers. The perfect spot for your midday break in the Eixample.",
+  },
+  {
+    q: "Does the lunch menu change every week?",
+    a: "Yes, we renew it every week with homemade dishes from southern Italy: pasta such as rigatoni al pesto, salads, meat or fish mains and a Neapolitan pizza of your choice (Margherita, Diavola, Ortolana and more).",
+  },
+  {
+    q: "Do I need to book for the lunch menu?",
+    a: "It is not essential, but the Eixample fills up at midday: if you are coming in a group or are short on time, we recommend booking online or calling +34 933 51 59 13.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function LunchMenuPage() {
   return (
     <>
@@ -37,6 +71,7 @@ export default function LunchMenuPage() {
           { name: "Menu of the day", path: "/en/lunch-menu-barcelona" },
         ])}
       />
+      <JsonLd data={faqJsonLd} />
       <SiteHeader lang="en" />
       <main>
         {/* Title band */}
@@ -152,6 +187,44 @@ export default function LunchMenuPage() {
                 vouchers. The perfect spot for your midday break in the Eixample.
               </p>
               <PaymentLogos lang="en" className="mt-6" />
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Reviews */}
+        <Resenas lang="en" offset={6} limit={12} />
+
+        {/* Frequently asked questions */}
+        <section className="relative overflow-hidden bg-cream px-6 py-24 md:py-32">
+          <LemonBranch className="pointer-events-none absolute -left-16 -top-14 h-80 w-auto -rotate-[135deg] text-lemon/20" />
+          <div className="relative mx-auto max-w-3xl">
+            <Reveal className="flex flex-col items-center text-center">
+              <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
+                <Lemon className="h-5 w-5" />
+                Frequently asked questions
+              </span>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] text-ink md:text-5xl">
+                The lunch menu, in detail
+              </h2>
+            </Reveal>
+
+            <Reveal className="mt-14">
+              <div className="divide-y divide-ink/15 border-y border-ink/15">
+                {faqs.map((item) => (
+                  <details key={item.q} className="group px-1 py-6">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-xl leading-snug text-ink transition-colors hover:text-lemon md:text-2xl [&::-webkit-details-marker]:hidden">
+                      {item.q}
+                      <span className="relative mt-1 h-4 w-4 shrink-0">
+                        <span className="absolute left-1/2 top-1/2 h-px w-4 -translate-x-1/2 -translate-y-1/2 bg-lemon" />
+                        <span className="absolute left-1/2 top-1/2 h-4 w-px -translate-x-1/2 -translate-y-1/2 bg-lemon transition-transform duration-300 group-open:rotate-90 group-open:opacity-0" />
+                      </span>
+                    </summary>
+                    <p className="mt-4 font-serif text-lg leading-relaxed text-ink-soft">
+                      {item.a}
+                    </p>
+                  </details>
+                ))}
+              </div>
             </Reveal>
           </div>
         </section>

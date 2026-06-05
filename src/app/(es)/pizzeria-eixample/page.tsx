@@ -4,6 +4,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Reveal from "@/components/Reveal";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
+import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
@@ -34,7 +35,69 @@ const razones = [
     title: "En pleno Eixample",
     text: "Un rincón de la Costa Amalfitana en el corazón del Eixample de Barcelona, ideal para comer, cenar o tomar algo en la barra.",
   },
+  {
+    title: "Llevado por napolitanos",
+    text: "Positano está al frente de tres napolitanos de Campania. Italianos cocinando para que comas como en el sur de Italia, sin atajos ni adaptaciones.",
+  },
 ];
+
+// Platos reales de la carta, los más mencionados por nuestros clientes.
+const platos = [
+  {
+    cat: "De la pizzería napolitana",
+    items:
+      "Margherita, Diavola, Bufala y Ortolana, con masa de 48 horas y cornicione alto. Provola e Peppe y Siciliana para los que buscan algo más.",
+  },
+  {
+    cat: "Pasta fresca casera",
+    items:
+      "Carbonara hecha como toca, sin nata; lasaña tradicional; paccheri alla genovese; scialatelli con bogavante y gnocchi alla sorrentina.",
+  },
+  {
+    cat: "Antipasti y para compartir",
+    items:
+      "Burrata pugliese, provolone al horno para mojar pan, parmigiana de berenjena y nuestra selección de entrantes del sur de Italia.",
+  },
+  {
+    cat: "Dolci caseros",
+    items:
+      "Tiramisú clásico, panna cotta y propuestas como el tiramisú de pistacho. El final italiano que merece la comida.",
+  },
+];
+
+// Respuestas verificadas (mismas que el FAQ de la home), enfocadas al Eixample.
+const faqs = [
+  {
+    q: "¿Dónde está la pizzería en el Eixample?",
+    a: "Estamos en Carrer del Rosselló, 24, en pleno Eixample de Barcelona (08029), entre Passeig de Gràcia y la Sagrada Família. Puedes llamarnos al +34 933 51 59 13.",
+  },
+  {
+    q: "¿Qué tipo de cocina hacéis?",
+    a: "Pizza napolitana de masa fermentada 48 horas en horno de leña con ingredientes DOP italianos, además de pasta fresca casera, antipasti, ensaladas y postres caseros del sur de Italia.",
+  },
+  {
+    q: "¿Se puede reservar mesa?",
+    a: "Sí, puedes reservar online con confirmación inmediata desde nuestra página de reservas, o llamando al +34 933 51 59 13. Los fines de semana recomendamos reservar con antelación.",
+  },
+  {
+    q: "¿Tenéis opciones vegetarianas?",
+    a: "Sí: la pizza Ortolana, la Búfala, la lasaña vegetariana, ensaladas y antipasti como la parmesana de berenjena o la burrata.",
+  },
+  {
+    q: "¿Hacéis pizza a domicilio en el Eixample?",
+    a: "Sí, llevamos nuestra pizza napolitana, pasta fresca y antipasti a domicilio en Barcelona a través de Uber Eats y Glovo. También aceptamos Ticket Restaurant®.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
 
 const horario = [
   { dia: "Lunes", horas: "Cerrado" },
@@ -53,6 +116,7 @@ export default function PizzeriaEixamplePage() {
           { name: "Pizzería en el Eixample", path: "/pizzeria-eixample" },
         ])}
       />
+      <JsonLd data={faqJsonLd} />
       <SiteHeader />
       <main>
         {/* Banda de título */}
@@ -118,7 +182,7 @@ export default function PizzeriaEixamplePage() {
               </p>
             </Reveal>
 
-            <div className="mt-14 grid gap-5 md:grid-cols-3">
+            <div className="mt-14 grid gap-5 md:grid-cols-2">
               {razones.map((razon, index) => (
                 <Reveal key={razon.title} delay={index * 70}>
                   <div className="flex h-full flex-col gap-3 border border-ink/15 bg-cream/40 p-8 transition-colors duration-300 hover:border-lemon/60">
@@ -132,6 +196,93 @@ export default function PizzeriaEixamplePage() {
                 </Reveal>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* La cocina */}
+        <section className="relative overflow-hidden bg-ink px-6 py-24 md:py-32">
+          <LemonBranch className="pointer-events-none absolute -right-16 -top-12 h-80 w-auto rotate-[150deg] text-lemon/15" />
+          <div className="relative mx-auto max-w-6xl">
+            <Reveal className="flex flex-col items-center text-center">
+              <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
+                <Lemon className="h-5 w-5" />
+                Nuestra cocina
+              </span>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] text-cream md:text-5xl">
+                Mucho más que una pizzería italiana en Barcelona
+              </h2>
+              <p className="mt-5 max-w-2xl font-serif text-lg leading-relaxed text-cream/80">
+                En nuestro restaurante italiano del Eixample encontrarás la carta
+                completa del sur de Italia: de la pizza napolitana de horno de
+                leña a la pasta fresca casera, los antipasti y los postres
+                italianos. Esto es lo que más repiten nuestros clientes.
+              </p>
+            </Reveal>
+
+            <div className="mt-14 grid gap-5 md:grid-cols-2">
+              {platos.map((plato, index) => (
+                <Reveal key={plato.cat} delay={index * 70}>
+                  <div className="flex h-full flex-col gap-3 border border-cream/15 bg-cream/[0.04] p-8 transition-colors duration-300 hover:border-lemon/60">
+                    <h3 className="font-display text-2xl leading-tight text-lemon">
+                      {plato.cat}
+                    </h3>
+                    <p className="font-serif text-base leading-relaxed text-cream/80">
+                      {plato.items}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal className="mt-12 flex justify-center">
+              <a
+                href="/menu"
+                className="group inline-flex items-center gap-3 rounded-full bg-lemon px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
+              >
+                Ver la carta completa
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Reseñas */}
+        <Resenas offset={0} limit={12} />
+
+        {/* Preguntas frecuentes */}
+        <section className="relative overflow-hidden bg-cream px-6 py-24 md:py-32">
+          <LemonBranch className="pointer-events-none absolute -left-16 -top-14 h-80 w-auto -rotate-[135deg] text-lemon/20" />
+          <div className="relative mx-auto max-w-3xl">
+            <Reveal className="flex flex-col items-center text-center">
+              <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
+                <Lemon className="h-5 w-5" />
+                Preguntas frecuentes
+              </span>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] text-ink md:text-5xl">
+                La pizzería del Eixample, al detalle
+              </h2>
+            </Reveal>
+
+            <Reveal className="mt-14">
+              <div className="divide-y divide-ink/15 border-y border-ink/15">
+                {faqs.map((item) => (
+                  <details key={item.q} className="group px-1 py-6">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-xl leading-snug text-ink transition-colors hover:text-lemon md:text-2xl [&::-webkit-details-marker]:hidden">
+                      {item.q}
+                      <span className="relative mt-1 h-4 w-4 shrink-0">
+                        <span className="absolute left-1/2 top-1/2 h-px w-4 -translate-x-1/2 -translate-y-1/2 bg-lemon" />
+                        <span className="absolute left-1/2 top-1/2 h-4 w-px -translate-x-1/2 -translate-y-1/2 bg-lemon transition-transform duration-300 group-open:rotate-90 group-open:opacity-0" />
+                      </span>
+                    </summary>
+                    <p className="mt-4 font-serif text-lg leading-relaxed text-ink-soft">
+                      {item.a}
+                    </p>
+                  </details>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
 
