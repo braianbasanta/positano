@@ -19,19 +19,25 @@ export function GtmConsentDefault() {
     <script
       id="gtm-consent-default"
       dangerouslySetInnerHTML={{
-        __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});`,
+        // `url_passthrough` propaga el gclid (y wbraid/_gl) por los parámetros de
+        // URL al navegar cuando ad_storage está en "denied". Sin cookies y sin
+        // consentimiento, es lo que permite que Google Ads/GA4 sigan atribuyendo
+        // el clic a su campaña: sin esto, el tráfico de Ads cae en "Unassigned".
+        __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});gtag('set','url_passthrough',true);`,
       }}
     />
   );
 }
 
-// Loader de GTM (~328 KB). lazyOnload (tras el evento load) para sacarlo de la
-// ventana crítica y no penalizar FCP/LCP/TBT en móvil. El Consent Mode default
-// ya quedó fijado por GtmConsentDefault; las conversiones disparan en acción
-// del usuario (submit de reserva), mucho después de la carga.
+// Loader de GTM (~328 KB). `afterInteractive` (carga pronto, justo tras la
+// hidratación) en lugar de `lazyOnload`: con lazyOnload GTM solo cargaba en el
+// idle del navegador y los visitantes de Google Ads (sobre todo PMax en móvil)
+// que rebotan en 1-2 s se iban ANTES de que cargara, así que su sesión nunca
+// llegaba a GA4 → quedaban sin medir / "Unassigned". afterInteractive las
+// captura. El Consent Mode default ya quedó fijado por GtmConsentDefault.
 export function GtmScript() {
   return (
-    <Script id="gtm-loader" strategy="lazyOnload">
+    <Script id="gtm-loader" strategy="afterInteractive">
       {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=

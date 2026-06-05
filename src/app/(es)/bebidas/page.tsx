@@ -9,7 +9,7 @@ import WineFeature from "@/components/WineFeature";
 import BottleViewerProvider from "@/components/bebidas/BottleViewerProvider";
 import JsonLd from "@/components/JsonLd";
 import { wines, beers, featuredWines } from "@/data/wines";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, beveragesJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
 
 export const metadata: Metadata = {
@@ -30,6 +30,7 @@ export default function BebidasPage() {
           { name: "Bebidas", path: "/bebidas" },
         ])}
       />
+      <JsonLd data={beveragesJsonLd("es")} />
       <SiteHeader />
       <BottleViewerProvider>
       <main>
