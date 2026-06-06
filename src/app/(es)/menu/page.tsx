@@ -7,9 +7,10 @@ import MenuExplorer from "@/components/MenuExplorer";
 import JsonLd from "@/components/JsonLd";
 import { menuJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
+import { reviewStats } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: "La Carta de Positano · Pizza Napolitana en Barcelona",
+  title: `La Carta de Positano ★${reviewStats.rating} · Pizza Napolitana BCN`,
   description:
     "La carta de Positano: pizza napolitana de masa fermentada 48 h, pasta fresca, antipasti y risotti. Restaurante italiano en el Eixample, Barcelona.",
   alternates: alternatesFor("/menu"),

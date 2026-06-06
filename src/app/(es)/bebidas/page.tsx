@@ -11,9 +11,10 @@ import JsonLd from "@/components/JsonLd";
 import { wines, beers, featuredWines } from "@/data/wines";
 import { breadcrumbJsonLd, beveragesJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
+import { reviewStats } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: "Carta de Bebidas · Positano — Barcelona",
+  title: `Vinos y Cervezas Italianas ★${reviewStats.rating} · Positano BCN`,
   description:
     "Vinos italianos y cervezas seleccionadas para acompañar nuestra pizza napolitana y pasta fresca en Positano, restaurante italiano en el Eixample, Barcelona.",
   alternates: alternatesFor("/bebidas"),

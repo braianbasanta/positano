@@ -6,7 +6,7 @@ import { GtmScript, GtmNoScript, GtmConsentDefault } from "@/components/Analytic
 import ConsentBanner from "@/components/ConsentBanner";
 import { Analytics } from "@vercel/analytics/next";
 import { SITE_URL, alternatesForEn } from "@/lib/i18n";
-import { reviewStats } from "@/data/reviews";
+import { reviewStats, reviewStatsEn } from "@/data/reviews";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -23,7 +23,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Positano · Neapolitan Pizza & Italian Restaurant Barcelona",
+  title: `Positano ★${reviewStatsEn.rating} · ${reviewStatsEn.count} Reviews · Neapolitan Pizza BCN`,
   description:
     "Authentic Neapolitan pizzeria and Italian restaurant in the Eixample, Barcelona. 48-hour fermented wood-fired pizza, fresh pasta and cocktails.",
   keywords: [

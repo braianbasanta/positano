@@ -8,6 +8,7 @@ import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
+import { reviewStatsEn } from "@/data/reviews";
 
 const UBER_EATS =
   "https://www.ubereats.com/es/store/positano-pizzeria/ciPAhMptSOeZGNeUsyhjKA";
@@ -15,7 +16,7 @@ const GLOVO =
   "https://glovoapp.com/en/es/barcelona/stores/positano-pizzeria-barcelona";
 
 export const metadata: Metadata = {
-  title: "Pizza Delivery in Barcelona · Positano Neapolitan Pizza",
+  title: `Neapolitan Pizza Delivery ★${reviewStatsEn.rating} · Positano Eixample`,
   description:
     "Order pizza delivery in Barcelona the easy way. We bring Positano's Neapolitan pizza, fresh pasta and antipasti to your home. Order online in minutes.",
   alternates: alternatesForEn("/en/pizza-delivery-barcelona"),

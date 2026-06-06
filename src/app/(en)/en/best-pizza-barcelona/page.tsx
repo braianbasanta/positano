@@ -8,9 +8,10 @@ import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
+import { reviewStatsEn } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: "The Best Pizza in Barcelona · Positano Pizzeria",
+  title: `Best Pizza Barcelona ★${reviewStatsEn.rating} · ${reviewStatsEn.count} Reviews · Positano`,
   description:
     "Looking for the best pizza in Barcelona? Positano serves authentic Neapolitan pizza in the Eixample: 48-hour dough, wood-fired oven and DOP ingredients.",
   alternates: alternatesForEn("/en/best-pizza-barcelona"),

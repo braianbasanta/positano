@@ -8,6 +8,7 @@ import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
+import { reviewStats } from "@/data/reviews";
 
 const UBER_EATS =
   "https://www.ubereats.com/es/store/positano-pizzeria/ciPAhMptSOeZGNeUsyhjKA";
@@ -15,7 +16,7 @@ const GLOVO =
   "https://glovoapp.com/en/es/barcelona/stores/positano-pizzeria-barcelona";
 
 export const metadata: Metadata = {
-  title: "Pizza a Domicilio en Barcelona · Positano Pizzería",
+  title: `Pizza Napolitana a Domicilio ★${reviewStats.rating} · Positano Eixample`,
   description:
     "Pedir pizza a domicilio en Barcelona nunca fue tan fácil. Te llevamos la pizza napolitana, la pasta fresca y los antipasti de Positano a casa.",
   alternates: alternatesFor("/pizza-domicilio"),

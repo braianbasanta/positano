@@ -9,6 +9,7 @@ import PaymentLogos from "@/components/PaymentLogos";
 import Resenas from "@/components/Resenas";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
+import { reviewStatsEn } from "@/data/reviews";
 
 const PLACE_URL =
   "https://www.google.com/maps/search/?api=1&query=Positano+Pizzeria+Carrer+del+Rossell%C3%B3+24+Barcelona&query_place_id=ChIJsRxSfvqjpBIR1V-jzgurn2U";
@@ -16,7 +17,7 @@ const PLACE_URL =
 const INSTAGRAM_URL = "https://instagram.com/positanopizzeriabcn/";
 
 export const metadata: Metadata = {
-  title: "Lunch Menu in Barcelona · Positano — Eixample",
+  title: `Italian Lunch in the Eixample ★${reviewStatsEn.rating} · Positano BCN`,
   description:
     "Menu of the day at Positano, an Italian pizzeria in the Eixample, Barcelona, for €14.90. Homemade food Tuesday to Friday. We accept Ticket Restaurant®.",
   alternates: alternatesForEn("/en/lunch-menu-barcelona"),

@@ -9,6 +9,14 @@ export const reviewStats = {
   count: "+1.400",
 };
 
+// Mismas cifras con formato inglés (punto decimal, sufijo "+"). Se derivan de
+// reviewStats para que actualizar las reseñas cada mes se haga en un único sitio
+// y se propague a todos los meta titles (ES/EN) y al schema JSON-LD.
+export const reviewStatsEn = {
+  rating: reviewStats.rating.replace(",", "."),
+  count: reviewStats.count.replace("+", "").replace(/\./g, ",") + "+",
+};
+
 export const reviewsUrl = "https://www.google.com/maps?cid=7322759586327519189";
 
 // TheFork usa escala /10 (no /5 como Google). Solo se muestra de forma visual

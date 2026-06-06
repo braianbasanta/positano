@@ -9,9 +9,10 @@ import Visitanos from "@/components/Visitanos";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
+import { reviewStatsEn } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: "Italian Restaurant in Barcelona · Positano Eixample",
+  title: `Italian Restaurant in Barcelona ★${reviewStatsEn.rating} · Positano`,
   description:
     "Positano is an authentic Italian restaurant in Barcelona: Neapolitan pizza, fresh pasta, risotti and mains from southern Italy in the Eixample.",
   alternates: alternatesForEn("/en/italian-restaurant-barcelona"),

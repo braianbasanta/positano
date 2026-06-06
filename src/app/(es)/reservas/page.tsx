@@ -7,12 +7,13 @@ import LemonBranch from "@/components/LemonBranch";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
+import { reviewStats } from "@/data/reviews";
 
 const DISH_ID = "hydra-e271f889-46d4-4929-baba-ef5fe752476a";
 const DISH_WIDGET_URL = `https://reservation.dish.co/widget/${DISH_ID}?eid=${DISH_ID}&tagid=hors-${DISH_ID}&width=100%25`;
 
 export const metadata: Metadata = {
-  title: "Reservas · Positano — Pizzería Lounge Bar Barcelona",
+  title: `Reserva tu Mesa en Positano ★${reviewStats.rating} · Pizzería Eixample`,
   description:
     "Reserva tu mesa en Positano, pizzería napolitana en el corazón del Eixample, Barcelona. Elige día, hora y comensales — confirmación inmediata online.",
   alternates: alternatesFor("/reservas"),

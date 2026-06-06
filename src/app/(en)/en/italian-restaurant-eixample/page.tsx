@@ -8,6 +8,7 @@ import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
+import { reviewStatsEn } from "@/data/reviews";
 
 const PLACE_URL =
   "https://www.google.com/maps/search/?api=1&query=Positano+Pizzeria+Carrer+del+Rossell%C3%B3+24+Barcelona&query_place_id=ChIJsRxSfvqjpBIR1V-jzgurn2U";
@@ -16,7 +17,7 @@ const MAP_EMBED =
   "https://maps.google.com/maps?q=Positano%20Pizzeria%2C%20Carrer%20del%20Rossell%C3%B3%2C%2024%2C%2008029%20Barcelona&z=16&hl=en&output=embed";
 
 export const metadata: Metadata = {
-  title: "Italian Restaurant in the Eixample · Positano — Barcelona",
+  title: `Italian Restaurant in the Eixample ★${reviewStatsEn.rating} · Positano`,
   description:
     "Positano is a Neapolitan pizzeria and Italian restaurant in the Eixample, Barcelona. 48-hour wood-fired pizza, fresh pasta and antipasti. Book a table.",
   alternates: alternatesForEn("/en/italian-restaurant-eixample"),

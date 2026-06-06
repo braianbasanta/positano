@@ -7,12 +7,13 @@ import LemonBranch from "@/components/LemonBranch";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
+import { reviewStatsEn } from "@/data/reviews";
 
 const DISH_ID = "hydra-e271f889-46d4-4929-baba-ef5fe752476a";
 const DISH_WIDGET_URL = `https://reservation.dish.co/widget/${DISH_ID}?eid=${DISH_ID}&tagid=hors-${DISH_ID}&width=100%25`;
 
 export const metadata: Metadata = {
-  title: "Book a Table · Positano — Neapolitan Pizzeria in Barcelona",
+  title: `Book a Table at Positano ★${reviewStatsEn.rating} · Pizzeria Eixample`,
   description:
     "Book your table at Positano, a Neapolitan pizzeria in the heart of the Eixample, Barcelona. Choose date, time and party size — instant online confirmation.",
   alternates: alternatesForEn("/en/book-a-table"),
