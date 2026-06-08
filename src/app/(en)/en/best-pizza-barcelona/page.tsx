@@ -11,7 +11,7 @@ import { alternatesForEn } from "@/lib/i18n";
 import { reviewStatsEn } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: `Best Pizza Barcelona ★${reviewStatsEn.rating} · Positano`,
+  title: `Best Pizza in Barcelona ★${reviewStatsEn.rating} · Positano Eixample`,
   description:
     "Looking for the best pizza in Barcelona? Positano serves authentic Neapolitan pizza in the Eixample: 48-hour dough, wood-fired oven and DOP ingredients.",
   alternates: alternatesForEn("/en/best-pizza-barcelona"),

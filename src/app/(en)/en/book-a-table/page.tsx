@@ -19,6 +19,39 @@ export const metadata: Metadata = {
   alternates: alternatesForEn("/en/book-a-table"),
 };
 
+const faqs = [
+  {
+    q: "Do I need to book to eat at Positano?",
+    a: "It's not essential, but the Eixample fills up, especially at weekends and midday. Booking online guarantees your table at the time you want. You're also welcome to walk in and try your luck.",
+  },
+  {
+    q: "Can I book for a large group?",
+    a: "Yes. For larger groups we recommend booking ahead. If you're a big party or want a specific area, call us on +34 933 51 59 13 and we'll arrange it.",
+  },
+  {
+    q: "Can I book a table on the terrace?",
+    a: "We have a terrace and indoor tables. You can state your preference when booking; the terrace has a 10% supplement. Final seating depends on availability on the day.",
+  },
+  {
+    q: "What are Positano's opening hours?",
+    a: "We're open Tuesday to Sunday. Tuesday to Thursday 1:00–4:00 pm and 8:00–11:30 pm; Friday until midnight; Saturday 1:00 pm–12:00 am; Sunday 1:00–11:30 pm. Closed on Mondays.",
+  },
+  {
+    q: "How do I change or cancel my booking?",
+    a: "You'll get a confirmation email with options to change or cancel. If you have any trouble, call us on +34 933 51 59 13 and we'll help.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function BookATablePage() {
   return (
     <>
@@ -28,6 +61,7 @@ export default function BookATablePage() {
           { name: "Book a table", path: "/en/book-a-table" },
         ])}
       />
+      <JsonLd data={faqJsonLd} />
       <SiteHeader lang="en" />
       <main>
         {/* Title band */}
@@ -70,6 +104,40 @@ export default function BookATablePage() {
               </a>
               .
             </p>
+          </div>
+        </section>
+
+        {/* About your booking + FAQ */}
+        <section className="relative overflow-hidden bg-cream px-6 pb-24 pt-2 md:pb-28">
+          <LemonBranch className="pointer-events-none absolute -left-16 -top-14 h-80 w-auto -rotate-[135deg] text-lemon/20" />
+          <div className="relative mx-auto max-w-3xl">
+            <p className="text-center font-serif text-lg leading-relaxed text-ink-soft">
+              Booking a table at Positano, a Neapolitan pizzeria in the heart of
+              the Eixample, is easy: pick your date, time and party size and
+              you'll get an instant confirmation. We'll be waiting for you at
+              Carrer del Rosselló, 24, for Neapolitan pizza with 48-hour fermented
+              dough, fresh pasta and cocktails.
+            </p>
+
+            <h2 className="mt-14 text-center font-display text-3xl leading-[1.1] text-ink md:text-4xl">
+              Questions about your booking
+            </h2>
+            <div className="mt-8 divide-y divide-ink/15 border-y border-ink/15">
+              {faqs.map((item) => (
+                <details key={item.q} className="group px-1 py-6">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-xl leading-snug text-ink transition-colors hover:text-lemon md:text-2xl [&::-webkit-details-marker]:hidden">
+                    {item.q}
+                    <span className="relative mt-1 h-4 w-4 shrink-0">
+                      <span className="absolute left-1/2 top-1/2 h-px w-4 -translate-x-1/2 -translate-y-1/2 bg-lemon" />
+                      <span className="absolute left-1/2 top-1/2 h-4 w-px -translate-x-1/2 -translate-y-1/2 bg-lemon transition-transform duration-300 group-open:rotate-90 group-open:opacity-0" />
+                    </span>
+                  </summary>
+                  <p className="mt-4 font-serif text-lg leading-relaxed text-ink-soft">
+                    {item.a}
+                  </p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
       </main>
