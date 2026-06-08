@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "reels": "remotion studio remotion/index.ts",
+    "reels:render": "remotion render remotion/index.ts MenuReel out/menu-mediodia.mp4"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -17,6 +19,9 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@remotion/cli": "^4.0.439",
+    "@remotion/google-fonts": "^4.0.439",
+    "@remotion/transitions": "^4.0.439",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/nodemailer": "^8.0.0",
@@ -25,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "puppeteer-core": "^25.0.4",
+    "remotion": "^4.0.439",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

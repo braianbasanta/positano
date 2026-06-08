@@ -6,6 +6,7 @@ import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
 import JsonLd from "@/components/JsonLd";
 import PaymentLogos from "@/components/PaymentLogos";
+import MenuSemanal from "@/components/MenuSemanal";
 import Resenas from "@/components/Resenas";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
@@ -13,8 +14,6 @@ import { reviewStatsEn } from "@/data/reviews";
 
 const PLACE_URL =
   "https://www.google.com/maps/search/?api=1&query=Positano+Pizzeria+Carrer+del+Rossell%C3%B3+24+Barcelona&query_place_id=ChIJsRxSfvqjpBIR1V-jzgurn2U";
-
-const INSTAGRAM_URL = "https://instagram.com/positanopizzeriabcn/";
 
 export const metadata: Metadata = {
   title: `Italian Lunch in the Eixample ★${reviewStatsEn.rating} · Positano BCN`,
@@ -120,65 +119,36 @@ export default function LunchMenuPage() {
         </section>
 
         {/* What's included */}
-        <section className="relative overflow-hidden bg-cream px-6 py-24 md:py-32">
+        <section className="relative overflow-hidden bg-cream px-6 pt-24 pb-6 md:pt-32 md:pb-8">
           <LemonBranch className="pointer-events-none absolute -bottom-16 -left-14 h-80 w-auto -rotate-12 text-lemon/20" />
           <div className="relative mx-auto max-w-3xl">
             <Reveal className="flex flex-col items-center text-center">
               <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
                 <Lemon className="h-5 w-5" />
-                What's included
+                What&apos;s included
               </span>
               <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] text-ink md:text-5xl">
-                A complete menu for €14.90
+                A complete menu for{" "}
+                <span className="whitespace-nowrap">€14.90</span>
               </h2>
+              <p className="mt-3 font-serif text-base italic text-ink-soft/70">
+                10% terrace supplement
+              </p>
               <p className="mt-5 max-w-xl font-serif text-lg leading-relaxed text-ink-soft">
                 Starter, main, bread, a drink and dessert. Homemade Italian
                 cuisine, made to eat well and get back to work on time.
               </p>
             </Reveal>
+          </div>
+        </section>
 
-            <Reveal
-              delay={120}
-              className="mt-12 flex flex-col items-center gap-7 border border-ink/15 bg-cream/55 px-8 py-12 text-center sm:px-14"
-            >
-              <div className="flex flex-col items-center gap-2">
-                <span className="text-[0.78rem] uppercase tracking-[0.28em] text-ink-soft/70">
-                  Menu of the day
-                </span>
-                <span className="font-display text-6xl leading-none text-ink md:text-7xl">
-                  €14.90
-                </span>
-                <span className="text-[0.78rem] uppercase tracking-[0.22em] text-ink-soft/70">
-                  Drink and dessert included
-                </span>
-              </div>
+        {/* This week's menu (updates from src/data/menuDelDia.ts) */}
+        <MenuSemanal lang="en" />
 
-              <div className="flex items-center gap-4">
-                <span className="h-px w-10 bg-ink/15" />
-                <Lemon className="h-5 w-5 text-lemon" />
-                <span className="h-px w-10 bg-ink/15" />
-              </div>
-
-              <p className="max-w-md font-serif text-base leading-relaxed text-ink-soft">
-                We change the menu every week with fresh market produce. We post
-                each day's dishes on our Instagram stories — take a look before
-                you come.
-              </p>
-
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream shadow-[0_10px_28px_rgba(29,39,80,0.25)] transition-all duration-300 hover:bg-lemon hover:text-ink"
-              >
-                See the menu of the day on Instagram
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
-            </Reveal>
-
-            <Reveal className="mx-auto mt-14 max-w-3xl border border-lemon/40 bg-cream/40 p-8 text-center">
+        {/* Pay with meal-voucher cards */}
+        <section className="relative overflow-hidden bg-cream px-6 pb-24 pt-4 md:pb-28">
+          <div className="relative mx-auto max-w-3xl">
+            <Reveal className="mx-auto max-w-3xl border border-lemon/40 bg-cream/40 p-8 text-center">
               <p className="font-display text-2xl leading-snug text-ink">
                 We accept Ticket Restaurant® and Edenred
               </p>
