@@ -11,7 +11,7 @@ import { alternatesForEn } from "@/lib/i18n";
 import { reviewStatsEn } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: `Best Pizza Barcelona ★${reviewStatsEn.rating} · ${reviewStatsEn.count} Reviews · Positano`,
+  title: `Best Pizza Barcelona ★${reviewStatsEn.rating} · Positano`,
   description:
     "Looking for the best pizza in Barcelona? Positano serves authentic Neapolitan pizza in the Eixample: 48-hour dough, wood-fired oven and DOP ingredients.",
   alternates: alternatesForEn("/en/best-pizza-barcelona"),
@@ -31,8 +31,8 @@ const reasons = [
     text: "San Marzano tomato, Campania fior di latte, buffalo mozzarella DOP. Authentic produce brought straight from Italy.",
   },
   {
-    title: "Made by Neapolitans",
-    text: "Our pizzaioli were born and raised in Campania, the home of pizza. No adaptations, no shortcuts — just the real thing.",
+    title: "Barcelona's favourite",
+    text: "Rated 4.8 on Google by our guests. People come back for the dough, the wood-fired flavour and the welcome — that's what makes us a reference for pizza in the city.",
   },
 ];
 
@@ -54,7 +54,7 @@ export default function BestPizzaBarcelonaPage() {
           <div className="relative mx-auto max-w-2xl">
             <span className="flex items-center justify-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
               <Lemon className="h-5 w-5" />
-              Authentic Neapolitan pizza
+              Rated ★{reviewStatsEn.rating} on Google
             </span>
             <h1 className="mt-5 font-display text-5xl uppercase leading-[1] tracking-[0.03em] text-lemon md:text-7xl">
               The best pizza in Barcelona
@@ -105,7 +105,14 @@ export default function BestPizzaBarcelonaPage() {
               </h2>
               <p className="mt-5 max-w-xl font-serif text-lg leading-relaxed text-ink-soft">
                 Great pizza is never improvised. Four things set ours apart from
-                any other pizza in the city.
+                any other pizza in the city — rooted in the{" "}
+                <a
+                  href="/en/neapolitan-pizza-barcelona"
+                  className="text-ink underline decoration-lemon underline-offset-4 transition-colors hover:text-lemon"
+                >
+                  authentic Neapolitan pizza tradition
+                </a>{" "}
+                we brought from Campania.
               </p>
             </Reveal>
 

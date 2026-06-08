@@ -13,7 +13,7 @@ export const ROUTE_PAIRS: { es: string; en: string }[] = [
   { es: "/", en: "/en" },
   { es: "/menu", en: "/en/menu" },
   { es: "/bebidas", en: "/en/drinks" },
-  { es: "/nuestra-historia", en: "/en/neapolitan-pizza-barcelona" },
+  { es: "/pizza-napolitana-barcelona", en: "/en/neapolitan-pizza-barcelona" },
   { es: "/pizzeria-eixample", en: "/en/italian-restaurant-eixample" },
   { es: "/menu-del-dia", en: "/en/lunch-menu-barcelona" },
   { es: "/pizza-domicilio", en: "/en/pizza-delivery-barcelona" },
@@ -41,12 +41,20 @@ export function alternatePath(pathname: string, target: Locale): string {
  * (idioma por defecto, audiencia local de Barcelona).
  */
 export function alternatesFor(esPath: string): Metadata["alternates"] {
-  const enPath = alternatePath(esPath, "en");
+  const pair = ROUTE_PAIRS.find((p) => p.es === esPath);
+  // Página ES sin par EN (p.ej. /nuestra-historia): no declarar un hreflang
+  // cruzado erróneo a la home EN; solo canonical + x-default self.
+  if (!pair) {
+    return {
+      canonical: esPath,
+      languages: { "es-ES": esPath, "x-default": esPath },
+    };
+  }
   return {
     canonical: esPath,
     languages: {
       "es-ES": esPath,
-      en: enPath,
+      en: pair.en,
       "x-default": esPath,
     },
   };

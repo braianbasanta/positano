@@ -68,7 +68,7 @@ export default function LunchMenuPage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/en" },
-          { name: "Menu of the day", path: "/en/lunch-menu-barcelona" },
+          { name: "Lunch menu in Barcelona", path: "/en/lunch-menu-barcelona" },
         ])}
       />
       <JsonLd data={faqJsonLd} />
@@ -84,7 +84,7 @@ export default function LunchMenuPage() {
               Lunch in the Eixample
             </span>
             <h1 className="mt-5 font-display text-5xl uppercase leading-[1] tracking-[0.03em] text-lemon md:text-7xl">
-              Menu of the day
+              Lunch menu in Barcelona
             </h1>
             <p className="mt-4 font-serif text-xl italic text-cream/80 md:text-2xl">
               Homemade Italian food for €14.90

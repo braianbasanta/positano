@@ -87,7 +87,7 @@ export default function PizzaDeliveryPage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/en" },
-          { name: "Pizza delivery", path: "/en/pizza-delivery-barcelona" },
+          { name: "Pizza delivery in Barcelona", path: "/en/pizza-delivery-barcelona" },
         ])}
       />
       <JsonLd data={faqJsonLd} />
@@ -103,7 +103,7 @@ export default function PizzaDeliveryPage() {
               Delivery across Barcelona
             </span>
             <h1 className="mt-5 font-display text-5xl uppercase leading-[1] tracking-[0.03em] text-lemon md:text-7xl">
-              Pizza delivery
+              Pizza delivery in Barcelona
             </h1>
             <p className="mt-4 font-serif text-xl italic text-cream/80 md:text-2xl">
               We bring the pizza to your home

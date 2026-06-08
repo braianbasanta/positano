@@ -135,8 +135,15 @@ export default function MenuDelDiaPage() {
                 Suplemento terraza 10%
               </p>
               <p className="mt-5 max-w-xl font-serif text-lg leading-relaxed text-ink-soft">
-                Primero, segundo, pan, bebida y postre. Cocina italiana casera,
-                pensada para comer bien y volver al trabajo a tiempo.
+                Primero, segundo, pan, bebida y postre. Cocina italiana casera de
+                nuestra{" "}
+                <a
+                  href="/menu"
+                  className="text-ink underline decoration-lemon underline-offset-4 transition-colors hover:text-lemon"
+                >
+                  carta
+                </a>
+                , pensada para comer bien y volver al trabajo a tiempo.
               </p>
             </Reveal>
           </div>
@@ -156,7 +163,14 @@ export default function MenuDelDiaPage() {
                 ¿Comes con tu tarjeta de comida de empresa? En Positano puedes
                 pagar tu menú del día con Ticket Restaurant®, Edenred y otras
                 tarjetas restaurante. El sitio perfecto para tu pausa del
-                mediodía en el Eixample.
+                mediodía en{" "}
+                <a
+                  href="/pizzeria-eixample"
+                  className="underline decoration-lemon underline-offset-4 transition-colors hover:text-lemon"
+                >
+                  nuestra pizzería del Eixample
+                </a>
+                .
               </p>
               <PaymentLogos lang="es" className="mt-6" />
             </Reveal>

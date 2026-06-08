@@ -23,7 +23,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: `Positano ★${reviewStats.rating} · ${reviewStats.count} Reseñas · Pizza Napolitana BCN`,
+  title: `Positano ★${reviewStats.rating} · Pizza Napolitana BCN`,
   description:
     "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Masa fermentada 48 h, pasta fresca y cócteles. El auténtico sabor de Nápoles.",
   keywords: [

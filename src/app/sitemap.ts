@@ -8,7 +8,7 @@ const PAIRED: { path: string; priority: number }[] = [
   { path: "/menu", priority: 0.8 },
   { path: "/reservas", priority: 0.9 },
   { path: "/bebidas", priority: 0.6 },
-  { path: "/nuestra-historia", priority: 0.8 },
+  { path: "/pizza-napolitana-barcelona", priority: 0.7 },
   { path: "/pizzeria-eixample", priority: 0.7 },
   { path: "/menu-del-dia", priority: 0.8 },
   { path: "/pizza-domicilio", priority: 0.7 },
@@ -22,6 +22,11 @@ const PAIRED: { path: string; priority: number }[] = [
 const EN_ONLY: { path: string; priority: number }[] = [
   { path: "/en/best-pizza-barcelona", priority: 0.8 },
   { path: "/en/italian-restaurant-barcelona", priority: 0.8 },
+];
+
+// Páginas sólo en español (sin equivalente EN): no declaran hreflang cruzado.
+const ES_ONLY: { path: string; priority: number }[] = [
+  { path: "/nuestra-historia", priority: 0.8 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -52,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  for (const { path, priority } of EN_ONLY) {
+  for (const { path, priority } of [...EN_ONLY, ...ES_ONLY]) {
     entries.push({
       url: `${SITE_URL}${path}`,
       lastModified,

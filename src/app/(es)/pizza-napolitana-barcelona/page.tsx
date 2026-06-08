@@ -8,36 +8,51 @@ import LemonBranch from "@/components/LemonBranch";
 import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesForEn } from "@/lib/i18n";
-import { reviewStatsEn } from "@/data/reviews";
+import { alternatesFor } from "@/lib/i18n";
+import { reviewStats } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: `Authentic Neapolitan Pizza ★${reviewStatsEn.rating} · Positano Barcelona`,
+  title: `Pizza Napolitana en Barcelona ★${reviewStats.rating} · Positano Eixample`,
   description:
-    "Positano is an authentic Neapolitan pizzeria in Barcelona. Recipes from Campania, 48-hour fermented dough, wood-fired oven and Italian DOP ingredients.",
-  alternates: alternatesForEn("/en/neapolitan-pizza-barcelona"),
+    "Pizza napolitana auténtica en Barcelona: masa fermentada 48 horas, horno de leña e ingredientes DOP italianos. La verdadera pizza de Nápoles en el Eixample.",
+  alternates: alternatesFor("/pizza-napolitana-barcelona"),
 };
+
+const keys = [
+  {
+    title: "Masa fermentada 48 horas",
+    text: "Dejamos reposar la masa 48 horas para una pizza más ligera y digestible, con el cornicione alto y aireado típico de Nápoles.",
+  },
+  {
+    title: "Horno de leña a 400 °C",
+    text: "Cada pizza se hornea en menos de 90 segundos en horno de leña, como manda la tradición napolitana. Así nace el borde con sus manchas de leopardo y el centro fundente.",
+  },
+  {
+    title: "Ingredientes DOP italianos",
+    text: "Tomate San Marzano, fior di latte de Campania, mozzarella de búfala DOP y grana padano de 24 meses. Producto auténtico traído de Italia, sin atajos.",
+  },
+];
 
 const faqs = [
   {
-    q: "Where can I find an authentic Neapolitan restaurant in Barcelona?",
-    a: "Positano is a Neapolitan restaurant in the Eixample district of Barcelona (Carrer del Rosselló, 24). It is run by three Neapolitans from Campania who cook just like they do in Naples: pizza with 48-hour fermented dough baked in a wood-fired oven, homemade fresh pasta and antipasti made with Italian DOP produce.",
+    q: "¿Dónde comer auténtica pizza napolitana en Barcelona?",
+    a: "En Positano, en el Eixample (Carrer del Rosselló, 24). Es una pizzería napolitana llevada por tres napolitanos de Campania que cocinan como en Nápoles: pizza de masa fermentada 48 horas al horno de leña, pasta fresca casera y antipasti con producto DOP italiano.",
   },
   {
-    q: "What sets a Neapolitan pizzeria apart from a regular pizzeria?",
-    a: "Real Neapolitan pizza is defined by its long-fermented dough (48 hours), a wood-fired oven at 400 °C that bakes it in under 90 seconds, and the tall, airy crust — the cornicione — with its characteristic leopard spots. At Positano we follow that tradition without shortcuts.",
+    q: "¿Qué diferencia a una pizza napolitana de una pizza normal?",
+    a: "La pizza napolitana de verdad se define por su masa de larga fermentación (48 horas), un horno de leña a 400 °C que la cuece en menos de 90 segundos, y el borde alto y aireado —el cornicione— con sus características manchas de leopardo. En Positano seguimos esa tradición sin atajos.",
   },
   {
-    q: "Is Positano a good Italian restaurant in Barcelona?",
-    a: "Yes. Beyond Neapolitan pizza, Positano serves southern Italian cuisine: fresh pasta, antipasti, salads and homemade desserts, with recipes brought directly from Campania. An Italian restaurant in the heart of Barcelona's Eixample.",
+    q: "¿Qué pizzas napolitanas tenéis?",
+    a: "Desde las clásicas Margherita y Marinara hasta la Diavola, la Ortolana o nuestras especiales de temporada. Todas con masa napolitana de 48 horas. Puedes verlas todas en nuestra carta.",
   },
   {
-    q: "Who is behind Positano?",
-    a: "Positano was founded by Antonio, Massimo and Vincenzo, three Neapolitans from Campania who brought the recipes of their homeland to Barcelona. Italians cooking the way it's done in Naples, with no adaptations and no shortcuts.",
+    q: "¿Se puede pedir vuestra pizza napolitana a domicilio?",
+    a: "Sí, llevamos nuestra pizza napolitana, pasta fresca y antipasti a domicilio en Barcelona a través de Uber Eats y Glovo. También aceptamos Ticket Restaurant®.",
   },
   {
-    q: "Does Positano deliver Neapolitan pizza?",
-    a: "Yes, we deliver our Neapolitan pizza, fresh pasta and antipasti in Barcelona via Uber Eats and Glovo. We also accept Ticket Restaurant®.",
+    q: "¿Quién está detrás de Positano?",
+    a: "Positano lo fundaron Antonio, Massimo y Vincenzo, tres napolitanos de Campania que trajeron a Barcelona las recetas de su tierra. Italianos cocinando como se hace en Nápoles, sin adaptaciones ni atajos.",
   },
 ];
 
@@ -51,32 +66,17 @@ const faqJsonLd = {
   })),
 };
 
-const keys = [
-  {
-    title: "48-hour fermented dough",
-    text: "We let the dough rest for 48 hours to achieve a lighter, more digestible pizza with the airy crust — the cornicione — typical of Naples.",
-  },
-  {
-    title: "Wood-fired oven at 400 °C",
-    text: "Each pizza is baked in under 90 seconds in a wood-fired oven, as Neapolitan tradition demands. That's how you get the leopard-spotted crust and the molten centre.",
-  },
-  {
-    title: "Italian DOP ingredients",
-    text: "San Marzano tomato, Campania fior di latte, buffalo mozzarella DOP, 24-month grana padano. Authentic produce brought from Italy, no shortcuts.",
-  },
-];
-
-export default function NeapolitanPizzaPage() {
+export default function PizzaNapolitanaPage() {
   return (
     <>
       <JsonLd
         data={breadcrumbJsonLd([
-          { name: "Home", path: "/en" },
-          { name: "Neapolitan pizza", path: "/en/neapolitan-pizza-barcelona" },
+          { name: "Inicio", path: "/" },
+          { name: "Pizza napolitana en Barcelona", path: "/pizza-napolitana-barcelona" },
         ])}
       />
       <JsonLd data={faqJsonLd} />
-      <SiteHeader lang="en" />
+      <SiteHeader lang="es" />
       <main>
         {/* Title band */}
         <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-36 text-center md:pt-44">
@@ -85,49 +85,78 @@ export default function NeapolitanPizzaPage() {
           <div className="relative mx-auto max-w-2xl">
             <span className="flex items-center justify-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
               <Lemon className="h-5 w-5" />
-              The real pizza of Naples
+              La verdadera pizza de Nápoles
             </span>
             <h1 className="mt-5 font-display text-5xl uppercase leading-[1] tracking-[0.03em] text-lemon md:text-7xl">
-              Neapolitan pizza in Barcelona
+              Pizza napolitana en Barcelona
             </h1>
             <p className="mt-4 font-serif text-xl italic text-cream/80 md:text-2xl">
-              From Campania to the Eixample
+              De Campania al Eixample
             </p>
             <p className="mt-6 font-serif text-lg leading-relaxed text-cream/85 md:text-xl">
-              At Positano we don't make just any pizza: we make authentic
-              Neapolitan pizza, with the recipes we brought from southern Italy,
-              48-hour fermented dough and a wood-fired oven. The real taste of
-              Naples, in the heart of Barcelona.
+              En Positano no hacemos una pizza cualquiera: hacemos auténtica pizza
+              napolitana, con las recetas que trajimos del sur de Italia, masa
+              fermentada 48 horas y horno de leña. El verdadero sabor de Nápoles,
+              en el corazón de Barcelona.
             </p>
+            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+              <a
+                href="/reservas"
+                className="group inline-flex items-center gap-3 rounded-full bg-lemon px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
+              >
+                Reservar mesa
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+              <a
+                href="/menu"
+                className="group inline-flex items-center gap-3 rounded-full border border-cream/50 px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-cream hover:text-ink"
+              >
+                Ver nuestras pizzas
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+            </div>
           </div>
         </section>
 
-        {/* Our story */}
+        {/* Qué es la pizza napolitana */}
         <section className="relative overflow-hidden bg-cream px-6 py-24 md:py-32">
           <LemonBranch className="pointer-events-none absolute -bottom-16 -left-14 h-80 w-auto -rotate-12 text-lemon/20" />
           <div className="relative mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2 md:gap-20">
             <Reveal className="order-2 md:order-1">
               <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
                 <Lemon className="h-5 w-5" />
-                Our story
+                Qué la hace napolitana
               </span>
               <h2 className="mt-5 font-display text-4xl leading-[1.1] text-ink md:text-5xl">
-                Three Neapolitans in Barcelona
+                La auténtica pizza de Nápoles
               </h2>
               <p className="mt-6 font-serif text-lg leading-relaxed text-ink-soft">
-                It all begins with Antonio, Massimo and Vincenzo, born and raised
-                in Campania, the region where pizza was born. There they learned,
-                from a young age, that cooking is the soul of the home.
+                La pizza napolitana no se improvisa. Nace de una masa viva,
+                fermentada con calma, y de un horno de leña que la cuece en
+                segundos. El resultado es ligera, digestible y con ese borde alto
+                y aireado que la distingue de cualquier otra pizza.
               </p>
               <p className="mt-4 font-serif text-lg leading-relaxed text-ink-soft">
-                After years perfecting the craft, they brought the recipes of
-                their homeland to Barcelona. And so Positano was born: a
-                Neapolitan pizzeria where the cuisine of southern Italy is served
-                exactly as it's made in Naples, with no adaptations and no
-                shortcuts.
-              </p>
-              <p className="mt-8 font-serif text-2xl italic leading-snug text-ink">
-                “A passion for good food runs in our veins.”
+                Somos una{" "}
+                <a
+                  href="/pizzeria-eixample"
+                  className="text-ink underline decoration-lemon underline-offset-4 transition-colors hover:text-lemon"
+                >
+                  pizzería napolitana en el Eixample
+                </a>{" "}
+                llevada por napolitanos: cocinamos como en casa, sin adaptaciones.
+                Conoce{" "}
+                <a
+                  href="/nuestra-historia"
+                  className="text-ink underline decoration-lemon underline-offset-4 transition-colors hover:text-lemon"
+                >
+                  nuestra historia napolitana
+                </a>
+                .
               </p>
             </Reveal>
 
@@ -136,7 +165,7 @@ export default function NeapolitanPizzaPage() {
                 <div className="absolute -left-4 -top-4 hidden h-full w-full border border-lemon/40 md:block" />
                 <Image
                   src="/hero/positano.jpg"
-                  alt="Positano, Neapolitan pizzeria in Barcelona with recipes brought from Campania"
+                  alt="Pizza napolitana de Positano, con masa fermentada 48 horas, en el Eixample de Barcelona"
                   width={1400}
                   height={933}
                   className="relative aspect-[4/5] w-full object-cover"
@@ -146,28 +175,21 @@ export default function NeapolitanPizzaPage() {
           </div>
         </section>
 
-        {/* What makes it authentic */}
+        {/* Las tres claves */}
         <section className="relative overflow-hidden bg-cream-deep px-6 py-24 md:py-32">
           <LemonBranch className="pointer-events-none absolute -right-16 -top-14 h-80 w-auto rotate-[155deg] text-lemon/25" />
           <div className="relative mx-auto max-w-6xl">
             <Reveal className="flex flex-col items-center text-center">
               <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
                 <Lemon className="h-5 w-5" />
-                What makes it authentic
+                Las tres claves
               </span>
               <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] text-ink md:text-5xl">
-                Real Neapolitan pizza
+                Pizza napolitana de verdad
               </h2>
               <p className="mt-5 max-w-xl font-serif text-lg leading-relaxed text-ink-soft">
-                Real Neapolitan pizza is never improvised. These are the three
-                things that set it apart and make us, for many,{" "}
-                <a
-                  href="/en/best-pizza-barcelona"
-                  className="text-ink underline decoration-lemon underline-offset-4 transition-colors hover:text-lemon"
-                >
-                  the best pizza in Barcelona
-                </a>
-                .
+                Tres cosas separan nuestra pizza napolitana de cualquier otra
+                pizza de Barcelona.
               </p>
             </Reveal>
 
@@ -188,35 +210,35 @@ export default function NeapolitanPizzaPage() {
 
             <Reveal className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
-                href="/en/menu"
+                href="/reservas"
                 className="rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink hover:tracking-[0.27em]"
               >
-                See our pizzas
+                Reservar mesa
               </a>
               <a
-                href="/en/book-a-table"
+                href="/pizza-domicilio"
                 className="rounded-full border border-ink/45 px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-colors duration-300 hover:bg-ink hover:text-cream"
               >
-                Book a table
+                Pedir a domicilio
               </a>
             </Reveal>
           </div>
         </section>
 
-        {/* Reviews */}
-        <Resenas lang="en" offset={18} limit={12} />
+        {/* Reseñas */}
+        <Resenas lang="es" offset={6} limit={12} />
 
-        {/* Frequently asked questions */}
+        {/* Preguntas frecuentes */}
         <section className="relative overflow-hidden bg-cream px-6 py-24 md:py-32">
           <LemonBranch className="pointer-events-none absolute -left-16 -top-14 h-80 w-auto -rotate-[135deg] text-lemon/20" />
           <div className="relative mx-auto max-w-3xl">
             <Reveal className="flex flex-col items-center text-center">
               <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
                 <Lemon className="h-5 w-5" />
-                Frequently asked questions
+                Preguntas frecuentes
               </span>
               <h2 className="mt-5 max-w-2xl font-display text-4xl leading-[1.1] text-ink md:text-5xl">
-                Neapolitan restaurant in Barcelona
+                Pizza napolitana en Barcelona
               </h2>
             </Reveal>
 
@@ -241,7 +263,7 @@ export default function NeapolitanPizzaPage() {
           </div>
         </section>
       </main>
-      <SiteFooter lang="en" />
+      <SiteFooter lang="es" />
     </>
   );
 }

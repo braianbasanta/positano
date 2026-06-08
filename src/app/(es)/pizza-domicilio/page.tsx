@@ -230,10 +230,23 @@ export default function PizzaDomicilioPage() {
                   Pide tu pizza en Uber Eats o Glovo
                 </h2>
                 <p className="mt-4 font-serif text-lg leading-relaxed text-ink-soft">
-                  Toda nuestra carta de pizza napolitana, pasta fresca y
-                  antipasti, lista para llevar a tu casa en cualquier rincón de
-                  Barcelona. Elige tu plataforma favorita — el radio exacto de
-                  reparto lo verás al introducir tu dirección.
+                  Toda nuestra{" "}
+                  <a
+                    href="/menu"
+                    className="text-ink underline decoration-lemon underline-offset-4 transition-colors hover:text-lemon"
+                  >
+                    carta
+                  </a>{" "}
+                  de{" "}
+                  <a
+                    href="/pizza-napolitana-barcelona"
+                    className="text-ink underline decoration-lemon underline-offset-4 transition-colors hover:text-lemon"
+                  >
+                    pizza napolitana
+                  </a>
+                  , pasta fresca y antipasti, lista para llevar a tu casa en
+                  cualquier rincón de Barcelona. Elige tu plataforma favorita — el
+                  radio exacto de reparto lo verás al introducir tu dirección.
                 </p>
 
                 <div className="mx-auto mt-9 flex items-center gap-4">

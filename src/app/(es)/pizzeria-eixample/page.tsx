@@ -301,8 +301,28 @@ export default function PizzeriaEixamplePage() {
               </h2>
               <p className="mt-5 max-w-2xl font-serif text-lg leading-relaxed text-ink-soft">
                 Nos encontrarás en Carrer del Rosselló, 24, en pleno Eixample de
-                Barcelona. Ven a comer o cenar la mejor pizza napolitana de la
-                ciudad, o pásate a tomar algo en la barra.
+                Barcelona. Ven a comer o cenar nuestra{" "}
+                <a
+                  href="/pizza-napolitana-barcelona"
+                  className="text-ink underline decoration-lemon underline-offset-4 transition-colors hover:text-lemon"
+                >
+                  pizza napolitana
+                </a>
+                , prueba el{" "}
+                <a
+                  href="/menu-del-dia"
+                  className="text-ink underline decoration-lemon underline-offset-4 transition-colors hover:text-lemon"
+                >
+                  menú del día
+                </a>{" "}
+                entre semana o pídela{" "}
+                <a
+                  href="/pizza-domicilio"
+                  className="text-ink underline decoration-lemon underline-offset-4 transition-colors hover:text-lemon"
+                >
+                  a domicilio
+                </a>{" "}
+                si prefieres quedarte en casa.
               </p>
             </Reveal>
 
