@@ -11,7 +11,20 @@ import { alternatesForEn } from "@/lib/i18n";
 import { reviewStatsEn } from "@/data/reviews";
 
 const DISH_ID = "hydra-e271f889-46d4-4929-baba-ef5fe752476a";
-const DISH_WIDGET_URL = `https://reservation.dish.co/widget/${DISH_ID}?eid=${DISH_ID}&tagid=hors-${DISH_ID}&width=100%25`;
+// Colores de marca Positano (ver globals.css) inyectados en el widget DISH por
+// query string — mismo mecanismo que su widget.js oficial — para que use la
+// paleta de la web y no el gris por defecto de DISH. El '#' va como %23.
+// Botón principal en dorado (lemon) sobre texto ink, igual que los CTA de la web.
+const DISH_WIDGET_URL =
+  `https://reservation.dish.co/widget/${DISH_ID}` +
+  `?eid=${DISH_ID}&tagid=hors-${DISH_ID}&width=100%25` +
+  "&backgroundColor=%23f3ecdc" +
+  "&foregroundColor=%231d2750" +
+  "&linkColor=%231d2750" +
+  "&primaryButtonBackgroundColor=%23c6a253" +
+  "&primaryButtonForegroundColor=%231d2750" +
+  "&secondaryButtonBackgroundColor=%231d2750" +
+  "&secondaryButtonForegroundColor=%23f3ecdc";
 
 export const metadata: Metadata = {
   title: `Book a Table at Positano ★${reviewStatsEn.rating} · Pizzeria Eixample`,
@@ -86,8 +99,8 @@ export default function BookATablePage() {
 
         {/* DISH widget */}
         <section className="bg-cream px-6 py-10 md:py-12">
-          <div className="mx-auto max-w-3xl">
-            <div className="border border-ink/15 bg-cream/40 p-2 sm:p-4 md:p-6">
+          <div className="mx-auto max-w-2xl">
+            <div className="overflow-hidden rounded-2xl border border-ink/10 bg-cream p-3 shadow-[0_24px_60px_-24px_rgba(29,39,80,0.35)] sm:p-5 md:p-6">
               <iframe
                 src={DISH_WIDGET_URL}
                 title="Book a table at Positano"
