@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
 import JsonLd from "@/components/JsonLd";
+import DishReservationTracker from "@/components/DishReservationTracker";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
 import { reviewStats } from "@/data/reviews";
@@ -93,6 +94,7 @@ export default function ReservasPage() {
                 className="block h-[500px] w-full border-0 sm:h-[540px]"
                 loading="lazy"
               />
+              <DishReservationTracker />
             </div>
             <p className="mt-8 text-center font-serif text-base italic text-ink-soft">
               ¿Algún problema con la reserva? Llámanos al{" "}
