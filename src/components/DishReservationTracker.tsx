@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { track } from "@vercel/analytics";
+import { readAttribution } from "@/lib/attribution";
 
 // El widget de reservas de DISH es un iframe (origin reservation.dish.co) que
 // confirma la reserva DENTRO de sí mismo: no redirige a una "página de gracias"
@@ -55,8 +56,15 @@ export default function DishReservationTracker() {
 
       if (payload?.event !== "submit_reservation") return;
 
-      // Custom event a Vercel Analytics (atribución por canal/UTM, cookieless).
-      track("submit_reservation", payload.params ?? {});
+      // Custom event a Vercel Analytics. Además de los datos de la reserva que
+      // manda DISH (date, people, timeslot...), adjuntamos la atribución
+      // first-touch (utm_*, gclid, referrer) guardada al aterrizar: así el
+      // origen aparece en la tabla de Events aunque Vercel no lo capte en la
+      // URL de /reservas (gclid de Ads, o UTM perdido al navegar internamente).
+      track("submit_reservation", {
+        ...(payload.params ?? {}),
+        ...readAttribution(),
+      });
     }
 
     window.addEventListener("message", onMessage);

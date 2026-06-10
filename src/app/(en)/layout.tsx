@@ -5,6 +5,8 @@ import ReelViewerProvider from "@/components/reels/ReelViewerProvider";
 import { GtmScript, GtmNoScript, GtmConsentDefault } from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
 import { Analytics } from "@vercel/analytics/next";
+import { Suspense } from "react";
+import AttributionCapture from "@/components/AttributionCapture";
 import { SITE_URL, alternatesForEn } from "@/lib/i18n";
 import { reviewStats, reviewStatsEn } from "@/data/reviews";
 
@@ -163,6 +165,9 @@ export default function EnLayout({
         <ConsentBanner lang="en" />
         <GtmScript />
         <Analytics />
+        <Suspense>
+          <AttributionCapture />
+        </Suspense>
       </body>
     </html>
   );
