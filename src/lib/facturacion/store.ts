@@ -1,18 +1,22 @@
-// Persistencia de la facturación diaria en Vercel Blob PRIVADO. La facturación
-// es dato sensible del negocio → blob privado (requiere auth para leerse; el
-// cliente nunca recibe la URL). Un único JSON con todos los días (volumen
-// trivial para un restaurante). 1 administrador, sin locking.
-import { get, put } from "@vercel/blob";
+// Persistencia de la facturación diaria en Vercel Blob. El store de este proyecto
+// NO soporta blobs privados, así que usamos blob público (como reviews) pero con
+// una RUTA secreta no adivinable (solo existe en el servidor; nunca se envía al
+// cliente). No es cifrado: si en el futuro se quiere máxima seguridad, mover a una
+// base de datos. Un único JSON con todos los días (volumen trivial). 1 admin, sin locking.
+import { list, put } from "@vercel/blob";
 import type { DayRecord } from "./types";
 
-const STATE_KEY = "facturacion/state.json";
+// Ruta no adivinable (server-only). NO cambiar sin migrar los datos existentes.
+const STATE_KEY = "facturacion/c7f1a9e3b264d5-caja.json";
 
 async function readState(): Promise<DayRecord[]> {
-  const res = await get(STATE_KEY, { access: "private", useCache: false });
-  if (!res || !res.stream) return [];
+  const { blobs } = await list({ prefix: STATE_KEY, limit: 1 });
+  const blob = blobs.find((b) => b.pathname === STATE_KEY);
+  if (!blob) return [];
+  const res = await fetch(blob.url, { cache: "no-store" });
+  if (!res.ok) return [];
   try {
-    const text = await new Response(res.stream).text();
-    const parsed = JSON.parse(text);
+    const parsed = await res.json();
     return Array.isArray(parsed) ? (parsed as DayRecord[]) : [];
   } catch {
     return [];
@@ -21,7 +25,7 @@ async function readState(): Promise<DayRecord[]> {
 
 async function writeState(days: DayRecord[]): Promise<void> {
   await put(STATE_KEY, JSON.stringify(days, null, 2), {
-    access: "private",
+    access: "public",
     contentType: "application/json",
     allowOverwrite: true,
     addRandomSuffix: false,
