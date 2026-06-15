@@ -78,7 +78,12 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
   const [showEntry, setShowEntry] = useState(false);
 
   const isCurrent = year === curY && month === curM;
-  const cutoff = isCurrent ? curDay : daysInMonth(year, month);
+  // En el mes en curso, el corte para comparar es el último día CON datos (no
+  // "hoy"): así se compara 1→N vs 1→N del mes anterior/año, sin que el otro mes
+  // sume días extra que este aún no tiene.
+  const curMonthRecs = recordsInMonth(days, curY, curM);
+  const lastDataDay = curMonthRecs.length ? Math.max(...curMonthRecs.map((r) => dayOfMonth(r.date))) : curDay;
+  const cutoff = isCurrent ? lastDataDay : daysInMonth(year, month);
 
   const prevM = month === 0 ? 11 : month - 1;
   const prevY = month === 0 ? year - 1 : year;
