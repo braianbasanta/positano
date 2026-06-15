@@ -1,8 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { cookies } from "next/headers";
 import { generateDraft } from "@/lib/reviews/draftEngine";
+import { checkPassword, isAuthed as isAuthedShared, setSession } from "@/lib/admin/auth";
 import {
   listItems,
   setDraft,
@@ -13,31 +13,14 @@ import {
 } from "@/lib/reviews/store";
 import type { Review } from "@/lib/reviews/types";
 
-const COOKIE = "positano_admin";
-
 export async function isAuthed(): Promise<boolean> {
-  const token = process.env.ADMIN_REVIEWS_TOKEN;
-  // Sin token configurado: abierto SOLO en desarrollo local. En producción
-  // queda cerrado (sin token no se puede entrar) para no exponer el panel.
-  if (!token) return process.env.NODE_ENV !== "production";
-  const c = await cookies();
-  return c.get(COOKIE)?.value === token;
+  return isAuthedShared();
 }
 
 export async function login(formData: FormData): Promise<{ error?: string }> {
-  const token = process.env.ADMIN_REVIEWS_TOKEN;
   const value = String(formData.get("token") || "");
-  if (!token || value !== token) {
-    return { error: "Contraseña incorrecta." };
-  }
-  const c = await cookies();
-  c.set(COOKIE, value, {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: true,
-    path: "/admin",
-    maxAge: 60 * 60 * 24 * 30,
-  });
+  if (!checkPassword(value)) return { error: "Contraseña incorrecta." };
+  await setSession(value);
   revalidatePath("/admin/reviews");
   return {};
 }
