@@ -16,7 +16,9 @@ export default async function PlanPage() {
   }
 
   const mediaObj = mediaDiariaObjetivo();
-  const pasoMensual = PASO_MEDIA * 26;
+  // Subir +250 € a un día concreto se nota ~4,3 veces al mes (ese día se repite
+  // cada semana) ≈ +1.075 €/mes. Redondeado para mostrar.
+  const pasoMensualDia = Math.round((PASO_MEDIA * 4.3) / 50) * 50;
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-10">
@@ -52,9 +54,11 @@ export default async function PlanPage() {
           {eur(mediaObj)} <span className="text-2xl text-cream/60">/ día operativo</span>
         </div>
         <p className="mt-2 max-w-2xl font-sans text-sm text-cream/70">
-          Cada <strong className="text-cream">+{PASO_MEDIA} €/día</strong> de media equivale a unos{" "}
-          <strong className="text-cream">+{pasoMensual.toLocaleString("es-ES")} €/mes</strong>. La regla:
-          subir el listón +{PASO_MEDIA} € cada vez que se consolida un objetivo.
+          <strong className="text-cream">Cómo se sube:</strong> cada día tiene su objetivo (tabla abajo). Cuando un
+          día lo cumple de forma <strong className="text-cream">estable</strong> —no un día suelto bueno—, se sube
+          ese objetivo <strong className="text-cream">+{PASO_MEDIA} €</strong>. Subir un día del finde se nota unos{" "}
+          <strong className="text-cream">+{pasoMensualDia.toLocaleString("es-ES")} €/mes</strong>. Según van subiendo
+          los días, la media diaria sube con ellos.
           {OBJETIVO_MENSUAL ? ` Referencia de total mensual: ${eur(OBJETIVO_MENSUAL)}.` : ""}
         </p>
       </div>
