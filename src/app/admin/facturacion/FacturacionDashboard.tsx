@@ -226,7 +226,7 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
       </label>
 
       {/* KPIs */}
-      <div className="mt-5 grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className={`mt-5 grid grid-cols-2 gap-4 ${isCurrent ? "lg:grid-cols-5" : "lg:grid-cols-4"}`}>
         <Kpi
           label={isCurrent ? `Mes en curso (1–${cutoff})` : "Total del mes"}
           value={eur0(calc.sel.total)}
@@ -244,18 +244,17 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
           sub={calc.yoy.total ? `${eur0(calc.yoy.total)} mismo tramo` : "sin datos año previo"}
           tone={pct(calc.sel.total, calc.yoy.total)}
         />
-        {isCurrent ? (
+        <Kpi
+          label="Media diaria"
+          value={eur0(calc.proj.perOperatingDay)}
+          sub={calc.best ? `mejor: ${eur0(calc.best.total)} (día ${calc.best.date.slice(8)})` : "—"}
+        />
+        {isCurrent && (
           <Kpi
             label="Proyección cierre"
             value={eur0(calc.proj.projected)}
-            sub={`media ${eur0(calc.proj.perOperatingDay)}/día operativo`}
+            sub={`objetivo ${eur0(OBJETIVO_MENSUAL)}`}
             tone={projVsObjetivo >= 0 ? 1 : -1}
-          />
-        ) : (
-          <Kpi
-            label="Media diaria"
-            value={eur0(calc.proj.perOperatingDay)}
-            sub={calc.best ? `mejor: ${eur0(calc.best.total)} (${calc.best.date.slice(8)})` : "—"}
           />
         )}
       </div>
