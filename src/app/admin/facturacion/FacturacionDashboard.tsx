@@ -35,10 +35,14 @@ import {
   projectMonth,
   recordsInMonth,
   weekdayAverages,
+  weekdayLabel,
   weekdayOf,
 } from "@/lib/facturacion/analytics";
 import { OBJETIVO_MENSUAL, objetivoDia } from "@/lib/facturacion/objetivos";
 import EntradaDatos from "./EntradaDatos";
+
+// Inicial del día por getDay() (0=domingo … 6=sábado). M=martes, X=miércoles.
+const INICIAL_DIA = ["D", "L", "M", "X", "J", "V", "S"];
 
 const INK = "#1d2750";
 const LEMON = "#c6a253";
@@ -103,11 +107,21 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
       const wd = weekdayOf(r.date);
       const obj = objetivoDia(wd);
       const t = dayTotal(r);
+      const dnum = dayOfMonth(r.date);
       let color = INK;
       if (r.closed) color = ZINC;
       else if (obj && t >= obj) color = EMERALD;
       else if (t === 0) color = ZINC;
-      return { day: dayOfMonth(r.date), total: t, objetivo: obj ?? null, closed: !!r.closed, color };
+      const dia = weekdayLabel(wd);
+      return {
+        day: dnum,
+        axis: `${INICIAL_DIA[wd]}${dnum}`,
+        full: `${dia.charAt(0).toUpperCase()}${dia.slice(1)} ${dnum}`,
+        total: t,
+        objetivo: obj ?? null,
+        closed: !!r.closed,
+        color,
+      };
     });
 
     const compareData = [
@@ -209,9 +223,12 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
           <ResponsiveContainer width="100%" height={260}>
             <ComposedChart data={calc.dailyData} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
-              <XAxis dataKey="day" tick={{ fontSize: 11 }} />
+              <XAxis dataKey="axis" tick={{ fontSize: 10 }} interval={0} />
               <YAxis tickFormatter={eurAxis} tick={{ fontSize: 11 }} width={38} />
-              <Tooltip formatter={(v) => eur0(Number(v))} labelFormatter={(l) => `Día ${l}`} />
+              <Tooltip
+                formatter={(v) => eur0(Number(v))}
+                labelFormatter={(l) => calc.dailyData.find((d) => d.axis === l)?.full ?? String(l)}
+              />
               <Bar dataKey="total" radius={[3, 3, 0, 0]}>
                 {calc.dailyData.map((d, i) => (
                   <Cell key={i} fill={d.color} />
