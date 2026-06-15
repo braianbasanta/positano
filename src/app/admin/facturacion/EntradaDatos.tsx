@@ -15,18 +15,18 @@ export default function EntradaDatos({ defaultDate }: { defaultDate: string }) {
 
 function ServicioInputs({ prefix, titulo }: { prefix: "lunch" | "dinner"; titulo: string }) {
   return (
-    <fieldset className="rounded-lg border border-zinc-200 p-3">
-      <legend className="px-1 text-xs font-semibold uppercase tracking-wide text-zinc-500">{titulo}</legend>
+    <fieldset className="rounded-lg border border-ink/10 p-3">
+      <legend className="px-1 font-sans text-xs font-semibold uppercase tracking-wide text-ink/50">{titulo}</legend>
       <div className="grid grid-cols-2 gap-2">
         {CANALES.map((c: Canal) => (
-          <label key={c} className="text-xs text-zinc-500">
+          <label key={c} className="font-sans text-xs text-ink/50">
             {CANAL_LABEL[c]}
             <input
               name={`${prefix}_${c}`}
               type="text"
               inputMode="decimal"
               placeholder="0"
-              className="mt-0.5 w-full rounded-md border border-zinc-200 p-1.5 text-sm text-zinc-900"
+              className="mt-0.5 w-full rounded-md border border-ink/15 bg-white p-1.5 font-sans text-sm text-ink outline-none focus:border-lemon"
             />
           </label>
         ))}
@@ -46,21 +46,21 @@ function DiaForm({ defaultDate }: { defaultDate: string }) {
   );
 
   return (
-    <div className="rounded-xl border border-zinc-200 bg-white p-4 shadow-sm">
-      <h3 className="text-sm font-semibold text-zinc-900">Registrar un día</h3>
-      <p className="mt-0.5 text-xs text-zinc-400">Mediodía y cena por canal. Acepta coma decimal (1.234,56).</p>
+    <div className="rounded-xl border border-ink/10 bg-white/70 p-4 shadow-sm">
+      <h3 className="font-display text-lg font-semibold text-ink">Registrar un día</h3>
+      <p className="mt-0.5 font-sans text-xs text-ink/40">Mediodía y cena por canal. Acepta coma decimal (1.234,56).</p>
       <form action={action} className="mt-3 space-y-3">
         <div className="flex flex-wrap items-center gap-3">
-          <label className="text-xs text-zinc-500">
+          <label className="font-sans text-xs text-ink/50">
             Fecha
             <input
               name="date"
               type="date"
               defaultValue={defaultDate}
-              className="ml-2 rounded-md border border-zinc-200 p-1.5 text-sm text-zinc-900"
+              className="ml-2 rounded-md border border-ink/15 bg-white p-1.5 font-sans text-sm text-ink outline-none focus:border-lemon"
             />
           </label>
-          <label className="flex items-center gap-1.5 text-sm text-zinc-700">
+          <label className="flex items-center gap-1.5 font-sans text-sm text-ink/70">
             <input name="closed" type="checkbox" checked={closed} onChange={(e) => setClosed(e.target.checked)} />
             Cerrado
           </label>
@@ -77,19 +77,19 @@ function DiaForm({ defaultDate }: { defaultDate: string }) {
           name="note"
           type="text"
           placeholder="Nota (opcional)"
-          className="w-full rounded-md border border-zinc-200 p-1.5 text-sm text-zinc-900"
+          className="w-full rounded-md border border-ink/15 bg-white p-1.5 font-sans text-sm text-ink outline-none focus:border-lemon"
         />
 
         <div className="flex items-center gap-3">
           <button
             type="submit"
             disabled={pending}
-            className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 disabled:opacity-50"
+            className="rounded-lg bg-ink px-4 py-2 font-sans text-sm font-medium text-cream transition hover:bg-ink-soft disabled:opacity-50"
           >
             Guardar día
           </button>
-          {state.error && <span className="text-sm text-red-600">{state.error}</span>}
-          {state.ok && <span className="text-sm text-emerald-600">Guardado ✓</span>}
+          {state.error && <span className="font-sans text-sm text-red-600">{state.error}</span>}
+          {state.ok && <span className="font-sans text-sm text-emerald-600">Guardado ✓</span>}
         </div>
       </form>
     </div>
@@ -103,9 +103,9 @@ function PegarExcel() {
   );
 
   return (
-    <div className="rounded-xl border border-zinc-200 bg-white p-4 shadow-sm">
-      <h3 className="text-sm font-semibold text-zinc-900">Importar histórico (pegar del Excel)</h3>
-      <p className="mt-0.5 text-xs text-zinc-400">
+    <div className="rounded-xl border border-ink/10 bg-white/70 p-4 shadow-sm">
+      <h3 className="font-display text-lg font-semibold text-ink">Importar histórico (pegar del Excel)</h3>
+      <p className="mt-0.5 font-sans text-xs text-ink/40">
         Copia las filas desde el Excel (desde la columna de la fecha hasta Uber/TheFork). Se guardan como total del día;
         los días vacíos se marcan como cerrados.
       </p>
@@ -114,19 +114,19 @@ function PegarExcel() {
           name="paste"
           rows={8}
           placeholder={"lunes, 1 de junio de 2026\t\t44,9\t771,92\t151,49\t128,9\t1.097,21\n…"}
-          className="w-full rounded-md border border-zinc-200 p-2 font-mono text-xs text-zinc-900"
+          className="w-full rounded-md border border-ink/15 bg-white p-2 font-mono text-xs text-ink outline-none focus:border-lemon"
         />
         <div className="flex items-center gap-3">
           <button
             type="submit"
             disabled={pending}
-            className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 disabled:opacity-50"
+            className="rounded-lg bg-ink px-4 py-2 font-sans text-sm font-medium text-cream transition hover:bg-ink-soft disabled:opacity-50"
           >
             Importar
           </button>
-          {state.error && <span className="text-sm text-red-600">{state.error}</span>}
+          {state.error && <span className="font-sans text-sm text-red-600">{state.error}</span>}
           {state.imported !== undefined && (
-            <span className="text-sm text-emerald-600">
+            <span className="font-sans text-sm text-emerald-600">
               {state.imported} días importados{state.skipped ? ` · ${state.skipped} líneas ignoradas` : ""} ✓
             </span>
           )}

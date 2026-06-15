@@ -39,7 +39,7 @@ import {
   weekdayLabel,
   weekdayOf,
 } from "@/lib/facturacion/analytics";
-import { OBJETIVO_MENSUAL, objetivoDia } from "@/lib/facturacion/objetivos";
+import { mediaDiariaObjetivo, OBJETIVO_MENSUAL, objetivoDia } from "@/lib/facturacion/objetivos";
 import EntradaDatos from "./EntradaDatos";
 
 // Inicial del día por getDay() (0=domingo … 6=sábado). M=martes, X=miércoles.
@@ -166,7 +166,8 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
     };
   }, [days, effectiveDays, year, month, prevM, prevY, cutoff]);
 
-  const objetivoMesPct = OBJETIVO_MENSUAL ? (calc.sel.total / OBJETIVO_MENSUAL) * 100 : 0;
+  const mediaObj = mediaDiariaObjetivo();
+  const mediaDiaPct = mediaObj ? (calc.proj.perOperatingDay / mediaObj) * 100 : 0;
   const projVsObjetivo = calc.proj.projected - OBJETIVO_MENSUAL;
 
   function shiftMonth(delta: number) {
@@ -180,26 +181,31 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
       {/* Cabecera + selector de mes */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <a href="/admin" className="text-xs text-zinc-400 hover:text-zinc-600">
-            ← Panel
-          </a>
-          <h1 className="text-3xl font-bold text-zinc-900">Facturación</h1>
+          <div className="flex items-center gap-3">
+            <a href="/admin" className="font-sans text-xs text-ink/40 transition hover:text-lemon">
+              ← Panel
+            </a>
+            <a href="/admin/plan" className="font-sans text-xs font-medium text-lemon transition hover:text-ink">
+              Plan de facturación →
+            </a>
+          </div>
+          <h1 className="font-display text-4xl font-semibold text-ink">Facturación</h1>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => shiftMonth(-1)}
-            className="rounded-lg border border-zinc-200 bg-white px-3.5 py-2 text-base hover:bg-zinc-50"
+            className="rounded-lg border border-ink/10 bg-white/70 px-3.5 py-2 text-base text-ink transition hover:border-lemon"
           >
             ‹
           </button>
-          <span className="min-w-[170px] text-center text-base font-semibold text-zinc-900">
+          <span className="min-w-[170px] text-center font-sans text-base font-semibold text-ink">
             {monthLabel(month)} {year}
-            {isCurrent && <span className="ml-1 text-xs font-normal text-zinc-400">(en curso)</span>}
+            {isCurrent && <span className="ml-1 text-xs font-normal text-ink/40">(en curso)</span>}
           </span>
           <button
             onClick={() => shiftMonth(1)}
             disabled={year === curY && month === curM}
-            className="rounded-lg border border-zinc-200 bg-white px-3.5 py-2 text-base hover:bg-zinc-50 disabled:opacity-40"
+            className="rounded-lg border border-ink/10 bg-white/70 px-3.5 py-2 text-base text-ink transition hover:border-lemon disabled:opacity-40"
           >
             ›
           </button>
@@ -207,9 +213,9 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
       </div>
 
       {/* Toggle domicilio */}
-      <label className="mt-5 inline-flex cursor-pointer items-center gap-3 rounded-xl border border-zinc-200 bg-white px-4 py-2.5 shadow-sm">
-        <span className="text-sm font-medium text-zinc-700">Incluir domicilio (Glovo/Uber)</span>
-        <span className={`relative h-6 w-11 rounded-full transition ${includeDelivery ? "bg-emerald-500" : "bg-zinc-300"}`}>
+      <label className="mt-5 inline-flex cursor-pointer items-center gap-3 rounded-xl border border-ink/10 bg-white/70 px-4 py-2.5 shadow-sm">
+        <span className="font-sans text-sm font-medium text-ink/70">Incluir domicilio (Glovo/Uber)</span>
+        <span className={`relative h-6 w-11 rounded-full transition ${includeDelivery ? "bg-lemon" : "bg-ink/20"}`}>
           <input
             type="checkbox"
             checked={includeDelivery}
@@ -220,7 +226,7 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
             className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition ${includeDelivery ? "translate-x-5" : ""}`}
           />
         </span>
-        <span className="text-xs font-medium text-zinc-400">
+        <span className="font-sans text-xs font-medium text-ink/40">
           {includeDelivery ? "KPIs con domicilio" : "KPIs solo sala"}
         </span>
       </label>
@@ -247,7 +253,8 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
         <Kpi
           label="Media diaria"
           value={eur0(calc.proj.perOperatingDay)}
-          sub={calc.best ? `mejor: ${eur0(calc.best.total)} (día ${calc.best.date.slice(8)})` : "—"}
+          sub={`objetivo ${eur0(mediaObj)} · ${Math.round(mediaDiaPct)}%`}
+          tone={calc.proj.perOperatingDay - mediaObj}
         />
         {isCurrent && (
           <Kpi
@@ -259,31 +266,37 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
         )}
       </div>
 
-      {/* Progreso del objetivo mensual */}
-      <div className="mt-4 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+      {/* Progreso de la media diaria objetivo (KPI maestro) */}
+      <div className="mt-4 rounded-2xl border border-ink/10 bg-white/70 p-5 shadow-sm">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <div className="text-xs font-medium uppercase tracking-wide text-zinc-400">Objetivo del mes</div>
-            <div className="mt-0.5 text-xl font-bold text-zinc-900">
-              {eur0(calc.sel.total)} <span className="text-zinc-400">/ {eur0(OBJETIVO_MENSUAL)}</span>
-              <span className="ml-2 text-base font-semibold text-zinc-500">{Math.round(objetivoMesPct)}%</span>
+            <div className="font-sans text-xs font-semibold uppercase tracking-wide text-ink/40">
+              Media diaria del mes
+            </div>
+            <div className="mt-0.5 font-display text-2xl font-semibold text-ink">
+              {eur0(calc.proj.perOperatingDay)} <span className="text-ink/40">/ {eur0(mediaObj)} objetivo</span>
+              <span className="ml-2 font-sans text-base font-semibold text-ink/50">{Math.round(mediaDiaPct)}%</span>
+            </div>
+            <div className="mt-0.5 font-sans text-xs text-ink/40">
+              Total del mes: {eur0(calc.sel.total)} en {calc.sel.operatingDays} días operativos
+              {OBJETIVO_MENSUAL ? ` · ref. mensual ${eur0(OBJETIVO_MENSUAL)}` : ""}
             </div>
           </div>
-          <div className="text-right text-sm">
+          <div className="text-right font-sans text-sm">
             {isCurrent && (
               <div className={projVsObjetivo >= 0 ? "font-semibold text-emerald-600" : "font-semibold text-amber-600"}>
-                Proyección {eur0(calc.proj.projected)} · {projVsObjetivo >= 0 ? "supera" : "a"} {eur0(Math.abs(projVsObjetivo))} {projVsObjetivo >= 0 ? "el objetivo" : "del objetivo"}
+                Proyección {eur0(calc.proj.projected)} · {projVsObjetivo >= 0 ? "supera" : "a"} {eur0(Math.abs(projVsObjetivo))} {projVsObjetivo >= 0 ? "la ref. mensual" : "de la ref. mensual"}
               </div>
             )}
-            <div className="text-zinc-500">
+            <div className="text-ink/50">
               {calc.metGoal} de {calc.opDaysCount} días alcanzaron su objetivo diario
             </div>
           </div>
         </div>
-        <div className="mt-3 h-3 w-full overflow-hidden rounded-full bg-zinc-100">
+        <div className="mt-3 h-3 w-full overflow-hidden rounded-full bg-ink/10">
           <div
-            className="h-full rounded-full bg-[#1d2750]"
-            style={{ width: `${Math.min(100, Math.max(0, objetivoMesPct))}%` }}
+            className="h-full rounded-full bg-lemon"
+            style={{ width: `${Math.min(100, Math.max(0, mediaDiaPct))}%` }}
           />
         </div>
       </div>
@@ -410,7 +423,7 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
       <div className="mt-8">
         <button
           onClick={() => setShowEntry((v) => !v)}
-          className="rounded-lg bg-zinc-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-zinc-700"
+          className="rounded-lg bg-ink px-4 py-2.5 font-sans text-sm font-medium text-cream transition hover:bg-ink-soft"
         >
           {showEntry ? "Ocultar entrada de datos" : "Añadir / importar datos"}
         </button>
@@ -427,15 +440,15 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
 function Kpi({ label, value, sub, tone }: { label: string; value: string; sub?: string; tone?: number | null }) {
   const toneClass =
     tone === undefined || tone === null
-      ? "text-zinc-900"
+      ? "text-ink"
       : tone >= 0
         ? "text-emerald-600"
         : "text-red-600";
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-      <div className="text-xs font-medium uppercase tracking-wide text-zinc-400">{label}</div>
-      <div className={`mt-1 text-3xl font-bold ${toneClass}`}>{value}</div>
-      {sub && <div className="mt-1 text-xs text-zinc-500">{sub}</div>}
+    <div className="rounded-2xl border border-ink/10 bg-white/70 p-5 shadow-sm">
+      <div className="font-sans text-xs font-semibold uppercase tracking-wide text-ink/40">{label}</div>
+      <div className={`mt-1 font-display text-3xl font-semibold ${toneClass}`}>{value}</div>
+      {sub && <div className="mt-1 font-sans text-xs text-ink/50">{sub}</div>}
     </div>
   );
 }
@@ -452,14 +465,14 @@ function Card({
   className?: string;
 }) {
   return (
-    <div className={`rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm ${className}`}>
-      <h2 className="text-base font-semibold text-zinc-900">{title}</h2>
-      {hint && <p className="mt-0.5 text-xs text-zinc-400">{hint}</p>}
+    <div className={`rounded-2xl border border-ink/10 bg-white/70 p-5 shadow-sm ${className}`}>
+      <h2 className="font-display text-xl font-semibold text-ink">{title}</h2>
+      {hint && <p className="mt-0.5 font-sans text-xs text-ink/40">{hint}</p>}
       <div className="mt-4">{children}</div>
     </div>
   );
 }
 
 function Empty({ children }: { children: React.ReactNode }) {
-  return <div className="flex h-[300px] items-center justify-center text-center text-sm text-zinc-400">{children}</div>;
+  return <div className="flex h-[300px] items-center justify-center text-center font-sans text-sm text-ink/40">{children}</div>;
 }

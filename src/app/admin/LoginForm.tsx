@@ -10,25 +10,28 @@ export default function LoginForm({ title = "Panel de administración · Positan
   );
 
   return (
-    <div className="mx-auto max-w-sm px-4 py-20">
-      <h1 className="text-lg font-bold text-zinc-900">{title}</h1>
-      <p className="mt-1 text-sm text-zinc-500">Introduce la contraseña de administrador.</p>
-      <form action={action} className="mt-4 flex gap-2">
-        <input
-          name="token"
-          type="password"
-          placeholder="Contraseña"
-          className="flex-1 rounded-lg border border-zinc-200 p-2 text-sm"
-        />
-        <button
-          type="submit"
-          disabled={pending}
-          className="rounded-lg bg-zinc-900 px-3 py-2 text-sm font-medium text-white hover:bg-zinc-700 disabled:opacity-50"
-        >
-          Entrar
-        </button>
-      </form>
-      {state.error && <p className="mt-2 text-sm text-red-600">{state.error}</p>}
+    <div className="mx-auto flex min-h-screen max-w-sm flex-col justify-center px-4">
+      <div className="rounded-2xl border border-ink/10 bg-white/70 p-8 shadow-sm">
+        <p className="font-sans text-xs font-semibold uppercase tracking-[0.3em] text-lemon">Positano</p>
+        <h1 className="mt-2 font-display text-2xl font-semibold text-ink">{title}</h1>
+        <p className="mt-1 text-base text-ink/60">Introduce la contraseña de administrador.</p>
+        <form action={action} className="mt-5 flex gap-2">
+          <input
+            name="token"
+            type="password"
+            placeholder="Contraseña"
+            className="flex-1 rounded-lg border border-ink/15 bg-white px-3 py-2 font-sans text-sm text-ink outline-none focus:border-lemon focus:ring-1 focus:ring-lemon"
+          />
+          <button
+            type="submit"
+            disabled={pending}
+            className="rounded-lg bg-ink px-4 py-2 font-sans text-sm font-medium text-cream transition hover:bg-ink-soft disabled:opacity-50"
+          >
+            Entrar
+          </button>
+        </form>
+        {state.error && <p className="mt-3 font-sans text-sm text-red-600">{state.error}</p>}
+      </div>
     </div>
   );
 }

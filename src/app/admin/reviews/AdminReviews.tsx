@@ -14,9 +14,9 @@ import {
 
 function Stars({ rating }: { rating: number }) {
   return (
-    <span className="text-amber-500" aria-label={`${rating} de 5`}>
+    <span className="text-lemon" aria-label={`${rating} de 5`}>
       {"★".repeat(rating)}
-      <span className="text-zinc-300">{"★".repeat(5 - rating)}</span>
+      <span className="text-ink/20">{"★".repeat(5 - rating)}</span>
     </span>
   );
 }
@@ -55,24 +55,24 @@ function ReviewCard({ item }: { item: ReviewItem }) {
   };
 
   return (
-    <div className="rounded-xl border border-zinc-200 bg-white p-4 shadow-sm">
+    <div className="rounded-xl border border-ink/10 bg-white/70 p-4 shadow-sm">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <div className="font-semibold text-zinc-900">{review.authorName}</div>
+          <div className="font-display text-lg font-semibold text-ink">{review.authorName}</div>
           <div className="text-sm">
             <Stars rating={review.rating} />{" "}
-            <span className="text-zinc-400">
+            <span className="font-sans text-ink/40">
               {new Date(review.createdAt).toLocaleDateString("es-ES")}
             </span>
           </div>
         </div>
         <span
-          className={`rounded-full px-2 py-0.5 text-xs font-medium ${
+          className={`rounded-full px-2 py-0.5 font-sans text-xs font-medium ${
             status === "approved"
-              ? "bg-green-100 text-green-700"
+              ? "bg-emerald-100 text-emerald-700"
               : status === "skipped"
-                ? "bg-zinc-100 text-zinc-500"
-                : "bg-amber-100 text-amber-700"
+                ? "bg-ink/10 text-ink/50"
+                : "bg-lemon/20 text-[#8a6d28]"
           }`}
         >
           {STATUS_LABEL[status] ?? status}
@@ -80,14 +80,14 @@ function ReviewCard({ item }: { item: ReviewItem }) {
       </div>
 
       {review.text && (
-        <p className="mt-2 rounded-lg bg-zinc-50 p-2 text-sm text-zinc-700">{review.text}</p>
+        <p className="mt-2 rounded-lg bg-cream-deep p-2 text-sm text-ink/70">{review.text}</p>
       )}
 
       <div className="mt-3">
-        <label className="text-xs font-medium text-zinc-500">
+        <label className="font-sans text-xs font-medium text-ink/50">
           Borrador de respuesta
           {draft && (
-            <span className="ml-2 font-normal text-zinc-400">
+            <span className="ml-2 font-normal text-ink/40">
               {draft.detectedLanguage} · {draft.model}
             </span>
           )}
@@ -97,17 +97,17 @@ function ReviewCard({ item }: { item: ReviewItem }) {
           onChange={(e) => setReply(e.target.value)}
           rows={4}
           placeholder={draft ? "" : "Aún no hay borrador. Pulsa Generar."}
-          className="mt-1 w-full resize-y rounded-lg border border-zinc-200 p-2 text-sm focus:border-zinc-400 focus:outline-none"
+          className="mt-1 w-full resize-y rounded-lg border border-ink/15 bg-white p-2 font-sans text-sm text-ink focus:border-lemon focus:outline-none"
         />
       </div>
 
-      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+      {error && <p className="mt-2 font-sans text-sm text-red-600">{error}</p>}
 
       <div className="mt-3 flex flex-wrap gap-2">
         <button
           onClick={() => run(() => regenerate(review.id))}
           disabled={pending}
-          className="rounded-lg border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-50 disabled:opacity-50"
+          className="rounded-lg border border-ink/20 px-3 py-1.5 font-sans text-sm font-medium text-ink/70 transition hover:border-lemon hover:text-ink disabled:opacity-50"
         >
           {draft ? "Regenerar" : "Generar"}
         </button>
@@ -115,7 +115,7 @@ function ReviewCard({ item }: { item: ReviewItem }) {
           <button
             onClick={() => run(() => saveReply(review.id, reply))}
             disabled={pending}
-            className="rounded-lg border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-50 disabled:opacity-50"
+            className="rounded-lg border border-ink/20 px-3 py-1.5 font-sans text-sm font-medium text-ink/70 transition hover:border-lemon hover:text-ink disabled:opacity-50"
           >
             Guardar edición
           </button>
@@ -124,7 +124,7 @@ function ReviewCard({ item }: { item: ReviewItem }) {
           <button
             onClick={copyAndApprove}
             disabled={pending || !reply.trim()}
-            className="rounded-lg bg-zinc-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-zinc-700 disabled:opacity-50"
+            className="rounded-lg bg-ink px-3 py-1.5 font-sans text-sm font-medium text-cream transition hover:bg-ink-soft disabled:opacity-50"
           >
             {copied ? "¡Copiado! ✓" : "Copiar y aprobar"}
           </button>
@@ -133,7 +133,7 @@ function ReviewCard({ item }: { item: ReviewItem }) {
           <button
             onClick={() => run(() => reopen(review.id))}
             disabled={pending}
-            className="rounded-lg px-3 py-1.5 text-sm text-zinc-400 hover:text-zinc-700"
+            className="rounded-lg px-3 py-1.5 font-sans text-sm text-ink/40 transition hover:text-ink"
           >
             Reabrir
           </button>
@@ -141,7 +141,7 @@ function ReviewCard({ item }: { item: ReviewItem }) {
           <button
             onClick={() => run(() => skip(review.id))}
             disabled={pending}
-            className="rounded-lg px-3 py-1.5 text-sm text-zinc-400 hover:text-zinc-700"
+            className="rounded-lg px-3 py-1.5 font-sans text-sm text-ink/40 transition hover:text-ink"
           >
             Saltar
           </button>
@@ -166,16 +166,16 @@ function AddReviewForm() {
         });
       }}
       id="add-review-form"
-      className="rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-4"
+      className="rounded-xl border border-dashed border-ink/20 bg-white/50 p-4"
     >
-      <div className="text-sm font-semibold text-zinc-700">Añadir reseña a mano</div>
+      <div className="font-sans text-sm font-semibold text-ink/70">Añadir reseña a mano</div>
       <div className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]">
         <input
           name="authorName"
           placeholder="Nombre del cliente"
-          className="rounded-lg border border-zinc-200 p-2 text-sm"
+          className="rounded-lg border border-ink/15 bg-white p-2 font-sans text-sm text-ink outline-none focus:border-lemon"
         />
-        <select name="rating" defaultValue="5" className="rounded-lg border border-zinc-200 p-2 text-sm">
+        <select name="rating" defaultValue="5" className="rounded-lg border border-ink/15 bg-white p-2 font-sans text-sm text-ink outline-none focus:border-lemon">
           {[5, 4, 3, 2, 1].map((n) => (
             <option key={n} value={n}>
               {n} ★
@@ -187,13 +187,13 @@ function AddReviewForm() {
         name="text"
         rows={2}
         placeholder="Texto de la reseña (déjalo vacío si es solo estrellas)"
-        className="mt-2 w-full rounded-lg border border-zinc-200 p-2 text-sm"
+        className="mt-2 w-full rounded-lg border border-ink/15 bg-white p-2 font-sans text-sm text-ink outline-none focus:border-lemon"
       />
-      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+      {error && <p className="mt-2 font-sans text-sm text-red-600">{error}</p>}
       <button
         type="submit"
         disabled={pending}
-        className="mt-2 rounded-lg bg-zinc-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-zinc-700 disabled:opacity-50"
+        className="mt-2 rounded-lg bg-ink px-3 py-1.5 font-sans text-sm font-medium text-cream transition hover:bg-ink-soft disabled:opacity-50"
       >
         {pending ? "Generando borrador…" : "Añadir y generar borrador"}
       </button>
@@ -212,15 +212,18 @@ export default function AdminReviews({
   const done = items.filter((i) => i.status !== "pending");
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-8">
-      <h1 className="text-xl font-bold text-zinc-900">Respuestas a reseñas · Positano</h1>
-      <p className="mt-1 text-sm text-zinc-500">
+    <div className="mx-auto max-w-2xl px-4 py-10">
+      <a href="/admin" className="font-sans text-xs text-ink/40 transition hover:text-lemon">
+        ← Panel
+      </a>
+      <h1 className="font-display text-3xl font-semibold text-ink">Respuestas a reseñas</h1>
+      <p className="mt-1 text-base text-ink/60">
         Claude genera el borrador, tú revisas, editas y apruebas. Modo manual: copia la
         respuesta y pégala en Google.
       </p>
 
       {devMode && (
-        <div className="mt-4 rounded-lg bg-amber-50 p-3 text-sm text-amber-800">
+        <div className="mt-4 rounded-lg bg-amber-50 p-3 font-sans text-sm text-amber-800">
           ⚠️ Modo dev sin contraseña (falta <code>ADMIN_REVIEWS_TOKEN</code>). Configúralo antes
           de subir esto a producción.
         </div>
@@ -232,7 +235,7 @@ export default function AdminReviews({
 
       <div className="mt-6 space-y-3">
         {pending.length === 0 && (
-          <p className="text-sm text-zinc-400">No hay reseñas pendientes.</p>
+          <p className="font-sans text-sm text-ink/40">No hay reseñas pendientes.</p>
         )}
         {pending.map((item) => (
           <ReviewCard key={item.review.id} item={item} />
@@ -241,7 +244,7 @@ export default function AdminReviews({
 
       {done.length > 0 && (
         <details className="mt-8">
-          <summary className="cursor-pointer text-sm font-medium text-zinc-500">
+          <summary className="cursor-pointer font-sans text-sm font-medium text-ink/50">
             Procesadas ({done.length})
           </summary>
           <div className="mt-3 space-y-3">
