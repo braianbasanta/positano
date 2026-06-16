@@ -9,10 +9,9 @@ import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
-import { reviewStats } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: `Pizza Napolitana en Barcelona ★${reviewStats.rating} · Positano Eixample`,
+  title: "Pizza Napolitana en Barcelona · Horno de Leña · Positano",
   description:
     "Pizza napolitana auténtica en Barcelona: masa fermentada 48 horas, horno de leña e ingredientes DOP italianos. La verdadera pizza de Nápoles en el Eixample.",
   alternates: alternatesFor("/pizza-napolitana-barcelona"),

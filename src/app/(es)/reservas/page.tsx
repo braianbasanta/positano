@@ -8,7 +8,6 @@ import JsonLd from "@/components/JsonLd";
 import DishReservationTracker from "@/components/DishReservationTracker";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
-import { reviewStats } from "@/data/reviews";
 
 const DISH_ID = "hydra-e271f889-46d4-4929-baba-ef5fe752476a";
 // Colores de marca Positano (ver globals.css) inyectados en el widget DISH por
@@ -27,7 +26,7 @@ const DISH_WIDGET_URL =
   "&secondaryButtonForegroundColor=%23f3ecdc";
 
 export const metadata: Metadata = {
-  title: `Reserva tu Mesa en Positano ★${reviewStats.rating} · Pizzería Eixample`,
+  title: "Reservar Mesa · Pizzería en el Eixample · Positano BCN",
   description:
     "Reserva tu mesa en Positano, pizzería napolitana en el corazón del Eixample, Barcelona. Elige día, hora y comensales — confirmación inmediata online.",
   alternates: alternatesFor("/reservas"),

@@ -7,10 +7,9 @@ import MenuExplorer from "@/components/MenuExplorer";
 import JsonLd from "@/components/JsonLd";
 import { menuJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
-import { reviewStatsEn } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: `Positano Menu ★${reviewStatsEn.rating} · Neapolitan Pizza in Barcelona`,
+  title: "The Menu · Neapolitan Pizza, Pasta & Cocktails · Positano",
   description:
     "Positano's menu: 48-hour fermented Neapolitan pizza, fresh pasta, antipasti, risotti and mains. Italian restaurant in the Eixample, Barcelona.",
   alternates: alternatesForEn("/en/menu"),

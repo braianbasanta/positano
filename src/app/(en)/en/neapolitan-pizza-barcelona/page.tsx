@@ -9,10 +9,9 @@ import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
-import { reviewStatsEn } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: `Authentic Neapolitan Pizza ★${reviewStatsEn.rating} · Positano Barcelona`,
+  title: "Authentic Neapolitan Pizza · Wood-Fired · Positano BCN",
   description:
     "Positano is an authentic Neapolitan pizzeria in Barcelona. Recipes from Campania, 48-hour fermented dough, wood-fired oven and Italian DOP ingredients.",
   alternates: alternatesForEn("/en/neapolitan-pizza-barcelona"),

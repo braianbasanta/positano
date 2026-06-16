@@ -10,13 +10,12 @@ import MenuSemanal from "@/components/MenuSemanal";
 import Resenas from "@/components/Resenas";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
-import { reviewStats } from "@/data/reviews";
 
 const PLACE_URL =
   "https://www.google.com/maps/search/?api=1&query=Positano+Pizzeria+Carrer+del+Rossell%C3%B3+24+Barcelona&query_place_id=ChIJsRxSfvqjpBIR1V-jzgurn2U";
 
 export const metadata: Metadata = {
-  title: `Menú del Día en el Eixample ★${reviewStats.rating} · Positano Barcelona`,
+  title: "Menú del Día en el Eixample · Italiano · Positano BCN",
   description:
     "Menú del día en Positano, pizzería italiana en el Eixample, Barcelona, por 14,90 €. Comida casera de martes a viernes. Aceptamos Ticket Restaurant®.",
   alternates: alternatesFor("/menu-del-dia"),

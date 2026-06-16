@@ -25,7 +25,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: `Positano ★${reviewStatsEn.rating} · Neapolitan Pizza Barcelona`,
+  title: "Neapolitan Pizza in the Eixample · Wood-Fired · Positano",
   description:
     "Authentic Neapolitan pizzeria and Italian restaurant in the Eixample, Barcelona. 48-hour fermented wood-fired pizza, fresh pasta and cocktails.",
   keywords: [

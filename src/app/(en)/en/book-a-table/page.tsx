@@ -8,7 +8,6 @@ import JsonLd from "@/components/JsonLd";
 import DishReservationTracker from "@/components/DishReservationTracker";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
-import { reviewStatsEn } from "@/data/reviews";
 
 const DISH_ID = "hydra-e271f889-46d4-4929-baba-ef5fe752476a";
 // Colores de marca Positano (ver globals.css) inyectados en el widget DISH por
@@ -27,7 +26,7 @@ const DISH_WIDGET_URL =
   "&secondaryButtonForegroundColor=%23f3ecdc";
 
 export const metadata: Metadata = {
-  title: `Book a Table at Positano ★${reviewStatsEn.rating} · Pizzeria Eixample`,
+  title: "Book a Table · Pizzeria in the Eixample · Positano BCN",
   description:
     "Book your table at Positano, a Neapolitan pizzeria in the heart of the Eixample, Barcelona. Choose date, time and party size — instant online confirmation.",
   alternates: alternatesForEn("/en/book-a-table"),

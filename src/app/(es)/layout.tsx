@@ -25,7 +25,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: `Positano ★${reviewStats.rating} · Pizza Napolitana Barcelona`,
+  title: "Pizza Napolitana en el Eixample · Horno de Leña · Positano",
   description:
     "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Masa fermentada 48 h, pasta fresca y cócteles. El auténtico sabor de Nápoles.",
   keywords: [

@@ -9,10 +9,9 @@ import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
-import { reviewStats } from "@/data/reviews";
 
 export const metadata: Metadata = {
-  title: `Auténtica Pizzería Napolitana ★${reviewStats.rating} · Positano Barcelona`,
+  title: "Auténtica Pizzería Napolitana · Nuestra Historia · Positano",
   description:
     "Positano, pizzería y restaurante napolitano en Barcelona. Recetas de Campania, masa de fermentación 48 h, horno de leña e ingredientes DOP italianos.",
   alternates: alternatesFor("/nuestra-historia"),
