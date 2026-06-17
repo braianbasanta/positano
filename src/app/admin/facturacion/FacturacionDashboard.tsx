@@ -310,7 +310,10 @@ export default function FacturacionDashboard({
       const split = hasSplit(r);
       const lunch = split ? sumCanales(r.lunch) : 0;
       const dinner = split ? sumCanales(r.dinner) : 0;
-      const noSplit = split ? 0 : t;
+      // Resto sin desglose = total − (mediodía + cena). En días con split y
+      // domicilio ON es el delivery (que no se reparte por servicio); en el
+      // histórico es la caja entera; en "solo sala" da 0 y no se ve.
+      const noSplit = Math.max(0, t - lunch - dinner);
       // Color del segmento sin desglose: verde si alcanza objetivo, gris si
       // cerrado, slate en el resto (distinto del navy de "cena").
       let noSplitColor = SLATE;
