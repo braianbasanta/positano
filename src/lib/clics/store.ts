@@ -35,9 +35,13 @@ export interface ClickRow extends ClickInsert {
   ts: string;
 }
 
-// UA de bots conocidos (incluye AdsBot-Google, que rastrea las landings de Ads).
-// No descartamos la fila: la marcamos is_bot para poder excluirla al agregar.
-const BOT_RE = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|headless|lighthouse|pingdom|uptime|monitor/i;
+// UA de no-humanos conocidos. Incluye los rastreadores de Google que verifican
+// la landing de un anuncio al crearlo/editarlo (AdsBot-Google, "Google",
+// Google-Ads-Creatives-Assistant) y clientes de línea de comandos. NO descartamos
+// la fila: la marcamos is_bot para poder excluirla al agregar.
+// Nota: el clic REAL de Google Ads siempre trae gclid (auto-tagging); estas
+// verificaciones nunca lo traen, así que gclid es la señal definitiva de "real".
+const BOT_RE = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|headless|lighthouse|pingdom|uptime|monitor|google|adsbot|curl|wget|python-requests|node-fetch|axios|ahrefs|semrush|dataforseo/i;
 
 export function isBotUA(ua: string): boolean {
   return BOT_RE.test(ua);

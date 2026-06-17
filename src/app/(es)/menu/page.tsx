@@ -44,7 +44,13 @@ export default function CartaPage() {
               400&nbsp;°C e ingredientes 100&nbsp;% italianos. Cada plato, una
               historia del sur de Italia.
             </p>
-            <div className="mt-8 flex justify-center">
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <a
+                href="/reservas"
+                className="inline-flex items-center rounded-full bg-lemon px-7 py-3 text-[0.85rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
+              >
+                Reservar mesa
+              </a>
               <a
                 href="/bebidas"
                 className="inline-flex items-center gap-2 rounded-full border border-lemon/60 px-7 py-3 text-[0.85rem] uppercase tracking-[0.22em] text-lemon transition-all duration-300 hover:bg-lemon hover:text-ink hover:tracking-[0.27em]"
