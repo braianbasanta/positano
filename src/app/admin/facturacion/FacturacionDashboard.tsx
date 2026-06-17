@@ -138,6 +138,8 @@ export default function FacturacionDashboard({
     [days, includeDelivery],
   );
 
+  const wxByDate = useMemo(() => new Map(weather.map((w) => [w.date, w] as const)), [weather]);
+
   // Serie histórica de un mismo día de la semana (p. ej. todos los martes),
   // ordenada por fecha y acotada a las últimas ~53 ocurrencias (~1 año).
   const weekdaySeries = useMemo(() => {
@@ -177,15 +179,15 @@ export default function FacturacionDashboard({
   }, [effectiveDays, weekday]);
 
   // Clima vs facturación: correlación (Pearson) sobre días operativos con dato
-  // de clima, nube de puntos caja↔temperatura, y previsión de los próximos días
-  // con la media histórica de ese día de la semana (para dimensionar plantilla).
+  // de clima, nube de puntos caja↔temperatura, y una tira continua con el
+  // histórico reciente (caja real) + previsión (media del weekday).
   const climate = useMemo(() => {
     if (!weather.length) return null;
-    const wByDate = new Map(weather.map((w) => [w.date, w]));
+    const recByDate = new Map(effectiveDays.map((r) => [r.date, r] as const));
 
     const rows = effectiveDays
       .filter((r) => !r.closed)
-      .map((r) => ({ date: r.date, total: dayTotal(r), w: wByDate.get(r.date) }))
+      .map((r) => ({ date: r.date, total: dayTotal(r), w: wxByDate.get(r.date) }))
       .filter((x) => x.total > 0 && x.w);
 
     const tempPairs = rows
@@ -213,30 +215,49 @@ export default function FacturacionDashboard({
       return v && v.c ? v.s / v.c : 0;
     };
 
-    const forecast = weather
+    // Tira cronológica: hasta 11 días pasados con registro + 8 días futuros.
+    const build = (w: (typeof weather)[number], future: boolean) => {
+      const wd = weekdayOf(w.date);
+      const rec = recByDate.get(w.date);
+      const obj = objetivoDia(wd);
+      const closed = obj === null || !!rec?.closed;
+      const total = rec ? dayTotal(rec) : 0;
+      return {
+        date: w.date,
+        wd,
+        dnum: dayOfMonth(w.date),
+        dia: cap(weekdayLabel(wd)),
+        code: w.code,
+        tMax: w.tMax,
+        tMin: w.tMin,
+        precip: w.precip,
+        precipProb: w.precipProb,
+        obj,
+        closed,
+        future,
+        total,
+        expected: wkAvg(wd),
+        met: !!obj && total >= obj,
+      };
+    };
+    const past = weather
+      .filter((w) => w.date <= today && (recByDate.get(w.date)?.closed || dayTotal(recByDate.get(w.date) ?? ({} as DayRecord)) > 0))
+      .slice(-11)
+      .map((w) => build(w, false));
+    const future = weather
       .filter((w) => w.date > today)
-      .map((w) => {
-        const wd = weekdayOf(w.date);
-        return {
-          ...w,
-          wd,
-          dnum: dayOfMonth(w.date),
-          dia: cap(weekdayLabel(wd)),
-          obj: objetivoDia(wd),
-          expected: wkAvg(wd),
-          closed: objetivoDia(wd) === null, // lunes
-        };
-      })
-      .slice(0, 8);
+      .slice(0, 8)
+      .map((w) => build(w, true));
+    const timeline = [...past, ...future];
 
     return {
       rTemp: pearson(tempPairs),
       rRain: pearson(rainPairs),
       scatter,
-      forecast,
+      timeline,
       n: rows.length,
     };
-  }, [weather, effectiveDays, today]);
+  }, [weather, wxByDate, effectiveDays, today]);
 
   const isCurrent = year === curY && month === curM;
   // En el mes en curso el corte es el último día CON datos (no "hoy"): así se
@@ -270,6 +291,7 @@ export default function FacturacionDashboard({
       else if (obj && t >= obj) color = EMERALD;
       else if (t === 0) color = ZINC;
       const dia = weekdayLabel(wd);
+      const wx = wxByDate.get(r.date);
       return {
         day: dnum,
         axis: `${INICIAL_DIA[wd]}${dnum}`,
@@ -278,6 +300,8 @@ export default function FacturacionDashboard({
         objetivo: obj ?? null,
         closed: !!r.closed,
         color,
+        tMax: wx?.tMax ?? null,
+        rain: (wx?.precip ?? 0) >= 1,
       };
     });
 
@@ -304,7 +328,7 @@ export default function FacturacionDashboard({
       sel, prev, yoy, channels, ld, proj, best, trend, dailyData, compareData, weekdayData, channelData,
       opDaysCount: opDays.length, metGoal,
     };
-  }, [days, effectiveDays, year, month, prevM, prevY, cutoff]);
+  }, [days, effectiveDays, wxByDate, year, month, prevM, prevY, cutoff]);
 
   const mediaObj = mediaDiariaObjetivo();
   const mediaDiaPct = mediaObj ? (calc.proj.perOperatingDay / mediaObj) * 100 : 0;
@@ -445,23 +469,44 @@ export default function FacturacionDashboard({
       <Card
         className="mt-6"
         title="Facturación por día"
-        hint="Barra verde = alcanza el objetivo del día · gris = cerrado · línea dorada = objetivo."
+        hint="Barra verde = alcanza el objetivo del día · gris = cerrado · línea dorada = objetivo · línea naranja = temperatura máx."
       >
         <ResponsiveContainer width="100%" height={380}>
           <ComposedChart data={calc.dailyData} margin={{ top: 10, right: 12, left: 4, bottom: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
             <XAxis dataKey="axis" tick={{ fontSize: 12 }} interval={0} />
             <YAxis tickFormatter={eurAxis} tick={{ fontSize: 12 }} width={46} />
+            <YAxis
+              yAxisId="temp"
+              orientation="right"
+              tickFormatter={(v) => `${Math.round(v)}°`}
+              tick={{ fontSize: 12 }}
+              width={38}
+              domain={["dataMin - 2", "dataMax + 2"]}
+            />
             <Tooltip
-              formatter={(v) => eur0(Number(v))}
+              formatter={(v, name) =>
+                name === "Tª máx" ? [`${Math.round(Number(v))}°`, name] : [eur0(Number(v)), name]
+              }
               labelFormatter={(l) => calc.dailyData.find((d) => d.axis === l)?.full ?? String(l)}
             />
-            <Bar dataKey="total" radius={[4, 4, 0, 0]} maxBarSize={48}>
+            <Legend />
+            <Bar name="Caja" dataKey="total" fill={INK} radius={[4, 4, 0, 0]} maxBarSize={48}>
               {calc.dailyData.map((d, i) => (
                 <Cell key={i} fill={d.color} />
               ))}
             </Bar>
-            <Line dataKey="objetivo" stroke={LEMON} strokeWidth={2.5} dot={false} connectNulls />
+            <Line name="Objetivo" dataKey="objetivo" stroke={LEMON} strokeWidth={2.5} dot={false} connectNulls />
+            <Line
+              name="Tª máx"
+              yAxisId="temp"
+              dataKey="tMax"
+              stroke="#e8743b"
+              strokeWidth={2}
+              strokeDasharray="4 3"
+              dot={false}
+              connectNulls
+            />
           </ComposedChart>
         </ResponsiveContainer>
       </Card>
@@ -614,17 +659,21 @@ export default function FacturacionDashboard({
             <Empty>Aún faltan días con caja y clima para calcular la correlación.</Empty>
           )}
 
-          {climate.forecast.length > 0 && (
+          {climate.timeline.length > 0 && (
             <div className="mt-6">
               <div className="font-sans text-xs font-semibold uppercase tracking-wide text-ink/40">
-                Próximos días · previsión
+                Historial reciente y previsión
               </div>
               <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
-                {climate.forecast.map((f) => (
+                {climate.timeline.map((f) => (
                   <div
                     key={f.date}
-                    className={`min-w-[104px] flex-1 rounded-xl border p-3 text-center ${
-                      f.closed ? "border-ink/5 bg-ink/[0.03]" : "border-ink/10 bg-white/60"
+                    className={`min-w-[100px] flex-1 rounded-xl border p-3 text-center ${
+                      f.future
+                        ? "border-dashed border-lemon/50 bg-lemon/[0.06]"
+                        : f.closed
+                          ? "border-ink/5 bg-ink/[0.03]"
+                          : "border-ink/10 bg-white/60"
                     }`}
                   >
                     <div className="font-sans text-xs font-medium text-ink/60">
@@ -635,25 +684,38 @@ export default function FacturacionDashboard({
                     </div>
                     <div className="mt-1 font-display text-base font-semibold text-ink">
                       {f.tMax != null ? `${Math.round(f.tMax)}°` : "—"}
-                      {f.tMin != null && <span className="font-sans text-xs font-normal text-ink/40"> / {Math.round(f.tMin)}°</span>}
+                      {f.tMin != null && (
+                        <span className="font-sans text-xs font-normal text-ink/40"> / {Math.round(f.tMin)}°</span>
+                      )}
                     </div>
                     <div className="mt-0.5 font-sans text-[11px] text-blue-500">
-                      {f.precipProb != null ? `💧 ${f.precipProb}%` : f.precip ? `💧 ${f.precip} mm` : "—"}
+                      {f.future && f.precipProb != null
+                        ? `💧 ${f.precipProb}%`
+                        : f.precip
+                          ? `💧 ${f.precip} mm`
+                          : "—"}
                     </div>
                     <div className="mt-1.5 border-t border-ink/5 pt-1.5 font-sans text-[11px]">
                       {f.closed ? (
                         <span className="text-ink/30">Cerrado</span>
-                      ) : f.expected > 0 ? (
-                        <span className="font-semibold text-ink/70">~{eur0(f.expected)}</span>
+                      ) : f.future ? (
+                        f.expected > 0 ? (
+                          <span className="text-ink/50">~{eur0(f.expected)}</span>
+                        ) : (
+                          <span className="text-ink/30">—</span>
+                        )
                       ) : (
-                        <span className="text-ink/30">sin histórico</span>
+                        <span className={`font-semibold ${f.met ? "text-emerald-600" : "text-ink/70"}`}>
+                          {eur0(f.total)}
+                        </span>
                       )}
                     </div>
                   </div>
                 ))}
               </div>
               <p className="mt-2 font-sans text-xs text-ink/40">
-                «~importe» = media histórica de ese día de la semana (no incluye el efecto del clima todavía).
+                Caja real en los días pasados (verde = alcanzó objetivo) · recuadro punteado = previsión, «~importe» =
+                media histórica de ese día de la semana (aún sin ajustar por clima).
               </p>
             </div>
           )}
