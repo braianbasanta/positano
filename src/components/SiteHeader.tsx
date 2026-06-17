@@ -37,6 +37,12 @@ export default function SiteHeader({ lang = "es" }: { lang?: Locale }) {
   const other: Locale = lang === "es" ? "en" : "es";
   const switchHref = alternatePath(pathname ?? copy.home, other);
 
+  // El CTA "Reservar" sale dorado SIEMPRE, salvo encima del hero de la home
+  // (ahí el fondo ya es dorado y un botón dorado sería "doble dorado"): en ese
+  // único caso lo dejamos con borde claro.
+  const isHome = (pathname ?? copy.home) === copy.home;
+  const heroTransparent = isHome && !solid;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
@@ -116,9 +122,9 @@ export default function SiteHeader({ lang = "es" }: { lang?: Locale }) {
             <a
               href={copy.reservas}
               className={`hidden rounded-full px-4 py-1.5 text-[0.76rem] uppercase tracking-[0.2em] transition-all duration-300 sm:block ${
-                solid
-                  ? "bg-lemon text-ink hover:bg-ink hover:text-cream"
-                  : "border border-cream/50 text-cream hover:bg-cream hover:text-ink"
+                heroTransparent
+                  ? "border border-cream/50 text-cream hover:bg-cream hover:text-ink"
+                  : "bg-lemon text-ink hover:bg-ink hover:text-cream"
               }`}
             >
               {copy.reservar}

@@ -21,15 +21,17 @@ export interface GoTarget {
 
 // Slugs activos. ad-es / ad-en separan Google Ads en español vs inglés.
 export const GO_TARGETS: Record<string, GoTarget> = {
+  // Una sola campaña real en Google Ads ("Positano | Barcelona") con grupos ES y
+  // EN. El idioma va en utm_content (y, además, separado por el slug en el panel).
   "ad-es": {
     path: "/reservas",
     label: "Google Ads · Español",
-    utm: { utm_source: "google", utm_medium: "cpc", utm_campaign: "ads_es" },
+    utm: { utm_source: "google", utm_medium: "cpc", utm_campaign: "positano-barcelona", utm_content: "es" },
   },
   "ad-en": {
     path: "/en/book-a-table",
     label: "Google Ads · English",
-    utm: { utm_source: "google", utm_medium: "cpc", utm_campaign: "ads_en" },
+    utm: { utm_source: "google", utm_medium: "cpc", utm_campaign: "positano-barcelona", utm_content: "en" },
   },
 };
 
