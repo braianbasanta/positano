@@ -43,6 +43,7 @@ import {
   weekdayOf,
 } from "@/lib/facturacion/analytics";
 import { mediaDiariaObjetivo, OBJETIVO_MENSUAL, objetivoDia } from "@/lib/facturacion/objetivos";
+import { holidayFactor } from "@/lib/facturacion/calendario";
 import {
   type DayWeather,
   corrStrength,
@@ -238,9 +239,9 @@ export default function FacturacionDashboard({
         closed,
         future,
         total,
-        // v2: media del weekday ajustada por la temperatura prevista (la lluvia
-        // se midió y no afecta la caja). Calibrado con el histórico.
-        expected: wkAvg(wd) * tempFactor(w.tMax),
+        // Pronóstico: media del weekday × temperatura prevista × festivo/víspera.
+        // La lluvia se midió y no afecta; la temperatura y los festivos sí.
+        expected: wkAvg(wd) * tempFactor(w.tMax) * holidayFactor(w.date),
         met: !!obj && total >= obj,
       };
     };
@@ -721,7 +722,8 @@ export default function FacturacionDashboard({
               </div>
               <p className="mt-2 font-sans text-xs text-ink/40">
                 Caja real en los días pasados (verde = alcanzó objetivo) · recuadro punteado = previsión, «~importe» =
-                media de ese día de la semana ajustada por la temperatura prevista (la lluvia, medida, no afecta).
+                media de ese día de la semana ajustada por la temperatura prevista y por festivos/vísperas (que
+                facturan ~12% menos). La lluvia, medida, no afecta.
               </p>
             </div>
           )}
