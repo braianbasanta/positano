@@ -1,0 +1,5490 @@
+[
+{
+"date": "2024-01-03",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-09",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-09",
+"time": "21:15",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-14",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-17",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-19",
+"time": "21:30",
+"name": null,
+"guests": 7,
+"status": "Confirmado",
+"notes": "\"Cumpleaños\" | (Solicitud de cliente)"
+},
+{
+"date": "2024-01-19",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-19",
+"time": "22:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-21",
+"time": "21:15",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-21",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-23",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-24",
+"time": "14:00",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-24",
+"time": "14:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-25",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-26",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-28",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-01-28",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-07",
+"time": "13:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-12",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-12",
+"time": "21:00",
+"name": null,
+"guests": 11,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-13",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-13",
+"time": "21:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-14",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-14",
+"time": "20:30",
+"name": "Pascual, Mateo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-14",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-14",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-14",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-16",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-18",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-19",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-21",
+"time": "14:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-22",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-22",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-22",
+"time": "22:15",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-23",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-23",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-02-24",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-01",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-02",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-02",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-02",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-03",
+"time": "21:30",
+"name": null,
+"guests": 11,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-05",
+"time": "20:45",
+"name": null,
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-05",
+"time": "22:15",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-06",
+"time": "13:00",
+"name": null,
+"guests": 9,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-07",
+"time": "21:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-07",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-09",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-09",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-09",
+"time": "21:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-12",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-14",
+"time": "12:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-14",
+"time": "19:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-15",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-15",
+"time": "21:15",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-15",
+"time": "21:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-15",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-16",
+"time": "21:00",
+"name": null,
+"guests": 12,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-16",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-16",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-16",
+"time": "22:00",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-16",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-19",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-19",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-20",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-21",
+"time": "20:45",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-21",
+"time": "21:45",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-22",
+"time": "21:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-22",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-23",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-23",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-24",
+"time": "20:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-24",
+"time": "21:15",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-24",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-03-28",
+"time": "22:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-03",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-04",
+"time": "21:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-04",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-05",
+"time": "20:30",
+"name": null,
+"guests": 9,
+"status": "Confirmado",
+"notes": "\"MESA 48 RESERVADO\" | (Nota de la reserva)"
+},
+{
+"date": "2024-04-05",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-06",
+"time": "22:30",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-07",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-10",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-16",
+"time": "21:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-17",
+"time": "12:15",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-18",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-18",
+"time": "21:30",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-19",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-19",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-19",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-19",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-20",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-20",
+"time": "21:00",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-20",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-23",
+"time": "20:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-27",
+"time": "22:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-30",
+"time": "14:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-30",
+"time": "21:15",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-30",
+"time": "21:30",
+"name": null,
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-30",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-04-30",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-01",
+"time": "13:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-01",
+"time": "13:30",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-01",
+"time": "14:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-01",
+"time": "14:15",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-01",
+"time": "14:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-02",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-02",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-03",
+"time": "20:00",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": "\"con dos tronas\" | (Nota de la reserva)"
+},
+{
+"date": "2024-05-03",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-04",
+"time": "13:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-04",
+"time": "14:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-04",
+"time": "15:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": "\"2 tronas\""
+},
+{
+"date": "2024-05-04",
+"time": "21:15",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-04",
+"time": "22:00",
+"name": "Cuenca, Carlota",
+"guests": 9,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-05",
+"time": "15:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-05",
+"time": "20:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-05",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-08",
+"time": "14:00",
+"name": null,
+"guests": 11,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-08",
+"time": "20:45",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-08",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-09",
+"time": "20:30",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-09",
+"time": "21:00",
+"name": null,
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-10",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-10",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-10",
+"time": "21:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": "\"TERRAZA\" | (Nota de la reserva)"
+},
+{
+"date": "2024-05-10",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-11",
+"time": "21:00",
+"name": null,
+"guests": 12,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-11",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": "\"Buenas tardes. Deseo reservar la mesa para cenar en familia, como de costumbre. Un saludo. | (Solicitud de cliente)"
+},
+{
+"date": "2024-05-11",
+"time": "21:15",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-11",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-17",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-17",
+"time": "21:30",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-17",
+"time": "21:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-17",
+"time": "22:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-18",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-19",
+"time": "22:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-21",
+"time": "21:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-21",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-22",
+"time": "14:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-22",
+"time": "14:15",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-22",
+"time": "21:00",
+"name": null,
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-23",
+"time": "13:45",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-25",
+"time": "21:30",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-25",
+"time": "21:45",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-25",
+"time": "21:45",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-26",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-26",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-28",
+"time": "21:30",
+"name": null,
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-29",
+"time": "21:15",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-30",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-05-31",
+"time": "14:45",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-01",
+"time": "13:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-01",
+"time": "14:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-01",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-02",
+"time": "13:00",
+"name": null,
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-02",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-02",
+"time": "21:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-02",
+"time": "21:15",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-04",
+"time": "21:00",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": "\"Amici miei\" | (Nota de la reserva)"
+},
+{
+"date": "2024-06-06",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-06",
+"time": "21:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-07",
+"time": "14:45",
+"name": null,
+"guests": 14,
+"status": "Confirmado",
+"notes": "\"Buenos días, seriamos 14 para comer se menu, si pudiese hacerae ka reserva, agradecería que me | (Solicitud de cliente)"
+},
+{
+"date": "2024-06-07",
+"time": "19:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-07",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-07",
+"time": "21:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-09",
+"time": "13:30",
+"name": null,
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-09",
+"time": "13:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-11",
+"time": "20:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-12",
+"time": "13:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-12",
+"time": "14:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-14",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-15",
+"time": "22:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-16",
+"time": "20:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-16",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-18",
+"time": "21:00",
+"name": "Vey, Joan",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-19",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-20",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-20",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-21",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-21",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-22",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-23",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-25",
+"time": "20:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-26",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"prueba\" | (Solicitud de cliente)"
+},
+{
+"date": "2024-06-27",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-27",
+"time": "20:30",
+"name": null,
+"guests": 9,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-27",
+"time": "20:30",
+"name": "Mateu Aguiló, Toni",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-27",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-27",
+"time": "22:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-28",
+"time": "18:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": "\"We open at 19,30\" | (Nota de la reserva)"
+},
+{
+"date": "2024-06-28",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-28",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-28",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-29",
+"time": "21:30",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-29",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-06-30",
+"time": "21:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-03",
+"time": "20:30",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": "\"Deseamos mesa fuera, llegaremos a las 21.00\" | (Solicitud de cliente)"
+},
+{
+"date": "2024-07-05",
+"time": "21:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": "\"4 amici più io. Grazie\" | (Nota de la reserva)"
+},
+{
+"date": "2024-07-05",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-06",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-06",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-06",
+"time": "21:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-06",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-10",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-11",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-12",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-13",
+"time": "20:30",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-13",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-13",
+"time": "21:00",
+"name": null,
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-14",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-14",
+"time": "21:45",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"PLEASE INFORM ME ABOYT MY RESERVATION\" | (Solicitud de cliente) | \"Confirmed. Thanks\""
+},
+{
+"date": "2024-07-16",
+"time": "13:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-18",
+"time": "13:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": "\"la mesa la queremos en la planta de arriba del restaurant, gràcies\" | (Solicitud de cliente)"
+},
+{
+"date": "2024-07-18",
+"time": "15:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-18",
+"time": "15:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-18",
+"time": "21:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-18",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-20",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-21",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-21",
+"time": "22:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-23",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-24",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": "\"Amici di Antonio\" | (Nota de la reserva)"
+},
+{
+"date": "2024-07-24",
+"time": "21:00",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-24",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-24",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-25",
+"time": "20:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"prueba no reserva\" | (Solicitud de cliente)"
+},
+{
+"date": "2024-07-25",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"prueba no reserva\" | (Solicitud de cliente)"
+},
+{
+"date": "2024-07-25",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-25",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-26",
+"time": "21:00",
+"name": null,
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-28",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-30",
+"time": "20:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-30",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"El barbero de Antonio..(barbería Tony&Dany)\" | (Solicitud de cliente)"
+},
+{
+"date": "2024-07-31",
+"time": "20:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-07-31",
+"time": "20:30",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-03",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"Tony con moglie (amico di Antonio )\" | (Nota de la reserva)"
+},
+{
+"date": "2024-08-03",
+"time": "21:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-03",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-04",
+"time": "22:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-06",
+"time": "21:30",
+"name": null,
+"guests": 9,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-09",
+"time": "20:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-09",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-09",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-10",
+"time": "21:30",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": "\"Llevamos perro pequeño\" | (Solicitud de cliente)"
+},
+{
+"date": "2024-08-10",
+"time": "21:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-10",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-11",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-11",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-16",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-28",
+"time": "21:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-08-29",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-03",
+"time": "21:00",
+"name": "Pascual, Mateo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-05",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-08",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-10",
+"time": "14:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-10",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-10",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-11",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-12",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-13",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-13",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-14",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-18",
+"time": "14:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-18",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-20",
+"time": "20:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-09-25",
+"time": "22:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-03",
+"time": "21:00",
+"name": null,
+"guests": 22,
+"status": "Confirmado",
+"notes": "\"Menu gruppo a 25 euro. Come secondo solo pizze\" | (Nota de la reserva)"
+},
+{
+"date": "2024-10-03",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-04",
+"time": "21:00",
+"name": null,
+"guests": 10,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-04",
+"time": "22:30",
+"name": null,
+"guests": 10,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-09",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-11",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-17",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-18",
+"time": "21:30",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-19",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-19",
+"time": "22:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-19",
+"time": "22:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-25",
+"time": "21:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-25",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-25",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-30",
+"time": "20:00",
+"name": "Anidjar, Nitai",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-10-30",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-07",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-10",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-12",
+"time": "21:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-13",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2024-11-13",
+"time": "20:30",
+"name": null,
+"guests": 8,
+"status": "Confirmado",
+"notes": "20% oferta en platos | \"A birthday dinner for Camilla\" | (Solicitud de cliente)"
+},
+{
+"date": "2024-11-13",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-17",
+"time": "20:00",
+"name": "Frahm, Isabel",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-19",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-22",
+"time": "21:00",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": "\"Cumpleaños\" | (Solicitud de cliente)"
+},
+{
+"date": "2024-11-22",
+"time": "21:00",
+"name": "Maza Torregrosa, Antonio",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-22",
+"time": "21:30",
+"name": null,
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-22",
+"time": "22:00",
+"name": "Carreño, Ester",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-22",
+"time": "22:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-23",
+"time": "22:30",
+"name": null,
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-27",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-28",
+"time": "20:30",
+"name": null,
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-28",
+"time": "20:30",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-29",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-29",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-29",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-30",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-30",
+"time": "22:00",
+"name": "Costa González, Borja",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-30",
+"time": "22:00",
+"name": "Rey Ruiz, Álex",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-11-30",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-03",
+"time": "20:30",
+"name": "Pinacho, Eduardo",
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2024-12-03",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2024-12-04",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-05",
+"time": "22:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-05",
+"time": "22:30",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-05",
+"time": "22:30",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-06",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-07",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-07",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-10",
+"time": "20:00",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2024-12-10",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2024-12-11",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-13",
+"time": "23:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-14",
+"time": "21:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-14",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-14",
+"time": "22:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-14",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-19",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-20",
+"time": "21:30",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-20",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-22",
+"time": "21:00",
+"name": null,
+"guests": 9,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-22",
+"time": "21:30",
+"name": null,
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-22",
+"time": "21:30",
+"name": "Fojanesi, Manuela",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-23",
+"time": "22:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2024-12-29",
+"time": "21:00",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-01",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-15",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-15",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-17",
+"time": "21:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-21",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-21",
+"time": "22:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-22",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-23",
+"time": "20:30",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-23",
+"time": "21:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-23",
+"time": "21:00",
+"name": "pissinis, moira",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-24",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-25",
+"time": "21:30",
+"name": null,
+"guests": 9,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-25",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-25",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-28",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-01-31",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-02-02",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-02-13",
+"time": "21:00",
+"name": "Costa González, Borja",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-02-21",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-02-23",
+"time": "21:00",
+"name": null,
+"guests": 9,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-02-23",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-02-25",
+"time": "20:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2025-02-28",
+"time": "22:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-03-02",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-03-02",
+"time": "21:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-03-04",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-03-04",
+"time": "21:30",
+"name": "Martin, Fernando",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-03-11",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-03-12",
+"time": "20:30",
+"name": null,
+"guests": 8,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2025-03-12",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-03-12",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-03-14",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-03-29",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-01",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-01",
+"time": "22:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-05",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-05",
+"time": "21:30",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-05",
+"time": "21:30",
+"name": "Castro, Oriol",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-05",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-05",
+"time": "23:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-06",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-11",
+"time": "20:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": "\"Por favor una mesa tranquila, somos 3 adultos y una niña de 7 años\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-04-11",
+"time": "20:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-11",
+"time": "20:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-11",
+"time": "21:00",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-11",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-11",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-11",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-11",
+"time": "22:30",
+"name": "Alba Monereo, Jan",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-13",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-13",
+"time": "21:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-15",
+"time": "20:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2025-04-17",
+"time": "20:30",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-22",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-23",
+"time": "21:30",
+"name": "P, Rebeca",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-23",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-26",
+"time": "22:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-04-30",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2025-04-30",
+"time": "21:00",
+"name": null,
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-04",
+"time": "21:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-04",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-07",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-07",
+"time": "22:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-09",
+"time": "22:00",
+"name": "Fojanesi, Manuela",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-10",
+"time": "22:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-10",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-13",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-14",
+"time": "21:30",
+"name": "Fojanesi, Manuela",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-18",
+"time": "21:00",
+"name": null,
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-18",
+"time": "21:30",
+"name": null,
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-24",
+"time": "23:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-27",
+"time": "22:00",
+"name": "Badia , Gerard",
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"Esto es una prueba para ver el funcionamiento de las reservas desde el Wordpress de Positano\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-05-28",
+"time": "20:30",
+"name": "pissinis, moira",
+"guests": 8,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2025-05-28",
+"time": "21:00",
+"name": null,
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-29",
+"time": "20:30",
+"name": "Jacas, Max",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-30",
+"time": "21:30",
+"name": "Carreño, Ester",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-30",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-30",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-05-31",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-04",
+"time": "20:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2025-06-06",
+"time": "21:30",
+"name": null,
+"guests": 8,
+"status": "Confirmado",
+"notes": "\"En la terraza a poder ser\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-06-06",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-08",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-10",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"Me reencuentro con mi chica despues de 2 meses. Me gustaría que fuera una ocasión especial\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-06-12",
+"time": "21:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-12",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-13",
+"time": "21:30",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-13",
+"time": "22:00",
+"name": null,
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-13",
+"time": "22:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-13",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-14",
+"time": "20:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-14",
+"time": "21:00",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-14",
+"time": "21:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-17",
+"time": "22:30",
+"name": null,
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-25",
+"time": "21:30",
+"name": "Pereira, Tiago",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-26",
+"time": "21:30",
+"name": "m, miguel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-27",
+"time": "22:30",
+"name": "Navarro, Andrea",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-28",
+"time": "21:30",
+"name": "Gentile Cagnoli, Simón",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-28",
+"time": "22:00",
+"name": "Loustaunau, Julieta",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-06-29",
+"time": "22:00",
+"name": "Marinelli, Carmelinda",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-01",
+"time": "21:30",
+"name": "Buj, Jose",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-01",
+"time": "21:30",
+"name": "Nocerino, Giacomo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-01",
+"time": "21:30",
+"name": "Espin, Gabriel",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-02",
+"time": "20:30",
+"name": "Fernández, Ana María",
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2025-07-02",
+"time": "21:30",
+"name": "Herrero, Alvaro",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-05",
+"time": "20:30",
+"name": "Ortega Moreno, Juan Carlos",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-05",
+"time": "21:30",
+"name": "Gómez, Mireia",
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"La mejor mesa en el interior porfavor              😊\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-07-05",
+"time": "21:30",
+"name": "Micolau, Cristina",
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-19",
+"time": "21:30",
+"name": "Bellon , Quique",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-25",
+"time": "22:00",
+"name": "Diez, Jorge",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-26",
+"time": "20:00",
+"name": "Huk, Miriam",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-26",
+"time": "20:30",
+"name": "Elselam, Victor",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-26",
+"time": "21:30",
+"name": "VENTAYOL, Ricard",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-30",
+"time": "20:00",
+"name": "Júnior, Marcelo",
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2025-07-30",
+"time": "21:30",
+"name": "Navarrete, Cristian",
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"Es una ocasion especial por que es el cumpleaños de mi pareja que cumple 24, se podria hacer | (Solicitud de cliente)"
+},
+{
+"date": "2025-07-30",
+"time": "21:30",
+"name": "Marti, Josep",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-30",
+"time": "21:30",
+"name": "Pineda, Anna",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-31",
+"time": "20:00",
+"name": "Jorn, Kelvin",
+"guests": 9,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-07-31",
+"time": "21:00",
+"name": "Alarcón, David",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-07",
+"time": "21:00",
+"name": "marin villegas, santiago israe",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-07",
+"time": "21:00",
+"name": "Campos, Ángel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-09",
+"time": "21:30",
+"name": "Escoy , Marc",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-09",
+"time": "22:00",
+"name": "Guillen , Daniel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-10",
+"time": "21:30",
+"name": "Pascual, Mateo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-10",
+"time": "22:00",
+"name": "Ortega Moreno, Juan Carlos",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-20",
+"time": "21:00",
+"name": "Buil, Miguel Angel",
+"guests": 3,
+"status": "Confirmado",
+"notes": "\"Dentro con aire acondicionado\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-08-22",
+"time": "21:30",
+"name": "Froome, Stuart",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-24",
+"time": "21:30",
+"name": "Goterris, Julen",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-24",
+"time": "21:30",
+"name": "Prats , Montserrat",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-28",
+"time": "21:00",
+"name": "galindo, elisenda",
+"guests": 10,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-28",
+"time": "21:00",
+"name": "Catena, Miquel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-29",
+"time": "22:30",
+"name": "Gómez , Pedro",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-30",
+"time": "21:00",
+"name": "Covas Cerdà, Miquel Àngel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-08-30",
+"time": "21:00",
+"name": "Baio , Francesco",
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"Mensa en Una buena posición\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-08-30",
+"time": "21:30",
+"name": "Ovalles, Gabriel",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-03",
+"time": "22:30",
+"name": "Villamizar, Carlos",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-04",
+"time": "20:30",
+"name": "Lennon, Clara",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-05",
+"time": "20:30",
+"name": "Carreras, Bruno",
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-05",
+"time": "21:00",
+"name": "Mirone Trepiccione, Armando",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-05",
+"time": "21:30",
+"name": "Tejnani, Dharmendra",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-16",
+"time": "21:00",
+"name": "Bolognia Nardone, Mirna",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-17",
+"time": "20:00",
+"name": "Roca Rada, Adrià",
+"guests": 3,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2025-09-17",
+"time": "20:30",
+"name": "Miquel Diego, Pau",
+"guests": 3,
+"status": "Confirmado",
+"notes": "20% oferta en platos | \"Vengo con una persona mayor que usa una silla automática.\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-09-18",
+"time": "20:00",
+"name": "Harmer, Kelsey",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-18",
+"time": "21:00",
+"name": "Wassermann , Max",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-18",
+"time": "21:30",
+"name": "Sharma, Robin",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-23",
+"time": "21:00",
+"name": "Escofet, Aleix",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-23",
+"time": "21:30",
+"name": "Martinez de Lizarrondo, Ainhoa",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-23",
+"time": "21:30",
+"name": "Polonio, Adrián",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-28",
+"time": "20:30",
+"name": "Urpi, Jan",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-09-28",
+"time": "20:30",
+"name": "Gamiz, Noemi",
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"Terraza, please\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-09-28",
+"time": "21:00",
+"name": "luca de tena smith, África",
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"La reserva es para una persona\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-10-02",
+"time": "22:00",
+"name": "García, Anne",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-03",
+"time": "22:30",
+"name": "GP, Jessica",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-03",
+"time": "22:30",
+"name": "Carrasco , Jose luis",
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"Si se puede reservar en el salón es el cumple de mi pareja\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-10-03",
+"time": "22:30",
+"name": "Martin, Isabel",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-04",
+"time": "21:00",
+"name": "Oude Wansink, Sandra",
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-04",
+"time": "21:00",
+"name": "Tarifa, Yeray",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-04",
+"time": "21:30",
+"name": "Vázquez camara, Denia",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-04",
+"time": "22:00",
+"name": "Lombao, Carla",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-04",
+"time": "22:00",
+"name": "Spescha, Luc",
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-05",
+"time": "20:30",
+"name": "bilusis, Jean",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-05",
+"time": "22:00",
+"name": "Corral García, Marina",
+"guests": 9,
+"status": "Confirmado",
+"notes": "\"Terraza\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-10-08",
+"time": "22:30",
+"name": "Viladomat Bueno, Abel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-10",
+"time": "22:30",
+"name": "González, Roberto",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-10",
+"time": "22:30",
+"name": "Ortega Vazquez, Melania",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-11",
+"time": "22:00",
+"name": "Martinez, Oscar",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-11",
+"time": "22:30",
+"name": "Guinovart, Adrià",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-15",
+"time": "21:00",
+"name": "Villacreses, Francisco",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-18",
+"time": "20:00",
+"name": "Guardado pineda, Kevin",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-18",
+"time": "20:00",
+"name": "Faria, Augusto",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-18",
+"time": "22:00",
+"name": "Gonzalez Batista, Macarena",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-18",
+"time": "23:00",
+"name": "Sergeeva, Anastasiia",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-29",
+"time": "20:00",
+"name": "Sala, Maria",
+"guests": 3,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2025-10-29",
+"time": "21:00",
+"name": "Campmany, Ferran",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-10-31",
+"time": "22:30",
+"name": "Gil Sanchez, Adria",
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-11-01",
+"time": "22:00",
+"name": "Brito, Darlin",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-11-01",
+"time": "22:00",
+"name": "Gomez, Victoria",
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"Dentro\" | (Nota de la reserva)"
+},
+{
+"date": "2025-11-07",
+"time": "21:30",
+"name": "Cobo, Hugo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-11-08",
+"time": "21:30",
+"name": "ilarregui, naiara",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-11-08",
+"time": "21:30",
+"name": "Martinez, Albert",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-11-15",
+"time": "21:00",
+"name": "Rilo Antonio",
+"guests": 5,
+"status": "Confirmado",
+"notes": "\"Collega di lavoro. Trattarlo bene\" | (Nota de la reserva)"
+},
+{
+"date": "2025-11-15",
+"time": "21:00",
+"name": "Linares, Kim",
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-11-15",
+"time": "21:30",
+"name": "bengoa alvarez, lucia",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-11-15",
+"time": "21:30",
+"name": "Carreres Fita, Sergi",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-11-15",
+"time": "22:30",
+"name": "Garnica, Clara",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-11-26",
+"time": "22:00",
+"name": "Fito, Pepe",
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"1 persona\" | (Solicitud de cliente)"
+},
+{
+"date": "2025-11-28",
+"time": "22:30",
+"name": "Laine, Sara",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-05",
+"time": "22:00",
+"name": "Martineau, Simon",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-05",
+"time": "22:30",
+"name": "Perez, Juan Miguel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-06",
+"time": "21:00",
+"name": "Barone, Giuseppe",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-06",
+"time": "21:30",
+"name": "Rossano, Omar",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-06",
+"time": "22:00",
+"name": "Tejedor , Manuel",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-14",
+"time": "21:00",
+"name": "Di Pasquale, Gabriela",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-19",
+"time": "22:30",
+"name": "Sanchez, Giovanny",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-20",
+"time": "22:00",
+"name": "Framis, Laia",
+"guests": 10,
+"status": "Confirmado",
+"notes": "\"22,90. Menú di Natale senza entrante\" | (Nota de la reserva)"
+},
+{
+"date": "2025-12-20",
+"time": "22:30",
+"name": "Pintos , Miguel Ángel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-23",
+"time": "21:00",
+"name": "De la Vega Ramos, Ivan",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-23",
+"time": "21:00",
+"name": "Judith",
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-23",
+"time": "21:00",
+"name": "Camacho, Ana",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-30",
+"time": "21:00",
+"name": "Meirelles, Mafalda",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-30",
+"time": "21:00",
+"name": "Marin, Daniele",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2025-12-30",
+"time": "22:30",
+"name": "Firyulin, Dmitry",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-01-08",
+"time": "20:30",
+"name": "boy, bernat",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-01-09",
+"time": "22:30",
+"name": "Diaz, Luis",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-01-10",
+"time": "21:30",
+"name": "Martin",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-01-10",
+"time": "22:00",
+"name": "Bermudez, Lluis",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-01-11",
+"time": "20:30",
+"name": "Mainer, Amelia",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-01-11",
+"time": "21:00",
+"name": "La marca, Elena",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-01-14",
+"time": "21:00",
+"name": "Vilafranca, Adolfo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-01-18",
+"time": "14:00",
+"name": "Ag, Paula",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-01-18",
+"time": "21:00",
+"name": "Perez, Daniel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-01-29",
+"time": "22:00",
+"name": "Cea, Víctor",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-07",
+"time": "21:30",
+"name": "Gonzalez Perez, Rut",
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-07",
+"time": "21:30",
+"name": "Gabiccini, Agnese",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-07",
+"time": "22:00",
+"name": "Rodríguez, Manuel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-07",
+"time": "22:30",
+"name": "Mustelier, Yaday",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-08",
+"time": "21:00",
+"name": "Wankhede, Shanan",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-08",
+"time": "22:00",
+"name": "verdugo mauri, jaime",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-13",
+"time": "20:30",
+"name": "González, Cristina",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-13",
+"time": "20:30",
+"name": "Jiménez, Jessica",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-13",
+"time": "20:30",
+"name": "Marin, Daniele",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-13",
+"time": "20:30",
+"name": "Torres, Fabia",
+"guests": 12,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-13",
+"time": "20:30",
+"name": "Perez Limousin, Guillermo",
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-13",
+"time": "21:00",
+"name": "stiewe, stephanie",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-13",
+"time": "22:00",
+"name": "Zaragoza Ripoll , Ana",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-14",
+"time": "22:30",
+"name": "Vargas, William",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-14",
+"time": "22:30",
+"name": "C, Youness",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-14",
+"time": "22:30",
+"name": "SM, Paula",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-14",
+"time": "22:30",
+"name": "Sansó, Marco Ezequiel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-15",
+"time": "19:30",
+"name": "Casals Andreu, Cristina",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-15",
+"time": "21:00",
+"name": "Cuenca, Pablo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-15",
+"time": "21:00",
+"name": "Pérez, Carlos",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-17",
+"time": "22:30",
+"name": "Beltran, Joan",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-18",
+"time": "20:30",
+"name": "Lumbreras Chiva, Gerard",
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2026-02-18",
+"time": "20:30",
+"name": "Tuveri, Gian Marco",
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2026-02-21",
+"time": "22:30",
+"name": "bello oliver, adolfo",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-25",
+"time": "20:30",
+"name": "sentis castellvi, laia",
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2026-02-25",
+"time": "20:30",
+"name": "Bortone, Diego",
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2026-02-26",
+"time": "20:30",
+"name": "Hernandez, Francisco",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-26",
+"time": "20:30",
+"name": "Ponce, Claudia",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-02-28",
+"time": "21:30",
+"name": "Megias, Tània",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-01",
+"time": "21:30",
+"name": "andreu torreblanca, carles",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-03",
+"time": "22:30",
+"name": "Henry, Jack",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-04",
+"time": "20:00",
+"name": "Dominguez, Ruth",
+"guests": 12,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2026-03-07",
+"time": "22:00",
+"name": "Perez, Marta",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-07",
+"time": "22:30",
+"name": "Jurado, Lena",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-07",
+"time": "22:30",
+"name": "Tez, Ege",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-08",
+"time": "20:00",
+"name": "Theodossiou, Georgios",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-08",
+"time": "20:00",
+"name": "Kaźmierczak , Ewa",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-12",
+"time": "20:00",
+"name": "Mejía Quezada, Eduardo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-12",
+"time": "21:00",
+"name": "Porqueres, Núria",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-13",
+"time": "20:00",
+"name": "Dell Orto, Lucia",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-13",
+"time": "20:30",
+"name": "Trull Aguilera, Aleix",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-13",
+"time": "21:00",
+"name": "Astolfi, Andrea",
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-13",
+"time": "21:00",
+"name": "Rey, Gonzalo Ezequiel",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-13",
+"time": "21:00",
+"name": "Isla, Antonio",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-13",
+"time": "22:00",
+"name": "Romagnoli, Francesca",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-15",
+"time": "21:00",
+"name": "Cuenca, Pablo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-15",
+"time": "22:00",
+"name": "Marín, Juan R.",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-18",
+"time": "21:30",
+"name": "San martin, Arantza",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-18",
+"time": "21:30",
+"name": "Mulvihill, Katherine",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-20",
+"time": "22:00",
+"name": "Jacome, Genesis",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-20",
+"time": "22:00",
+"name": "Rodriguez , marcos",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-20",
+"time": "22:00",
+"name": "Romero Regueiro, Àlex",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-20",
+"time": "22:30",
+"name": "C, Youness",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-21",
+"time": "21:30",
+"name": "Tobías, Manuel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-21",
+"time": "21:30",
+"name": "Mun, Jin",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-22",
+"time": "18:30",
+"name": "Minaya Silverio, Rafael",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-22",
+"time": "21:00",
+"name": "Muñoz, Melissa",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-27",
+"time": "22:00",
+"name": "Jiménez Cordero, Laura",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-28",
+"time": "21:00",
+"name": "Vera , Manel",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-28",
+"time": "21:00",
+"name": "Gàlvez, Víctor",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-28",
+"time": "21:30",
+"name": "MARTIN, MARIA",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-28",
+"time": "21:30",
+"name": "H., Héctor",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-03-28",
+"time": "22:00",
+"name": "Gamez Garcia, Anna",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-01",
+"time": "20:00",
+"name": "Paschke, Birte",
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2026-04-01",
+"time": "20:30",
+"name": "Tidona, Adrià",
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2026-04-02",
+"time": "20:30",
+"name": "Rodriguez , Sandra",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-03",
+"time": "21:00",
+"name": "Turnbull, Alex",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-10",
+"time": "22:30",
+"name": "Gamiz, Noemi",
+"guests": 3,
+"status": "Confirmado",
+"notes": "\"Terraza\" | (Solicitud de cliente)"
+},
+{
+"date": "2026-04-10",
+"time": "22:30",
+"name": "Llort, Núria",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-12",
+"time": "21:30",
+"name": "Engel, Brian",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-15",
+"time": "21:30",
+"name": "P, Rebeca",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-16",
+"time": "20:30",
+"name": "Hull, Veronica",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-16",
+"time": "21:00",
+"name": "Caspar, Alexandra",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-17",
+"time": "21:00",
+"name": "Maugeri, Davide",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-17",
+"time": "22:00",
+"name": "Gago, Eduardo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-18",
+"time": "21:00",
+"name": "Argerich, Sara",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-18",
+"time": "21:30",
+"name": "prat perez, mireia",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-19",
+"time": "21:00",
+"name": "Mirambell, Pol",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-21",
+"time": "14:00",
+"name": "Marzá, Carlos",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-25",
+"time": "22:00",
+"name": "Garcia, Carlos",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-25",
+"time": "22:00",
+"name": "Vicente, Sergi",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-26",
+"time": "21:00",
+"name": "Pérez, Carlos",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-04-30",
+"time": "22:00",
+"name": "Rojas Espinel, Daniela",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-01",
+"time": "20:30",
+"name": "Díaz Calvo, Guillermo",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-01",
+"time": "21:30",
+"name": "Espinosa, Ana",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-01",
+"time": "21:30",
+"name": "Biosca Badia, Manel",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-02",
+"time": "22:30",
+"name": "Da luz, Jonathan",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-07",
+"time": "22:00",
+"name": "Dominguez, Alba",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-08",
+"time": "22:30",
+"name": "Gomez, Ylenia",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-09",
+"time": "21:00",
+"name": "Martín Perpiña, Merche",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-09",
+"time": "21:00",
+"name": "Gamarra, Vicenç",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-09",
+"time": "21:00",
+"name": "Moreno, Blas",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-09",
+"time": "21:00",
+"name": "Castro, Oriol",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-09",
+"time": "21:00",
+"name": "Guillen, Carol",
+"guests": 9,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-09",
+"time": "21:00",
+"name": "Giner, Jordi",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-09",
+"time": "21:30",
+"name": "Torres, Cris",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-09",
+"time": "22:00",
+"name": "griere, owen",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-09",
+"time": "22:30",
+"name": "pujol alonso, angie",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-14",
+"time": "21:30",
+"name": "Conti, Alberto",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-14",
+"time": "22:00",
+"name": "de la pava nieto, paula",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-14",
+"time": "22:00",
+"name": "Castaño Falzoni, Lara",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-15",
+"time": "22:00",
+"name": "nadal, sara",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-15",
+"time": "22:30",
+"name": "Mortensen, Rikard",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-16",
+"time": "21:30",
+"name": "Marques, David",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-16",
+"time": "22:00",
+"name": "Gracia, Enric",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-16",
+"time": "22:00",
+"name": "sánchez raduá, martina",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-16",
+"time": "22:30",
+"name": "Barrera, Ana",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-19",
+"time": "20:30",
+"name": "Ortega, Juan carlos",
+"guests": 2,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2026-05-23",
+"time": "20:30",
+"name": "Nucci, Stefano",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-24",
+"time": "21:00",
+"name": "pich, tomás",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-24",
+"time": "21:00",
+"name": "Giordano, Gina",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-27",
+"time": "21:30",
+"name": "Chern, Anastasia",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-27",
+"time": "21:30",
+"name": "gerber, joani",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-28",
+"time": "20:30",
+"name": "Olivares, Andres",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-28",
+"time": "21:30",
+"name": "Abad, Pau",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-28",
+"time": "21:30",
+"name": "Torres, Gabriela",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-30",
+"time": "20:30",
+"name": "Pijoan, Gerard",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-31",
+"time": "20:30",
+"name": "Comune, Alessandro",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-31",
+"time": "20:30",
+"name": "Rossi, Matteo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-31",
+"time": "22:00",
+"name": "Passarelli, Pierluigi",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-05-31",
+"time": "22:00",
+"name": "Miranda, Kelly",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-07",
+"time": "20:30",
+"name": "Coady, Harry",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-07",
+"time": "20:30",
+"name": "Cloud, Andy",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-07",
+"time": "22:00",
+"name": "Morante, Álvaro",
+"guests": 15,
+"status": "Confirmado",
+"notes": "\"Cena equipo fútbol femenino de la Queens League\" | (Solicitud de cliente)"
+},
+{
+"date": "2026-06-10",
+"time": "20:30",
+"name": "Alessandro, Mateo",
+"guests": 3,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2026-06-10",
+"time": "21:00",
+"name": "Salinas, Josep",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-10",
+"time": "21:00",
+"name": "Girling, Nick",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-10",
+"time": "21:30",
+"name": "Martínez , David",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-11",
+"time": "20:30",
+"name": "Muñoz, Marta",
+"guests": 13,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-11",
+"time": "21:30",
+"name": "Bartroli pladeoliva, Marta",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-11",
+"time": "22:00",
+"name": "García González, Ester",
+"guests": 5,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-14",
+"time": "20:30",
+"name": "Ravani, Rakesh",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-14",
+"time": "21:00",
+"name": "Mahlendorf, Madison",
+"guests": 2,
+"status": "Confirmado",
+"notes": "\"1sr wedding anniversary\" | (Solicitud de cliente)"
+},
+{
+"date": "2026-06-14",
+"time": "21:30",
+"name": "Mc Guinness, Aaron",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-14",
+"time": "22:00",
+"name": "Casanova Rodón, Sílvia",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-16",
+"time": "22:00",
+"name": "petrazzi, augusto",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-19",
+"time": "21:00",
+"name": "Esquembri, Lidia",
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-20",
+"time": "21:00",
+"name": "Garcia , Victor",
+"guests": 7,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-20",
+"time": "21:30",
+"name": "Bernat , Francesc",
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-21",
+"time": "13:30",
+"name": "serrano cadena, angela",
+"guests": 6,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-21",
+"time": "13:30",
+"name": "Pinacho, Eduardo",
+"guests": 4,
+"status": "Confirmado",
+"notes": null
+}
+]

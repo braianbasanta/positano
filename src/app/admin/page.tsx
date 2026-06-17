@@ -12,6 +12,11 @@ const SECTIONS = [
     desc: "Caja diaria, gráficas y comparativas mes a mes y año a año.",
   },
   {
+    href: "/admin/reservas",
+    title: "Reservas online",
+    desc: "Cubiertos y reservas de DISH (web) y TheFork: evolución, canales, descuentos y cancelaciones.",
+  },
+  {
     href: "/admin/plan",
     title: "Plan de facturación",
     desc: "Objetivos de media diaria, techo de cada día y hoja de ruta a corto, medio y largo plazo.",
