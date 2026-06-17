@@ -240,8 +240,10 @@ export default function FacturacionDashboard({
         met: !!obj && total >= obj,
       };
     };
+    // Días recientes (≤ hoy): se muestran TODOS aunque la caja no esté cargada
+    // todavía (saldrán como "pendiente"), para no dejar huecos en el calendario.
     const past = weather
-      .filter((w) => w.date <= today && (recByDate.get(w.date)?.closed || dayTotal(recByDate.get(w.date) ?? ({} as DayRecord)) > 0))
+      .filter((w) => w.date <= today)
       .slice(-11)
       .map((w) => build(w, false));
     const future = weather
@@ -704,10 +706,12 @@ export default function FacturacionDashboard({
                         ) : (
                           <span className="text-ink/30">—</span>
                         )
-                      ) : (
+                      ) : f.total > 0 ? (
                         <span className={`font-semibold ${f.met ? "text-emerald-600" : "text-ink/70"}`}>
                           {eur0(f.total)}
                         </span>
+                      ) : (
+                        <span className="text-ink/30">pendiente</span>
                       )}
                     </div>
                   </div>
