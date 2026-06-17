@@ -51,7 +51,6 @@ import {
   weatherLabel,
 } from "@/lib/facturacion/weather";
 import EntradaDatos from "./EntradaDatos";
-import { migrateBlobToSupabase } from "./actions";
 
 // Inicial del día por getDay() (0=domingo … 6=sábado). M=martes, X=miércoles.
 const INICIAL_DIA = ["D", "L", "M", "X", "J", "V", "S"];
@@ -133,26 +132,6 @@ export default function FacturacionDashboard({
   const [includeDelivery, setIncludeDelivery] = useState(false);
   // Vista "evolución por día de la semana": día seleccionado (2=martes por defecto).
   const [weekday, setWeekday] = useState(2);
-  // Migración one-time blob → Supabase (botón temporal).
-  const [migMsg, setMigMsg] = useState<string | null>(null);
-  const [migBusy, setMigBusy] = useState(false);
-
-  async function runMigration() {
-    setMigBusy(true);
-    setMigMsg(null);
-    try {
-      const r = await migrateBlobToSupabase();
-      setMigMsg(
-        r.error
-          ? `❌ ${r.error}`
-          : `✅ Migrados ${r.migrated} días del blob (${r.blob}). En Supabase hay ahora ${r.supa}.`,
-      );
-    } catch (e) {
-      setMigMsg(`❌ ${e instanceof Error ? e.message : String(e)}`);
-    } finally {
-      setMigBusy(false);
-    }
-  }
 
   const effectiveDays = useMemo(
     () => (includeDelivery ? days : days.map(stripDelivery)),
@@ -731,6 +710,11 @@ export default function FacturacionDashboard({
                         <span className={`font-semibold ${f.met ? "text-emerald-600" : "text-ink/70"}`}>
                           {eur0(f.total)}
                         </span>
+                      ) : f.expected > 0 ? (
+                        <span className="text-ink/40">
+                          ~{eur0(f.expected)}
+                          <span className="ml-1 text-[10px] text-ink/30">est.</span>
+                        </span>
                       ) : (
                         <span className="text-ink/30">pendiente</span>
                       )}
@@ -821,20 +805,6 @@ export default function FacturacionDashboard({
             <EntradaDatos defaultDate={today} />
           </div>
         )}
-      </div>
-
-      {/* Migración one-time blob → Supabase (temporal: borrar tras verificar) */}
-      <div className="mt-6 rounded-2xl border border-dashed border-ink/15 bg-white/40 p-4">
-        <div className="flex flex-wrap items-center gap-3">
-          <button
-            onClick={runMigration}
-            disabled={migBusy}
-            className="rounded-lg border border-ink/15 bg-white/70 px-4 py-2 font-sans text-sm font-medium text-ink/70 transition hover:border-lemon disabled:opacity-40"
-          >
-            {migBusy ? "Migrando…" : "Migrar blob → Supabase (1 vez)"}
-          </button>
-          {migMsg && <span className="font-sans text-sm text-ink/70">{migMsg}</span>}
-        </div>
       </div>
     </div>
   );
