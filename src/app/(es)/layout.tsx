@@ -7,6 +7,8 @@ import ConsentBanner from "@/components/ConsentBanner";
 import { Analytics } from "@vercel/analytics/next";
 import { Suspense } from "react";
 import AttributionCapture from "@/components/AttributionCapture";
+import FloatingReserva from "@/components/FloatingReserva";
+import Clarity from "@/components/Clarity";
 import { SITE_URL, alternatesFor } from "@/lib/i18n";
 import { reviewStats } from "@/data/reviews";
 
@@ -164,8 +166,10 @@ export default function EsLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}
         />
         <ReelViewerProvider>{children}</ReelViewerProvider>
+        <FloatingReserva lang="es" />
         <ConsentBanner lang="es" />
         <GtmScript />
+        <Clarity />
         <Analytics />
         <Suspense>
           <AttributionCapture />

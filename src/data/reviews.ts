@@ -28,106 +28,109 @@ export const forkStats = {
 
 export const forkUrl = "https://www.thefork.es/restaurante/positano-r804685";
 
+// Opiniones reales de Google (perfil de Positano en Google Maps). Copiadas tal
+// cual de las reseñas publicadas; solo se normaliza la capitalización de algún
+// nombre. NO inventar reseñas: añadir aquí únicamente texto real de clientes.
 export const reviews: Review[] = [
   {
-    name: "Pavli G.",
+    name: "Albert Arranz",
     rating: 5,
-    text: "Todo un acierto. La comida estaba muy rica, la parmigiana de berenjena súper deliciosa, la lasaña muy buena igual que el postre. El ambiente muy bonito y los camareros atentos y amables. Volvería sin duda.",
+    text: "Menú económico, muy bueno y bastante variado. No hay mucha cantidad de platos pero suficiente y las raciones están bien. Hay que probar las pizzas, son espectaculares. Al estilo napolitano. No he probado la carta pero tiene buena pinta.",
   },
   {
-    name: "Guille Segues",
+    name: "Mireia Nicolàs Molina",
     rating: 5,
-    text: "Fuimos a cenar un sábado, buen ambiente sin mucho ruido. El local tiene la planta baja, pequeña, con el horno y la barra, y la parte alta algo más amplia.\n\nLas pizzas muy buenas, tanto la masa como los ingredientes. El camarero que nos atendió fue un 10: muy atento y cercano durante toda la cena.",
+    text: "Restaurante italiano muy recomendable con platos de buena calidad y excelente presentación. A destacar la atención del camarero Ricardo que ha sido muy atento y servicial durante toda la cena.",
   },
   {
-    name: "Roger Espada Calvo",
+    name: "Claudia Calderon",
     rating: 5,
-    text: "Cena de sábado muy agradable, con un ambiente tranquilo y sin ruido molesto. El local es acogedor: abajo la zona del horno y la barra, y arriba un espacio más amplio donde se está muy a gusto para cenar con calma.\n\nLa comida fue un acierto. Se nota que la cocina es italiana de verdad y que cuidan el sabor. La pizza estaba riquísima, con una masa ligera y bien hecha. La carbonara merece una mención especial: sabrosa, bien ligada y preparada al momento.\n\nLa panna cotta fue el cierre perfecto. Un sitio muy recomendable para cenar bien y salir con ganas de repetir.",
+    text: "Comimos una pizza margarita y una pasta carbonara y estaba increíble!! Muy rico de verdad. Para beber unos aperol que estaban muy bien preparados y al final Matías nos invitó a un chupito de pistacho… DELICIOSO. Tiene terracita y tiene interior.",
   },
   {
-    name: "Marta Ruiz",
+    name: "Nerea de Asís Molleja",
     rating: 5,
-    text: "La mejor pizza napolitana que he probado en Barcelona. La masa de 48 horas se nota en cada bocado: ligera, aireada y perfectamente horneada. Pedimos la diavola y la bufala, las dos espectaculares. Volveremos sin falta.",
+    text: "Fuimos un grupo de 23 personas para celebrar la despedida de soltera y soltero. La atención fue increíble, muy atentos a todo, nos sirvieron muy rápido aún siendo un grupo muy grande. El trato de los camareros fue espectacular y la comida muy buena: se nota la masa de la pizza, masa madre y hecha con horno de piedra, y la carbonara hecha con huevo. Platos al puro estilo italiano. Era la tercera vez que íbamos y un acierto total. Totalmente recomendable!",
   },
   {
-    name: "Carles Vidal",
+    name: "Ainhoa F.",
     rating: 5,
-    text: "Atención excelente desde que entras. El camarero nos recomendó la burrata frita pugliese y fue una decisión acertadísima. Carta cuidada, productos de calidad y precios razonables para lo que ofrecen.",
+    text: "Pizzas recién hechas con masa madre, de pizza fina y al horno de piedra. Muy buen local y ambiente agradable. Tienen terraza y una planta superior.",
   },
   {
-    name: "Sofía Martínez",
+    name: "Miguel Ángel Fernández Ruiz",
     rating: 5,
-    text: "Ambiente increíble. Cenamos en la planta de arriba y se está súper a gusto, luz cálida y música a buen volumen. La pasta al tartufo brutal, y el tiramisú casero uno de los mejores de la ciudad.",
+    text: "Excelente restaurante. Buenísima carbonara, y el menú con albóndigas con parmesano, pizza y panacota espectacular a muy buen precio. El camarero muy atento y amable, dándonos las recomendaciones precisas. La pasta y el menú fueron 39 €.",
   },
   {
-    name: "Lluís Puig",
+    name: "Marta CB",
     rating: 5,
-    text: "Italianos de verdad cocinando para italianos. Eso ya lo dice todo. La margherita es de manual y la salsiccia e friarielli sabe a Nápoles. Servicio cercano y nada de prisas.",
+    text: "¡¡¡Es la segunda vez que como en Positano y lo recomiendo 100%!!! La comida está exquisita y el trato es excelente. Gracias, Matías, por tus recomendaciones y simpatía. ♥️",
   },
   {
-    name: "Andrea Bianchi",
+    name: "Jasmine Babo",
     rating: 5,
-    text: "Da italiano confermo: pizza napoletana come si deve, impasto leggero e ben digeribile. Anche la mozzarella di bufala è di qualità. Personale gentilissimo, ambiente curato. Tornerò di sicuro.",
+    text: "Yo diría que es la mejor pizzería de Barcelona. No hace falta irse a Italia para probar una pizza auténtica: la tienes aquí. Adoro especialmente su masa, tan bien elaborada, que destaca entre las demás. Recomiendo a todo el mundo que venga a probarla, os vais a enganchar como me ha pasado a mí.",
   },
   {
-    name: "Núria Bosch",
+    name: "Lucas Diaz",
     rating: 5,
-    text: "Vinimos por una recomendación y nos enamoramos del sitio. La lasaña tradicional es para llorar de buena, y los scialatelli con bogavante son un escándalo. Fácilmente repetimos cada mes.",
+    text: "Espectacular lugar, muy grato ambiente, la atención es muy servicial y la comida maravillosa. De lo mejor que he probado en pizzas últimamente, con masa madre y harina auténtica napolitana.",
   },
   {
-    name: "David Romero",
-    rating: 4,
-    text: "Muy buena experiencia en general. Las pizzas y entrantes geniales. Un poco de espera para entrar un viernes por la noche, pero merece la pena. Reservaría con antelación la próxima vez.",
-  },
-  {
-    name: "Elisa Trentini",
+    name: "Carmelo Cacciola",
     rating: 5,
-    text: "Llevábamos meses buscando una pizzería napolitana de verdad y por fin la encontramos. La carbonara también espectacular, hecha como toca, sin nata. El servicio es atento sin agobiar.",
+    text: "El ambiente, el personal y la comida son realmente magníficos. La pizza está deliciosa, con ingredientes de calidad y muy bien elaborada; recomiendo la «della Nonna». La tarta «pan di stelle» es increíble y el Aperol Spritz también está muy bueno. El personal es muy simpático, tanto que nos invitaron a dos rondas: una de limoncello y otra de meloncello. Lo recomiendo encarecidamente.",
   },
   {
-    name: "Pol Estévez",
+    name: "Ramón García Hernández",
     rating: 5,
-    text: "Empezamos con un par de cócteles en la barra y acabamos cenando arriba. Plan redondo. El paccheri a la genovese es un platazo, y el provolone al horno para mojar pan no perdona.",
+    text: "Sitio perfecto para reunirse con amigos y/o familia. Servicio rápido y comida deliciosa. Para mi gusto, la acústica del local un poco mala ya que tienes que alzar la voz para hablar entre comensales. Lo recomendaría sin duda. Buena calidad-precio.",
   },
   {
-    name: "Cristina Vega",
+    name: "Miguel Ángel MC",
     rating: 5,
-    text: "El sitio respira Italia desde el primer minuto. Materia prima espectacular, mozzarella di bufala que se nota, y unas pizzas con la masa más rica que he probado en mucho tiempo. Top.",
+    text: "Sin duda para repetir: gnocchi sorrentina buenísimos, pizza capricciosa deliciosa y postre pan di stelle espectacular. Volveremos.",
   },
   {
-    name: "Marc Domènech",
+    name: "Peyton Clark",
     rating: 5,
-    text: "Cenamos con amigos y todos salimos encantados. Compartimos antipasti, pizzas y un par de pastas. La iberica con jamón al final lleva una capa de cremosidad que es para no parar.",
+    text: "Best focaccia I have ever had! The pizza was 10/10 as well.",
   },
   {
-    name: "Giulia Marini",
+    name: "Natalia Reina",
     rating: 5,
-    text: "Un pezzo di Napoli a Barcellona. La pizza margherita è proprio quella della tradizione: pomodoro San Marzano, fior di latte e basilico. Anche il tiramisù è fatto a regola d'arte.",
+    text: "Comida deliciosa, excelente ambiente y la pasta en rueda de pecorino, la mejor de Barcelona para mí. 👏",
   },
   {
-    name: "Laura Sánchez",
+    name: "RIPPA",
     rating: 5,
-    text: "Cumpleaños celebrado aquí y todo el mundo encantado. Nos prepararon la mesa preciosa y el detalle con el postre fue espectacular. La cocina, de matrícula. Repetiremos seguro.",
+    text: "Lugar muy típico y característico italiano, personal muy amable y profesional. Y la comida es brutal (pizza napolitana 100%). Lo recomiendo vivamente.",
   },
   {
-    name: "Joan Casals",
+    name: "Pili Souto",
     rating: 5,
-    text: "Llevo años yendo a italianos en Barcelona y este se ha colado en mi top 3. La masa de fermentación de 48h se nota, ligera y digestiva. La tartufo, una locura. La atención, impecable.",
+    text: "Pedimos 2 pizzas que estaban muy ricas. Servicio amable. También tuvieron el detalle de invitarnos a limoncello. Ganas de volver a probar la pasta casera.",
   },
   {
-    name: "Federica Conte",
+    name: "Marc Moral Escudero",
     rating: 5,
-    text: "Finalmente una pizzeria napoletana fatta come si deve fuori Napoli! Mozzarella di bufala campana, San Marzano, basilico fresco. Anche il calzone è ottimo. Bravissimi tutti.",
+    text: "Pizzería más que correcta y platos típicos italianos muy bien cocinados. Probamos la parmigiana de berenjena y nos gustó mucho, con el tomate bien deshecho y caramelizado. Volveremos.",
   },
   {
-    name: "Pau Riera",
+    name: "Maura Ambrosiano",
     rating: 5,
-    text: "Buena relación calidad-precio para el nivel de la cocina. Ingredientes traídos de Italia y se nota. La risotto ai funghi muy bien de punto y los gnocchi alla sorrentina riquísimos.",
+    text: "Massimo delivered excellent service, tasty food at a great price. Grazie! Alla prossima.",
   },
   {
-    name: "Inés Lorenzo",
-    rating: 4,
-    text: "Comimos en la terraza un sábado al mediodía y muy a gusto. Carta amplia, las pizzas son lo más destacable. El servicio iba un poco justo de personal pero los chicos lo dieron todo.",
+    name: "Marcela Aldana",
+    rating: 5,
+    text: "Muy buena experiencia en este restaurante. Desde el momento en que llegamos, el personal fue amable y atento, haciéndonos sentir bienvenidos. La comida estaba deliciosa, así que muy recomendado. 😁",
+  },
+  {
+    name: "Marc FP",
+    rating: 5,
+    text: "Comida italiana tradicional y de muy buena calidad. El menú del día es muy elaborado. El servicio del personal es muy cercano y atento. Vale la pena tanto para comer como para cenar. Súper recomendable.",
   },
 ];
 
@@ -135,19 +138,54 @@ export const reviews: Review[] = [
 // se guarda en esa escala y las tarjetas lo muestran como "X/10".
 export const forkReviews: Review[] = [
   {
+    name: "Dídac R.",
+    rating: 10,
+    text: "Muy buena comida y servicio, ya es la tercera vez que vengo a Positano y no será la última. 10/10.",
+  },
+  {
+    name: "Sebastián G.",
+    rating: 9.5,
+    text: "La comida es de una grandísima calidad. Las pizzas y la pasta, extraordinarias.",
+  },
+  {
     name: "Vanessa M.",
     rating: 10,
     text: "Reservamos con poco tiempo de antelación y, aun así, la atención, el servicio y la comida han sido excelentes. Fuimos con dos nenes de 2 años y han estado muy atentos con ellos.",
   },
   {
-    name: "Sergio R.",
+    name: "Pau A.",
+    rating: 9.5,
+    text: "Todo genial, pero estábamos justo debajo de un altavoz, que con la música hacía complicado poder hablar sin alzar la voz.",
+  },
+  {
+    name: "Sofia S.",
     rating: 10,
-    text: "Hemos estado hoy y la verdad nos ha sorprendido lo bueno que estaba todo, tanto la pizza como los spaghetti. Seguro que repetiremos.",
+    text: "La comida está deliciosa y el servicio es muy bueno!",
+  },
+  {
+    name: "Sergio V.",
+    rating: 10,
+    text: "Sitio increíble, servicio y comida de 10. Volveré.",
+  },
+  {
+    name: "Jennifer Q.",
+    rating: 9.5,
+    text: "Las pizzas buenísimas y el servicio también muy majos. No es la primera vez que venimos ni será la última.",
+  },
+  {
+    name: "Javier Á.",
+    rating: 10,
+    text: "Pizzas hechas al horno de piedra, muy buenas.",
   },
   {
     name: "Pamela J.",
     rating: 10,
-    text: "Deliciosa comida, pizzas italianas de verdad, muchas variedades interesantes en combinación y el tiramisú delicioso. Y la atención de 10. Volveremos sin duda.",
+    text: "Deliciosa comida, pizzas italianas de verdad, muchas variedades interesantes en combinación, el tiramisú delicioso! Y la atención de 10. Volveremos sin duda.",
+  },
+  {
+    name: "Beatriz D.",
+    rating: 9.5,
+    text: "Nos gustó todo mucho, estaba todo muy rico.",
   },
   {
     name: "Eric L.",
@@ -155,63 +193,23 @@ export const forkReviews: Review[] = [
     text: "El trato amable, muy buen servicio, camareros y dueño muy agradables, y la pizza es estupenda, la mejor que he probado sin duda. Espectacular.",
   },
   {
-    name: "Carmelo C.",
+    name: "Sergio R.",
     rating: 10,
-    text: "El ambiente, el personal y la comida son realmente magníficos. La pizza está deliciosa, con ingredientes de calidad y muy bien elaborada.",
+    text: "Hemos estado hoy y la verdad nos ha sorprendido lo bueno que estaba la comida, tanto la pizza como los spaghetti. Seguro que repetiremos.",
   },
   {
-    name: "Álvaro R.",
+    name: "Marta M.",
     rating: 10,
-    text: "Todo lo que pedimos estaba buenísimo: los espaguetis a la carbonara, el tagliatelle con albóndigas y las pizzas. A los niños les encantó.",
+    text: "Comida rica y buena!! El personal muy agradables y atentos desde el primer momento.",
   },
   {
-    name: "Jennifer Q.",
-    rating: 9.5,
-    text: "Las pizzas buenísimas y el servicio muy majos. No es la primera vez que venimos ni será la última.",
-  },
-  {
-    name: "Eliana S.",
-    rating: 10,
-    text: "Bel locale, personale accogliente e gentile. Ottima pizza, tipica napoletana. Top, lo consiglio!",
-  },
-  {
-    name: "Valentina M.",
-    rating: 10,
-    text: "Tutto super buono! Lo consiglio vivamente e tornerò sicuramente: è tra le pizze più buone che abbia mangiato a Barcellona.",
-  },
-  {
-    name: "Mauro D.",
-    rating: 9.5,
-    text: "Ottima pizza in stile napoletano. Buono anche il tiramisù. Servizio accogliente, sembra quasi di essere a Napoli.",
-  },
-  {
-    name: "Sarah U.",
-    rating: 10,
-    text: "Pizza ottima, camerieri super cordiali, locale veramente carino! Stra-consiglio.",
-  },
-  {
-    name: "Jade W.",
-    rating: 10,
-    text: "We love it here, we keep coming back! The gnocchi is soooo good and the margherita pizza is also great quality.",
-  },
-  {
-    name: "Celia M.",
-    rating: 9.5,
-    text: "Fuimos recomendados por una amiga italiana y nos encantó. Las pizzas Siciliana y Provola e Peppe, espectaculares. Volveremos.",
-  },
-  {
-    name: "Sonia M.",
-    rating: 8,
-    text: "Las pizzas increíbles. Probamos el risotto de calabacín y el calamar frito, todo un acierto. No dejéis de probar el tiramisú de pistacho.",
+    name: "Andreu À.",
+    rating: 8.5,
+    text: "Buena comida y excelente servicio.",
   },
   {
     name: "Mario V.",
     rating: 10,
-    text: "Cocina napolitana de 10. Una pizza auténtica y un trato cercano. Volveremos seguro.",
-  },
-  {
-    name: "denise p.",
-    rating: 10,
-    text: "Posto molto carino, personale cordiale e disponibile. Cibo ottimo e di qualità. Consigliatissimo.",
+    text: "Cocina napolitana de 10!!!",
   },
 ];

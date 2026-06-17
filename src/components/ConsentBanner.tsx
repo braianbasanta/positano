@@ -111,7 +111,11 @@ export default function ConsentBanner({ lang = "es" }: { lang?: Lang }) {
     pushConsentUpdate(granted);
     // Tras conceder, recuperamos la vista de la página actual que se perdió por
     // el default "denied" (ver pushPageView). Solo en el clic, no al reaplicar.
-    if (granted) pushPageView();
+    if (granted) {
+      pushPageView();
+      // Avisa a Clarity (u otros) para que arranquen en esta misma sesión.
+      window.dispatchEvent(new Event("positano-consent-granted"));
+    }
     try {
       localStorage.setItem(STORAGE_KEY, granted ? "granted" : "denied");
     } catch {

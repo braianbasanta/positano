@@ -10,7 +10,7 @@ export const LEGAL_BUSINESS = {
   phone: "+34 933 51 59 13",
   email: "positanopizzeria2023@gmail.com",
   // Encargados del tratamiento / terceros con los que se comparten datos.
-  processors: ["Google (GA4 y Google Ads)", "DISH / Hospitality Digital (reservas)", "Uber Eats", "Glovo"],
+  processors: ["Google (GA4 y Google Ads)", "Microsoft (Clarity)", "DISH / Hospitality Digital (reservas)", "Uber Eats", "Glovo"],
 };
 
 // Fecha de última actualización mostrada en cada documento.
@@ -162,7 +162,7 @@ export const LEGAL: Record<Locale, { aviso: LegalDoc; privacidad: LegalDoc; cook
           heading: "Tipos de cookies que usamos",
           list: [
             "Técnicas (necesarias): permiten el funcionamiento básico del sitio. No requieren consentimiento.",
-            "Analíticas: Google Analytics 4, para medir el tráfico de forma agregada. Requieren consentimiento.",
+            "Analíticas: Google Analytics 4 y Microsoft Clarity (mapas de calor y grabaciones de sesión anónimas), para medir el tráfico y entender cómo se usa la web. Requieren consentimiento.",
             "Publicitarias: Google Ads, para medir conversiones y optimizar campañas. Requieren consentimiento.",
             "De terceros: el contenido embebido (Google Maps y el sistema de reservas DISH) puede instalar sus propias cookies al cargarse.",
           ],
@@ -308,7 +308,7 @@ export const LEGAL: Record<Locale, { aviso: LegalDoc; privacidad: LegalDoc; cook
           heading: "Types of cookies we use",
           list: [
             "Technical (necessary): enable the basic functioning of the site. No consent required.",
-            "Analytics: Google Analytics 4, to measure traffic in aggregate. Consent required.",
+            "Analytics: Google Analytics 4 and Microsoft Clarity (heatmaps and anonymous session recordings), to measure traffic and understand how the site is used. Consent required.",
             "Advertising: Google Ads, to measure conversions and optimise campaigns. Consent required.",
             "Third-party: embedded content (Google Maps and the DISH reservation system) may set its own cookies when loaded.",
           ],
