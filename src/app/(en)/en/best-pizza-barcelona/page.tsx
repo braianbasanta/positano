@@ -9,6 +9,7 @@ import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
 import { reviewStatsEn } from "@/data/reviews";
+import { goldCta3d } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "Best Pizza in Barcelona · Wood-Fired · Positano Eixample",
@@ -71,7 +72,7 @@ export default function BestPizzaBarcelonaPage() {
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
               <a
                 href="/en/book-a-table"
-                className="group inline-flex items-center gap-3 rounded-full bg-lemon px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
+                className={`group inline-flex items-center gap-3 rounded-full px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] ${goldCta3d} hover:tracking-[0.25em]`}
               >
                 Book a table
                 <span className="transition-transform duration-300 group-hover:translate-x-1">

@@ -62,7 +62,7 @@ export default function Hero({ lang = "es" }: { lang?: Locale }) {
               height={417}
               priority
               sizes="(min-width: 768px) 448px, 240px"
-              className="h-auto w-[clamp(15rem,42vw,28rem)] drop-shadow-[0_8px_22px_rgba(0,0,0,0.4)]"
+              className="h-auto w-[clamp(15rem,42vw,28rem)] [filter:drop-shadow(0_0_5px_rgba(0,0,0,0.55))_drop-shadow(0_6px_18px_rgba(0,0,0,0.45))]"
             />
           </h1>
 
@@ -87,7 +87,7 @@ export default function Hero({ lang = "es" }: { lang?: Locale }) {
           >
             <a
               href={t.reservasHref}
-              className="rounded-full bg-lemon px-9 py-[1.35rem] text-center font-bold text-[1.1rem] uppercase tracking-[0.22em] text-ink shadow-[0_12px_32px_rgba(0,0,0,0.4)] transition-all duration-300 hover:bg-cream hover:tracking-[0.27em] md:text-[1.25rem]"
+              className="rounded-full bg-[linear-gradient(160deg,#d8bc72_0%,#c6a253_52%,#b8923f_100%)] px-9 py-[1.35rem] text-center font-bold text-[1.1rem] uppercase tracking-[0.22em] text-ink ring-1 ring-ink/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_14px_34px_-8px_rgba(0,0,0,0.5),0_5px_14px_-3px_rgba(0,0,0,0.35)] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:tracking-[0.25em] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_22px_46px_-10px_rgba(0,0,0,0.55),0_8px_20px_-4px_rgba(0,0,0,0.4)] active:scale-[0.98] md:text-[1.25rem]"
             >
               {t.reservar}
             </a>

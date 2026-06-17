@@ -9,6 +9,7 @@ import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
+import { goldCta3d } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "Pizza Napolitana en Barcelona · Horno de Leña · Positano",
@@ -101,7 +102,7 @@ export default function PizzaNapolitanaPage() {
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
               <a
                 href="/reservas"
-                className="group inline-flex items-center gap-3 rounded-full bg-lemon px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
+                className={`group inline-flex items-center gap-3 rounded-full px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] ${goldCta3d} hover:tracking-[0.25em]`}
               >
                 Reservar mesa
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
