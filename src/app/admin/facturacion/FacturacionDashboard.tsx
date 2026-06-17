@@ -12,9 +12,12 @@ import {
   Pie,
   PieChart,
   ResponsiveContainer,
+  Scatter,
+  ScatterChart,
   Tooltip,
   XAxis,
   YAxis,
+  ZAxis,
 } from "recharts";
 import {
   CANAL_LABEL,
@@ -40,6 +43,13 @@ import {
   weekdayOf,
 } from "@/lib/facturacion/analytics";
 import { mediaDiariaObjetivo, OBJETIVO_MENSUAL, objetivoDia } from "@/lib/facturacion/objetivos";
+import {
+  type DayWeather,
+  corrStrength,
+  pearson,
+  weatherIcon,
+  weatherLabel,
+} from "@/lib/facturacion/weather";
 import EntradaDatos from "./EntradaDatos";
 
 // Inicial del día por getDay() (0=domingo … 6=sábado). M=martes, X=miércoles.
@@ -48,6 +58,22 @@ const INICIAL_DIA = ["D", "L", "M", "X", "J", "V", "S"];
 const WEEKDAY_PICK = [2, 3, 4, 5, 6, 0];
 
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+// Formatea un coeficiente de correlación con signo (+/−).
+const fmtR = (r: number | null) => (r === null ? "—" : `${r >= 0 ? "+" : ""}${r.toFixed(2)}`);
+
+// Lectura en una frase de las correlaciones temperatura/lluvia con la caja.
+function climateReading(rTemp: number | null, rRain: number | null): string {
+  const parts: string[] = [];
+  if (rTemp !== null && Math.abs(rTemp) >= 0.2) {
+    parts.push(rTemp > 0 ? "con más calor, más caja" : "con más calor, menos caja");
+  }
+  if (rRain !== null && Math.abs(rRain) >= 0.2) {
+    parts.push(rRain < 0 ? "los días de lluvia baja la caja" : "curiosamente, los días de lluvia sube");
+  }
+  if (!parts.length) return "De momento el clima apenas mueve la caja con los datos disponibles.";
+  return cap(parts.join(" y ")) + ".";
+}
 
 const INK = "#1d2750";
 const LEMON = "#c6a253";
@@ -85,7 +111,15 @@ function stripDelivery(r: DayRecord): DayRecord {
   return { ...r, lunch: noDelivery(r.lunch), dinner: noDelivery(r.dinner), total: noDelivery(r.total) };
 }
 
-export default function FacturacionDashboard({ days, today }: { days: DayRecord[]; today: string }) {
+export default function FacturacionDashboard({
+  days,
+  today,
+  weather = [],
+}: {
+  days: DayRecord[];
+  today: string;
+  weather?: DayWeather[];
+}) {
   const todayD = parseLocal(today);
   const curY = todayD.getFullYear();
   const curM = todayD.getMonth();
@@ -141,6 +175,68 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
       worst: withData.reduce((m, d) => (m === 0 ? d.total : Math.min(m, d.total)), 0),
     };
   }, [effectiveDays, weekday]);
+
+  // Clima vs facturación: correlación (Pearson) sobre días operativos con dato
+  // de clima, nube de puntos caja↔temperatura, y previsión de los próximos días
+  // con la media histórica de ese día de la semana (para dimensionar plantilla).
+  const climate = useMemo(() => {
+    if (!weather.length) return null;
+    const wByDate = new Map(weather.map((w) => [w.date, w]));
+
+    const rows = effectiveDays
+      .filter((r) => !r.closed)
+      .map((r) => ({ date: r.date, total: dayTotal(r), w: wByDate.get(r.date) }))
+      .filter((x) => x.total > 0 && x.w);
+
+    const tempPairs = rows
+      .filter((x) => x.w!.tMax != null)
+      .map((x) => [x.w!.tMax!, x.total] as [number, number]);
+    const rainPairs = rows
+      .filter((x) => x.w!.precip != null)
+      .map((x) => [x.w!.precip!, x.total] as [number, number]);
+
+    const scatter = rows
+      .filter((x) => x.w!.tMax != null)
+      .map((x) => ({ temp: x.w!.tMax!, caja: x.total, rain: (x.w!.precip ?? 0) >= 1 }));
+
+    // Media histórica de caja por día de la semana (todo el histórico cargado).
+    const wkSum = new Map<number, { s: number; c: number }>();
+    for (const x of rows) {
+      const wd = weekdayOf(x.date);
+      const cur = wkSum.get(wd) ?? { s: 0, c: 0 };
+      cur.s += x.total;
+      cur.c += 1;
+      wkSum.set(wd, cur);
+    }
+    const wkAvg = (wd: number) => {
+      const v = wkSum.get(wd);
+      return v && v.c ? v.s / v.c : 0;
+    };
+
+    const forecast = weather
+      .filter((w) => w.date > today)
+      .map((w) => {
+        const wd = weekdayOf(w.date);
+        return {
+          ...w,
+          wd,
+          dnum: dayOfMonth(w.date),
+          dia: cap(weekdayLabel(wd)),
+          obj: objetivoDia(wd),
+          expected: wkAvg(wd),
+          closed: objetivoDia(wd) === null, // lunes
+        };
+      })
+      .slice(0, 8);
+
+    return {
+      rTemp: pearson(tempPairs),
+      rRain: pearson(rainPairs),
+      scatter,
+      forecast,
+      n: rows.length,
+    };
+  }, [weather, effectiveDays, today]);
 
   const isCurrent = year === curY && month === curM;
   // En el mes en curso el corte es el último día CON datos (no "hoy"): así se
@@ -458,6 +554,111 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
           )}
         </div>
       </Card>
+
+      {/* Clima vs facturación + previsión */}
+      {climate && (
+        <Card
+          className="mt-6"
+          title="Clima y facturación"
+          hint="Correlación entre el tiempo en Barcelona y la caja, y previsión de los próximos días para dimensionar plantilla."
+        >
+          {climate.n >= 3 ? (
+            <>
+              <div className="grid gap-4 lg:grid-cols-2">
+                <div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <Mini
+                      label="Temperatura ↔ caja"
+                      value={`${fmtR(climate.rTemp)} · ${corrStrength(climate.rTemp)}`}
+                    />
+                    <Mini
+                      label="Lluvia ↔ caja"
+                      value={`${fmtR(climate.rRain)} · ${corrStrength(climate.rRain)}`}
+                    />
+                  </div>
+                  <p className="mt-3 font-sans text-sm text-ink/60">{climateReading(climate.rTemp, climate.rRain)}</p>
+                  <p className="mt-2 font-sans text-xs text-ink/40">
+                    Basado en {climate.n} días con caja y datos de clima. La correlación no implica causa; úsala como
+                    pista, no como verdad absoluta.
+                  </p>
+                </div>
+                <div>
+                  <ResponsiveContainer width="100%" height={240}>
+                    <ScatterChart margin={{ top: 10, right: 12, left: 4, bottom: 4 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+                      <XAxis
+                        type="number"
+                        dataKey="temp"
+                        name="Tª máx"
+                        unit="°"
+                        tick={{ fontSize: 12 }}
+                        domain={["dataMin - 1", "dataMax + 1"]}
+                      />
+                      <YAxis type="number" dataKey="caja" name="Caja" tickFormatter={eurAxis} tick={{ fontSize: 12 }} width={46} />
+                      <ZAxis range={[55, 55]} />
+                      <Tooltip
+                        cursor={{ strokeDasharray: "3 3" }}
+                        formatter={(val, name) =>
+                          name === "Caja" ? [eur0(Number(val)), "Caja"] : [`${Number(val)}°`, "Tª máx"]
+                        }
+                      />
+                      <Legend />
+                      <Scatter name="Día seco" data={climate.scatter.filter((p) => !p.rain)} fill={INK} />
+                      <Scatter name="Día de lluvia" data={climate.scatter.filter((p) => p.rain)} fill="#3b82f6" />
+                    </ScatterChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            </>
+          ) : (
+            <Empty>Aún faltan días con caja y clima para calcular la correlación.</Empty>
+          )}
+
+          {climate.forecast.length > 0 && (
+            <div className="mt-6">
+              <div className="font-sans text-xs font-semibold uppercase tracking-wide text-ink/40">
+                Próximos días · previsión
+              </div>
+              <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+                {climate.forecast.map((f) => (
+                  <div
+                    key={f.date}
+                    className={`min-w-[104px] flex-1 rounded-xl border p-3 text-center ${
+                      f.closed ? "border-ink/5 bg-ink/[0.03]" : "border-ink/10 bg-white/60"
+                    }`}
+                  >
+                    <div className="font-sans text-xs font-medium text-ink/60">
+                      {f.dia.slice(0, 3)} {f.dnum}
+                    </div>
+                    <div className="mt-1 text-2xl leading-none" title={weatherLabel(f.code)}>
+                      {weatherIcon(f.code)}
+                    </div>
+                    <div className="mt-1 font-display text-base font-semibold text-ink">
+                      {f.tMax != null ? `${Math.round(f.tMax)}°` : "—"}
+                      {f.tMin != null && <span className="font-sans text-xs font-normal text-ink/40"> / {Math.round(f.tMin)}°</span>}
+                    </div>
+                    <div className="mt-0.5 font-sans text-[11px] text-blue-500">
+                      {f.precipProb != null ? `💧 ${f.precipProb}%` : f.precip ? `💧 ${f.precip} mm` : "—"}
+                    </div>
+                    <div className="mt-1.5 border-t border-ink/5 pt-1.5 font-sans text-[11px]">
+                      {f.closed ? (
+                        <span className="text-ink/30">Cerrado</span>
+                      ) : f.expected > 0 ? (
+                        <span className="font-semibold text-ink/70">~{eur0(f.expected)}</span>
+                      ) : (
+                        <span className="text-ink/30">sin histórico</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-2 font-sans text-xs text-ink/40">
+                «~importe» = media histórica de ese día de la semana (no incluye el efecto del clima todavía).
+              </p>
+            </div>
+          )}
+        </Card>
+      )}
 
       {/* Canales + mediodía/cena */}
       <div className="mt-6 grid gap-6 lg:grid-cols-2">

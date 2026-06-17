@@ -1,5 +1,6 @@
 import { isAuthed } from "@/lib/admin/auth";
 import { listDays } from "@/lib/facturacion/store";
+import { fetchBarcelonaWeather } from "@/lib/facturacion/weather";
 import LoginForm from "../LoginForm";
 import FacturacionDashboard from "./FacturacionDashboard";
 
@@ -10,10 +11,10 @@ export default async function Page() {
   if (!(await isAuthed())) {
     return <LoginForm title="Facturación · Positano" />;
   }
-  const days = await listDays();
+  const [days, weather] = await Promise.all([listDays(), fetchBarcelonaWeather()]);
   const now = new Date();
   const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(
     now.getDate(),
   ).padStart(2, "0")}`;
-  return <FacturacionDashboard days={days} today={today} />;
+  return <FacturacionDashboard days={days} today={today} weather={weather} />;
 }
