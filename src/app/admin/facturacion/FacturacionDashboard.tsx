@@ -44,6 +44,10 @@ import EntradaDatos from "./EntradaDatos";
 
 // Inicial del día por getDay() (0=domingo … 6=sábado). M=martes, X=miércoles.
 const INICIAL_DIA = ["D", "L", "M", "X", "J", "V", "S"];
+// Días seleccionables en la vista "evolución por día" (lunes cerrado, fuera).
+const WEEKDAY_PICK = [2, 3, 4, 5, 6, 0];
+
+const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 const INK = "#1d2750";
 const LEMON = "#c6a253";
@@ -92,11 +96,51 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
   const [showEntry, setShowEntry] = useState(false);
   // Por defecto, KPIs SIN domicilio (solo sala). Toggle para incluir Glovo/Uber.
   const [includeDelivery, setIncludeDelivery] = useState(false);
+  // Vista "evolución por día de la semana": día seleccionado (2=martes por defecto).
+  const [weekday, setWeekday] = useState(2);
 
   const effectiveDays = useMemo(
     () => (includeDelivery ? days : days.map(stripDelivery)),
     [days, includeDelivery],
   );
+
+  // Serie histórica de un mismo día de la semana (p. ej. todos los martes),
+  // ordenada por fecha y acotada a las últimas ~53 ocurrencias (~1 año).
+  const weekdaySeries = useMemo(() => {
+    const obj = objetivoDia(weekday);
+    const recs = effectiveDays
+      .filter((r) => !r.closed && weekdayOf(r.date) === weekday)
+      .sort((a, b) => a.date.localeCompare(b.date))
+      .slice(-53);
+    const data = recs.map((r) => {
+      const t = dayTotal(r);
+      const d = parseLocal(r.date);
+      const dnum = dayOfMonth(r.date);
+      const mon = monthLabel(d.getMonth()).slice(0, 3);
+      let color = INK;
+      if (obj && t >= obj) color = EMERALD;
+      else if (t === 0) color = ZINC;
+      return {
+        key: r.date,
+        axis: `${dnum} ${mon}`,
+        full: `${cap(weekdayLabel(weekday))} ${dnum} ${mon} ${d.getFullYear()}`,
+        total: t,
+        objetivo: obj ?? null,
+        color,
+      };
+    });
+    const withData = data.filter((d) => d.total > 0);
+    const sum = withData.reduce((s, d) => s + d.total, 0);
+    return {
+      data,
+      obj,
+      avg: withData.length ? sum / withData.length : 0,
+      count: withData.length,
+      metGoal: obj ? withData.filter((d) => d.total >= obj).length : 0,
+      best: withData.reduce((m, d) => Math.max(m, d.total), 0),
+      worst: withData.reduce((m, d) => (m === 0 ? d.total : Math.min(m, d.total)), 0),
+    };
+  }, [effectiveDays, weekday]);
 
   const isCurrent = year === curY && month === curM;
   // En el mes en curso el corte es el último día CON datos (no "hoy"): así se
@@ -358,6 +402,63 @@ export default function FacturacionDashboard({ days, today }: { days: DayRecord[
         </Card>
       </div>
 
+      {/* Evolución de un mismo día de la semana (todos los martes, etc.) */}
+      <Card
+        className="mt-6"
+        title="Evolución por día de la semana"
+        hint="Cada barra es un mismo día a lo largo del tiempo (p. ej. todos los martes). Verde = alcanzó su objetivo · línea dorada = objetivo del día."
+      >
+        <div className="flex flex-wrap gap-2">
+          {WEEKDAY_PICK.map((wd) => (
+            <button
+              key={wd}
+              onClick={() => setWeekday(wd)}
+              className={`rounded-lg border px-3.5 py-1.5 font-sans text-sm transition ${
+                weekday === wd
+                  ? "border-lemon bg-lemon/15 font-semibold text-ink"
+                  : "border-ink/10 bg-white/70 text-ink/60 hover:border-lemon"
+              }`}
+            >
+              {cap(weekdayLabel(wd))}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <Mini label="Media" value={eur0(weekdaySeries.avg)} />
+          <Mini label="Objetivo del día" value={weekdaySeries.obj ? eur0(weekdaySeries.obj) : "—"} />
+          <Mini label="Alcanzaron objetivo" value={`${weekdaySeries.metGoal}/${weekdaySeries.count}`} />
+          <Mini
+            label="Mejor / peor"
+            value={weekdaySeries.count ? `${eur0(weekdaySeries.best)} / ${eur0(weekdaySeries.worst)}` : "—"}
+          />
+        </div>
+
+        <div className="mt-4">
+          {weekdaySeries.count ? (
+            <ResponsiveContainer width="100%" height={340}>
+              <ComposedChart data={weekdaySeries.data} margin={{ top: 10, right: 12, left: 4, bottom: 4 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+                <XAxis dataKey="axis" tick={{ fontSize: 12 }} interval="preserveStartEnd" minTickGap={8} />
+                <YAxis tickFormatter={eurAxis} tick={{ fontSize: 12 }} width={46} />
+                <Tooltip
+                  formatter={(v) => eur0(Number(v))}
+                  labelFormatter={(l) => weekdaySeries.data.find((d) => d.axis === l)?.full ?? String(l)}
+                />
+                <Bar dataKey="total" radius={[4, 4, 0, 0]} maxBarSize={48}>
+                  {weekdaySeries.data.map((d, i) => (
+                    <Cell key={i} fill={d.color} />
+                  ))}
+                </Bar>
+                <Line dataKey="objetivo" stroke={LEMON} strokeWidth={2.5} dot={false} connectNulls />
+              </ComposedChart>
+            </ResponsiveContainer>
+          ) : (
+            <Empty>Sin datos para {weekdayLabel(weekday)} todavía.</Empty>
+          )}
+        </div>
+      </Card>
+
       {/* Canales + mediodía/cena */}
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <Card title="Reparto por canal" hint="Glovo · Tarjeta · Efectivo · Uber/TheFork">
@@ -449,6 +550,15 @@ function Kpi({ label, value, sub, tone }: { label: string; value: string; sub?: 
       <div className="font-sans text-xs font-semibold uppercase tracking-wide text-ink/40">{label}</div>
       <div className={`mt-1 font-display text-3xl font-semibold ${toneClass}`}>{value}</div>
       {sub && <div className="mt-1 font-sans text-xs text-ink/50">{sub}</div>}
+    </div>
+  );
+}
+
+function Mini({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-xl border border-ink/10 bg-white/60 px-3 py-2">
+      <div className="font-sans text-[11px] font-semibold uppercase tracking-wide text-ink/40">{label}</div>
+      <div className="mt-0.5 font-display text-lg font-semibold text-ink">{value}</div>
     </div>
   );
 }
