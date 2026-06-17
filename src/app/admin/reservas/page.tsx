@@ -1,14 +1,5 @@
 import { isAuthed } from "@/lib/admin/auth";
-import {
-  allMonthStats,
-  DISH,
-  dishByHour,
-  dishByPartySize,
-  dishByWeekday,
-  forkByChannel,
-  forkByOffer,
-  totals,
-} from "@/lib/reservas/analytics";
+import { DISH, FORK } from "@/lib/reservas/analytics";
 import LoginForm from "../LoginForm";
 import ReservasDashboard from "./ReservasDashboard";
 
@@ -19,20 +10,7 @@ export default async function Page() {
   if (!(await isAuthed())) {
     return <LoginForm title="Reservas · Positano" />;
   }
-  // Últimas reservas DISH (más recientes primero) para la tabla de detalle.
-  const ultimasDish = [...DISH]
-    .sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time))
-    .slice(0, 200);
-  return (
-    <ReservasDashboard
-      months={allMonthStats()}
-      totals={totals()}
-      byChannel={forkByChannel()}
-      byOffer={forkByOffer()}
-      byWeekday={dishByWeekday()}
-      byHour={dishByHour()}
-      byPartySize={dishByPartySize()}
-      ultimasDish={ultimasDish}
-    />
-  );
+  // Pasamos los datos crudos (686 + 90 filas, trivial) y el cliente filtra y
+  // recalcula todo según el rango de meses elegido.
+  return <ReservasDashboard dish={DISH} fork={FORK} />;
 }
