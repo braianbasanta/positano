@@ -5,7 +5,10 @@
 // el dashboard y las actions no cambien.
 import type { Canales, DayRecord } from "./types";
 
-const BASE = process.env.SUPABASE_URL;
+// La URL de Supabase NO es secreta (va en cualquier request del cliente), así
+// que la fijamos aquí y evitamos depender de una env extra. La service_role key
+// SÍ es secreta y viene de env (server-only).
+const BASE = "https://ipxkhcyzycoktfassukz.supabase.co";
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const TABLE = "positano_caja_diaria";
 
