@@ -25,6 +25,8 @@ import {
   type Canales,
   type DayRecord,
   dayTotal,
+  hasSplit,
+  sumCanales,
 } from "@/lib/facturacion/types";
 import {
   bestDay,
@@ -82,6 +84,10 @@ const INK = "#1d2750";
 const LEMON = "#c6a253";
 const EMERALD = "#2f7d54";
 const ZINC = "#d4d4d8";
+// Colores del desglose por servicio en la gráfica diaria.
+const MEDIODIA = "#e8743b"; // terracota
+const CENA = INK; // navy
+const SLATE = "#8b93a7"; // días sin desglose (histórico)
 const CHANNEL_COLORS: Record<string, string> = {
   glovo: "#e8743b",
   tarjeta: INK,
@@ -135,6 +141,8 @@ export default function FacturacionDashboard({
   const [includeDelivery, setIncludeDelivery] = useState(false);
   // Vista "evolución por día de la semana": día seleccionado (2=martes por defecto).
   const [weekday, setWeekday] = useState(2);
+  // Filtro de servicio en la gráfica diaria: todo / solo mediodía / solo cena.
+  const [servicio, setServicio] = useState<"todo" | "almuerzo" | "cena">("todo");
 
   const effectiveDays = useMemo(
     () => (includeDelivery ? days : days.map(stripDelivery)),
@@ -297,6 +305,17 @@ export default function FacturacionDashboard({
       if (r.closed) color = ZINC;
       else if (obj && t >= obj) color = EMERALD;
       else if (t === 0) color = ZINC;
+      // Desglose por servicio. Los días con registro a mano llevan lunch/dinner;
+      // el histórico (sin split) vive en `total` → se pinta como "sin desglose".
+      const split = hasSplit(r);
+      const lunch = split ? sumCanales(r.lunch) : 0;
+      const dinner = split ? sumCanales(r.dinner) : 0;
+      const noSplit = split ? 0 : t;
+      // Color del segmento sin desglose: verde si alcanza objetivo, gris si
+      // cerrado, slate en el resto (distinto del navy de "cena").
+      let noSplitColor = SLATE;
+      if (r.closed) noSplitColor = ZINC;
+      else if (obj && t >= obj) noSplitColor = EMERALD;
       const dia = weekdayLabel(wd);
       const wx = wxByDate.get(r.date);
       return {
@@ -304,6 +323,11 @@ export default function FacturacionDashboard({
         axis: `${INICIAL_DIA[wd]}${dnum}`,
         full: `${dia.charAt(0).toUpperCase()}${dia.slice(1)} ${dnum}`,
         total: t,
+        lunch,
+        dinner,
+        noSplit,
+        noSplitColor,
+        split,
         objetivo: obj ?? null,
         closed: !!r.closed,
         color,
@@ -469,44 +493,58 @@ export default function FacturacionDashboard({
       <Card
         className="mt-6"
         title="Facturación por día"
-        hint="Barra verde = alcanza el objetivo del día · gris = cerrado · línea dorada = objetivo · línea naranja = temperatura máx."
+        hint={
+          servicio === "todo"
+            ? "Cada barra parte la caja en mediodía y cena (los días con desglose). Gris = histórico sin desglose · línea dorada = objetivo. Pasa el ratón para ver el detalle."
+            : `Solo la caja de ${servicio === "almuerzo" ? "mediodía" : "cena"} de los días con desglose registrado.`
+        }
       >
+        <div className="mb-4 flex flex-wrap gap-2">
+          {(
+            [
+              ["todo", "Todo"],
+              ["almuerzo", "Mediodía"],
+              ["cena", "Cena"],
+            ] as const
+          ).map(([key, lbl]) => (
+            <button
+              key={key}
+              onClick={() => setServicio(key)}
+              className={`rounded-lg border px-3.5 py-1.5 font-sans text-sm transition ${
+                servicio === key
+                  ? "border-lemon bg-lemon/15 font-semibold text-ink"
+                  : "border-ink/10 bg-white/70 text-ink/60 hover:border-lemon"
+              }`}
+            >
+              {lbl}
+            </button>
+          ))}
+        </div>
         <ResponsiveContainer width="100%" height={380}>
           <ComposedChart data={calc.dailyData} margin={{ top: 10, right: 12, left: 4, bottom: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
             <XAxis dataKey="axis" tick={{ fontSize: 12 }} interval={0} />
             <YAxis tickFormatter={eurAxis} tick={{ fontSize: 12 }} width={46} />
-            <YAxis
-              yAxisId="temp"
-              orientation="right"
-              tickFormatter={(v) => `${Math.round(v)}°`}
-              tick={{ fontSize: 12 }}
-              width={38}
-              domain={["dataMin - 2", "dataMax + 2"]}
-            />
-            <Tooltip
-              formatter={(v, name) =>
-                name === "Tª máx" ? [`${Math.round(Number(v))}°`, name] : [eur0(Number(v)), name]
-              }
-              labelFormatter={(l) => calc.dailyData.find((d) => d.axis === l)?.full ?? String(l)}
-            />
+            <Tooltip content={(p) => <DiaTooltip {...(p as TooltipShape)} data={calc.dailyData} />} />
             <Legend />
-            <Bar name="Caja" dataKey="total" fill={INK} radius={[4, 4, 0, 0]} maxBarSize={48}>
-              {calc.dailyData.map((d, i) => (
-                <Cell key={i} fill={d.color} />
-              ))}
-            </Bar>
+            {servicio === "todo" && (
+              <>
+                <Bar name="Mediodía" dataKey="lunch" stackId="dia" fill={MEDIODIA} maxBarSize={48} />
+                <Bar name="Cena" dataKey="dinner" stackId="dia" fill={CENA} radius={[4, 4, 0, 0]} maxBarSize={48} />
+                <Bar name="Sin desglose" dataKey="noSplit" stackId="dia" radius={[4, 4, 0, 0]} maxBarSize={48}>
+                  {calc.dailyData.map((d, i) => (
+                    <Cell key={i} fill={d.noSplitColor} />
+                  ))}
+                </Bar>
+              </>
+            )}
+            {servicio === "almuerzo" && (
+              <Bar name="Mediodía" dataKey="lunch" fill={MEDIODIA} radius={[4, 4, 0, 0]} maxBarSize={48} />
+            )}
+            {servicio === "cena" && (
+              <Bar name="Cena" dataKey="dinner" fill={CENA} radius={[4, 4, 0, 0]} maxBarSize={48} />
+            )}
             <Line name="Objetivo" dataKey="objetivo" stroke={LEMON} strokeWidth={2.5} dot={false} connectNulls />
-            <Line
-              name="Tª máx"
-              yAxisId="temp"
-              dataKey="tMax"
-              stroke="#e8743b"
-              strokeWidth={2}
-              strokeDasharray="4 3"
-              dot={false}
-              connectNulls
-            />
           </ComposedChart>
         </ResponsiveContainer>
       </Card>
@@ -856,4 +894,60 @@ function Card({
 
 function Empty({ children }: { children: React.ReactNode }) {
   return <div className="flex h-[300px] items-center justify-center text-center font-sans text-sm text-ink/40">{children}</div>;
+}
+
+type TooltipShape = { active?: boolean; label?: string | number };
+type DiaDatum = {
+  axis: string;
+  full: string;
+  total: number;
+  lunch: number;
+  dinner: number;
+  split: boolean;
+  closed: boolean;
+  objetivo: number | null;
+};
+
+// Tooltip de la gráfica diaria: muestra mediodía/cena por separado (días con
+// desglose) o la caja total (histórico sin desglose), más el objetivo del día.
+function DiaTooltip({ active, label, data }: TooltipShape & { data: DiaDatum[] }) {
+  if (!active) return null;
+  const d = data.find((x) => x.axis === label);
+  if (!d) return null;
+  return (
+    <div className="rounded-lg border border-ink/10 bg-white/95 px-3 py-2 font-sans text-xs shadow-md">
+      <div className="font-semibold text-ink">{d.full}</div>
+      {d.closed ? (
+        <div className="mt-1 text-ink/50">Cerrado</div>
+      ) : d.split ? (
+        <>
+          <div className="mt-1 flex items-center justify-between gap-4">
+            <span className="flex items-center gap-1.5 text-ink/60">
+              <span className="inline-block h-2 w-2 rounded-full" style={{ background: MEDIODIA }} />
+              Mediodía
+            </span>
+            <span className="font-semibold text-ink">{eur0(d.lunch)}</span>
+          </div>
+          <div className="mt-0.5 flex items-center justify-between gap-4">
+            <span className="flex items-center gap-1.5 text-ink/60">
+              <span className="inline-block h-2 w-2 rounded-full" style={{ background: CENA }} />
+              Cena
+            </span>
+            <span className="font-semibold text-ink">{eur0(d.dinner)}</span>
+          </div>
+          <div className="mt-1 flex items-center justify-between gap-4 border-t border-ink/10 pt-1">
+            <span className="text-ink/60">Total</span>
+            <span className="font-semibold text-ink">{eur0(d.total)}</span>
+          </div>
+        </>
+      ) : (
+        <div className="mt-1 text-ink/70">
+          Caja {eur0(d.total)} <span className="text-ink/40">(sin desglose)</span>
+        </div>
+      )}
+      {d.objetivo != null && (
+        <div className="mt-1 text-ink/50">Objetivo {eur0(d.objetivo)}</div>
+      )}
+    </div>
+  );
 }
