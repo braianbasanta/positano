@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
+import AdminNav from "../AdminNav";
 import {
   Bar,
   BarChart,
@@ -44,14 +44,6 @@ const YEAR_COLORS = [ZINC, LEMON, INK, EMERALD];
 
 const DIA = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 const DIA_CORTO = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
-
-const NAV = [
-  { href: "/admin", label: "Panel" },
-  { href: "/admin/facturacion", label: "Facturación" },
-  { href: "/admin/reservas", label: "Reservas" },
-  { href: "/admin/plan", label: "Plan" },
-  { href: "/admin/reviews", label: "Reseñas" },
-];
 
 function n0(n: number): string {
   return Math.round(n).toLocaleString("es-ES");
@@ -161,23 +153,7 @@ export default function ReservasDashboard({ dish, fork }: { dish: DishReserva[];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
-      {/* Navegación entre secciones de admin */}
-      <nav className="mb-6 flex flex-wrap gap-1 border-b border-ink/10 pb-3">
-        {NAV.map((item) => {
-          const active = item.href === "/admin/reservas";
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`rounded-md px-3 py-1.5 font-sans text-sm font-medium transition ${
-                active ? "bg-ink text-cream" : "text-ink/60 hover:bg-ink/5 hover:text-ink"
-              }`}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
+      <AdminNav />
 
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>

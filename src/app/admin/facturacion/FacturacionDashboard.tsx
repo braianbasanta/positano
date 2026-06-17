@@ -52,6 +52,7 @@ import {
   weatherLabel,
 } from "@/lib/facturacion/weather";
 import EntradaDatos from "./EntradaDatos";
+import AdminNav from "../AdminNav";
 
 // Inicial del día por getDay() (0=domingo … 6=sábado). M=martes, X=miércoles.
 const INICIAL_DIA = ["D", "L", "M", "X", "J", "V", "S"];
@@ -347,17 +348,10 @@ export default function FacturacionDashboard({
 
   return (
     <div className="mx-auto max-w-7xl px-5 py-8">
+      <AdminNav />
       {/* Cabecera + selector de mes */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <div className="flex items-center gap-3">
-            <a href="/admin" className="font-sans text-xs text-ink/40 transition hover:text-lemon">
-              ← Panel
-            </a>
-            <a href="/admin/plan" className="font-sans text-xs font-medium text-lemon transition hover:text-ink">
-              Plan de facturación →
-            </a>
-          </div>
           <h1 className="font-display text-4xl font-semibold text-ink">Facturación</h1>
         </div>
         <div className="flex items-center gap-2">

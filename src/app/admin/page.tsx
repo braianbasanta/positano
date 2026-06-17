@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { isAuthed } from "@/lib/admin/auth";
 import LoginForm from "./LoginForm";
+import AdminNav from "./AdminNav";
 
 export const dynamic = "force-dynamic";
 export const metadata = { robots: { index: false, follow: false } };
@@ -33,7 +34,8 @@ export default async function AdminHome() {
     return <LoginForm />;
   }
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16">
+    <div className="mx-auto max-w-3xl px-4 py-10">
+      <AdminNav />
       <div className="text-center">
         <p className="font-sans text-xs font-semibold uppercase tracking-[0.3em] text-lemon">Positano</p>
         <h1 className="mt-2 font-display text-4xl font-semibold text-ink">Panel de gestión</h1>

@@ -1,5 +1,6 @@
 import { isAuthed } from "@/lib/admin/auth";
 import LoginForm from "../LoginForm";
+import AdminNav from "../AdminNav";
 import { mediaDiariaObjetivo, objetivoDia, OBJETIVO_MENSUAL } from "@/lib/facturacion/objetivos";
 import { DIAS_PLAN, FASES, PALANCAS, PASO_MEDIA } from "@/lib/facturacion/plan";
 
@@ -22,13 +23,11 @@ export default async function PlanPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-10">
+      <AdminNav />
       {/* Cabecera */}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <a href="/admin" className="font-sans text-xs text-ink/40 transition hover:text-lemon">
-            ← Panel
-          </a>
-          <p className="mt-1 font-sans text-xs font-semibold uppercase tracking-[0.3em] text-lemon">
+          <p className="font-sans text-xs font-semibold uppercase tracking-[0.3em] text-lemon">
             Positano · Plan
           </p>
           <h1 className="font-display text-4xl font-semibold text-ink">Plan de facturación</h1>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import AdminNav from "../AdminNav";
 import type { ReviewItem } from "@/lib/reviews/types";
 import { finalReply } from "@/lib/reviews/types";
 import {
@@ -213,9 +214,7 @@ export default function AdminReviews({
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-10">
-      <a href="/admin" className="font-sans text-xs text-ink/40 transition hover:text-lemon">
-        ← Panel
-      </a>
+      <AdminNav />
       <h1 className="font-display text-3xl font-semibold text-ink">Respuestas a reseñas</h1>
       <p className="mt-1 text-base text-ink/60">
         Claude genera el borrador, tú revisas, editas y apruebas. Modo manual: copia la
