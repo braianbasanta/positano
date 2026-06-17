@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Pizza Napolitana en el Eixample · Horno de Leña · Positano",
   description:
-    "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Masa fermentada 48 h, pasta fresca y cócteles. El auténtico sabor de Nápoles.",
+    "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Masa fermentada 48 h, pasta fresca y antipasti. El auténtico sabor de Nápoles.",
   keywords: [
     "pizzería napolitana Barcelona",
     "pizzería Barcelona",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "Positano Pizzería",
     title: "Positano · Pizzería Napolitana en el Eixample, Barcelona",
     description:
-      "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Pizza de masa fermentada 48 h, pasta fresca y cócteles.",
+      "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Pizza de masa fermentada 48 h, pasta fresca y antipasti.",
     url: SITE_URL,
     // La imagen para compartir la genera src/app/(es)/opengraph-image.tsx.
   },
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Positano · Pizzería Napolitana en el Eixample, Barcelona",
     description:
-      "Pizza napolitana de masa fermentada 48 h, pasta fresca y cócteles. El sabor de Nápoles en el Eixample de Barcelona.",
+      "Pizza napolitana de masa fermentada 48 h, pasta fresca y antipasti. El sabor de Nápoles en el Eixample de Barcelona.",
   },
 };
 

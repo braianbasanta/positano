@@ -13,7 +13,7 @@ import { breadcrumbJsonLd, beveragesJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "Italian Wines & Cocktails · Positano · Eixample BCN",
+  title: "Italian Wines & Beers · Positano · Eixample BCN",
   description:
     "A curated list of Italian wines and beers to pair with our Neapolitan pizza and fresh pasta at Positano, Italian restaurant in the Eixample, Barcelona.",
   alternates: alternatesForEn("/en/drinks"),

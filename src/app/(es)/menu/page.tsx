@@ -9,7 +9,7 @@ import { menuJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesFor } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "La Carta · Pizza Napolitana, Pasta y Cócteles · Positano",
+  title: "La Carta · Pizza Napolitana y Pasta Fresca · Positano BCN",
   description:
     "La carta de Positano: pizza napolitana de masa fermentada 48 h, pasta fresca, antipasti y risotti. Restaurante italiano en el Eixample, Barcelona.",
   alternates: alternatesFor("/menu"),

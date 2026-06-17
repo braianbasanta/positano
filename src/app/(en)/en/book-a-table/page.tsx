@@ -130,7 +130,7 @@ export default function BookATablePage() {
               the Eixample, is easy: pick your date, time and party size and
               you'll get an instant confirmation. We'll be waiting for you at
               Carrer del Rosselló, 24, for Neapolitan pizza with 48-hour fermented
-              dough, fresh pasta and cocktails.
+              dough, fresh pasta and antipasti.
             </p>
 
             <h2 className="mt-14 text-center font-display text-3xl leading-[1.1] text-ink md:text-4xl">

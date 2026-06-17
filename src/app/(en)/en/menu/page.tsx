@@ -9,7 +9,7 @@ import { menuJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { alternatesForEn } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "The Menu · Neapolitan Pizza, Pasta & Cocktails · Positano",
+  title: "The Menu · Neapolitan Pizza & Fresh Pasta · Positano BCN",
   description:
     "Positano's menu: 48-hour fermented Neapolitan pizza, fresh pasta, antipasti, risotti and mains. Italian restaurant in the Eixample, Barcelona.",
   alternates: alternatesForEn("/en/menu"),

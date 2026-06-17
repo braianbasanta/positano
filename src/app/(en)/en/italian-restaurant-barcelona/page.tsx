@@ -31,8 +31,8 @@ const dishes = [
     text: "Mushroom risotto, beef tenderloin, salmon fillet — southern Italian cooking with authentic produce.",
   },
   {
-    title: "Antipasti & cocktails",
-    text: "Fried Pugliese burrata, buffalo caprese and a full bar. The perfect start, or a drink at the counter.",
+    title: "Antipasti & drinks",
+    text: "Fried Pugliese burrata, buffalo caprese, Italian wines and beers. The perfect start, or a drink at the counter.",
   },
 ];
 

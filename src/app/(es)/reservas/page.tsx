@@ -130,7 +130,7 @@ export default function ReservasPage() {
               Eixample, es muy fácil: elige día, hora y comensales y recibirás la
               confirmación al instante. Te esperamos en Carrer del Rosselló, 24,
               para disfrutar de pizza napolitana de masa fermentada 48 horas,
-              pasta fresca y cócteles.
+              pasta fresca y antipasti.
             </p>
 
             <h2 className="mt-14 text-center font-display text-3xl leading-[1.1] text-ink md:text-4xl">
