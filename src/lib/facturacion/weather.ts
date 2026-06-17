@@ -103,6 +103,16 @@ export function pearson(pairs: [number, number][]): number | null {
   return num / den;
 }
 
+// Factor multiplicativo sobre la media del día de la semana según la temperatura
+// máxima prevista. Calibrado con el histórico de Positano (caja vs Tª, dic-jun 2025/26,
+// normalizado por día de la semana): el frío penaliza y el calor premia, ~+1,8 %/°C
+// respecto a 19 °C, acotado a ±20 %. La LLUVIA se midió y NO mueve la caja (días secos
+// y lluviosos facturan igual), por eso no entra en el cálculo.
+export function tempFactor(tMax: number | null | undefined): number {
+  if (tMax == null) return 1;
+  return Math.max(0.8, Math.min(1.2, 1 + 0.018 * (tMax - 19)));
+}
+
 // Lectura en palabras de la fuerza de una correlación.
 export function corrStrength(r: number | null): string {
   if (r === null) return "sin datos suficientes";

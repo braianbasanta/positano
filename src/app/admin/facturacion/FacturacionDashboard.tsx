@@ -47,6 +47,7 @@ import {
   type DayWeather,
   corrStrength,
   pearson,
+  tempFactor,
   weatherIcon,
   weatherLabel,
 } from "@/lib/facturacion/weather";
@@ -236,7 +237,9 @@ export default function FacturacionDashboard({
         closed,
         future,
         total,
-        expected: wkAvg(wd),
+        // v2: media del weekday ajustada por la temperatura prevista (la lluvia
+        // se midió y no afecta la caja). Calibrado con el histórico.
+        expected: wkAvg(wd) * tempFactor(w.tMax),
         met: !!obj && total >= obj,
       };
     };
@@ -724,7 +727,7 @@ export default function FacturacionDashboard({
               </div>
               <p className="mt-2 font-sans text-xs text-ink/40">
                 Caja real en los días pasados (verde = alcanzó objetivo) · recuadro punteado = previsión, «~importe» =
-                media histórica de ese día de la semana (aún sin ajustar por clima).
+                media de ese día de la semana ajustada por la temperatura prevista (la lluvia, medida, no afecta).
               </p>
             </div>
           )}
