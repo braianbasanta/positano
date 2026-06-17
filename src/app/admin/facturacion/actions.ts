@@ -2,7 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { isAuthed } from "@/lib/admin/auth";
-import { upsertDay, upsertManyDays, deleteDay as removeDay } from "@/lib/facturacion/store";
+import { listDays, upsertDay, upsertManyDays, deleteDay as removeDay } from "@/lib/facturacion/store";
+import { readBlobDays } from "@/lib/facturacion/blob-legacy";
 import { parseNumberEs, parsePastedRows } from "@/lib/facturacion/parse";
 import { type Canales, type DayRecord, emptyCanales, sumCanales } from "@/lib/facturacion/types";
 
@@ -64,4 +65,31 @@ export async function deleteDay(date: string): Promise<{ error?: string }> {
   await removeDay(date);
   revalidatePath("/admin/facturacion");
   return {};
+}
+
+// Migración one-time del store antiguo (Vercel Blob) → Supabase. Lee el blob con
+// el token de runtime (válido en producción) y hace upsert masivo. Idempotente:
+// se puede repetir sin duplicar (upsert por fecha). Borrar tras verificar.
+export async function migrateBlobToSupabase(): Promise<{
+  error?: string;
+  blob?: number;
+  migrated?: number;
+  supa?: number;
+}> {
+  if (!(await isAuthed())) return { error: "No autorizado." };
+  let blobDays;
+  try {
+    blobDays = await readBlobDays();
+  } catch (e) {
+    return { error: `No se pudo leer el blob: ${e instanceof Error ? e.message : String(e)}` };
+  }
+  if (!blobDays.length) return { error: "El blob está vacío o no se pudo leer." };
+  try {
+    const migrated = await upsertManyDays(blobDays);
+    const supa = (await listDays()).length;
+    revalidatePath("/admin/facturacion");
+    return { blob: blobDays.length, migrated, supa };
+  } catch (e) {
+    return { error: `Fallo escribiendo en Supabase: ${e instanceof Error ? e.message : String(e)}` };
+  }
 }

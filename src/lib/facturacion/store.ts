@@ -1,74 +1,102 @@
-// Persistencia de la facturación diaria en Vercel Blob. El store de este proyecto
-// NO soporta blobs privados, así que usamos blob público (como reviews) pero con
-// una RUTA secreta no adivinable (solo existe en el servidor; nunca se envía al
-// cliente). No es cifrado: si en el futuro se quiere máxima seguridad, mover a una
-// base de datos. Un único JSON con todos los días (volumen trivial). 1 admin, sin locking.
-import { list, put } from "@vercel/blob";
-import type { DayRecord } from "./types";
+// Persistencia de la facturación diaria en Supabase (tabla positano_caja_diaria).
+// Antes vivía en Vercel Blob (ver blob-legacy.ts, conservado para la migración).
+// Acceso server-only vía PostgREST con la service_role key — nunca al cliente.
+// Mantiene el MISMO interface que antes (listDays/getDay/upsert/delete) para que
+// el dashboard y las actions no cambien.
+import type { Canales, DayRecord } from "./types";
 
-// Ruta no adivinable (server-only). NO cambiar sin migrar los datos existentes.
-const STATE_KEY = "facturacion/c7f1a9e3b264d5-caja.json";
+const BASE = process.env.SUPABASE_URL;
+const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const TABLE = "positano_caja_diaria";
 
-async function readState(): Promise<DayRecord[]> {
-  const { blobs } = await list({ prefix: STATE_KEY, limit: 1 });
-  const blob = blobs.find((b) => b.pathname === STATE_KEY);
-  if (!blob) return [];
-  const res = await fetch(blob.url, { cache: "no-store" });
-  if (!res.ok) return [];
-  try {
-    const parsed = await res.json();
-    return Array.isArray(parsed) ? (parsed as DayRecord[]) : [];
-  } catch {
-    return [];
-  }
+function endpoint(qs = ""): string {
+  return `${BASE}/rest/v1/${TABLE}${qs}`;
+}
+function headers(extra: Record<string, string> = {}): Record<string, string> {
+  return {
+    apikey: KEY ?? "",
+    Authorization: `Bearer ${KEY ?? ""}`,
+    "Content-Type": "application/json",
+    ...extra,
+  };
 }
 
-async function writeState(days: DayRecord[]): Promise<void> {
-  await put(STATE_KEY, JSON.stringify(days, null, 2), {
-    access: "public",
-    contentType: "application/json",
-    allowOverwrite: true,
-    addRandomSuffix: false,
-  });
+interface Row {
+  date: string;
+  closed: boolean;
+  lunch: Canales | null;
+  dinner: Canales | null;
+  total: Canales | null;
+  note: string | null;
+  updated_at: string;
+}
+
+function rowToRecord(r: Row): DayRecord {
+  const rec: DayRecord = { date: r.date, updatedAt: r.updated_at };
+  if (r.closed) rec.closed = true;
+  if (r.lunch) rec.lunch = r.lunch;
+  if (r.dinner) rec.dinner = r.dinner;
+  if (r.total) rec.total = r.total;
+  if (r.note) rec.note = r.note;
+  return rec;
+}
+function recordToRow(r: DayRecord): Row {
+  return {
+    date: r.date,
+    closed: !!r.closed,
+    lunch: r.lunch ?? null,
+    dinner: r.dinner ?? null,
+    total: r.total ?? null,
+    note: r.note ?? null,
+    updated_at: r.updatedAt ?? new Date().toISOString(),
+  };
 }
 
 // Días ordenados cronológicamente (antiguos → recientes).
 export async function listDays(): Promise<DayRecord[]> {
-  const days = await readState();
-  return days.sort((a, b) => a.date.localeCompare(b.date));
+  if (!BASE || !KEY) return [];
+  const res = await fetch(endpoint("?select=*&order=date.asc"), { headers: headers(), cache: "no-store" });
+  if (!res.ok) return [];
+  const rows = (await res.json()) as Row[];
+  return rows.map(rowToRecord);
 }
 
 export async function getDay(date: string): Promise<DayRecord | undefined> {
-  const days = await readState();
-  return days.find((d) => d.date === date);
+  if (!BASE || !KEY) return undefined;
+  const res = await fetch(endpoint(`?date=eq.${date}&select=*`), { headers: headers(), cache: "no-store" });
+  if (!res.ok) return undefined;
+  const rows = (await res.json()) as Row[];
+  return rows[0] ? rowToRecord(rows[0]) : undefined;
 }
 
-// Inserta o actualiza un día por fecha. Devuelve el registro guardado.
+// Inserta o actualiza un día por fecha (upsert sobre la PK date).
 export async function upsertDay(record: DayRecord): Promise<DayRecord> {
-  const days = await readState();
-  const idx = days.findIndex((d) => d.date === record.date);
-  const next = { ...record, updatedAt: new Date().toISOString() };
-  if (idx === -1) days.push(next);
-  else days[idx] = next;
-  await writeState(days);
-  return next;
+  const row = recordToRow({ ...record, updatedAt: new Date().toISOString() });
+  const res = await fetch(endpoint(), {
+    method: "POST",
+    headers: headers({ Prefer: "resolution=merge-duplicates,return=representation" }),
+    body: JSON.stringify(row),
+  });
+  if (!res.ok) throw new Error(`Supabase upsert falló (${res.status}): ${await res.text()}`);
+  const rows = (await res.json()) as Row[];
+  return rows[0] ? rowToRecord(rows[0]) : record;
 }
 
-// Inserta/actualiza muchos días de golpe (importación pegada). Una sola escritura.
+// Inserta/actualiza muchos días de golpe (importación / migración).
 export async function upsertManyDays(records: DayRecord[]): Promise<number> {
   if (!records.length) return 0;
-  const days = await readState();
-  const byDate = new Map(days.map((d) => [d.date, d]));
   const now = new Date().toISOString();
-  for (const r of records) {
-    byDate.set(r.date, { ...r, updatedAt: now });
-  }
-  await writeState([...byDate.values()]);
+  const rows = records.map((r) => recordToRow({ ...r, updatedAt: r.updatedAt ?? now }));
+  const res = await fetch(endpoint(), {
+    method: "POST",
+    headers: headers({ Prefer: "resolution=merge-duplicates" }),
+    body: JSON.stringify(rows),
+  });
+  if (!res.ok) throw new Error(`Supabase upsert masivo falló (${res.status}): ${await res.text()}`);
   return records.length;
 }
 
 export async function deleteDay(date: string): Promise<void> {
-  const days = await readState();
-  const next = days.filter((d) => d.date !== date);
-  if (next.length !== days.length) await writeState(next);
+  const res = await fetch(endpoint(`?date=eq.${date}`), { method: "DELETE", headers: headers() });
+  if (!res.ok) throw new Error(`Supabase delete falló (${res.status})`);
 }
