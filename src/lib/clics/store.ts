@@ -41,7 +41,7 @@ export interface ClickRow extends ClickInsert {
 // la fila: la marcamos is_bot para poder excluirla al agregar.
 // Nota: el clic REAL de Google Ads siempre trae gclid (auto-tagging); estas
 // verificaciones nunca lo traen, así que gclid es la señal definitiva de "real".
-const BOT_RE = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|headless|lighthouse|pingdom|uptime|monitor|google|adsbot|curl|wget|python-requests|node-fetch|axios|ahrefs|semrush|dataforseo/i;
+const BOT_RE = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|headless|lighthouse|pingdom|uptime|monitor|google|adsbot|curl|wget|python-requests|node-fetch|axios|ahrefs|semrush|dataforseo|pageburst/i;
 
 export function isBotUA(ua: string): boolean {
   return BOT_RE.test(ua);

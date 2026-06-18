@@ -27,19 +27,23 @@ export async function GET(
 
   // Extraemos los datos del request ahora (síncrono) y guardamos tras responder.
   const ua = request.headers.get("user-agent") ?? "";
+  const gclid =
+    incoming.get("gclid") ??
+    incoming.get("gbraid") ??
+    incoming.get("wbraid") ??
+    null;
   const click = {
     slug,
     target: destination,
-    gclid:
-      incoming.get("gclid") ??
-      incoming.get("gbraid") ??
-      incoming.get("wbraid") ??
-      null,
+    gclid,
     query: incoming.toString() || null,
     referer: request.headers.get("referer"),
     country: request.headers.get("x-vercel-ip-country"),
     user_agent: ua || null,
-    is_bot: isBotUA(ua),
+    // Un clic de Ads real SIEMPRE trae gclid/gbraid/wbraid (auto-tagging). Sin
+    // ninguno = acceso directo a la URL del anuncio (verificadores de Google,
+    // crawlers tipo pageburst, curl…): no es un clic pagado, lo marcamos bot.
+    is_bot: isBotUA(ua) || gclid === null,
   };
   after(() => recordClick(click));
 
