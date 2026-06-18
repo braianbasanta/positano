@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { allDishes } from "@/data/menu";
 import { getReel, orderedReelSlugs } from "@/data/reels";
 import { useReelViewer } from "./ReelViewerProvider";
@@ -22,12 +22,23 @@ export default function ReelCard({
 }) {
   const { open } = useReelViewer();
   const videoRef = useRef<HTMLVideoElement>(null);
+  // El póster (~120-150 KB) solo se descarga cuando la tarjeta se acerca al
+  // viewport. La tira de reels va debajo del fold, así que sin esto los ~700 KB
+  // de pósters competían con el LCP del hero en la carga inicial para nada.
+  const [near, setNear] = useState(false);
 
   const dish = useMemo(
     () => allDishes.find((d) => d.slug === slug),
     [slug],
   );
   const reel = getReel(slug);
+
+  // Póster servido por el optimizador de Next: el JPG crudo del Blob (~120-150 KB)
+  // sale redimensionado a 640px y en AVIF/WebP (~30-50 KB). La tarjeta se ve a
+  // 60vw / 232px, así que 640px cubre retina de sobra.
+  const posterSrc = reel
+    ? `/_next/image?url=${encodeURIComponent(reel.posterUrl)}&w=640&q=50`
+    : undefined;
 
   useEffect(() => {
     const video = videoRef.current;
@@ -40,6 +51,7 @@ export default function ReelCard({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          setNear(true); // engancha el póster al acercarse
           if (!reduced) video.play().catch(() => {});
         } else {
           video.pause();
@@ -66,7 +78,7 @@ export default function ReelCard({
       <video
         ref={videoRef}
         src={reel.videoUrl}
-        poster={reel.posterUrl}
+        poster={near ? posterSrc : undefined}
         muted
         loop
         playsInline
