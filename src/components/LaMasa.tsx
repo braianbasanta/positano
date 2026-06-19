@@ -13,7 +13,7 @@ const COPY = {
     p2: "Y porque lo que llega a la mesa importa, el resto del producto también viene de Italia: tomate San Marzano DOP, mozzarella di bufala campana y aceite de oliva virgen extra del sur. Cada ingrediente, donde tiene que estar.",
     quote: "«La buena pizza empieza dos días antes.»",
     cta: "Descubre nuestra pizzería napolitana",
-    ctaHref: "/nuestra-historia",
+    ctaHref: "/pizza-napolitana-barcelona",
     journey: "El viaje de la masa",
     dias: [
       { num: "01", eyebrow: "0 h", title: "Preparamos la fermentación", text: "Mezclamos harina tipo 0 multicereales italiana, agua, sal marina y apenas una pizca de levadura. Amasamos hasta lograr una textura sedosa y la dejamos en reposo en frío." },
