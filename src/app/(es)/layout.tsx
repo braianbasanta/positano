@@ -27,9 +27,9 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Pizza Napolitana en el Eixample · Horno de Leña · Positano",
+  title: "Positano · Pizzería Napolitana e Italiano en el Eixample",
   description:
-    "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Masa fermentada 48 h, pasta fresca y antipasti. El auténtico sabor de Nápoles.",
+    `Pizzería napolitana e italiana en el Eixample, Barcelona: pasta fresca, carbonara y pizza al horno de leña. ${reviewStats.rating}★ con ${reviewStats.count} reseñas.`,
   keywords: [
     "pizzería napolitana Barcelona",
     "pizzería Barcelona",
@@ -44,17 +44,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     siteName: "Positano Pizzería",
-    title: "Positano · Pizzería Napolitana en el Eixample, Barcelona",
+    title: "Positano · Pizzería Napolitana e Italiano en el Eixample, Barcelona",
     description:
-      "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Pizza de masa fermentada 48 h, pasta fresca y antipasti.",
+      "Pizzería napolitana e italiana en el Eixample, Barcelona: pasta fresca, carbonara y pizza al horno de leña. Una de las italianas mejor valoradas del barrio.",
     url: SITE_URL,
     // La imagen para compartir la genera src/app/(es)/opengraph-image.tsx.
   },
   twitter: {
     card: "summary_large_image",
-    title: "Positano · Pizzería Napolitana en el Eixample, Barcelona",
+    title: "Positano · Pizzería Napolitana e Italiano en el Eixample, Barcelona",
     description:
-      "Pizza napolitana de masa fermentada 48 h, pasta fresca y antipasti. El sabor de Nápoles en el Eixample de Barcelona.",
+      "Pizza napolitana, pasta fresca y la carbonara que recomiendan en el Eixample. Una de las italianas mejor valoradas de Barcelona.",
   },
 };
 
@@ -64,13 +64,13 @@ const restaurantJsonLd = {
   "@type": "Restaurant",
   name: "Positano Pizzería",
   description:
-    "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona.",
+    "Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Pizza al horno de leña, pasta fresca (su carbonara es de las más recomendadas) y tiramisú de pistacho; una de las italianas mejor valoradas del barrio, conocida por su trato cercano.",
   url: SITE_URL,
   telephone: "+34933515913",
   email: "positanopizzeria2023@gmail.com",
   image: `${SITE_URL}/hero/positano.jpg`,
   priceRange: "€€",
-  servesCuisine: ["Pizza napolitana", "Cocina italiana", "Italiana"],
+  servesCuisine: ["Pizza napolitana", "Pasta fresca", "Cocina italiana", "Italiana"],
   acceptsReservations: true,
   aggregateRating: {
     "@type": "AggregateRating",

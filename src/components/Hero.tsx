@@ -5,9 +5,9 @@ import type { Locale } from "@/lib/i18n";
 
 const COPY = {
   es: {
-    srHeading: "Positano · Pizzería Napolitana en el Eixample, Barcelona",
+    srHeading: "Positano · Pizzería Napolitana e Italiano en el Eixample, Barcelona",
     tagline:
-      "Pizzería napolitana. El sabor de Nápoles en el corazón del Eixample, Barcelona.",
+      "La napolitana del Eixample a la que siempre vuelven.",
     reservar: "Reservar mesa",
     reservasHref: "/reservas",
     pedir: "Pedir online",
@@ -21,7 +21,7 @@ const COPY = {
   en: {
     srHeading: "Positano · Neapolitan Pizzeria & Italian Restaurant in Barcelona",
     tagline:
-      "Neapolitan pizzeria. The taste of Naples in the heart of the Eixample, Barcelona.",
+      "The Eixample's Neapolitan everyone comes back to.",
     reservar: "Book a table",
     reservasHref: "/en/book-a-table",
     pedir: "Order online",

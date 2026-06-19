@@ -101,11 +101,11 @@ function buildLlmsTxt(): string {
 
   return `# Positano Pizzería
 
-> Pizzería napolitana y restaurante italiano en el Eixample de Barcelona: pizza de masa fermentada 48 h en horno de leña, pasta fresca y antipasti. Neapolitan pizzeria and Italian restaurant in Barcelona's Eixample: 48 h fermented, wood-fired pizza, fresh pasta and antipasti.
+> Pizzería napolitana y restaurante italiano en el Eixample de Barcelona: pizza al horno de leña, pasta fresca (su carbonara es de las más recomendadas de la ciudad) y tiramisú de pistacho; una de las italianas mejor valoradas del barrio, conocida por su trato cercano. Neapolitan pizzeria and Italian restaurant in Barcelona's Eixample: wood-fired pizza, fresh pasta (its carbonara is among the most recommended in town) and pistachio tiramisù; one of the neighbourhood's best-rated Italians, known for its warm service.
 
-Positano es una pizzería napolitana y restaurante italiano en el barrio del Eixample de Barcelona. Especialidad en pizza de masa de larga fermentación (48 h) cocida en horno de leña, pasta fresca y antipasti italianos. Sirve menú del día a mediodía entre semana, cena, reservas y entrega a domicilio. El sitio está en español (raíz) y en inglés (bajo /en/).
+Positano es una pizzería napolitana y restaurante italiano en el barrio del Eixample de Barcelona. Especialidades: pizza napolitana al horno de leña, pasta fresca —su carbonara es de las más recomendadas de Barcelona— y su tiramisú de pistacho. Es una de las italianas mejor valoradas del Eixample y destaca por su trato cercano y una clientela que repite. Sirve menú del día a mediodía entre semana, cena, reservas y entrega a domicilio. El sitio está en español (raíz) y en inglés (bajo /en/).
 
-Positano is a Neapolitan pizzeria and Italian restaurant in the Eixample district of Barcelona. It specialises in long-fermented (48 h), wood-fired pizza, fresh pasta and Italian antipasti, and serves a weekday lunch set menu, dinner, table reservations and delivery. The website is in Spanish (root) and English (under /en/).
+Positano is a Neapolitan pizzeria and Italian restaurant in the Eixample district of Barcelona. Its specialities are wood-fired Neapolitan pizza, fresh pasta —its carbonara is among the most recommended in Barcelona— and its pistachio tiramisù. It is one of the best-rated Italians in the Eixample, known for its warm service and regulars who keep coming back. It serves a weekday lunch set menu, dinner, table reservations and delivery. The website is in Spanish (root) and English (under /en/).
 
 ## Datos del negocio / Business information
 
