@@ -101,29 +101,31 @@ function buildLlmsTxt(): string {
 
   return `# Positano Pizzería
 
-> Pizzería napolitana y restaurante italiano en el Eixample de Barcelona. Pizza de masa fermentada 48 horas en horno de leña, pasta fresca y antipasti: el auténtico sabor de Nápoles.
+> Pizzería napolitana y restaurante italiano en el Eixample de Barcelona: pizza de masa fermentada 48 h en horno de leña, pasta fresca y antipasti. Neapolitan pizzeria and Italian restaurant in Barcelona's Eixample: 48 h fermented, wood-fired pizza, fresh pasta and antipasti.
 
 Positano es una pizzería napolitana y restaurante italiano en el barrio del Eixample de Barcelona. Especialidad en pizza de masa de larga fermentación (48 h) cocida en horno de leña, pasta fresca y antipasti italianos. Sirve menú del día a mediodía entre semana, cena, reservas y entrega a domicilio. El sitio está en español (raíz) y en inglés (bajo /en/).
 
-## Datos del negocio
+Positano is a Neapolitan pizzeria and Italian restaurant in the Eixample district of Barcelona. It specialises in long-fermented (48 h), wood-fired pizza, fresh pasta and Italian antipasti, and serves a weekday lunch set menu, dinner, table reservations and delivery. The website is in Spanish (root) and English (under /en/).
 
-- Nombre: Positano Pizzería
-- Dirección: Carrer del Rosselló, 24, 08029 Barcelona (Eixample)
-- Teléfono: +34 933 51 59 13
+## Datos del negocio / Business information
+
+- Nombre / Name: Positano Pizzería
+- Dirección / Address: Carrer del Rosselló, 24, 08029 Barcelona (Eixample)
+- Teléfono / Phone: +34 933 51 59 13
 - Email: positanopizzeria2023@gmail.com
-- Cocina: pizza napolitana, cocina italiana, pasta fresca, antipasti
-- Rango de precios: €€ (menú del día a mediodía)
-- Valoración: ${reviewStats.rating.replace(".", ",")} sobre 5 con ${reviewStats.count} reseñas en Google
-- Reservas: sí (web y TheFork)
-- A domicilio: Glovo y Uber Eats
+- Cocina / Cuisine: pizza napolitana, pasta fresca, antipasti / Neapolitan pizza, fresh pasta, antipasti
+- Rango de precios / Price range: €€ (menú del día a mediodía / weekday lunch set menu)
+- Valoración / Rating: ${reviewStats.rating.replace(".", ",")}/5 · ${reviewStats.count} reseñas en Google / Google reviews
+- Reservas / Reservations: en la web del restaurante / book directly on the restaurant's website
+- A domicilio / Delivery: Glovo, Uber Eats
 
-## Horarios
+## Horarios / Opening hours
 
-- Lunes: cerrado
-- Martes a jueves: 13:00–16:00 y 20:00–23:30
-- Viernes: 13:00–16:00 y 20:00–00:00
-- Sábado: 13:00–00:00
-- Domingo: 13:00–23:30
+- Lunes / Monday: cerrado / closed
+- Martes a jueves / Tue–Thu: 13:00–16:00, 20:00–23:30
+- Viernes / Friday: 13:00–16:00, 20:00–00:00
+- Sábado / Saturday: 13:00–00:00
+- Domingo / Sunday: 13:00–23:30
 
 ## Páginas principales (español)
 
