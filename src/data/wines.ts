@@ -101,6 +101,7 @@ export const wines: WineCategory[] = [
         region: "Puglia",
         grape: "Chardonnay · Malvasía",
         price: "12,90 €",
+        image: "/wines/vino-bianco-salento.jpg",
         notes:
           "Amarillo pajizo con reflejos dorados. Aromas fragantes de flores blancas, albaricoque y plátano. Seco, suave y sabroso.",
         notesEn:
@@ -159,6 +160,7 @@ export const wines: WineCategory[] = [
         region: "Abruzzo",
         grape: "100% Chardonnay",
         price: "18,00 €",
+        image: "/wines/vino-fantini-chardonnay.jpg",
         notes:
           "Amarillo pajizo brillante, con aroma persistente de fruta tropical. De buen cuerpo, equilibrado e intenso.",
         notesEn:
@@ -181,6 +183,7 @@ export const wines: WineCategory[] = [
         region: "Abruzzo",
         grape: "100% Pecorino",
         price: "24,00 €",
+        image: "/wines/vino-calalenta-pecorino.jpg",
         notes:
           "Amarillo paja intenso, con aroma suave y fresco, notas frutales y buen cuerpo.",
         notesEn:
@@ -192,6 +195,7 @@ export const wines: WineCategory[] = [
         region: "Campania",
         grape: "100% Falanghina",
         price: "26,00 €",
+        image: "/wines/vino-falanghina-sannio.jpg",
         notes:
           "Amarillo pajizo con reflejos verdosos. Aroma suave de flores blancas, paraguaya y melón. Fresco, suave y equilibrado.",
         notesEn:
@@ -203,6 +207,7 @@ export const wines: WineCategory[] = [
         region: "Campania",
         grape: "90% Coda di Volpe · 10% Falanghina",
         price: "27,00 €",
+        image: "/wines/vino-lacryma-christi-bianco.jpg",
         notes:
           "Amarillo pajizo con aromas de retama, manzana golden, mandarina y hierbas. Seco, fresco y mineral.",
         notesEn:
@@ -214,6 +219,7 @@ export const wines: WineCategory[] = [
         region: "Friuli Venezia Giulia",
         grape: "100% Sauvignon",
         price: "30,00 €",
+        image: "/wines/vino-sauvignon-friuli.jpg",
         notes:
           "Amarillo pajizo con reflejos verdosos. Aromas de menta, lima y pomelo. Fresco y suave con toques afrutados.",
         notesEn:
@@ -232,6 +238,7 @@ export const wines: WineCategory[] = [
         region: "Puglia",
         grape: "Negroamaro · Malvasia Nera",
         price: "14,90 €",
+        image: "/wines/vino-salento-rosso.jpg",
         notes:
           "Tinto del Salento de fruta roja madura, suave y cálido, con taninos amables.",
         notesEn:
@@ -242,6 +249,7 @@ export const wines: WineCategory[] = [
         region: "Trentino",
         grape: "100% Merlot",
         price: "15,90 €",
+        image: "/wines/vino-merlot-trentino.jpg",
         notes:
           "Merlot alpino, afrutado y suave, con notas de ciruela y un final aterciopelado.",
         notesEn:
@@ -253,6 +261,7 @@ export const wines: WineCategory[] = [
         region: "Abruzzo",
         grape: "100% Montepulciano",
         price: "16,90 €",
+        image: "/wines/vino-montepulciano-abruzzo.jpg",
         notes:
           "Aromas de ciruela negra, mora y grosella. De medio cuerpo, redondo y con buena persistencia.",
         notesEn:
@@ -263,6 +272,7 @@ export const wines: WineCategory[] = [
         region: "Campania",
         grape: "100% Aglianico",
         price: "19,90 €",
+        image: "/wines/vino-campania-aglianico.jpg",
         notes:
           "Aglianico de Campania de fruta negra y especias. Estructurado, sabroso y persistente.",
         notesEn:
@@ -286,6 +296,7 @@ export const wines: WineCategory[] = [
         region: "Campania",
         grape: "90% Piedirosso · 10% Aglianico",
         price: "24,90 €",
+        image: "/wines/vino-lacryma-christi-rosso.jpg",
         notes:
           "Color rubí. Aromas de frutos del bosque con una placentera nota de pimienta. Seco y fresco, de medio cuerpo.",
         notesEn:
@@ -308,6 +319,7 @@ export const wines: WineCategory[] = [
         region: "Toscana",
         grape: "Sangiovese",
         price: "29,90 €",
+        image: "/wines/vino-chianti-classico-riserva.jpg",
         notes:
           "Sangiovese de Toscana criado como Riserva: cereza, especias y un toque de pimienta negra. Intenso, elegante y de final largo.",
         notesEn:
@@ -319,6 +331,7 @@ export const wines: WineCategory[] = [
         region: "Toscana · 12 meses",
         grape: "100% Sangiovese",
         price: "34,00 €",
+        image: "/wines/vino-rosso-montalcino.jpg",
         notes:
           "Rojo rubí, con aromas afrutados de moras y frambuesas y notas de café y tabaco. Amplio, armonioso y equilibrado, con buena persistencia.",
         notesEn:
@@ -387,6 +400,7 @@ export const beers: WineCategory[] = [
         region: "Italia",
         grape: "Lager",
         price: "3,50 €",
+        image: "/wines/cerveza-peroni.jpg",
         notes: "Lager italiana, ligera, crujiente y muy bebible.",
         notesEn: "Italian lager, light, crisp and very drinkable.",
       },
@@ -430,6 +444,7 @@ export const beers: WineCategory[] = [
         region: "Barcelona",
         grape: "Tostada 0,0 % · sin alcohol",
         price: "3,90 €",
+        image: "/wines/cerveza-free-damm-tostada.jpg",
         notes: "Tostada sin alcohol (0,0 %), maltosa y suave.",
         notesEn: "Alcohol-free amber beer (0.0%), malty and smooth.",
       },
@@ -446,6 +461,7 @@ export const beers: WineCategory[] = [
         region: "Nápoles, Italia",
         grape: "Artesana",
         price: "4,50 €",
+        image: "/wines/cerveza-kbirr-cuore-napoli.jpg",
         notes: "Cerveza artesana napolitana, con carácter y de gran personalidad.",
         notesEn: "Neapolitan craft beer, characterful and full of personality.",
       },
@@ -455,6 +471,7 @@ export const beers: WineCategory[] = [
         region: "Nápoles, Italia",
         grape: "Lager artesana · 5,2 %",
         price: "4,50 €",
+        image: "/wines/cerveza-kbirr-natavota.jpg",
         notes: "Lager artesana napolitana, limpia y equilibrada.",
         notesEn: "Neapolitan craft lager, clean and balanced.",
       },
@@ -464,6 +481,7 @@ export const beers: WineCategory[] = [
         region: "Nápoles, Italia",
         grape: "Artesana · 5,2 %",
         price: "4,50 €",
+        image: "/wines/cerveza-kbirr-pulcinella.jpg",
         notes: "Artesana napolitana, suave y aromática.",
         notesEn: "Neapolitan craft beer, smooth and aromatic.",
       },
@@ -473,6 +491,7 @@ export const beers: WineCategory[] = [
         region: "Nápoles, Italia",
         grape: "Strong ale · chocolate",
         price: "4,90 €",
+        image: "/wines/cerveza-kbirr-natavot-chocolate.jpg",
         notes: "Artesana napolitana intensa, con notas de chocolate.",
         notesEn: "Intense Neapolitan craft beer, with chocolate notes.",
       },
@@ -482,6 +501,7 @@ export const beers: WineCategory[] = [
         region: "Piemonte, Italia",
         grape: "IPA artesana",
         price: "4,50 €",
+        image: "/wines/cerveza-ipa-baladin.jpg",
         notes: "IPA artesana italiana, lupulada, aromática y con carácter.",
         notesEn: "Italian craft IPA, hoppy, aromatic and full of character.",
       },
