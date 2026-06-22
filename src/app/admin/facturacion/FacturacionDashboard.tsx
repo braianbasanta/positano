@@ -563,7 +563,7 @@ export default function FacturacionDashboard({
       <Card
         className="mt-6"
         title="Resumen semanal"
-        hint="Cada fila es una semana natural (lunes–domingo) del mes. Δ compara el total con la semana anterior; las semanas parciales (inicio/fin de mes o en curso) facturan menos por tener menos días."
+        hint="Cada fila es una semana natural (lunes–domingo) del mes. La barra es el total; Δ compara la media diaria (€/día) con la semana anterior, así es justo aunque la semana sea parcial (inicio/fin de mes o en curso)."
       >
         {calc.weeks.length ? (
           <div className="space-y-2.5">

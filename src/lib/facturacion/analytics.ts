@@ -177,7 +177,7 @@ export interface WeekSummary {
   total: number;
   operatingDays: number;
   avgPerDay: number;
-  delta: number | null; // % vs total de la semana anterior (null en la primera)
+  delta: number | null; // % de la media diaria vs la semana anterior (null en la primera)
 }
 
 function toISODate(d: Date): string {
@@ -200,11 +200,12 @@ export function weeklySummary(days: DayRecord[], year: number, monthIndex: numbe
     groups.set(key, arr);
   }
   const out: WeekSummary[] = [];
-  let prevTotal: number | null = null;
+  let prevAvg: number | null = null;
   for (const key of [...groups.keys()].sort()) {
     const arr = groups.get(key)!.sort((a, b) => a.date.localeCompare(b.date));
     const total = arr.reduce((s, d) => s + dayTotal(d), 0);
     const operatingDays = arr.filter((d) => !d.closed && dayTotal(d) > 0).length;
+    const avgPerDay = operatingDays ? total / operatingDays : 0;
     const monday = parseLocal(key);
     const sunday = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 6, 12);
     out.push({
@@ -214,10 +215,11 @@ export function weeklySummary(days: DayRecord[], year: number, monthIndex: numbe
       endDay: dayOfMonth(arr[arr.length - 1].date),
       total,
       operatingDays,
-      avgPerDay: operatingDays ? total / operatingDays : 0,
-      delta: prevTotal && prevTotal > 0 ? ((total - prevTotal) / prevTotal) * 100 : null,
+      avgPerDay,
+      // Δ sobre la media diaria: justo aunque las semanas tengan distinto nº de días.
+      delta: prevAvg && prevAvg > 0 && avgPerDay > 0 ? ((avgPerDay - prevAvg) / prevAvg) * 100 : null,
     });
-    prevTotal = total;
+    if (avgPerDay > 0) prevAvg = avgPerDay;
   }
   return out;
 }
