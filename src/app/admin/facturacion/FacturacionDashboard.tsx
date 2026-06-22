@@ -299,7 +299,7 @@ export default function FacturacionDashboard({
     const proj = projectMonth(effectiveDays, year, month);
     const best = bestDay(effectiveDays, year, month);
     const trend = monthlyTrend(effectiveDays, year, month, 13);
-    const weeks = weeklySummary(effectiveDays, year, month);
+    const weeks = weeklySummary(effectiveDays, year, month, objetivoDia);
 
     const dailyData = recordsInMonth(effectiveDays, year, month).map((r) => {
       const wd = weekdayOf(r.date);
@@ -369,7 +369,9 @@ export default function FacturacionDashboard({
     };
   }, [days, effectiveDays, wxByDate, year, month, prevM, prevY, cutoff]);
 
-  const weekMax = useMemo(() => calc.weeks.reduce((m, w) => Math.max(m, w.total), 0), [calc.weeks]);
+  // Acumulado del mes vs el objetivo mensual (primer objetivo: 58.500 €).
+  const monthGoalPct = OBJETIVO_MENSUAL ? (calc.sel.total / OBJETIVO_MENSUAL) * 100 : 0;
+  const monthGoalGap = OBJETIVO_MENSUAL - calc.sel.total; // >0 = falta · <0 = superado
 
   const mediaObj = mediaDiariaObjetivo();
   const mediaDiaPct = mediaObj ? (calc.proj.perOperatingDay / mediaObj) * 100 : 0;
@@ -563,12 +565,41 @@ export default function FacturacionDashboard({
       <Card
         className="mt-6"
         title="Resumen semanal"
-        hint="Cada fila es una semana natural (lunes–domingo) del mes. La barra es el total; Δ compara la media diaria (€/día) con la semana anterior, así es justo aunque la semana sea parcial (inicio/fin de mes o en curso)."
+        hint="Cada semana (lunes–domingo) frente a su objetivo. La barra es el avance hacia el objetivo de la semana (verde = alcanzado); Δ compara la media diaria (€/día) con la semana anterior."
       >
+        {/* Acumulado del mes vs el primer objetivo mensual (58.500 €) */}
+        <div className="mb-5 rounded-xl border border-ink/10 bg-cream/40 p-4">
+          <div className="flex flex-wrap items-end justify-between gap-2">
+            <div className="font-sans text-xs font-semibold uppercase tracking-wide text-ink/40">
+              {isCurrent ? "Acumulado del mes" : "Total del mes"} vs objetivo
+            </div>
+            <div className="font-sans text-sm font-semibold">
+              {monthGoalGap > 0 ? (
+                <span className="text-amber-600">Faltan {eur0(monthGoalGap)}</span>
+              ) : (
+                <span className="text-emerald-600">✓ Superado por {eur0(-monthGoalGap)}</span>
+              )}
+            </div>
+          </div>
+          <div className="mt-1 font-display text-2xl font-semibold text-ink">
+            {eur0(calc.sel.total)}{" "}
+            <span className="text-ink/40">/ {eur0(OBJETIVO_MENSUAL)}</span>
+            <span className="ml-2 font-sans text-base font-semibold text-ink/50">{Math.round(monthGoalPct)}%</span>
+          </div>
+          <div className="mt-2.5 h-3 w-full overflow-hidden rounded-full bg-ink/10">
+            <div
+              className={`h-full rounded-full ${monthGoalGap <= 0 ? "bg-emerald-500" : "bg-lemon"}`}
+              style={{ width: `${Math.min(100, Math.max(0, monthGoalPct))}%` }}
+            />
+          </div>
+        </div>
+
         {calc.weeks.length ? (
-          <div className="space-y-2.5">
+          <div className="space-y-3">
             {calc.weeks.map((w, i) => {
               const inProgress = isCurrent && today >= w.weekStart && today <= w.weekEnd;
+              const gap = w.objetivo - w.total; // >0 = falta · <0 = superado
+              const goalPct = w.objetivo ? (w.total / w.objetivo) * 100 : 0;
               return (
                 <div key={w.weekStart}>
                   <div className="flex items-center justify-between gap-3">
@@ -580,24 +611,32 @@ export default function FacturacionDashboard({
                       </span>
                     </div>
                     <div className="flex items-baseline gap-2">
-                      <span className="font-sans text-[11px] text-ink/40">{eur0(w.avgPerDay)}/día</span>
-                      <span className="min-w-[78px] text-right font-display text-base font-semibold text-ink">
-                        {eur0(w.total)}
-                      </span>
                       <span
-                        className={`min-w-[52px] text-right font-sans text-xs font-semibold ${
+                        className={`min-w-[48px] text-right font-sans text-xs font-semibold ${
                           w.delta === null ? "text-ink/30" : w.delta >= 0 ? "text-emerald-600" : "text-red-600"
                         }`}
                       >
                         {pctLabel(w.delta)}
                       </span>
+                      <span className="min-w-[90px] text-right font-display text-base font-semibold text-ink">
+                        {eur0(w.total)} <span className="font-sans text-xs font-normal text-ink/40">/ {eur0(w.objetivo)}</span>
+                      </span>
                     </div>
                   </div>
-                  <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-ink/5">
-                    <div
-                      className="h-full rounded-full bg-lemon"
-                      style={{ width: `${weekMax ? (w.total / weekMax) * 100 : 0}%` }}
-                    />
+                  <div className="mt-1.5 flex items-center gap-3">
+                    <div className="h-2 flex-1 overflow-hidden rounded-full bg-ink/5">
+                      <div
+                        className={`h-full rounded-full ${w.metGoal ? "bg-emerald-500" : "bg-lemon"}`}
+                        style={{ width: `${Math.min(100, Math.max(0, goalPct))}%` }}
+                      />
+                    </div>
+                    <span
+                      className={`min-w-[92px] text-right font-sans text-xs font-semibold ${
+                        w.metGoal ? "text-emerald-600" : "text-ink/50"
+                      }`}
+                    >
+                      {w.metGoal ? `✓ +${eur0(-gap)}` : `faltan ${eur0(gap)}`}
+                    </span>
                   </div>
                 </div>
               );

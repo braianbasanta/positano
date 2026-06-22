@@ -178,6 +178,8 @@ export interface WeekSummary {
   operatingDays: number;
   avgPerDay: number;
   delta: number | null; // % de la media diaria vs la semana anterior (null en la primera)
+  objetivo: number; // suma de objetivos diarios de los días de la semana en el mes (0 si no se pasa la función)
+  metGoal: boolean; // total >= objetivo (con objetivo > 0)
 }
 
 function toISODate(d: Date): string {
@@ -187,7 +189,12 @@ function toISODate(d: Date): string {
 // Desglosa el mes en semanas naturales (lunes→domingo). Cada semana suma SOLO
 // los días del mes seleccionado, de modo que la suma de las semanas == total
 // del mes. La primera semana puede ser parcial si el mes no empieza en lunes.
-export function weeklySummary(days: DayRecord[], year: number, monthIndex: number): WeekSummary[] {
+export function weeklySummary(
+  days: DayRecord[],
+  year: number,
+  monthIndex: number,
+  objetivoDia?: (weekday: number) => number | null,
+): WeekSummary[] {
   const recs = recordsInMonth(days, year, monthIndex);
   const groups = new Map<string, DayRecord[]>();
   for (const r of recs) {
@@ -208,6 +215,18 @@ export function weeklySummary(days: DayRecord[], year: number, monthIndex: numbe
     const avgPerDay = operatingDays ? total / operatingDays : 0;
     const monday = parseLocal(key);
     const sunday = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 6, 12);
+    // Objetivo de la semana = suma de los objetivos diarios de TODOS sus días
+    // (lunes→domingo) que caen dentro del mes seleccionado, haya o no registro
+    // todavía. Así la semana en curso muestra su meta completa.
+    let objetivo = 0;
+    if (objetivoDia) {
+      for (let i = 0; i < 7; i++) {
+        const dd = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i, 12);
+        if (dd.getFullYear() === year && dd.getMonth() === monthIndex) {
+          objetivo += objetivoDia(dd.getDay()) ?? 0;
+        }
+      }
+    }
     out.push({
       weekStart: key,
       weekEnd: toISODate(sunday),
@@ -218,6 +237,8 @@ export function weeklySummary(days: DayRecord[], year: number, monthIndex: numbe
       avgPerDay,
       // Δ sobre la media diaria: justo aunque las semanas tengan distinto nº de días.
       delta: prevAvg && prevAvg > 0 && avgPerDay > 0 ? ((avgPerDay - prevAvg) / prevAvg) * 100 : null,
+      objetivo,
+      metGoal: objetivo > 0 && total >= objetivo,
     });
     if (avgPerDay > 0) prevAvg = avgPerDay;
   }
