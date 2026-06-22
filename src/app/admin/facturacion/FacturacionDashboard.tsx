@@ -567,6 +567,29 @@ export default function FacturacionDashboard({
         title="Resumen semanal"
         hint="Cada semana (lunes–domingo) frente a su objetivo. La barra es el avance hacia el objetivo de la semana (verde = alcanzado); Δ compara la media diaria (€/día) con la semana anterior."
       >
+        {/* Selector de mes (sincronizado con el de la cabecera) para comparar meses sin subir */}
+        <div className="mb-4 flex items-center gap-2">
+          <button
+            onClick={() => shiftMonth(-1)}
+            className="rounded-lg border border-ink/10 bg-white/70 px-3 py-1.5 text-base text-ink transition hover:border-lemon"
+            aria-label="Mes anterior"
+          >
+            ‹
+          </button>
+          <span className="min-w-[150px] text-center font-sans text-sm font-semibold text-ink">
+            {monthLabel(month)} {year}
+            {isCurrent && <span className="ml-1 text-xs font-normal text-ink/40">(en curso)</span>}
+          </span>
+          <button
+            onClick={() => shiftMonth(1)}
+            disabled={isCurrent}
+            className="rounded-lg border border-ink/10 bg-white/70 px-3 py-1.5 text-base text-ink transition hover:border-lemon disabled:opacity-40"
+            aria-label="Mes siguiente"
+          >
+            ›
+          </button>
+        </div>
+
         {/* Acumulado del mes vs el primer objetivo mensual (58.500 €) */}
         <div className="mb-5 rounded-xl border border-ink/10 bg-cream/40 p-4">
           <div className="flex flex-wrap items-end justify-between gap-2">
