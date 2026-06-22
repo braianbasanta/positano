@@ -43,6 +43,7 @@ import {
   weekdayAverages,
   weekdayLabel,
   weekdayOf,
+  weeklySummary,
 } from "@/lib/facturacion/analytics";
 import { mediaDiariaObjetivo, OBJETIVO_MENSUAL, objetivoDia } from "@/lib/facturacion/objetivos";
 import { holidayFactor } from "@/lib/facturacion/calendario";
@@ -84,6 +85,7 @@ const INK = "#1d2750";
 const LEMON = "#c6a253";
 const EMERALD = "#2f7d54";
 const ZINC = "#d4d4d8";
+const RECORD = "#e8743b"; // terracota — día de mayor facturación de la serie
 // Colores del desglose por servicio en la gráfica diaria.
 const MEDIODIA = "#e8743b"; // terracota
 const CENA = INK; // navy
@@ -159,13 +161,15 @@ export default function FacturacionDashboard({
       .filter((r) => !r.closed && weekdayOf(r.date) === weekday)
       .sort((a, b) => a.date.localeCompare(b.date))
       .slice(-53);
+    const maxTotal = recs.reduce((m, r) => Math.max(m, dayTotal(r)), 0);
     const data = recs.map((r) => {
       const t = dayTotal(r);
       const d = parseLocal(r.date);
       const dnum = dayOfMonth(r.date);
       const mon = monthLabel(d.getMonth()).slice(0, 3);
       let color = INK;
-      if (obj && t >= obj) color = EMERALD;
+      if (t > 0 && t === maxTotal) color = RECORD;
+      else if (obj && t >= obj) color = EMERALD;
       else if (t === 0) color = ZINC;
       return {
         key: r.date,
@@ -295,6 +299,7 @@ export default function FacturacionDashboard({
     const proj = projectMonth(effectiveDays, year, month);
     const best = bestDay(effectiveDays, year, month);
     const trend = monthlyTrend(effectiveDays, year, month, 13);
+    const weeks = weeklySummary(effectiveDays, year, month);
 
     const dailyData = recordsInMonth(effectiveDays, year, month).map((r) => {
       const wd = weekdayOf(r.date);
@@ -359,10 +364,12 @@ export default function FacturacionDashboard({
     );
 
     return {
-      sel, prev, yoy, channels, ld, proj, best, trend, dailyData, compareData, weekdayData, channelData,
+      sel, prev, yoy, channels, ld, proj, best, trend, weeks, dailyData, compareData, weekdayData, channelData,
       opDaysCount: opDays.length, metGoal,
     };
   }, [days, effectiveDays, wxByDate, year, month, prevM, prevY, cutoff]);
+
+  const weekMax = useMemo(() => calc.weeks.reduce((m, w) => Math.max(m, w.total), 0), [calc.weeks]);
 
   const mediaObj = mediaDiariaObjetivo();
   const mediaDiaPct = mediaObj ? (calc.proj.perOperatingDay / mediaObj) * 100 : 0;
@@ -552,6 +559,55 @@ export default function FacturacionDashboard({
         </ResponsiveContainer>
       </Card>
 
+      {/* Resumen por semanas del mes */}
+      <Card
+        className="mt-6"
+        title="Resumen semanal"
+        hint="Cada fila es una semana natural (lunes–domingo) del mes. Δ compara el total con la semana anterior; las semanas parciales (inicio/fin de mes o en curso) facturan menos por tener menos días."
+      >
+        {calc.weeks.length ? (
+          <div className="space-y-2.5">
+            {calc.weeks.map((w, i) => {
+              const inProgress = isCurrent && today >= w.weekStart && today <= w.weekEnd;
+              return (
+                <div key={w.weekStart}>
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                      <span className="font-sans text-sm font-semibold text-ink">Sem {i + 1}</span>
+                      <span className="font-sans text-xs text-ink/40">
+                        {w.startDay}–{w.endDay} {monthLabel(month).slice(0, 3)} · {w.operatingDays} días
+                        {inProgress && <span className="ml-1 text-lemon">· en curso</span>}
+                      </span>
+                    </div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-sans text-[11px] text-ink/40">{eur0(w.avgPerDay)}/día</span>
+                      <span className="min-w-[78px] text-right font-display text-base font-semibold text-ink">
+                        {eur0(w.total)}
+                      </span>
+                      <span
+                        className={`min-w-[52px] text-right font-sans text-xs font-semibold ${
+                          w.delta === null ? "text-ink/30" : w.delta >= 0 ? "text-emerald-600" : "text-red-600"
+                        }`}
+                      >
+                        {pctLabel(w.delta)}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-ink/5">
+                    <div
+                      className="h-full rounded-full bg-lemon"
+                      style={{ width: `${weekMax ? (w.total / weekMax) * 100 : 0}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <Empty>Sin datos este mes.</Empty>
+        )}
+      </Card>
+
       {/* Comparativa + día de la semana */}
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <Card title="Comparativa (mismo tramo del mes)" hint={`Acotado al día ${cutoff} para que sea justo.`}>
@@ -588,7 +644,7 @@ export default function FacturacionDashboard({
       <Card
         className="mt-6"
         title="Evolución por día de la semana"
-        hint="Cada barra es un mismo día a lo largo del tiempo (p. ej. todos los martes). Verde = alcanzó su objetivo · línea dorada = objetivo del día."
+        hint="Cada barra es un mismo día a lo largo del tiempo (p. ej. todos los martes). Naranja = récord del periodo · verde = alcanzó su objetivo · línea dorada = objetivo del día."
       >
         <div className="flex flex-wrap gap-2">
           {WEEKDAY_PICK.map((wd) => (

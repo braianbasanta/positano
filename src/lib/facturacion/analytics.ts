@@ -169,6 +169,59 @@ export function bestDay(days: DayRecord[], year: number, monthIndex: number): Be
   return best && best.total > 0 ? best : null;
 }
 
+export interface WeekSummary {
+  weekStart: string; // lunes de la semana, "YYYY-MM-DD"
+  weekEnd: string; // domingo de la semana, "YYYY-MM-DD"
+  startDay: number; // primer día del mes con registro en este tramo
+  endDay: number; // último día del mes con registro en este tramo
+  total: number;
+  operatingDays: number;
+  avgPerDay: number;
+  delta: number | null; // % vs total de la semana anterior (null en la primera)
+}
+
+function toISODate(d: Date): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+// Desglosa el mes en semanas naturales (lunes→domingo). Cada semana suma SOLO
+// los días del mes seleccionado, de modo que la suma de las semanas == total
+// del mes. La primera semana puede ser parcial si el mes no empieza en lunes.
+export function weeklySummary(days: DayRecord[], year: number, monthIndex: number): WeekSummary[] {
+  const recs = recordsInMonth(days, year, monthIndex);
+  const groups = new Map<string, DayRecord[]>();
+  for (const r of recs) {
+    const d = parseLocal(r.date);
+    const diffToMonday = (d.getDay() + 6) % 7; // lunes=0 … domingo=6
+    const monday = new Date(d.getFullYear(), d.getMonth(), d.getDate() - diffToMonday, 12);
+    const key = toISODate(monday);
+    const arr = groups.get(key) ?? [];
+    arr.push(r);
+    groups.set(key, arr);
+  }
+  const out: WeekSummary[] = [];
+  let prevTotal: number | null = null;
+  for (const key of [...groups.keys()].sort()) {
+    const arr = groups.get(key)!.sort((a, b) => a.date.localeCompare(b.date));
+    const total = arr.reduce((s, d) => s + dayTotal(d), 0);
+    const operatingDays = arr.filter((d) => !d.closed && dayTotal(d) > 0).length;
+    const monday = parseLocal(key);
+    const sunday = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 6, 12);
+    out.push({
+      weekStart: key,
+      weekEnd: toISODate(sunday),
+      startDay: dayOfMonth(arr[0].date),
+      endDay: dayOfMonth(arr[arr.length - 1].date),
+      total,
+      operatingDays,
+      avgPerDay: operatingDays ? total / operatingDays : 0,
+      delta: prevTotal && prevTotal > 0 ? ((total - prevTotal) / prevTotal) * 100 : null,
+    });
+    prevTotal = total;
+  }
+  return out;
+}
+
 export interface MonthPoint {
   year: number;
   monthIndex: number;
