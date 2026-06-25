@@ -301,7 +301,12 @@ export default function FacturacionDashboard({
     const trend = monthlyTrend(effectiveDays, year, month, 13);
     const weeks = weeklySummary(effectiveDays, year, month, objetivoDia);
 
-    const dailyData = recordsInMonth(effectiveDays, year, month).map((r) => {
+    // El negocio cierra los lunes (weekday 1) y no se pintan días cerrados
+    // (festivos sin servicio): si no, salen como barras grises vacías e
+    // inconsistentes (unos lunes con registro a 0, otros sin registro).
+    const dailyData = recordsInMonth(effectiveDays, year, month)
+      .filter((r) => !r.closed && weekdayOf(r.date) !== 1)
+      .map((r) => {
       const wd = weekdayOf(r.date);
       const obj = objetivoDia(wd);
       const t = dayTotal(r);
