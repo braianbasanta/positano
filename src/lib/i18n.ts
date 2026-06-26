@@ -15,6 +15,10 @@ export const ROUTE_PAIRS: { es: string; en: string }[] = [
   { es: "/bebidas", en: "/en/drinks" },
   { es: "/pizza-napolitana-barcelona", en: "/en/neapolitan-pizza-barcelona" },
   { es: "/pizzeria-eixample", en: "/en/italian-restaurant-eixample" },
+  {
+    es: "/restaurante-italiano-barcelona",
+    en: "/en/italian-restaurant-barcelona",
+  },
   { es: "/menu-del-dia", en: "/en/lunch-menu-barcelona" },
   { es: "/pizza-domicilio", en: "/en/pizza-delivery-barcelona" },
   { es: "/reservas", en: "/en/book-a-table" },

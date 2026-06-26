@@ -17,6 +17,7 @@ const COLUMNS: Record<Locale, Column[]> = {
         { label: "Pizza napolitana en Barcelona", href: "/pizza-napolitana-barcelona" },
         { label: "Menú del día", href: "/menu-del-dia" },
         { label: "Pizzería en el Eixample", href: "/pizzeria-eixample" },
+        { label: "Restaurante italiano en Barcelona", href: "/restaurante-italiano-barcelona" },
         { label: "Pizza a domicilio", href: "/pizza-domicilio" },
         { label: "Visítanos", href: "/#visitanos" },
         { label: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },

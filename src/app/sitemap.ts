@@ -10,6 +10,7 @@ const PAIRED: { path: string; priority: number }[] = [
   { path: "/bebidas", priority: 0.6 },
   { path: "/pizza-napolitana-barcelona", priority: 0.7 },
   { path: "/pizzeria-eixample", priority: 0.7 },
+  { path: "/restaurante-italiano-barcelona", priority: 0.7 },
   { path: "/menu-del-dia", priority: 0.8 },
   { path: "/pizza-domicilio", priority: 0.7 },
   { path: "/trabaja-con-nosotros", priority: 0.5 },
@@ -21,7 +22,6 @@ const PAIRED: { path: string; priority: number }[] = [
 // Landings sólo en inglés (sin equivalente ES).
 const EN_ONLY: { path: string; priority: number }[] = [
   { path: "/en/best-pizza-barcelona", priority: 0.8 },
-  { path: "/en/italian-restaurant-barcelona", priority: 0.8 },
 ];
 
 // Páginas sólo en español (sin equivalente EN): no declaran hreflang cruzado.
