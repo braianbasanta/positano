@@ -3,7 +3,7 @@
 //  Para cambiarlo: edita solo este archivo. Mantén la estructura.
 //  - "+3 €" en surcharge = suplemento sobre el precio del menú.
 //  - Vacío surcharge = incluido en el menú.
-//  Última actualización: semana del 23 al 27 de junio de 2026.
+//  Última actualización: semana del 30 de junio al 4 de julio de 2026.
 // ─────────────────────────────────────────────────────────────────────────
 
 export type MenuDelDiaItem = {
@@ -30,23 +30,23 @@ export type MenuDelDiaData = {
 };
 
 export const menuDelDia: MenuDelDiaData = {
-  semana: "Semana del 23 al 27 de junio",
+  semana: "Semana del 30 de junio al 4 de julio",
   precio: "14,90 €",
   suplementoTerraza: "10%",
   primeros: [
-    { name: "Ensalada mixta con atún, olivas negras y tomate cherry" },
+    { name: "Ensalada con espinacas, fresas, nueces y miel" },
     { name: "Burrata pugliese con tomate cherry y rúcula", surcharge: "+3 €" },
-    { name: "Ensaladilla rusa" },
+    { name: "Hummus de garbanzo" },
     { name: "Albóndigas de ternera con parmesano y tomate" },
-    { name: "Carpaccio de pez espada con rúcula y vinagreta de limón" },
-    { name: "Spaghetti a la siciliana" },
+    { name: "Sopa de melón y menta" },
+    { name: "Rigatoni con pesto de albahaca" },
   ],
   segundos: [
-    { name: "Risotto con crema de bogavante", surcharge: "+3 €" },
-    { name: "Milanesa de pollo con patatas fritas" },
-    { name: "Solomillo de cerdo con puré de patatas" },
-    { name: "Hamburguesa de ternera con queso y cebolla roja" },
-    { name: "Dorada al horno con espárragos" },
+    { name: "Risotto con crema de cigala y tomate amarillo", surcharge: "+3 €" },
+    { name: "Milanesa de ternera con patatas fritas" },
+    { name: "Muslo de pollo con patatas" },
+    { name: "Bistec a la plancha con brócoli" },
+    { name: "Tacos de atún con cebolla caramelizada" },
     {
       name: "Pizza a elegir (Margherita, Diavola, Jamón y champiñón, Calzone al forno, Ortolana)",
     },
