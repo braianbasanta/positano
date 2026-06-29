@@ -17,9 +17,9 @@ const MAP_EMBED =
   "https://maps.google.com/maps?q=Positano%20Pizzeria%2C%20Carrer%20del%20Rossell%C3%B3%2C%2024%2C%2008029%20Barcelona&z=16&hl=es&output=embed";
 
 export const metadata: Metadata = {
-  title: "Pizzería en el Eixample · Masa 48 h · Positano BCN",
+  title: "Pizzería en el Eixample · Pizza en horno de leña | Positano BCN",
   description:
-    "Positano, pizzería napolitana y restaurante italiano en el Eixample, Barcelona. Masa fermentada 48 h en horno de leña, pasta fresca y antipasti.",
+    "Positano, pizzería napolitana y restaurante italiano en el Eixample, Barcelona. Pizza en horno de leña, pasta fresca casera y antipasti.",
   alternates: alternatesFor("/pizzeria-eixample"),
 };
 
