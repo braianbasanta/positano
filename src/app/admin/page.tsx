@@ -23,11 +23,6 @@ const SECTIONS = [
     desc: "Conteo server-side de los redirects /go/* (Google Ads ES vs EN): fiable aunque rechacen cookies.",
   },
   {
-    href: "/admin/seo",
-    title: "SEO local",
-    desc: "Cómo vamos en mapa, orgánico e IA: KPIs, keywords objetivo y reseñas vs competencia, mes a mes.",
-  },
-  {
     href: "/admin/plan",
     title: "Plan de facturación",
     desc: "Objetivos de media diaria, techo de cada día y hoja de ruta a corto, medio y largo plazo.",
