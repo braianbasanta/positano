@@ -153,6 +153,13 @@ export default function FacturacionDashboard({
 
   const wxByDate = useMemo(() => new Map(weather.map((w) => [w.date, w] as const)), [weather]);
 
+  // Años con datos (para el selector rápido del navegador de mes), más reciente primero.
+  const availableYears = useMemo(() => {
+    const set = new Set(days.map((d) => Number(d.date.slice(0, 4))));
+    set.add(curY);
+    return Array.from(set).sort((a, b) => b - a);
+  }, [days, curY]);
+
   // Serie histórica de un mismo día de la semana (p. ej. todos los martes),
   // ordenada por fecha y acotada a las últimas ~53 ocurrencias (~1 año).
   const weekdaySeries = useMemo(() => {
@@ -396,25 +403,14 @@ export default function FacturacionDashboard({
         <div>
           <h1 className="font-display text-4xl font-semibold text-ink">Facturación</h1>
         </div>
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => shiftMonth(-1)}
-            className="rounded-lg border border-ink/10 bg-white/70 px-3.5 py-2 text-base text-ink transition hover:border-lemon"
-          >
-            ‹
-          </button>
-          <span className="min-w-[170px] text-center font-sans text-base font-semibold text-ink">
-            {monthLabel(month)} {year}
-            {isCurrent && <span className="ml-1 text-xs font-normal text-ink/40">(en curso)</span>}
-          </span>
-          <button
-            onClick={() => shiftMonth(1)}
-            disabled={year === curY && month === curM}
-            className="rounded-lg border border-ink/10 bg-white/70 px-3.5 py-2 text-base text-ink transition hover:border-lemon disabled:opacity-40"
-          >
-            ›
-          </button>
-        </div>
+        <MonthNav
+          year={year}
+          month={month}
+          isCurrent={isCurrent}
+          years={availableYears}
+          onShift={shiftMonth}
+          onSelectYear={setYear}
+        />
       </div>
 
       {/* Toggle domicilio */}
@@ -573,26 +569,16 @@ export default function FacturacionDashboard({
         hint="Cada semana (lunes–domingo) frente a su objetivo. La barra es el avance hacia el objetivo de la semana (verde = alcanzado); Δ compara la media diaria (€/día) con la semana anterior."
       >
         {/* Selector de mes (sincronizado con el de la cabecera) para comparar meses sin subir */}
-        <div className="mb-4 flex items-center gap-2">
-          <button
-            onClick={() => shiftMonth(-1)}
-            className="rounded-lg border border-ink/10 bg-white/70 px-3 py-1.5 text-base text-ink transition hover:border-lemon"
-            aria-label="Mes anterior"
-          >
-            ‹
-          </button>
-          <span className="min-w-[150px] text-center font-sans text-sm font-semibold text-ink">
-            {monthLabel(month)} {year}
-            {isCurrent && <span className="ml-1 text-xs font-normal text-ink/40">(en curso)</span>}
-          </span>
-          <button
-            onClick={() => shiftMonth(1)}
-            disabled={isCurrent}
-            className="rounded-lg border border-ink/10 bg-white/70 px-3 py-1.5 text-base text-ink transition hover:border-lemon disabled:opacity-40"
-            aria-label="Mes siguiente"
-          >
-            ›
-          </button>
+        <div className="mb-4">
+          <MonthNav
+            year={year}
+            month={month}
+            isCurrent={isCurrent}
+            years={availableYears}
+            onShift={shiftMonth}
+            onSelectYear={setYear}
+            compact
+          />
         </div>
 
         {/* Acumulado del mes vs el primer objetivo mensual (58.500 €) */}
@@ -969,6 +955,73 @@ export default function FacturacionDashboard({
           </div>
         )}
       </div>
+    </div>
+  );
+}
+
+function MonthNav({
+  year,
+  month,
+  isCurrent,
+  years,
+  onShift,
+  onSelectYear,
+  compact = false,
+}: {
+  year: number;
+  month: number;
+  isCurrent: boolean;
+  years: number[];
+  onShift: (delta: number) => void;
+  onSelectYear: (y: number) => void;
+  compact?: boolean;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="relative flex items-center gap-2">
+      <button
+        onClick={() => onShift(-1)}
+        aria-label="Mes anterior"
+        className={`rounded-lg border border-ink/10 bg-white/70 text-base text-ink transition hover:border-lemon ${compact ? "px-3 py-1.5" : "px-3.5 py-2"}`}
+      >
+        ‹
+      </button>
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className={`rounded-lg text-center font-sans font-semibold text-ink transition hover:bg-white/70 ${compact ? "min-w-[150px] py-1 text-sm" : "min-w-[170px] py-1.5 text-base"}`}
+      >
+        {monthLabel(month)} {year}
+        {isCurrent && <span className="ml-1 text-xs font-normal text-ink/40">(en curso)</span>}
+      </button>
+      <button
+        onClick={() => onShift(1)}
+        disabled={isCurrent}
+        aria-label="Mes siguiente"
+        className={`rounded-lg border border-ink/10 bg-white/70 text-base text-ink transition hover:border-lemon disabled:opacity-40 ${compact ? "px-3 py-1.5" : "px-3.5 py-2"}`}
+      >
+        ›
+      </button>
+      {open && (
+        <>
+          <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
+          <div className="absolute left-1/2 top-full z-20 mt-1 flex -translate-x-1/2 gap-1 rounded-lg border border-ink/10 bg-white p-1 shadow-md">
+            {years.map((y) => (
+              <button
+                key={y}
+                onClick={() => {
+                  onSelectYear(y);
+                  setOpen(false);
+                }}
+                className={`rounded-md px-3 py-1.5 font-sans text-sm transition ${
+                  y === year ? "bg-ink text-cream" : "text-ink hover:bg-cream"
+                }`}
+              >
+                {y}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }
