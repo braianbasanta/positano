@@ -9,7 +9,7 @@ const OBJETIVO_DIARIO: Record<number, number | null> = {
   2: 1500, // martes
   3: 1500, // miércoles
   4: 1750, // jueves
-  5: 3000, // viernes
+  5: 2750, // viernes
   6: 3500, // sábado
 };
 
@@ -19,7 +19,7 @@ export function objetivoDia(weekday: number): number | null {
 
 // Media diaria objetivo = promedio de los objetivos de los días operativos
 // (lunes cerrado se ignora). Es el KPI maestro: comparable entre meses, no
-// depende de cuántos días tenga cada mes. (3250 + 1500·2 + 1750 + 3000 + 3500)/6 = 2.417 €.
+// depende de cuántos días tenga cada mes. (3250 + 1500·2 + 1750 + 2750 + 3500)/6 = 2.375 €.
 export function mediaDiariaObjetivo(): number {
   const vals = Object.values(OBJETIVO_DIARIO).filter((v): v is number => v != null);
   if (!vals.length) return 0;
