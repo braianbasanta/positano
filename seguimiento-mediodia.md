@@ -29,10 +29,17 @@
 | 21/06 | Dom | 1.500 € | **3.076,98 €** | ~14,24 € | Domingo. Cena 1.576,98 €. TPV: efvo 38,30 + tarj 3.038,68. Ads día 41,29 € (mediodía 12-15h ~14,24 / cena 19-22h ~27,05); 6.678 impr, 185 clics, CTR 2,77%, CPC 0,22 € |
 | 23/06 | Mar | 370 € | **1.460,81 €** | 5,02 € | Martes (TPV: efvo 16,50 + tarj 1.444,31). Mediodía por encima del 16/06 (<300) y por debajo del 09/06 (~500). Cena 1.090,81 €. Ads mediodía 12-15h: 5,02 € (1.372 impr, 22 clics, CTR 1,60%, CPC 0,23 €) |
 | 24/06 | Mié | 460 € | **1.525 €** | 8,58 € | Miércoles (festivo Sant Joan). Mediodía 460 € (normal mié 300-400, por debajo del 17/06 ~550). Cena 1.065 €. Provisional WhatsApp Antonio. Ads mediodía 12-15h: 8,58 € (1.665 impr, 39 clics); día completo 31,95 € |
+| 25/06 | Jue | 600 € | **1.438,73 €** | — | Jueves (TPV ticket Guavapp: efvo 217,67 + tarj 1.221,06; recargo 45,58, IVA 177,37). Mediodía 600 € (Antonio): buen jueves (por debajo del 04/06 ~1.000 estimado a ojo, muy por encima del 11/06 ~300). Cena 838,73 €. Ads mediodía pendiente (sin CSV del día) |
+| 26/06 | Vie | 450 € | **2.146,76 €** | — | Viernes. Mediodía flojo por calor. Cena 1.696,76 €. TPV: efvo 57,10 + tarj 2.089,66 (recargo 50,45, IVA 212,76) |
+| 27/06 | Sáb | 850 € | **2.677,92 €** | — | Sábado (**sáb/dom sin menú del día → mediodía 100% carta**). Cena 1.827,92 €. TPV: efvo 309,56 + tarj 2.368,36 (recargo 32,98, IVA 243,18, cancelado 6,50) |
+| 28/06 | Dom | 1.000 € | **2.496,79 €** | — | Domingo (carta). Cena 1.496,79 €. TPV: efvo 152,51 + tarj 2.344,28 (recargo 30,34, IVA 227,00, cancelado 46,70) |
+| 30/06 | Mar | 800 € | **1.277,46 €** | — | Martes, cierre de mes. Mediodía 800 € (Antonio): muy por encima del martes 23/06 (370 €), el mejor mediodía de martes del mes. Cena floja 477,46 € (calor). TPV: efvo 31,50 + tarj 1.245,96 (recargo 20,47, IVA 116,11) |
+| 01/07 | Mié | 550 € | **1.690,53 €** | — | Miércoles. Mediodía 550 € (Antonio): coincide exacto con el mediodía del 17/06, muy por encima del normal mié (300-400). Cena 1.140,53 €. TPV: efvo 225,80 + tarj 1.464,73 (recargo 29,80, IVA 148,40, descuento 1,79) |
 
 ## Pendiente de cerrar
 
-- _Sin pendientes ahora mismo._ Domingo 21/06 cerrado con ticket TPV (3.076,98 €). Faltan los totales de 17-18/06 para cuadrar el balance completo de la semana 16-22 jun.
+- **26–30/06 migrados desde Supabase** (ya estaban en `/admin/facturacion`, faltaban aquí). El **gasto de Ads del mediodía de esos días está pendiente** (sin CSV cargado en `ads-informes/`).
+- Faltan los totales de 17-18/06 para cuadrar el balance completo de la semana 16-22 jun.
 
 > CSV originales de Ads guardados en `ads-informes/` (uno por día, desglose por hora).
 
