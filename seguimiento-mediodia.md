@@ -35,6 +35,7 @@
 | 28/06 | Dom | 1.000 € | **2.496,79 €** | — | Domingo (carta). Cena 1.496,79 €. TPV: efvo 152,51 + tarj 2.344,28 (recargo 30,34, IVA 227,00, cancelado 46,70) |
 | 30/06 | Mar | 800 € | **1.277,46 €** | — | Martes, cierre de mes. Mediodía 800 € (Antonio): muy por encima del martes 23/06 (370 €), el mejor mediodía de martes del mes. Cena floja 477,46 € (calor). TPV: efvo 31,50 + tarj 1.245,96 (recargo 20,47, IVA 116,11) |
 | 01/07 | Mié | 550 € | **1.690,53 €** | — | Miércoles. Mediodía 550 € (Antonio): coincide exacto con el mediodía del 17/06, muy por encima del normal mié (300-400). Cena 1.140,53 €. TPV: efvo 225,80 + tarj 1.464,73 (recargo 29,80, IVA 148,40, descuento 1,79) |
+| 02/07 | Jue | 770 € | **1.251,48 €** | — | Jueves. Mediodía 770 € (Antonio): el mejor jueves del mes salvo el 04/06 (~1.000 € estimado a ojo), muy por encima del 25/06 (600 €) y el 11/06 (~300 €). **Cena horrible (481,48 €), muy floja para un jueves — se comió el buen mediodía y lastró el día entero** (peor que la cena del 25/06 con 838,73 €). TPV ticket Guavapp: efvo 88,16 + tarj 1.163,32 (recargo 19,01, IVA 113,72, cancelado 64,80, propinas 15,50) |
 
 ## Pendiente de cerrar
 
