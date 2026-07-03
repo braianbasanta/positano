@@ -74,13 +74,13 @@ export default function BookATablePage() {
               the picture sells the place before the form asks for anything.
               Navy veil keeps the text readable. */}
           <Image
-            src="/hero/pizza-margherita-porcion.jpg"
+            src="/hero/pizza-berenjena-entera.jpg"
             alt=""
             aria-hidden
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[50%_35%]"
+            className="object-cover object-[50%_60%]"
           />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(29,39,80,0.92)_0%,rgba(29,39,80,0.62)_52%,rgba(29,39,80,0.94)_100%)]" />
           <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
