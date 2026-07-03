@@ -168,9 +168,13 @@ export default function EsLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}
         />
+        {/* El banner va ANTES de {children}: al ser fixed el orden DOM no
+            cambia nada visual, pero así pinta con el primer flush del HTML.
+            Al final del body no pintaba hasta parsear todo el documento y en
+            móvil lento se convertía en el elemento LCP (~6,5 s). */}
+        <ConsentBanner lang="es" />
         <ReelViewerProvider>{children}</ReelViewerProvider>
         <FloatingReserva lang="es" />
-        <ConsentBanner lang="es" />
         <GtmScript />
         <Clarity />
         <Analytics />

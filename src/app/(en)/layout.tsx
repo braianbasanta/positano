@@ -166,9 +166,12 @@ export default function EnLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantJsonLd) }}
         />
+        {/* Rendered BEFORE {children}: the banner is fixed so DOM order is
+            invisible, but this way it paints with the first HTML flush. At
+            the end of the body it became the LCP element (~6.5s on mobile). */}
+        <ConsentBanner lang="en" />
         <ReelViewerProvider lang="en">{children}</ReelViewerProvider>
         <FloatingReserva lang="en" />
-        <ConsentBanner lang="en" />
         <GtmScript />
         <Clarity />
         <Analytics />
