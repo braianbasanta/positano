@@ -1,6 +1,6 @@
 // Funciones puras de agregación (sin imports de datos) para que sirvan igual en
 // el server y en el cliente: el dashboard filtra por rango de meses y recalcula
-// todo en el navegador a partir de los arrays crudos (DISH 686 + TheFork 90).
+// todo en el navegador a partir de los arrays crudos (DISH 686 + TheFork 92).
 import type { DishReserva, ForkMonthRow, MonthStats } from "./types";
 
 const MESES_ABR = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];

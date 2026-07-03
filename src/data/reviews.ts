@@ -6,7 +6,7 @@ export type Review = {
 
 export const reviewStats = {
   rating: "4,8",
-  count: "+1.400",
+  count: "+1.450",
 };
 
 // Mismas cifras con formato inglés (punto decimal, sufijo "+"). Se derivan de

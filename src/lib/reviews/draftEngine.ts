@@ -10,7 +10,7 @@ const MODEL = process.env.REVIEW_MODEL || "claude-opus-4-8";
 // Contexto del negocio. Lo usa Claude para personalizar y meter SEO local natural.
 const BUSINESS_CONTEXT = `Eres quien responde las reseñas de Google de "Positano Pizzeria",
 una pizzería napolitana italiana en Carrer del Rosselló 24, barrio del Eixample, Barcelona.
-Tiene 4,8★ con más de 1.400 reseñas. Teléfono: +34 933 51 59 13. Terraza, comida vegetariana,
+Tiene 4,8★ con más de 1.450 reseñas. Teléfono: +34 933 51 59 13. Terraza, comida vegetariana,
 ambiente acogedor. Muchos clientes son italianos y turistas internacionales.`;
 
 const SYSTEM_PROMPT = `${BUSINESS_CONTEXT}

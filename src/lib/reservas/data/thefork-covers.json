@@ -928,19 +928,41 @@
 "service": "Cena",
 "channel": "TheFork Network",
 "offer": 30,
-"covers": 84,
-"bookings": 28,
+"covers": 163,
+"bookings": 54,
 "noShows": 0,
-"cancellations": 2,
-"lateCancellations": 2
+"cancellations": 23,
+"lateCancellations": 6
 },
 {
 "period": "2026-06",
 "service": "Cena",
 "channel": "TheFork Network",
 "offer": 0,
-"covers": 10,
-"bookings": 4,
+"covers": 12,
+"bookings": 5,
+"noShows": 0,
+"cancellations": 0,
+"lateCancellations": 0
+},
+{
+"period": "2026-06",
+"service": "Cena",
+"channel": "TheFork Partners",
+"offer": 30,
+"covers": 2,
+"bookings": 1,
+"noShows": 0,
+"cancellations": 0,
+"lateCancellations": 0
+},
+{
+"period": "2026-06",
+"service": "Cena",
+"channel": "TheFork Partners",
+"offer": 0,
+"covers": 7,
+"bookings": 1,
 "noShows": 0,
 "cancellations": 0,
 "lateCancellations": 0
@@ -950,19 +972,19 @@
 "service": "Comida",
 "channel": "TheFork Network",
 "offer": 30,
-"covers": 29,
-"bookings": 11,
+"covers": 67,
+"bookings": 22,
 "noShows": 0,
-"cancellations": 2,
-"lateCancellations": 2
+"cancellations": 18,
+"lateCancellations": 4
 },
 {
 "period": "2026-06",
 "service": "Comida",
 "channel": "TheFork Network",
 "offer": 0,
-"covers": 1,
-"bookings": 1,
+"covers": 9,
+"bookings": 3,
 "noShows": 0,
 "cancellations": 0,
 "lateCancellations": 0

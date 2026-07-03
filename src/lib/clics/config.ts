@@ -33,6 +33,20 @@ export const GO_TARGETS: Record<string, GoTarget> = {
     label: "Google Ads · English",
     utm: { utm_source: "google", utm_medium: "cpc", utm_campaign: "positano-barcelona", utm_content: "en" },
   },
+  // Performance Max "Geolocal" con sus DOS asset groups (ES/EN). Slugs propios
+  // para separarla de la Search en /admin/clics: la PMax solo tiene un destino
+  // (la web), así que aquí contamos el 100% de los clics web que trae, sin
+  // mezclarlos con ad-es/ad-en de la Search.
+  "pmax-es": {
+    path: "/reservas",
+    label: "Google Ads · PMax ES",
+    utm: { utm_source: "google", utm_medium: "cpc", utm_campaign: "positano-geolocal-pmax", utm_content: "es" },
+  },
+  "pmax-en": {
+    path: "/en/book-a-table",
+    label: "Google Ads · PMax EN",
+    utm: { utm_source: "google", utm_medium: "cpc", utm_campaign: "positano-geolocal-pmax", utm_content: "en" },
+  },
 };
 
 // Parámetros que, si llegan en la URL del anuncio, se preservan hacia el destino.

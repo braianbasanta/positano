@@ -18,7 +18,13 @@ export async function GET(
   request: Request,
   { params }: { params: Promise<{ slug: string }> },
 ) {
-  const { slug } = await params;
+  const { slug: rawSlug } = await params;
+  // Saneamos ValueTrack sin expandir (p. ej. "/go/ad-en{ignore}"): si una
+  // tracking template mal puesta deja un "{ignore}" pegado al path, Google lo
+  // manda literal. Sin esto el slug no casa con GO_TARGETS → el visitante
+  // acababa en la home (no en su landing) y el clic se contaba como un origen
+  // fantasma "ad-en{ignore}" en /admin/clics. Quitamos cualquier "{...}".
+  const slug = rawSlug.replace(/\{[^}]*\}/g, "");
   const incoming = new URL(request.url).searchParams;
   const target = GO_TARGETS[slug];
 

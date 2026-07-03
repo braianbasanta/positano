@@ -5486,5 +5486,85 @@
 "guests": 4,
 "status": "Confirmado",
 "notes": null
+},
+{
+"date": "2026-06-19",
+"time": "20:30",
+"name": "Podda, Debora",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-19",
+"time": "20:30",
+"name": "Baumgarten , Felipe",
+"guests": 3,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-21",
+"time": "20:00",
+"name": "zu Jeddeloh, Christian",
+"guests": 8,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-21",
+"time": "21:30",
+"name": "Vivero, Geronimo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-23",
+"time": "20:30",
+"name": "Juanes, Margarita",
+"guests": 7,
+"status": "Confirmado",
+"notes": "20% oferta en platos"
+},
+{
+"date": "2026-06-23",
+"time": "21:30",
+"name": "Artiles, Victor hugo",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-24",
+"time": "22:00",
+"name": "Portero, Alba",
+"guests": 12,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-27",
+"time": "21:30",
+"name": "De castro, Ruben",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-28",
+"time": "21:30",
+"name": "Lo Bello, Sabrina",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
+},
+{
+"date": "2026-06-28",
+"time": "21:30",
+"name": "Marrugo, Leidy",
+"guests": 2,
+"status": "Confirmado",
+"notes": null
 }
 ]

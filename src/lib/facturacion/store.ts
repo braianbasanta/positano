@@ -55,6 +55,24 @@ function recordToRow(r: DayRecord): Row {
   };
 }
 
+// El upsert de Supabase reemplaza la fila entera por fecha: si no fusionamos con
+// lo existente, guardar solo `total` (import histórico) borra un `lunch`/`dinner`
+// ya cargado a mano, y viceversa. Un día cerrado sí limpia todo (no debe quedar
+// facturación de un día que en realidad se cerró).
+function mergeDayRecord(existing: DayRecord | undefined, incoming: DayRecord): DayRecord {
+  if (incoming.closed) {
+    return { date: incoming.date, closed: true, note: incoming.note, updatedAt: incoming.updatedAt };
+  }
+  return {
+    date: incoming.date,
+    lunch: incoming.lunch ?? existing?.lunch,
+    dinner: incoming.dinner ?? existing?.dinner,
+    total: incoming.total ?? existing?.total,
+    note: incoming.note ?? existing?.note,
+    updatedAt: incoming.updatedAt,
+  };
+}
+
 // Días ordenados cronológicamente (antiguos → recientes).
 export async function listDays(): Promise<DayRecord[]> {
   if (!BASE || !KEY) return [];
@@ -72,9 +90,24 @@ export async function getDay(date: string): Promise<DayRecord | undefined> {
   return rows[0] ? rowToRecord(rows[0]) : undefined;
 }
 
-// Inserta o actualiza un día por fecha (upsert sobre la PK date).
+async function getManyDays(dates: string[]): Promise<Map<string, DayRecord>> {
+  const unique = Array.from(new Set(dates));
+  if (!BASE || !KEY || !unique.length) return new Map();
+  const res = await fetch(endpoint(`?date=in.(${unique.join(",")})&select=*`), {
+    headers: headers(),
+    cache: "no-store",
+  });
+  if (!res.ok) return new Map();
+  const rows = (await res.json()) as Row[];
+  return new Map(rows.map((r) => [r.date, rowToRecord(r)] as const));
+}
+
+// Inserta o actualiza un día por fecha (upsert sobre la PK date), fusionando
+// con lo que ya hubiera guardado ese día (ver mergeDayRecord).
 export async function upsertDay(record: DayRecord): Promise<DayRecord> {
-  const row = recordToRow({ ...record, updatedAt: new Date().toISOString() });
+  const existing = await getDay(record.date);
+  const merged = mergeDayRecord(existing, { ...record, updatedAt: new Date().toISOString() });
+  const row = recordToRow(merged);
   const res = await fetch(endpoint(), {
     method: "POST",
     headers: headers({ Prefer: "resolution=merge-duplicates,return=representation" }),
@@ -82,14 +115,18 @@ export async function upsertDay(record: DayRecord): Promise<DayRecord> {
   });
   if (!res.ok) throw new Error(`Supabase upsert falló (${res.status}): ${await res.text()}`);
   const rows = (await res.json()) as Row[];
-  return rows[0] ? rowToRecord(rows[0]) : record;
+  return rows[0] ? rowToRecord(rows[0]) : merged;
 }
 
-// Inserta/actualiza muchos días de golpe (importación / migración).
+// Inserta/actualiza muchos días de golpe (importación / migración), fusionando
+// cada uno con lo existente para no perder datos ya cargados (ver mergeDayRecord).
 export async function upsertManyDays(records: DayRecord[]): Promise<number> {
   if (!records.length) return 0;
   const now = new Date().toISOString();
-  const rows = records.map((r) => recordToRow({ ...r, updatedAt: r.updatedAt ?? now }));
+  const existingByDate = await getManyDays(records.map((r) => r.date));
+  const rows = records.map((r) =>
+    recordToRow(mergeDayRecord(existingByDate.get(r.date), { ...r, updatedAt: r.updatedAt ?? now })),
+  );
   const res = await fetch(endpoint(), {
     method: "POST",
     headers: headers({ Prefer: "resolution=merge-duplicates" }),
