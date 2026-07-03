@@ -69,17 +69,18 @@ export default function ReservasPage() {
       <main>
         {/* Banda de título */}
         <section className="relative overflow-hidden bg-ink px-6 pb-10 pt-28 text-center md:pb-12 md:pt-32">
-          {/* Foto del local de fondo: quien aterriza aquí desde un anuncio no
-              ha visto el hero de la home — la imagen vende el sitio antes de
-              pedirle datos. El velo navy mantiene la legibilidad del texto. */}
+          {/* Pizza de fondo (petición de Braian: "algo que dé ganas de comer",
+              no el pueblo de Positano): quien aterriza aquí desde un anuncio
+              no ha visto la home — la foto vende el sitio antes de pedirle
+              datos. El velo navy mantiene la legibilidad del texto. */}
           <Image
-            src="/hero/positano.jpg"
+            src="/hero/pizza-margherita-porcion.jpg"
             alt=""
             aria-hidden
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[50%_40%]"
+            className="object-cover object-[50%_35%]"
           />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(29,39,80,0.92)_0%,rgba(29,39,80,0.62)_52%,rgba(29,39,80,0.94)_100%)]" />
           <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />

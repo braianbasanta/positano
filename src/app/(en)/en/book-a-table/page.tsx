@@ -69,17 +69,18 @@ export default function BookATablePage() {
       <main>
         {/* Title band */}
         <section className="relative overflow-hidden bg-ink px-6 pb-10 pt-28 text-center md:pb-12 md:pt-32">
-          {/* Restaurant photo behind the title: ad visitors land here without
-              seeing the home hero — the picture sells the place before the
-              form asks for anything. Navy veil keeps the text readable. */}
+          {/* Pizza photo behind the title ("something that makes you hungry",
+              per Braian): ad visitors land here without seeing the home hero —
+              the picture sells the place before the form asks for anything.
+              Navy veil keeps the text readable. */}
           <Image
-            src="/hero/positano.jpg"
+            src="/hero/pizza-margherita-porcion.jpg"
             alt=""
             aria-hidden
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[50%_40%]"
+            className="object-cover object-[50%_35%]"
           />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(29,39,80,0.92)_0%,rgba(29,39,80,0.62)_52%,rgba(29,39,80,0.94)_100%)]" />
           <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
