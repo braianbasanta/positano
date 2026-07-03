@@ -8,14 +8,23 @@ import LemonBranch from "@/components/LemonBranch";
 import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesFor } from "@/lib/i18n";
+import { alternatesFor, socialFor } from "@/lib/i18n";
 import { goldCta3d } from "@/lib/ui";
 
+const title = "Pizza Napolitana en Barcelona · Horno de Leña · Positano";
+const description =
+  "Pizza napolitana auténtica en Barcelona: masa fermentada 48 horas, horno de leña e ingredientes DOP italianos. La verdadera pizza de Nápoles en el Eixample.";
+
 export const metadata: Metadata = {
-  title: "Pizza Napolitana en Barcelona · Horno de Leña · Positano",
-  description:
-    "Pizza napolitana auténtica en Barcelona: masa fermentada 48 horas, horno de leña e ingredientes DOP italianos. La verdadera pizza de Nápoles en el Eixample.",
+  title,
+  description,
   alternates: alternatesFor("/pizza-napolitana-barcelona"),
+  ...socialFor({
+    title,
+    description,
+    path: "/pizza-napolitana-barcelona",
+    locale: "es",
+  }),
 };
 
 const keys = [

@@ -10,13 +10,17 @@ import BottleViewerProvider from "@/components/bebidas/BottleViewerProvider";
 import JsonLd from "@/components/JsonLd";
 import { wines, beers, featuredWines } from "@/data/wines";
 import { breadcrumbJsonLd, beveragesJsonLd } from "@/lib/seo";
-import { alternatesFor } from "@/lib/i18n";
+import { alternatesFor, socialFor } from "@/lib/i18n";
+
+const title = "Vinos Italianos y Cervezas · Positano · Eixample BCN";
+const description =
+  "Vinos italianos y cervezas seleccionadas para acompañar nuestra pizza napolitana y pasta fresca en Positano, restaurante italiano en el Eixample, Barcelona.";
 
 export const metadata: Metadata = {
-  title: "Vinos Italianos y Cervezas · Positano · Eixample BCN",
-  description:
-    "Vinos italianos y cervezas seleccionadas para acompañar nuestra pizza napolitana y pasta fresca en Positano, restaurante italiano en el Eixample, Barcelona.",
+  title,
+  description,
   alternates: alternatesFor("/bebidas"),
+  ...socialFor({ title, description, path: "/bebidas", locale: "es" }),
 };
 
 const categories = [...wines, ...beers];

@@ -7,15 +7,24 @@ import LemonBranch from "@/components/LemonBranch";
 import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesForEn } from "@/lib/i18n";
+import { alternatesForEn, socialFor } from "@/lib/i18n";
 import { reviewStatsEn } from "@/data/reviews";
 import { goldCta3d } from "@/lib/ui";
 
+const title = "Best Pizza in Barcelona · Wood-Fired · Positano Eixample";
+const description =
+  "Looking for the best pizza in Barcelona? Positano serves authentic Neapolitan pizza in the Eixample: 48-hour dough, wood-fired oven and DOP ingredients.";
+
 export const metadata: Metadata = {
-  title: "Best Pizza in Barcelona · Wood-Fired · Positano Eixample",
-  description:
-    "Looking for the best pizza in Barcelona? Positano serves authentic Neapolitan pizza in the Eixample: 48-hour dough, wood-fired oven and DOP ingredients.",
+  title,
+  description,
   alternates: alternatesForEn("/en/best-pizza-barcelona"),
+  ...socialFor({
+    title,
+    description,
+    path: "/en/best-pizza-barcelona",
+    locale: "en",
+  }),
 };
 
 const reasons = [

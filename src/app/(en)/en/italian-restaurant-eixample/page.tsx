@@ -7,7 +7,7 @@ import LemonBranch from "@/components/LemonBranch";
 import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesForEn } from "@/lib/i18n";
+import { alternatesForEn, socialFor } from "@/lib/i18n";
 import { goldCta3d } from "@/lib/ui";
 
 const PLACE_URL =
@@ -16,11 +16,20 @@ const PLACE_URL =
 const MAP_EMBED =
   "https://maps.google.com/maps?q=Positano%20Pizzeria%2C%20Carrer%20del%20Rossell%C3%B3%2C%2024%2C%2008029%20Barcelona&z=16&hl=en&output=embed";
 
+const title = "Italian Restaurant in the Eixample · 48h Dough · Positano";
+const description =
+  "Positano is a Neapolitan pizzeria and Italian restaurant in the Eixample, Barcelona. 48-hour wood-fired pizza, fresh pasta and antipasti. Book a table.";
+
 export const metadata: Metadata = {
-  title: "Italian Restaurant in the Eixample · 48h Dough · Positano",
-  description:
-    "Positano is a Neapolitan pizzeria and Italian restaurant in the Eixample, Barcelona. 48-hour wood-fired pizza, fresh pasta and antipasti. Book a table.",
+  title,
+  description,
   alternates: alternatesForEn("/en/italian-restaurant-eixample"),
+  ...socialFor({
+    title,
+    description,
+    path: "/en/italian-restaurant-eixample",
+    locale: "en",
+  }),
 };
 
 const reasons = [

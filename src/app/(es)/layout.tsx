@@ -154,6 +154,9 @@ export default function EsLayout({
       className={`${bodoni.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        {/* GTM/gtag pesan ~330 KB: abrir la conexión por adelantado ahorra
+            ~350 ms en móvil (Lighthouse). React lo hoistea al <head>. */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <GtmConsentDefault />
         <GtmNoScript />
         {/* Sin JS, las animaciones de revelado no se disparan: forzamos

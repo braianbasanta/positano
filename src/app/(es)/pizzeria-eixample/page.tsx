@@ -7,7 +7,7 @@ import LemonBranch from "@/components/LemonBranch";
 import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesFor } from "@/lib/i18n";
+import { alternatesFor, socialFor } from "@/lib/i18n";
 import { goldCta3d } from "@/lib/ui";
 
 const PLACE_URL =
@@ -16,11 +16,15 @@ const PLACE_URL =
 const MAP_EMBED =
   "https://maps.google.com/maps?q=Positano%20Pizzeria%2C%20Carrer%20del%20Rossell%C3%B3%2C%2024%2C%2008029%20Barcelona&z=16&hl=es&output=embed";
 
+const title = "Pizzería en el Eixample · Pizza en horno de leña | Positano BCN";
+const description =
+  "Positano, pizzería napolitana y restaurante italiano en el Eixample, Barcelona. Pizza en horno de leña, pasta fresca casera y antipasti.";
+
 export const metadata: Metadata = {
-  title: "Pizzería en el Eixample · Pizza en horno de leña | Positano BCN",
-  description:
-    "Positano, pizzería napolitana y restaurante italiano en el Eixample, Barcelona. Pizza en horno de leña, pasta fresca casera y antipasti.",
+  title,
+  description,
   alternates: alternatesFor("/pizzeria-eixample"),
+  ...socialFor({ title, description, path: "/pizzeria-eixample", locale: "es" }),
 };
 
 const razones = [

@@ -66,6 +66,32 @@ export function menuJsonLd(lang: Locale) {
 }
 
 /**
+ * schema.org/Menu del menú del día (14,90 €, mar-vie al mediodía). Expone
+ * precio y disponibilidad en datos estructurados para Google y las IAs; los
+ * platos cambian cada semana, así que no se listan MenuItems.
+ */
+export function menuDelDiaJsonLd(lang: Locale) {
+  const path = lang === "en" ? "/en/lunch-menu-barcelona" : "/menu-del-dia";
+  return {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    name: lang === "en" ? "Lunch Menu (Menú del Día)" : "Menú del día",
+    description:
+      lang === "en"
+        ? "Weekly lunch menu for €14.90: starter, main course, bread, drink and dessert. Tuesday to Friday, 1:00–4:00 pm. Ticket Restaurant® and Edenred accepted."
+        : "Menú del día semanal por 14,90 €: primero, segundo, pan, bebida y postre. De martes a viernes, de 13:00 a 16:00. Aceptamos Ticket Restaurant® y Edenred.",
+    url: absUrl(path),
+    inLanguage: lang === "en" ? "en" : "es-ES",
+    offers: {
+      "@type": "Offer",
+      price: "14.90",
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+    },
+  };
+}
+
+/**
  * schema.org/Menu de bebidas (vinos + cervezas) construido desde
  * src/data/wines.ts. Misma estructura que menuJsonLd: cada categoría es una
  * MenuSection y cada bebida un MenuItem con su Offer. Se emite en /bebidas.

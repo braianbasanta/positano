@@ -11,6 +11,7 @@ const PAIRED: { path: string; priority: number }[] = [
   { path: "/pizza-napolitana-barcelona", priority: 0.7 },
   { path: "/pizzeria-eixample", priority: 0.7 },
   { path: "/restaurante-italiano-barcelona", priority: 0.7 },
+  { path: "/mejor-pizzeria-barcelona", priority: 0.8 },
   { path: "/menu-del-dia", priority: 0.8 },
   { path: "/pizza-domicilio", priority: 0.7 },
   { path: "/trabaja-con-nosotros", priority: 0.5 },
@@ -19,14 +20,14 @@ const PAIRED: { path: string; priority: number }[] = [
   { path: "/politica-de-cookies-ue", priority: 0.3 },
 ];
 
-// Landings sólo en inglés (sin equivalente ES).
-const EN_ONLY: { path: string; priority: number }[] = [
-  { path: "/en/best-pizza-barcelona", priority: 0.8 },
-];
+// Landings sólo en inglés (sin equivalente ES). /en/best-pizza-barcelona pasó
+// a PAIRED al crear su par /mejor-pizzeria-barcelona.
+const EN_ONLY: { path: string; priority: number }[] = [];
 
 // Páginas sólo en español (sin equivalente EN): no declaran hreflang cruzado.
 const ES_ONLY: { path: string; priority: number }[] = [
   { path: "/nuestra-historia", priority: 0.8 },
+  { path: "/grupos-barcelona", priority: 0.7 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

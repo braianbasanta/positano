@@ -29,6 +29,14 @@ const nextConfig: NextConfig = {
     return [
       { source: "/vinos", destination: "/bebidas", permanent: true },
       { source: "/en/wines", destination: "/en/drinks", permanent: true },
+      // Restos del WordPress antiguo que seguían recibiendo impresiones en GSC
+      // (/category/blog/ llegó a posición ~3,4 con 900+ impresiones) y morían
+      // en 404. Redirigimos al destino más afín para conservar la señal.
+      { source: "/category/:path*", destination: "/nuestra-historia", permanent: true },
+      { source: "/author/:path*", destination: "/nuestra-historia", permanent: true },
+      { source: "/hola-mundo", destination: "/", permanent: true },
+      { source: "/carta", destination: "/menu", permanent: true },
+      { source: "/contacto", destination: "/#visitanos", permanent: true },
     ];
   },
   // Las 7 URLs del WordPress antiguo (positanopizzeriabcn.com) se conservan con

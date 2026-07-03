@@ -19,6 +19,7 @@ export const ROUTE_PAIRS: { es: string; en: string }[] = [
     es: "/restaurante-italiano-barcelona",
     en: "/en/italian-restaurant-barcelona",
   },
+  { es: "/mejor-pizzeria-barcelona", en: "/en/best-pizza-barcelona" },
   { es: "/menu-del-dia", en: "/en/lunch-menu-barcelona" },
   { es: "/pizza-domicilio", en: "/en/pizza-delivery-barcelona" },
   { es: "/reservas", en: "/en/book-a-table" },
@@ -61,6 +62,45 @@ export function alternatesFor(esPath: string): Metadata["alternates"] {
       en: pair.en,
       "x-default": esPath,
     },
+  };
+}
+
+/**
+ * openGraph + twitter propios de una página. Sin esto, el merge *shallow* de
+ * Next hace que todas las páginas hereden el og:title/og:url de la home (el
+ * del layout) y las previews de WhatsApp/redes muestran la home en vez de la
+ * página compartida. OJO: definir openGraph en una página descarta también la
+ * og:image file-based del segmento padre, así que referenciamos aquí las
+ * copias estáticas en /public/og/ (exportadas de opengraph-image.tsx; si se
+ * cambia ese diseño, regenerarlas: curl de /opengraph-image-* → public/og/).
+ * Uso: `...socialFor({ title, description, path, locale })` en `metadata`.
+ */
+export function socialFor(opts: {
+  title: string;
+  description: string;
+  path: string;
+  locale?: Locale;
+}): Pick<Metadata, "openGraph" | "twitter"> {
+  const { title, description, path, locale = "es" } = opts;
+  const url = `${SITE_URL}${path === "/" ? "" : path}`;
+  return {
+    openGraph: {
+      type: "website",
+      locale: locale === "en" ? "en_GB" : "es_ES",
+      ...(locale === "en" ? { alternateLocale: "es_ES" } : {}),
+      siteName: "Positano Pizzería",
+      title,
+      description,
+      url,
+      images: [
+        {
+          url: `${SITE_URL}/og/positano-og-${locale}.png`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 

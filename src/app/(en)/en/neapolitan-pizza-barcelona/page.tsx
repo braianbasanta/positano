@@ -8,13 +8,22 @@ import LemonBranch from "@/components/LemonBranch";
 import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesForEn } from "@/lib/i18n";
+import { alternatesForEn, socialFor } from "@/lib/i18n";
+
+const title = "Authentic Neapolitan Pizza · Wood-Fired · Positano BCN";
+const description =
+  "Positano is an authentic Neapolitan pizzeria in Barcelona. Recipes from Campania, 48-hour fermented dough, wood-fired oven and Italian DOP ingredients.";
 
 export const metadata: Metadata = {
-  title: "Authentic Neapolitan Pizza · Wood-Fired · Positano BCN",
-  description:
-    "Positano is an authentic Neapolitan pizzeria in Barcelona. Recipes from Campania, 48-hour fermented dough, wood-fired oven and Italian DOP ingredients.",
+  title,
+  description,
   alternates: alternatesForEn("/en/neapolitan-pizza-barcelona"),
+  ...socialFor({
+    title,
+    description,
+    path: "/en/neapolitan-pizza-barcelona",
+    locale: "en",
+  }),
 };
 
 const faqs = [

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 // Banner de cookies + Google Consent Mode v2.
 //
@@ -87,24 +87,22 @@ function pushPageView() {
 }
 
 export default function ConsentBanner({ lang = "es" }: { lang?: Lang }) {
-  const [visible, setVisible] = useState(false);
   const t = COPY[lang];
 
+  // Solo side-effects: si el visitante ya decidió antes, reaplicamos su
+  // elección en cada carga (el consent default vuelve a "denied" siempre).
+  // La visibilidad del banner NO pasa por aquí (ver comentario del wrapper).
   useEffect(() => {
     let stored: string | null = null;
     try {
       stored = localStorage.getItem(STORAGE_KEY);
     } catch {
-      // localStorage puede fallar en modo privado; mostramos el banner.
+      // localStorage puede fallar en modo privado; el banner queda visible.
     }
-
     if (stored === "granted") {
       pushConsentUpdate(true);
-    } else if (stored === "denied") {
-      // El default ya es denied; no hace falta reenviar.
-    } else {
-      setVisible(true);
     }
+    // "denied": el default ya es denied; no hace falta reenviar.
   }, []);
 
   function decide(granted: boolean) {
@@ -121,13 +119,23 @@ export default function ConsentBanner({ lang = "es" }: { lang?: Lang }) {
     } catch {
       // ignoramos: la elección valdrá para esta sesión.
     }
-    setVisible(false);
+    // La visibilidad vive en el DOM, no en estado React (ver wrapper).
+    const el = document.getElementById("positano-consent");
+    if (el) el.hidden = true;
   }
-
-  if (!visible) return null;
 
   return (
     <>
+      {/* La visibilidad NO es estado de React: el HTML llega con `hidden`, el
+          <script> de abajo lo destapa AL PARSEAR si no hay decisión guardada,
+          y decide() vuelve a ocultarlo. Antes el banner solo aparecía tras
+          hidratar todo el JS y, al ser el bloque más grande del viewport
+          móvil, se convertía en el elemento LCP (~6 s medidos). Pintándolo
+          con el primer paint, el LCP vuelve a ser el hero. Este componente no
+          tiene estado, así que React nunca re-renderiza el subtree y el
+          atributo del DOM manda; suppressHydrationWarning evita que la
+          hidratación lo "corrija". */}
+      <div id="positano-consent" hidden suppressHydrationWarning>
       {/* Oscurecemos la web para que la decisión no pase desapercibida: el
           banner anterior era tan discreto que casi nadie aceptaba, y sin
           consentimiento GA4/Ads no cuentan la visita. */}
@@ -166,6 +174,14 @@ export default function ConsentBanner({ lang = "es" }: { lang?: Lang }) {
           </div>
         </div>
       </div>
+      </div>
+      {/* Corre al parsear el HTML (mucho antes de hidratar): destapa el banner
+          solo para quien aún no ha decidido. Los recurrentes no ven flash. */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(function(){var s=null;try{s=localStorage.getItem('${STORAGE_KEY}')}catch(e){}if(!s){var b=document.getElementById('positano-consent');if(b)b.hidden=false}})();`,
+        }}
+      />
     </>
   );
 }

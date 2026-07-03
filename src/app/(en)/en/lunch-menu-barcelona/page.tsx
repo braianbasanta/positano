@@ -8,18 +8,22 @@ import JsonLd from "@/components/JsonLd";
 import PaymentLogos from "@/components/PaymentLogos";
 import MenuSemanal from "@/components/MenuSemanal";
 import Resenas from "@/components/Resenas";
-import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesForEn } from "@/lib/i18n";
+import { breadcrumbJsonLd, menuDelDiaJsonLd } from "@/lib/seo";
+import { alternatesForEn, socialFor } from "@/lib/i18n";
 import { goldCta3d } from "@/lib/ui";
 
 const PLACE_URL =
   "https://www.google.com/maps/search/?api=1&query=Positano+Pizzeria+Carrer+del+Rossell%C3%B3+24+Barcelona&query_place_id=ChIJsRxSfvqjpBIR1V-jzgurn2U";
 
+const title = "Italian Lunch in the Eixample · Set Menu · Positano BCN";
+const description =
+  "Menu of the day at Positano, an Italian pizzeria in the Eixample, Barcelona, for €14.90. Homemade food Tuesday to Friday. We accept Ticket Restaurant®.";
+
 export const metadata: Metadata = {
-  title: "Italian Lunch in the Eixample · Set Menu · Positano BCN",
-  description:
-    "Menu of the day at Positano, an Italian pizzeria in the Eixample, Barcelona, for €14.90. Homemade food Tuesday to Friday. We accept Ticket Restaurant®.",
+  title,
+  description,
   alternates: alternatesForEn("/en/lunch-menu-barcelona"),
+  ...socialFor({ title, description, path: "/en/lunch-menu-barcelona", locale: "en" }),
 };
 
 const hours = [
@@ -72,6 +76,7 @@ export default function LunchMenuPage() {
         ])}
       />
       <JsonLd data={faqJsonLd} />
+      <JsonLd data={menuDelDiaJsonLd("en")} />
       <SiteHeader lang="en" />
       <main>
         {/* Title band */}

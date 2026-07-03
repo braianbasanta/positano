@@ -8,13 +8,17 @@ import LemonBranch from "@/components/LemonBranch";
 import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesFor } from "@/lib/i18n";
+import { alternatesFor, socialFor } from "@/lib/i18n";
+
+const title = "Auténtica Pizzería Napolitana · Nuestra Historia · Positano";
+const description =
+  "Positano, pizzería y restaurante napolitano en Barcelona. Recetas de Campania, masa de fermentación 48 h, horno de leña e ingredientes DOP italianos.";
 
 export const metadata: Metadata = {
-  title: "Auténtica Pizzería Napolitana · Nuestra Historia · Positano",
-  description:
-    "Positano, pizzería y restaurante napolitano en Barcelona. Recetas de Campania, masa de fermentación 48 h, horno de leña e ingredientes DOP italianos.",
+  title,
+  description,
   alternates: alternatesFor("/nuestra-historia"),
+  ...socialFor({ title, description, path: "/nuestra-historia", locale: "es" }),
 };
 
 const faqs = [

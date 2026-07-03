@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Script from "next/script";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -7,14 +8,18 @@ import LemonBranch from "@/components/LemonBranch";
 import JsonLd from "@/components/JsonLd";
 import DishReservationTracker from "@/components/DishReservationTracker";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesFor } from "@/lib/i18n";
+import { alternatesFor, socialFor } from "@/lib/i18n";
 import { DISH_WIDGET_URL } from "@/lib/dish";
 
+const title = "Reservar Mesa · Pizzería en el Eixample · Positano BCN";
+const description =
+  "Reserva tu mesa en Positano, pizzería napolitana en el corazón del Eixample, Barcelona. Elige día, hora y comensales — confirmación inmediata online.";
+
 export const metadata: Metadata = {
-  title: "Reservar Mesa · Pizzería en el Eixample · Positano BCN",
-  description:
-    "Reserva tu mesa en Positano, pizzería napolitana en el corazón del Eixample, Barcelona. Elige día, hora y comensales — confirmación inmediata online.",
+  title,
+  description,
   alternates: alternatesFor("/reservas"),
+  ...socialFor({ title, description, path: "/reservas" }),
 };
 
 const faqs = [
@@ -64,6 +69,19 @@ export default function ReservasPage() {
       <main>
         {/* Banda de título */}
         <section className="relative overflow-hidden bg-ink px-6 pb-10 pt-28 text-center md:pb-12 md:pt-32">
+          {/* Foto del local de fondo: quien aterriza aquí desde un anuncio no
+              ha visto el hero de la home — la imagen vende el sitio antes de
+              pedirle datos. El velo navy mantiene la legibilidad del texto. */}
+          <Image
+            src="/hero/positano.jpg"
+            alt=""
+            aria-hidden
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[50%_40%]"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(29,39,80,0.92)_0%,rgba(29,39,80,0.62)_52%,rgba(29,39,80,0.94)_100%)]" />
           <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
           <LemonBranch className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
           <div className="relative mx-auto max-w-2xl">
@@ -100,6 +118,16 @@ export default function ReservasPage() {
                 className="text-ink underline-offset-4 transition-colors hover:text-lemon hover:underline"
               >
                 +34 933 515 913
+              </a>
+              .
+            </p>
+            <p className="mt-3 text-center font-serif text-base italic text-ink-soft">
+              ¿Comida de equipo o cena de empresa? Mira cómo organizamos los{" "}
+              <a
+                href="/grupos-barcelona"
+                className="text-ink underline underline-offset-4 transition-colors hover:text-lemon"
+              >
+                grupos y empresas
               </a>
               .
             </p>

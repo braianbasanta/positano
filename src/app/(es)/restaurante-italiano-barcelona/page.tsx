@@ -7,7 +7,7 @@ import LemonBranch from "@/components/LemonBranch";
 import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesFor } from "@/lib/i18n";
+import { alternatesFor, socialFor } from "@/lib/i18n";
 import { goldCta3d } from "@/lib/ui";
 
 const PLACE_URL =
@@ -16,11 +16,20 @@ const PLACE_URL =
 const MAP_EMBED =
   "https://maps.google.com/maps?q=Positano%20Pizzeria%2C%20Carrer%20del%20Rossell%C3%B3%2C%2024%2C%2008029%20Barcelona&z=16&hl=es&output=embed";
 
+const title = "Restaurante Italiano en Barcelona · Cocina Napolitana · Positano";
+const description =
+  "Positano, restaurante italiano en Barcelona: pizza napolitana en horno de leña, pasta fresca casera, risotti y secondi del sur de Italia en el Eixample. 4,8★.";
+
 export const metadata: Metadata = {
-  title: "Restaurante Italiano en Barcelona · Cocina Napolitana · Positano",
-  description:
-    "Positano, restaurante italiano en Barcelona: pizza napolitana en horno de leña, pasta fresca casera, risotti y secondi del sur de Italia en el Eixample. 4,8★.",
+  title,
+  description,
   alternates: alternatesFor("/restaurante-italiano-barcelona"),
+  ...socialFor({
+    title,
+    description,
+    path: "/restaurante-italiano-barcelona",
+    locale: "es",
+  }),
 };
 
 const razones = [
@@ -34,7 +43,7 @@ const razones = [
   },
   {
     title: "El más valorado del barrio",
-    text: "4,8★ con más de 1.400 reseñas en Google. Lo que más repiten nuestros clientes: el trato cercano y la cocina italiana de verdad.",
+    text: "4,8★ con más de 1.450 reseñas en Google. Lo que más repiten nuestros clientes: el trato cercano y la cocina italiana de verdad.",
   },
   {
     title: "En pleno Eixample",
@@ -142,7 +151,7 @@ export default function RestauranteItalianoBarcelonaPage() {
               Positano es un restaurante italiano en el corazón de Barcelona.
               Pizza napolitana de masa fermentada 48 horas, pasta fresca casera,
               risotti y secondi del sur de Italia, cocinados por chefs nacidos en
-              Campania. 4,8★ en Google con más de 1.400 reseñas.
+              Campania. 4,8★ en Google con más de 1.450 reseñas.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
               <a

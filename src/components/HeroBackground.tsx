@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { getImageProps } from "next/image";
 import { useEffect, useState } from "react";
 
 type NetworkInfo = { saveData?: boolean; effectiveType?: string };
@@ -56,17 +56,39 @@ export default function HeroBackground({ alt }: { alt: string }) {
     ? "/hero/positano-hero-poster-mobile.jpg"
     : "/hero/positano-hero-poster.jpg";
 
+  // Art direction del poster: en móvil servimos el encuadre vertical (720x1280,
+  // ~la mitad de peso) y en desktop el horizontal. `getImageProps` nos da los
+  // srcSet optimizados de next/image para montarlos en un <picture>.
+  const posterCommon = { alt, sizes: "100vw", priority: true };
+  const {
+    props: { srcSet: posterDesktop },
+  } = getImageProps({
+    ...posterCommon,
+    src: "/hero/positano-hero-poster.jpg",
+    width: 1920,
+    height: 1080,
+  });
+  const {
+    props: { srcSet: posterMobile, ...posterImg },
+  } = getImageProps({
+    ...posterCommon,
+    src: "/hero/positano-hero-poster-mobile.jpg",
+    width: 720,
+    height: 1280,
+  });
+
   return (
     <div className="absolute inset-0">
       {/* Poster: cubre el LCP de inmediato y queda detrás del vídeo. */}
-      <Image
-        src="/hero/positano-hero-poster.jpg"
-        alt={alt}
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-[50%_55%]"
-      />
+      <picture>
+        <source media="(min-width: 768px)" srcSet={posterDesktop} />
+        {/* eslint-disable-next-line jsx-a11y/alt-text -- alt viene en posterImg */}
+        <img
+          {...posterImg}
+          srcSet={posterMobile}
+          className="absolute inset-0 h-full w-full object-cover object-[50%_55%]"
+        />
+      </picture>
 
       {showVideo && variant && (
         <video

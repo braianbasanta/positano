@@ -6,13 +6,17 @@ import LemonBranch from "@/components/LemonBranch";
 import MenuExplorer from "@/components/MenuExplorer";
 import JsonLd from "@/components/JsonLd";
 import { menuJsonLd, breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesFor } from "@/lib/i18n";
+import { alternatesFor, socialFor } from "@/lib/i18n";
+
+const title = "La Carta · Pizza Napolitana y Pasta Fresca · Positano BCN";
+const description =
+  "La carta de Positano: pizza napolitana de masa fermentada 48 h, pasta fresca, antipasti y risotti. Restaurante italiano en el Eixample, Barcelona.";
 
 export const metadata: Metadata = {
-  title: "La Carta · Pizza Napolitana y Pasta Fresca · Positano BCN",
-  description:
-    "La carta de Positano: pizza napolitana de masa fermentada 48 h, pasta fresca, antipasti y risotti. Restaurante italiano en el Eixample, Barcelona.",
+  title,
+  description,
   alternates: alternatesFor("/menu"),
+  ...socialFor({ title, description, path: "/menu", locale: "es" }),
 };
 
 export default function CartaPage() {

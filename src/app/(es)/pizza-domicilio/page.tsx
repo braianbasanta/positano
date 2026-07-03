@@ -7,18 +7,22 @@ import LemonBranch from "@/components/LemonBranch";
 import Resenas from "@/components/Resenas";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesFor } from "@/lib/i18n";
+import { alternatesFor, socialFor } from "@/lib/i18n";
 
 const UBER_EATS =
   "https://www.ubereats.com/es/store/positano-pizzeria/ciPAhMptSOeZGNeUsyhjKA";
 const GLOVO =
   "https://glovoapp.com/en/es/barcelona/stores/positano-pizzeria-barcelona";
 
+const title = "Pizza Napolitana a Domicilio · Eixample · Positano BCN";
+const description =
+  "Pedir pizza a domicilio en Barcelona nunca fue tan fácil. Te llevamos la pizza napolitana, la pasta fresca y los antipasti de Positano a casa.";
+
 export const metadata: Metadata = {
-  title: "Pizza Napolitana a Domicilio · Eixample · Positano BCN",
-  description:
-    "Pedir pizza a domicilio en Barcelona nunca fue tan fácil. Te llevamos la pizza napolitana, la pasta fresca y los antipasti de Positano a casa.",
+  title,
+  description,
   alternates: alternatesFor("/pizza-domicilio"),
+  ...socialFor({ title, description, path: "/pizza-domicilio", locale: "es" }),
 };
 
 const steps = [

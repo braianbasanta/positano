@@ -7,13 +7,22 @@ import LemonBranch from "@/components/LemonBranch";
 import EmpleoForm from "@/components/EmpleoForm";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesFor } from "@/lib/i18n";
+import { alternatesFor, socialFor } from "@/lib/i18n";
+
+const title = "Trabaja con nosotros · Positano Pizzería Lounge Bar Barcelona";
+const description =
+  "¿Te apasiona la cocina italiana, la sala o la barra? Únete al equipo de Positano en el Eixample de Barcelona. Envíanos tu CV en unos minutos.";
 
 export const metadata: Metadata = {
-  title: "Trabaja con nosotros · Positano Pizzería Lounge Bar Barcelona",
-  description:
-    "¿Te apasiona la cocina italiana, la sala o la barra? Únete al equipo de Positano en el Eixample de Barcelona. Envíanos tu CV en unos minutos.",
+  title,
+  description,
   alternates: alternatesFor("/trabaja-con-nosotros"),
+  ...socialFor({
+    title,
+    description,
+    path: "/trabaja-con-nosotros",
+    locale: "es",
+  }),
 };
 
 export default function TrabajaConNosotrosPage() {

@@ -7,13 +7,17 @@ import LemonBranch from "@/components/LemonBranch";
 import EmpleoForm from "@/components/EmpleoForm";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesForEn } from "@/lib/i18n";
+import { alternatesForEn, socialFor } from "@/lib/i18n";
+
+const title = "Careers · Positano Pizzería Lounge Bar Barcelona";
+const description =
+  "Passionate about Italian cuisine, front of house or the bar? Join the Positano team in the Eixample, Barcelona. Send us your CV in a few minutes.";
 
 export const metadata: Metadata = {
-  title: "Careers · Positano Pizzería Lounge Bar Barcelona",
-  description:
-    "Passionate about Italian cuisine, front of house or the bar? Join the Positano team in the Eixample, Barcelona. Send us your CV in a few minutes.",
+  title,
+  description,
   alternates: alternatesForEn("/en/careers"),
+  ...socialFor({ title, description, path: "/en/careers", locale: "en" }),
 };
 
 export default function CareersPage() {

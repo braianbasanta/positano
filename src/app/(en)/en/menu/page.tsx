@@ -6,13 +6,17 @@ import LemonBranch from "@/components/LemonBranch";
 import MenuExplorer from "@/components/MenuExplorer";
 import JsonLd from "@/components/JsonLd";
 import { menuJsonLd, breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesForEn } from "@/lib/i18n";
+import { alternatesForEn, socialFor } from "@/lib/i18n";
+
+const title = "The Menu · Neapolitan Pizza & Fresh Pasta · Positano BCN";
+const description =
+  "Positano's menu: 48-hour fermented Neapolitan pizza, fresh pasta, antipasti, risotti and mains. Italian restaurant in the Eixample, Barcelona.";
 
 export const metadata: Metadata = {
-  title: "The Menu · Neapolitan Pizza & Fresh Pasta · Positano BCN",
-  description:
-    "Positano's menu: 48-hour fermented Neapolitan pizza, fresh pasta, antipasti, risotti and mains. Italian restaurant in the Eixample, Barcelona.",
+  title,
+  description,
   alternates: alternatesForEn("/en/menu"),
+  ...socialFor({ title, description, path: "/en/menu", locale: "en" }),
 };
 
 export default function MenuEnPage() {

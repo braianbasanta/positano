@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Script from "next/script";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -7,14 +8,18 @@ import LemonBranch from "@/components/LemonBranch";
 import JsonLd from "@/components/JsonLd";
 import DishReservationTracker from "@/components/DishReservationTracker";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesForEn } from "@/lib/i18n";
+import { alternatesForEn, socialFor } from "@/lib/i18n";
 import { DISH_WIDGET_URL } from "@/lib/dish";
 
+const title = "Book a Table · Pizzeria in the Eixample · Positano BCN";
+const description =
+  "Book your table at Positano, a Neapolitan pizzeria in the heart of the Eixample, Barcelona. Choose date, time and party size — instant online confirmation.";
+
 export const metadata: Metadata = {
-  title: "Book a Table · Pizzeria in the Eixample · Positano BCN",
-  description:
-    "Book your table at Positano, a Neapolitan pizzeria in the heart of the Eixample, Barcelona. Choose date, time and party size — instant online confirmation.",
+  title,
+  description,
   alternates: alternatesForEn("/en/book-a-table"),
+  ...socialFor({ title, description, path: "/en/book-a-table", locale: "en" }),
 };
 
 const faqs = [
@@ -64,6 +69,19 @@ export default function BookATablePage() {
       <main>
         {/* Title band */}
         <section className="relative overflow-hidden bg-ink px-6 pb-10 pt-28 text-center md:pb-12 md:pt-32">
+          {/* Restaurant photo behind the title: ad visitors land here without
+              seeing the home hero — the picture sells the place before the
+              form asks for anything. Navy veil keeps the text readable. */}
+          <Image
+            src="/hero/positano.jpg"
+            alt=""
+            aria-hidden
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[50%_40%]"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(29,39,80,0.92)_0%,rgba(29,39,80,0.62)_52%,rgba(29,39,80,0.94)_100%)]" />
           <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
           <LemonBranch className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
           <div className="relative mx-auto max-w-2xl">
@@ -75,7 +93,7 @@ export default function BookATablePage() {
               Book a table
             </h1>
             <p className="mt-6 font-serif text-lg leading-relaxed text-cream/85 md:text-xl">
-              Choose the date, time and number of guests. You'll receive your
+              Choose the date, time and number of guests. You&apos;ll receive your
               confirmation right away.
             </p>
           </div>
@@ -113,7 +131,7 @@ export default function BookATablePage() {
             <p className="text-center font-serif text-lg leading-relaxed text-ink-soft">
               Booking a table at Positano, a Neapolitan pizzeria in the heart of
               the Eixample, is easy: pick your date, time and party size and
-              you'll get an instant confirmation. We'll be waiting for you at
+              you&apos;ll get an instant confirmation. We&apos;ll be waiting for you at
               Carrer del Rosselló, 24, for Neapolitan pizza with 48-hour fermented
               dough, fresh pasta and antipasti.
             </p>

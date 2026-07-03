@@ -10,12 +10,14 @@ const COLUMNS: Record<Locale, Column[]> = {
     {
       title: "Navegación",
       links: [
-        { label: "Nuestra historia", href: "/#la-casa" },
+        { label: "La casa", href: "/#la-casa" },
         { label: "La Carta", href: "/menu" },
         { label: "Bebidas", href: "/bebidas" },
         { label: "Nuestra historia", href: "/nuestra-historia" },
         { label: "Pizza napolitana en Barcelona", href: "/pizza-napolitana-barcelona" },
+        { label: "La mejor pizzería de Barcelona", href: "/mejor-pizzeria-barcelona" },
         { label: "Menú del día", href: "/menu-del-dia" },
+        { label: "Grupos y empresas", href: "/grupos-barcelona" },
         { label: "Pizzería en el Eixample", href: "/pizzeria-eixample" },
         { label: "Restaurante italiano en Barcelona", href: "/restaurante-italiano-barcelona" },
         { label: "Pizza a domicilio", href: "/pizza-domicilio" },

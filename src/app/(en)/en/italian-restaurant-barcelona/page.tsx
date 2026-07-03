@@ -8,14 +8,23 @@ import Resenas from "@/components/Resenas";
 import Visitanos from "@/components/Visitanos";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import { alternatesForEn } from "@/lib/i18n";
+import { alternatesForEn, socialFor } from "@/lib/i18n";
 import { goldCta3d } from "@/lib/ui";
 
+const title = "Italian Restaurant in Barcelona · Wood-Fired · Positano";
+const description =
+  "Positano is an authentic Italian restaurant in Barcelona: Neapolitan pizza, fresh pasta, risotti and mains from southern Italy in the Eixample.";
+
 export const metadata: Metadata = {
-  title: "Italian Restaurant in Barcelona · Wood-Fired · Positano",
-  description:
-    "Positano is an authentic Italian restaurant in Barcelona: Neapolitan pizza, fresh pasta, risotti and mains from southern Italy in the Eixample.",
+  title,
+  description,
   alternates: alternatesForEn("/en/italian-restaurant-barcelona"),
+  ...socialFor({
+    title,
+    description,
+    path: "/en/italian-restaurant-barcelona",
+    locale: "en",
+  }),
 };
 
 const dishes = [

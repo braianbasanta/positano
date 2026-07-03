@@ -154,6 +154,9 @@ export default function EnLayout({
       className={`${bodoni.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full">
+        {/* GTM/gtag weigh ~330 KB: preconnecting saves ~350 ms on mobile
+            (Lighthouse). React hoists this into the <head>. */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         <GtmConsentDefault />
         <GtmNoScript />
         <noscript>
