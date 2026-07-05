@@ -207,7 +207,7 @@ export function weeklySummary(
   days: DayRecord[],
   year: number,
   monthIndex: number,
-  objetivoDia?: (weekday: number) => number | null,
+  objetivoDelDia?: (date: string) => number | null,
 ): WeekSummary[] {
   const recs = recordsInMonth(days, year, monthIndex);
   const groups = new Map<string, DayRecord[]>();
@@ -233,11 +233,11 @@ export function weeklySummary(
     // (lunes→domingo) que caen dentro del mes seleccionado, haya o no registro
     // todavía. Así la semana en curso muestra su meta completa.
     let objetivo = 0;
-    if (objetivoDia) {
+    if (objetivoDelDia) {
       for (let i = 0; i < 7; i++) {
         const dd = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i, 12);
         if (dd.getFullYear() === year && dd.getMonth() === monthIndex) {
-          objetivo += objetivoDia(dd.getDay()) ?? 0;
+          objetivo += objetivoDelDia(toISODate(dd)) ?? 0;
         }
       }
     }

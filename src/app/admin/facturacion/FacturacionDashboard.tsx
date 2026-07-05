@@ -46,7 +46,7 @@ import {
   weeklySummary,
   yearAgoByDay,
 } from "@/lib/facturacion/analytics";
-import { mediaDiariaObjetivo, objetivoDia, objetivoMensual } from "@/lib/facturacion/objetivos";
+import { mediaDiariaObjetivo, objetivoDelDia, objetivoDia, objetivoMensual } from "@/lib/facturacion/objetivos";
 import { holidayFactor } from "@/lib/facturacion/calendario";
 import {
   type DayWeather,
@@ -246,7 +246,7 @@ export default function FacturacionDashboard({
     const build = (w: (typeof weather)[number], future: boolean) => {
       const wd = weekdayOf(w.date);
       const rec = recByDate.get(w.date);
-      const obj = objetivoDia(wd);
+      const obj = objetivoDelDia(w.date);
       const closed = obj === null || !!rec?.closed;
       const total = rec ? dayTotal(rec) : 0;
       return {
@@ -311,7 +311,7 @@ export default function FacturacionDashboard({
     const proj = projectMonth(effectiveDays, year, month);
     const best = bestDay(effectiveDays, year, month);
     const trend = monthlyTrend(effectiveDays, year, month, 13);
-    const weeks = weeklySummary(effectiveDays, year, month, objetivoDia);
+    const weeks = weeklySummary(effectiveDays, year, month, objetivoDelDia);
     const yearAgo = yearAgoByDay(effectiveDays, year, month);
 
     // El negocio cierra los lunes (weekday 1) y no se pintan días cerrados
@@ -321,7 +321,7 @@ export default function FacturacionDashboard({
       .filter((r) => !r.closed && weekdayOf(r.date) !== 1)
       .map((r) => {
       const wd = weekdayOf(r.date);
-      const obj = objetivoDia(wd);
+      const obj = objetivoDelDia(r.date);
       const t = dayTotal(r);
       const dnum = dayOfMonth(r.date);
       let color = INK;
