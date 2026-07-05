@@ -1,8 +1,6 @@
 // Objetivos de caja (confirmados con Antonio, jun 2026). Editables aquí.
 // weekday: getDay() → 0=domingo, 1=lunes (cerrado), 2=martes … 6=sábado.
 
-export const OBJETIVO_MENSUAL = 58500;
-
 const OBJETIVO_DIARIO: Record<number, number | null> = {
   0: 3250, // domingo
   1: null, // lunes (cerrado)
@@ -24,4 +22,18 @@ export function mediaDiariaObjetivo(): number {
   const vals = Object.values(OBJETIVO_DIARIO).filter((v): v is number => v != null);
   if (!vals.length) return 0;
   return Math.round(vals.reduce((a, b) => a + b, 0) / vals.length);
+}
+
+// Objetivo total de un mes = suma del objetivo diario de cada día real de ese
+// mes (lunes cerrado no suma). A propósito NO es un número fijo: un mes con
+// más findes de semana (sáb/dom pesan más que martes/miércoles) tiene un
+// objetivo más alto, y eso es correcto — así queda siempre alineado con la
+// suma de los objetivos semanales, en vez de una referencia congelada.
+export function objetivoMensual(year: number, monthIndex: number): number {
+  const lastDay = new Date(year, monthIndex + 1, 0).getDate();
+  let total = 0;
+  for (let day = 1; day <= lastDay; day++) {
+    total += objetivoDia(new Date(year, monthIndex, day).getDay()) ?? 0;
+  }
+  return total;
 }

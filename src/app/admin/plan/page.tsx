@@ -1,7 +1,7 @@
 import { isAuthed } from "@/lib/admin/auth";
 import LoginForm from "../LoginForm";
 import AdminNav from "../AdminNav";
-import { mediaDiariaObjetivo, objetivoDia, OBJETIVO_MENSUAL } from "@/lib/facturacion/objetivos";
+import { mediaDiariaObjetivo, objetivoDia, objetivoMensual } from "@/lib/facturacion/objetivos";
 import { DIAS_PLAN, FASES, PALANCAS, PASO_MEDIA } from "@/lib/facturacion/plan";
 
 export const dynamic = "force-dynamic";
@@ -20,6 +20,8 @@ export default async function PlanPage() {
   // Subir +250 € a un día concreto se nota ~4,3 veces al mes (ese día se repite
   // cada semana) ≈ +1.075 €/mes. Redondeado para mostrar.
   const pasoMensualDia = Math.round((PASO_MEDIA * 4.3) / 50) * 50;
+  const now = new Date();
+  const objetivoMesActual = objetivoMensual(now.getFullYear(), now.getMonth());
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-10">
@@ -58,7 +60,7 @@ export default async function PlanPage() {
           ese objetivo <strong className="text-cream">+{PASO_MEDIA} €</strong>. Subir un día del finde se nota unos{" "}
           <strong className="text-cream">+{pasoMensualDia.toLocaleString("es-ES")} €/mes</strong>. Según van subiendo
           los días, la media diaria sube con ellos.
-          {OBJETIVO_MENSUAL ? ` Referencia de total mensual: ${eur(OBJETIVO_MENSUAL)}.` : ""}
+          {objetivoMesActual ? ` Referencia de total para este mes: ${eur(objetivoMesActual)}.` : ""}
         </p>
       </div>
 

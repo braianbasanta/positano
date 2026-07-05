@@ -46,7 +46,7 @@ import {
   weeklySummary,
   yearAgoByDay,
 } from "@/lib/facturacion/analytics";
-import { mediaDiariaObjetivo, OBJETIVO_MENSUAL, objetivoDia } from "@/lib/facturacion/objetivos";
+import { mediaDiariaObjetivo, objetivoDia, objetivoMensual } from "@/lib/facturacion/objetivos";
 import { holidayFactor } from "@/lib/facturacion/calendario";
 import {
   type DayWeather,
@@ -388,13 +388,16 @@ export default function FacturacionDashboard({
     };
   }, [days, effectiveDays, wxByDate, year, month, prevM, prevY, cutoff]);
 
-  // Acumulado del mes vs el objetivo mensual (primer objetivo: 58.500 €).
-  const monthGoalPct = OBJETIVO_MENSUAL ? (calc.sel.total / OBJETIVO_MENSUAL) * 100 : 0;
-  const monthGoalGap = OBJETIVO_MENSUAL - calc.sel.total; // >0 = falta · <0 = superado
+  // Objetivo del mes = suma de los objetivos diarios de ESTE mes concreto (no
+  // un número fijo): así queda siempre alineado con la suma semanal, sin
+  // importar cuántos findes de semana caigan en el mes.
+  const objetivoMes = objetivoMensual(year, month);
+  const monthGoalPct = objetivoMes ? (calc.sel.total / objetivoMes) * 100 : 0;
+  const monthGoalGap = objetivoMes - calc.sel.total; // >0 = falta · <0 = superado
 
   const mediaObj = mediaDiariaObjetivo();
   const mediaDiaPct = mediaObj ? (calc.proj.perOperatingDay / mediaObj) * 100 : 0;
-  const projVsObjetivo = calc.proj.projected - OBJETIVO_MENSUAL;
+  const projVsObjetivo = calc.proj.projected - objetivoMes;
 
   function shiftMonth(delta: number) {
     const d = new Date(year, month + delta, 1);
@@ -468,7 +471,7 @@ export default function FacturacionDashboard({
           <Kpi
             label="Proyección cierre"
             value={eur0(calc.proj.projected)}
-            sub={`objetivo ${eur0(OBJETIVO_MENSUAL)}`}
+            sub={`objetivo ${eur0(objetivoMes)}`}
             tone={projVsObjetivo >= 0 ? 1 : -1}
           />
         )}
@@ -487,7 +490,7 @@ export default function FacturacionDashboard({
             </div>
             <div className="mt-0.5 font-sans text-xs text-ink/40">
               Total del mes: {eur0(calc.sel.total)} en {calc.sel.operatingDays} días operativos
-              {OBJETIVO_MENSUAL ? ` · ref. mensual ${eur0(OBJETIVO_MENSUAL)}` : ""}
+              {objetivoMes ? ` · ref. mensual ${eur0(objetivoMes)}` : ""}
             </div>
           </div>
           <div className="text-right font-sans text-sm">
@@ -626,7 +629,7 @@ export default function FacturacionDashboard({
           />
         </div>
 
-        {/* Acumulado del mes vs el primer objetivo mensual (58.500 €) */}
+        {/* Acumulado del mes vs el objetivo del mes (suma de objetivos diarios) */}
         <div className="mb-5 rounded-xl border border-ink/10 bg-cream/40 p-4">
           <div className="flex flex-wrap items-end justify-between gap-2">
             <div className="font-sans text-xs font-semibold uppercase tracking-wide text-ink/40">
@@ -642,7 +645,7 @@ export default function FacturacionDashboard({
           </div>
           <div className="mt-1 font-display text-2xl font-semibold text-ink">
             {eur0(calc.sel.total)}{" "}
-            <span className="text-ink/40">/ {eur0(OBJETIVO_MENSUAL)}</span>
+            <span className="text-ink/40">/ {eur0(objetivoMes)}</span>
             <span className="ml-2 font-sans text-base font-semibold text-ink/50">{Math.round(monthGoalPct)}%</span>
           </div>
           <div className="mt-2.5 h-3 w-full overflow-hidden rounded-full bg-ink/10">
