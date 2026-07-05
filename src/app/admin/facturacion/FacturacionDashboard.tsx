@@ -168,7 +168,7 @@ export default function FacturacionDashboard({
   // Serie histórica de un mismo día de la semana (p. ej. todos los martes),
   // ordenada por fecha y acotada a las últimas ~53 ocurrencias (~1 año).
   const weekdaySeries = useMemo(() => {
-    const obj = objetivoDia(weekday);
+    const objHoy = objetivoDia(weekday); // objetivo vigente HOY, solo para el Mini "Objetivo del día"
     const recs = effectiveDays
       .filter((r) => !r.closed && weekdayOf(r.date) === weekday)
       .sort((a, b) => a.date.localeCompare(b.date))
@@ -176,6 +176,10 @@ export default function FacturacionDashboard({
     const maxTotal = recs.reduce((m, r) => Math.max(m, dayTotal(r)), 0);
     const data = recs.map((r) => {
       const t = dayTotal(r);
+      // Objetivo que regía ESE día según el historial (respeta subidas/bajadas
+      // pasadas): así un día que cumplió en su momento no aparece luego como
+      // incumplido solo porque después subimos el objetivo.
+      const obj = objetivoDelDia(r.date);
       const d = parseLocal(r.date);
       const dnum = dayOfMonth(r.date);
       const mon = monthLabel(d.getMonth()).slice(0, 3);
@@ -196,10 +200,10 @@ export default function FacturacionDashboard({
     const sum = withData.reduce((s, d) => s + d.total, 0);
     return {
       data,
-      obj,
+      obj: objHoy,
       avg: withData.length ? sum / withData.length : 0,
       count: withData.length,
-      metGoal: obj ? withData.filter((d) => d.total >= obj).length : 0,
+      metGoal: withData.filter((d) => d.objetivo != null && d.total >= d.objetivo).length,
       best: withData.reduce((m, d) => Math.max(m, d.total), 0),
       worst: withData.reduce((m, d) => (m === 0 ? d.total : Math.min(m, d.total)), 0),
     };

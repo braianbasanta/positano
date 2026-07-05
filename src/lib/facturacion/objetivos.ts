@@ -1,18 +1,54 @@
-// Objetivos de caja (confirmados con Antonio, jun 2026). Editables aquí.
+// Objetivos de caja (confirmados con Antonio, jun 2026).
 // weekday: getDay() → 0=domingo, 1=lunes (cerrado), 2=martes … 6=sábado.
+//
+// HISTORIAL: cada vez que se sube/baja un objetivo, se AÑADE una entrada
+// nueva con la fecha desde la que rige — NUNCA se edita una entrada vieja.
+// Motivo: si simplemente pisamos el valor, un día que SÍ cumplió su objetivo
+// en su momento pasa a verse como "no cumplido" en el histórico solo porque
+// después subimos el listón (le compara contra el objetivo de hoy, no el de
+// ese día). Con el historial, cada día se compara contra lo que regía ENTONCES.
+interface VersionObjetivo {
+  vigenteDesde: string; // "YYYY-MM-DD" inclusive, hasta la siguiente entrada
+  valores: Record<number, number | null>;
+}
 
-const OBJETIVO_DIARIO: Record<number, number | null> = {
-  0: 3250, // domingo
-  1: null, // lunes (cerrado)
-  2: 1500, // martes
-  3: 1500, // miércoles
-  4: 1750, // jueves
-  5: 2750, // viernes
-  6: 3500, // sábado
-};
+const HISTORIAL_OBJETIVO_DIARIO: VersionObjetivo[] = [
+  {
+    // Objetivo original (creación del dashboard, commit 495dafb, 15-jun-2026).
+    // Fecha "vigenteDesde" puesta antes del primer dato real (jun-2025) para
+    // que cubra todo el histórico previo a la primera subida.
+    vigenteDesde: "2025-01-01",
+    valores: { 0: 3500, 1: null, 2: 1500, 3: 1500, 4: 1500, 5: 3000, 6: 3500 },
+  },
+  {
+    // "Facturación: subir el objetivo del jueves a 1.750€" (commit 1415736).
+    vigenteDesde: "2026-06-19",
+    valores: { 0: 3500, 1: null, 2: 1500, 3: 1500, 4: 1750, 5: 3000, 6: 3500 },
+  },
+  {
+    // "objetivo domingo 3250€" + "objetivo viernes 2750€" (commits 8cfb331 y
+    // 3723e43, mismo día).
+    vigenteDesde: "2026-07-01",
+    valores: { 0: 3250, 1: null, 2: 1500, 3: 1500, 4: 1750, 5: 2750, 6: 3500 },
+  },
+];
+
+// Objetivo VIGENTE HOY (la última entrada del historial). Usar en referencias
+// genéricas que no dependen de una fecha concreta (la tabla de /admin/plan,
+// la media diaria objetivo, "Media por día de la semana"). Para comparar un
+// día real contra el objetivo que regía ENTONCES, usar objetivoDelDia().
+const OBJETIVO_DIARIO = HISTORIAL_OBJETIVO_DIARIO[HISTORIAL_OBJETIVO_DIARIO.length - 1].valores;
 
 export function objetivoDia(weekday: number): number | null {
   return OBJETIVO_DIARIO[weekday] ?? null;
+}
+
+function versionVigenteEn(date: string): VersionObjetivo {
+  let actual = HISTORIAL_OBJETIVO_DIARIO[0];
+  for (const v of HISTORIAL_OBJETIVO_DIARIO) {
+    if (v.vigenteDesde <= date) actual = v;
+  }
+  return actual;
 }
 
 // Semanas de cierre por vacaciones (además del lunes semanal). Rango
@@ -36,14 +72,15 @@ function enCierreVacaciones(date: string): boolean {
 }
 
 // Objetivo de un día concreto (fecha real, no solo día de semana): null si
-// está cerrado, sea por ser lunes o por caer en una semana de vacaciones.
-// Usar esta función en vez de objetivoDia() en cualquier cálculo que tenga
-// la fecha disponible (mensual, semanal, gráfica diaria).
+// está cerrado (lunes o semana de vacaciones), y si no, el objetivo que regía
+// ESE día según el historial (no el de hoy). Usar esta función en vez de
+// objetivoDia() en cualquier cálculo que tenga la fecha disponible (mensual,
+// semanal, gráfica diaria, evolución por día de la semana).
 export function objetivoDelDia(date: string): number | null {
   if (enCierreVacaciones(date)) return null;
   const [y, m, d] = date.split("-").map(Number);
   const weekday = new Date(y, m - 1, d, 12).getDay();
-  return objetivoDia(weekday);
+  return versionVigenteEn(date).valores[weekday] ?? null;
 }
 
 // Media diaria objetivo = promedio de los objetivos de los días operativos
