@@ -70,6 +70,20 @@ export function monthTotalUpTo(
   return { total, operatingDays };
 }
 
+// Mapa día-del-mes → total del mismo mes pero un año antes (para superponer
+// una línea de comparación interanual en la gráfica diaria). Los días
+// cerrados el año pasado quedan fuera del mapa (hueco en la línea): puede
+// pasar aunque el día no esté cerrado ESTE año, si el día de la semana no
+// coincide (ej. este año cae en sábado, el año pasado cayó en lunes).
+export function yearAgoByDay(days: DayRecord[], year: number, monthIndex: number): Map<number, number> {
+  const map = new Map<number, number>();
+  for (const r of recordsInMonth(days, year - 1, monthIndex)) {
+    if (r.closed) continue;
+    map.set(dayOfMonth(r.date), dayTotal(r));
+  }
+  return map;
+}
+
 export type ChannelBreakdown = Canales;
 
 export function channelBreakdown(days: DayRecord[], year: number, monthIndex: number): ChannelBreakdown {

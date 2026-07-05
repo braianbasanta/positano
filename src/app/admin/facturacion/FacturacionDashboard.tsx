@@ -44,6 +44,7 @@ import {
   weekdayLabel,
   weekdayOf,
   weeklySummary,
+  yearAgoByDay,
 } from "@/lib/facturacion/analytics";
 import { mediaDiariaObjetivo, OBJETIVO_MENSUAL, objetivoDia } from "@/lib/facturacion/objetivos";
 import { holidayFactor } from "@/lib/facturacion/calendario";
@@ -90,6 +91,7 @@ const RECORD = "#e8743b"; // terracota — día de mayor facturación de la seri
 const MEDIODIA = "#e8743b"; // terracota
 const CENA = INK; // navy
 const SLATE = "#8b93a7"; // días sin desglose (histórico)
+const PREV_YEAR = "#7d6b9e"; // línea comparativa del año anterior
 const CHANNEL_COLORS: Record<string, string> = {
   glovo: "#e8743b",
   tarjeta: INK,
@@ -145,6 +147,9 @@ export default function FacturacionDashboard({
   const [weekday, setWeekday] = useState(2);
   // Filtro de servicio en la gráfica diaria: todo / solo mediodía / solo cena.
   const [servicio, setServicio] = useState<"todo" | "almuerzo" | "cena">("todo");
+  // Líneas superpuestas en la gráfica diaria: objetivo (on por defecto) y año anterior (off).
+  const [showObjetivo, setShowObjetivo] = useState(true);
+  const [showYearAgo, setShowYearAgo] = useState(false);
 
   const effectiveDays = useMemo(
     () => (includeDelivery ? days : days.map(stripDelivery)),
@@ -307,6 +312,7 @@ export default function FacturacionDashboard({
     const best = bestDay(effectiveDays, year, month);
     const trend = monthlyTrend(effectiveDays, year, month, 13);
     const weeks = weeklySummary(effectiveDays, year, month, objetivoDia);
+    const yearAgo = yearAgoByDay(effectiveDays, year, month);
 
     // El negocio cierra los lunes (weekday 1) y no se pintan días cerrados
     // (festivos sin servicio): si no, salen como barras grises vacías e
@@ -349,6 +355,7 @@ export default function FacturacionDashboard({
         noSplitColor,
         split,
         objetivo: obj ?? null,
+        lastYear: yearAgo.get(dnum) ?? null,
         closed: !!r.closed,
         color,
         tMax: wx?.tMax ?? null,
@@ -508,11 +515,11 @@ export default function FacturacionDashboard({
         title="Facturación por día"
         hint={
           servicio === "todo"
-            ? "Cada barra parte la caja en mediodía y cena (los días con desglose). Gris = histórico sin desglose · línea dorada = objetivo. Pasa el ratón para ver el detalle."
+            ? "Cada barra parte la caja en mediodía y cena (los días con desglose). Gris = histórico sin desglose. Pasa el ratón para ver el detalle."
             : `Solo la caja de ${servicio === "almuerzo" ? "mediodía" : "cena"} de los días con desglose registrado.`
         }
       >
-        <div className="mb-4 flex flex-wrap gap-2">
+        <div className="mb-4 flex flex-wrap items-center gap-2">
           {(
             [
               ["todo", "Todo"],
@@ -532,13 +539,38 @@ export default function FacturacionDashboard({
               {lbl}
             </button>
           ))}
+          <span className="mx-1 h-5 w-px bg-ink/10" aria-hidden />
+          <button
+            onClick={() => setShowObjetivo((v) => !v)}
+            aria-pressed={showObjetivo}
+            className={`flex items-center gap-1.5 rounded-lg border px-3.5 py-1.5 font-sans text-sm transition ${
+              showObjetivo
+                ? "border-lemon bg-lemon/15 font-semibold text-ink"
+                : "border-ink/10 bg-white/70 text-ink/40 hover:border-lemon"
+            }`}
+          >
+            <span className="inline-block h-0.5 w-3 rounded-full" style={{ background: LEMON }} />
+            Objetivo
+          </button>
+          <button
+            onClick={() => setShowYearAgo((v) => !v)}
+            aria-pressed={showYearAgo}
+            className={`flex items-center gap-1.5 rounded-lg border px-3.5 py-1.5 font-sans text-sm transition ${
+              showYearAgo
+                ? "border-lemon bg-lemon/15 font-semibold text-ink"
+                : "border-ink/10 bg-white/70 text-ink/40 hover:border-lemon"
+            }`}
+          >
+            <span className="inline-block h-0.5 w-3 rounded-full" style={{ background: PREV_YEAR }} />
+            Año anterior ({year - 1})
+          </button>
         </div>
         <ResponsiveContainer width="100%" height={380}>
           <ComposedChart data={calc.dailyData} margin={{ top: 10, right: 12, left: 4, bottom: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
             <XAxis dataKey="axis" tick={{ fontSize: 12 }} interval={0} />
             <YAxis tickFormatter={eurAxis} tick={{ fontSize: 12 }} width={46} />
-            <Tooltip content={(p) => <DiaTooltip {...(p as TooltipShape)} data={calc.dailyData} />} />
+            <Tooltip content={(p) => <DiaTooltip {...(p as TooltipShape)} data={calc.dailyData} showYearAgo={showYearAgo} />} />
             <Legend />
             {servicio === "todo" && (
               <>
@@ -557,7 +589,20 @@ export default function FacturacionDashboard({
             {servicio === "cena" && (
               <Bar name="Cena" dataKey="dinner" fill={CENA} radius={[4, 4, 0, 0]} maxBarSize={48} />
             )}
-            <Line name="Objetivo" dataKey="objetivo" stroke={LEMON} strokeWidth={2.5} dot={false} connectNulls />
+            {showObjetivo && (
+              <Line name="Objetivo" dataKey="objetivo" stroke={LEMON} strokeWidth={2.5} dot={false} connectNulls />
+            )}
+            {showYearAgo && (
+              <Line
+                name={`Año anterior (${year - 1})`}
+                dataKey="lastYear"
+                stroke={PREV_YEAR}
+                strokeWidth={2}
+                strokeDasharray="5 4"
+                dot={false}
+                connectNulls
+              />
+            )}
           </ComposedChart>
         </ResponsiveContainer>
       </Card>
@@ -1085,11 +1130,18 @@ type DiaDatum = {
   split: boolean;
   closed: boolean;
   objetivo: number | null;
+  lastYear: number | null;
 };
 
 // Tooltip de la gráfica diaria: muestra mediodía/cena por separado (días con
-// desglose) o la caja total (histórico sin desglose), más el objetivo del día.
-function DiaTooltip({ active, label, data }: TooltipShape & { data: DiaDatum[] }) {
+// desglose) o la caja total (histórico sin desglose), más el objetivo del día
+// y, si está activada, la caja del mismo día del mes un año antes.
+function DiaTooltip({
+  active,
+  label,
+  data,
+  showYearAgo,
+}: TooltipShape & { data: DiaDatum[]; showYearAgo: boolean }) {
   if (!active) return null;
   const d = data.find((x) => x.axis === label);
   if (!d) return null;
@@ -1126,6 +1178,11 @@ function DiaTooltip({ active, label, data }: TooltipShape & { data: DiaDatum[] }
       )}
       {d.objetivo != null && (
         <div className="mt-1 text-ink/50">Objetivo {eur0(d.objetivo)}</div>
+      )}
+      {showYearAgo && (
+        <div className="mt-0.5 text-ink/50">
+          Año anterior {d.lastYear != null ? eur0(d.lastYear) : "—"}
+        </div>
       )}
     </div>
   );
