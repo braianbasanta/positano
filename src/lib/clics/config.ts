@@ -47,6 +47,19 @@ export const GO_TARGETS: Record<string, GoTarget> = {
     label: "Google Ads · PMax EN",
     utm: { utm_source: "google", utm_medium: "cpc", utm_campaign: "positano-geolocal-pmax", utm_content: "en" },
   },
+  // Grupos "Dónde comer" (ES/EN) de la Search "Positano | Barcelona": keywords
+  // genéricas con landing propia para subir el Quality Score. Mientras estos slugs
+  // no estén desplegados, los RSA apuntan directo a la landing (sin /go).
+  "donde-comer": {
+    path: "/restaurante-italiano-barcelona",
+    label: "Google Ads · Dónde comer (ES)",
+    utm: { utm_source: "google", utm_medium: "cpc", utm_campaign: "positano-barcelona", utm_content: "donde-comer" },
+  },
+  "where-to-eat": {
+    path: "/en/italian-restaurant-barcelona",
+    label: "Google Ads · Where to eat (EN)",
+    utm: { utm_source: "google", utm_medium: "cpc", utm_campaign: "positano-barcelona", utm_content: "where-to-eat" },
+  },
 };
 
 // Parámetros que, si llegan en la URL del anuncio, se preservan hacia el destino.
