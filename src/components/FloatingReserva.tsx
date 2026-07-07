@@ -108,7 +108,7 @@ export default function FloatingReserva({ lang = "es" }: { lang?: Locale }) {
           setOpen(true);
         }}
         style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.5rem)" }}
-        className={`group fixed right-5 z-30 flex items-center gap-2 rounded-full bg-[linear-gradient(160deg,#d8bc72_0%,#c6a253_52%,#b8923f_100%)] px-5 py-3.5 text-[0.82rem] font-medium uppercase tracking-[0.2em] text-ink ring-1 ring-ink/5 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [transform-style:preserve-3d] shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_10px_26px_-8px_rgba(29,39,80,0.5),0_3px_10px_-2px_rgba(29,39,80,0.32)] hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_18px_38px_-10px_rgba(29,39,80,0.55),0_6px_16px_-3px_rgba(29,39,80,0.4)] active:scale-95 active:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_6px_16px_-6px_rgba(29,39,80,0.45)] lg:hidden ${
+        className={`group fixed right-5 z-30 flex items-center gap-2 rounded-full bg-[linear-gradient(160deg,#d6b579_0%,#c49b5a_52%,#b68b46_100%)] px-5 py-3.5 text-[0.82rem] font-medium uppercase tracking-[0.2em] text-ink ring-1 ring-ink/5 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [transform-style:preserve-3d] shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_10px_26px_-8px_rgba(29,39,80,0.5),0_3px_10px_-2px_rgba(29,39,80,0.32)] hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_18px_38px_-10px_rgba(29,39,80,0.55),0_6px_16px_-3px_rgba(29,39,80,0.4)] active:scale-95 active:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_6px_16px_-6px_rgba(29,39,80,0.45)] lg:hidden ${
           visible
             ? "translate-y-0 scale-100 opacity-100"
             : "pointer-events-none translate-y-4 scale-90 opacity-0"

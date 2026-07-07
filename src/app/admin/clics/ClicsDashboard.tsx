@@ -16,7 +16,7 @@ import { GO_TARGETS } from "@/lib/clics/config";
 import type { ClickRow } from "@/lib/clics/store";
 
 const INK = "#1d2750";
-const LEMON = "#c6a253";
+const LEMON = "#c49b5a";
 const EMERALD = "#2f7d54";
 const ZINC = "#a1a1aa";
 

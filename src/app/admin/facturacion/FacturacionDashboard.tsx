@@ -83,7 +83,7 @@ function climateReading(rTemp: number | null, rRain: number | null): string {
 }
 
 const INK = "#1d2750";
-const LEMON = "#c6a253";
+const LEMON = "#c49b5a";
 const EMERALD = "#2f7d54";
 const ZINC = "#d4d4d8";
 const RECORD = "#e8743b"; // terracota — día de mayor facturación de la serie

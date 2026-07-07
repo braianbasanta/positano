@@ -32,7 +32,7 @@ export default function LaCasa({ lang = "es" }: { lang?: Locale }) {
       id="la-casa"
       className="relative overflow-hidden bg-cream px-6 py-24 md:py-32"
     >
-      <LemonBranch className="pointer-events-none absolute -bottom-16 -left-14 h-80 w-auto -rotate-12 text-lemon/20" />
+      <LemonBranch variant="bottom" className="pointer-events-none absolute -bottom-16 -left-14 h-80 w-auto -rotate-12 text-lemon/20" />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2 md:gap-20">
         <Reveal className="order-2 md:order-1">

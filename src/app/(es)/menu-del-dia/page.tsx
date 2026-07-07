@@ -82,7 +82,7 @@ export default function MenuDelDiaPage() {
         {/* Banda de título */}
         <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-36 text-center md:pt-44">
           <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
-          <LemonBranch className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
+          <LemonBranch variant="bottom" className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
           <div className="relative mx-auto max-w-2xl">
             <span className="flex items-center justify-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
               <Lemon className="h-5 w-5" />
@@ -125,7 +125,7 @@ export default function MenuDelDiaPage() {
 
         {/* Qué incluye */}
         <section className="relative overflow-hidden bg-cream px-6 pt-24 pb-6 md:pt-32 md:pb-8">
-          <LemonBranch className="pointer-events-none absolute -bottom-16 -left-14 h-80 w-auto -rotate-12 text-lemon/20" />
+          <LemonBranch variant="bottom" className="pointer-events-none absolute -bottom-16 -left-14 h-80 w-auto -rotate-12 text-lemon/20" />
           <div className="relative mx-auto max-w-3xl">
             <Reveal className="flex flex-col items-center text-center">
               <span className="flex items-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">

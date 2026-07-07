@@ -36,7 +36,7 @@ import {
 import type { DishReserva, ForkMonthRow } from "@/lib/reservas/types";
 
 const INK = "#1d2750";
-const LEMON = "#c6a253";
+const LEMON = "#c49b5a";
 const EMERALD = "#2f7d54";
 const CORAL = "#e8743b";
 const ZINC = "#a1a1aa";

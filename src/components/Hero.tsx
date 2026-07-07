@@ -87,7 +87,7 @@ export default function Hero({ lang = "es" }: { lang?: Locale }) {
           >
             <a
               href={t.reservasHref}
-              className="rounded-full bg-[linear-gradient(160deg,#d8bc72_0%,#c6a253_52%,#b8923f_100%)] px-9 py-[1.35rem] text-center font-bold text-[1.1rem] uppercase tracking-[0.22em] text-ink ring-1 ring-ink/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_14px_34px_-8px_rgba(0,0,0,0.5),0_5px_14px_-3px_rgba(0,0,0,0.35)] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:tracking-[0.25em] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_22px_46px_-10px_rgba(0,0,0,0.55),0_8px_20px_-4px_rgba(0,0,0,0.4)] active:scale-[0.98] md:text-[1.25rem]"
+              className="rounded-full bg-[linear-gradient(160deg,#d6b579_0%,#c49b5a_52%,#b68b46_100%)] px-9 py-[1.35rem] text-center font-bold text-[1.1rem] uppercase tracking-[0.22em] text-ink ring-1 ring-ink/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_14px_34px_-8px_rgba(0,0,0,0.5),0_5px_14px_-3px_rgba(0,0,0,0.35)] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:tracking-[0.25em] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_22px_46px_-10px_rgba(0,0,0,0.55),0_8px_20px_-4px_rgba(0,0,0,0.4)] active:scale-[0.98] md:text-[1.25rem]"
             >
               {t.reservar}
             </a>

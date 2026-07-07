@@ -35,7 +35,7 @@ export default function Resenas({
   const t = COPY[lang];
   return (
     <section className="relative overflow-hidden bg-ink py-24 text-cream md:py-32">
-      <LemonBranch className="pointer-events-none absolute -bottom-16 -left-16 h-80 w-auto -rotate-[18deg] text-lemon/20" />
+      <LemonBranch variant="bottom" className="pointer-events-none absolute -bottom-16 -left-16 h-80 w-auto -rotate-[18deg] text-lemon/20" />
 
       <div className="relative mx-auto max-w-5xl px-6">
         <Reveal className="flex flex-col items-center text-center">

@@ -10,7 +10,7 @@ export const contentType = "image/png";
 
 const INK = "#1d2750";
 const CREAM = "#f3ecdc";
-const LEMON = "#c6a253";
+const LEMON = "#c49b5a";
 
 export async function renderOgImage(tagline: string) {
   const wordmark = await readFile(
