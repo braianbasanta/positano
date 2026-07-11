@@ -14,7 +14,10 @@
   → Este es el punto de corte real: los datos a partir del 10 son los comparables entre sí.
 - **Semana del 07–12/07:** ⚽ Mundial (partidos de España entre semana) + demasiado calor
   → mediodías y cenas de entre semana lastrados (Braian, 11/07). Leer esa semana con cautela.
-  Además el **08/07 se subió el techo CPC de la Search 2→3 €** (validación: martes 14/07 solo mediodía — ⚽ semifinal 21:00 contamina la cena).
+  Además el **08/07 se subió el techo CPC de la Search 2→3 €**.
+- **Martes 14/07: CERRADO** (decisión 11/07): semifinal de España a las 21:00 → nadie a cenar,
+  y abrir solo a comer no cubre los gastos. La **validación del techo CPC 3€ pasa al martes 21/07**
+  (mediodía, vs martes 23/06 370 €, 30/06 800 €, 07/07 520 €). Quedan 2 martes comparables en julio (21 y 28).
 
 ## Tabla
 
