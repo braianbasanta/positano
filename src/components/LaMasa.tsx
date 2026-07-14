@@ -27,6 +27,28 @@ const COPY = {
       { name: "Olio EVO", origin: "Sur de Italia" },
     ],
   },
+  ca: {
+    alt: "El nostre pizzaiolo formant a mà les boles de massa de fermentació de 48 hores a Positano",
+    eyebrow: "La massa",
+    heading: "Temps, farina i paciència",
+    p1: "La nostra massa fermenta lentament durant 48 hores a temperatura controlada. Sense presses ni llevats forçats — només farina 0 multicereals italiana, aigua, sal marina i temps. El resultat: lleugera, alveolada i fàcil de digerir.",
+    p2: "I com que el que arriba a taula importa, la resta del producte també ve d'Itàlia: tomàquet San Marzano DOP, mozzarella di bufala campana i oli d'oliva verge extra del sud. Cada ingredient, allà on ha de ser.",
+    quote: "«La bona pizza comença dos dies abans.»",
+    cta: "Descobreix la nostra pizzeria napolitana",
+    ctaHref: "/ca/pizza-napolitana-barcelona",
+    journey: "El viatge de la massa",
+    dias: [
+      { num: "01", eyebrow: "0 h", title: "Preparem la fermentació", text: "Barregem farina tipus 0 multicereals italiana, aigua, sal marina i tot just un pessic de llevat. Pastem fins a aconseguir una textura sedosa i la deixem reposar en fred." },
+      { num: "02", eyebrow: "24 h", title: "La massa madura", text: "A temperatura controlada, el gluten es relaxa, els alvèols apareixen i la massa comença a respirar." },
+      { num: "03", eyebrow: "48 h", title: "A punt per al forn", text: "Fermentació completada. Formem les boletes a mà i, quan la demanes, va al forn a 400 °C: lleugera, alveolada i digestiva." },
+    ],
+    ingredientes: [
+      { name: "Farina tipus 0 multicereals", origin: "Molino Casillo · Puglia" },
+      { name: "San Marzano", origin: "DOP · Agro Sarnese" },
+      { name: "Mozzarella", origin: "Di bufala campana" },
+      { name: "Olio EVO", origin: "Sud d'Itàlia" },
+    ],
+  },
   en: {
     alt: "Our pizzaiolo hand-shaping the 48-hour fermented dough at Positano",
     eyebrow: "The dough",

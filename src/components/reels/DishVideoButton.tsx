@@ -6,6 +6,7 @@ import type { Locale } from "@/lib/i18n";
 
 const WATCH: Record<Locale, string> = {
   es: "Ver vídeo de",
+  ca: "Veure el vídeo de",
   en: "Watch video of",
   it: "Guarda il video di",
   fr: "Voir la vidéo de",

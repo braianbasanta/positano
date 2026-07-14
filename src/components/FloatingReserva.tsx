@@ -18,6 +18,14 @@ const COPY: Record<
     close: "Cerrar",
     iframe: "Reservar mesa en Positano",
   },
+  ca: {
+    href: "/ca/reservar-taula",
+    label: "Reservar",
+    aria: "Reservar taula",
+    title: "Reserva la teva taula",
+    close: "Tancar",
+    iframe: "Reservar taula a Positano",
+  },
   en: {
     href: "/en/book-a-table",
     label: "Book",

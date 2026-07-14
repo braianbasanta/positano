@@ -6,6 +6,7 @@ import type { Locale } from "@/lib/i18n";
 
 const NAV_LABELS: Record<Locale, { prev: string; next: string }> = {
   es: { prev: "Anterior", next: "Siguiente" },
+  ca: { prev: "Anterior", next: "Següent" },
   en: { prev: "Previous", next: "Next" },
   it: { prev: "Precedente", next: "Avanti" },
   fr: { prev: "Précédent", next: "Suivant" },

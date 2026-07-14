@@ -6,6 +6,7 @@ import { LOCALES, type Locale, alternatePath } from "@/lib/i18n";
 
 const SWITCH_LABEL: Record<Locale, string> = {
   es: "Cambiar de idioma",
+  ca: "Canvia d'idioma",
   en: "Change language",
   it: "Cambia lingua",
   fr: "Changer de langue",
@@ -15,6 +16,7 @@ const SWITCH_LABEL: Record<Locale, string> = {
 
 const RESERVAR_MESA: Record<Locale, string> = {
   es: "Reservar mesa",
+  ca: "Reservar taula",
   en: "Book a table",
   it: "Prenota un tavolo",
   fr: "Réserver une table",
@@ -29,6 +31,13 @@ const NAV: Record<Locale, { label: string; href: string }[]> = {
     { label: "Pedir online", href: "/pizza-domicilio" },
     { label: "Visítanos", href: "/#visitanos" },
     { label: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
+  ],
+  ca: [
+    { label: "La Carta", href: "/ca/carta" },
+    { label: "Menú del dia", href: "/ca/menu-del-dia" },
+    { label: "Demanar online", href: "/ca/pizza-a-domicili" },
+    { label: "Visita'ns", href: "/ca#visitanos" },
+    { label: "Treballa amb nosaltres", href: "/ca/treballa-amb-nosaltres" },
   ],
   en: [
     { label: "Menu", href: "/en/menu" },
@@ -69,6 +78,7 @@ const NAV: Record<Locale, { label: string; href: string }[]> = {
 
 const COPY: Record<Locale, { home: string; reservas: string; reservar: string; abrir: string; cerrar: string }> = {
   es: { home: "/", reservas: "/reservas", reservar: "Reservar", abrir: "Abrir menú", cerrar: "Cerrar menú" },
+  ca: { home: "/ca", reservas: "/ca/reservar-taula", reservar: "Reservar", abrir: "Obre el menú", cerrar: "Tanca el menú" },
   en: { home: "/en", reservas: "/en/book-a-table", reservar: "Book", abrir: "Open menu", cerrar: "Close menu" },
   it: { home: "/it", reservas: "/it/prenota-un-tavolo", reservar: "Prenota", abrir: "Apri il menu", cerrar: "Chiudi il menu" },
   fr: { home: "/fr", reservas: "/fr/reserver-une-table", reservar: "Réserver", abrir: "Ouvrir le menu", cerrar: "Fermer le menu" },

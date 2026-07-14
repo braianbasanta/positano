@@ -37,6 +37,7 @@ function parsePrice(price: string): string {
  */
 const MENU_NAME: Record<Locale, string> = {
   es: "Carta de Positano",
+  ca: "Carta de Positano",
   en: "Positano Menu",
   it: "Menu di Positano",
   fr: "Carte du Positano",
@@ -46,6 +47,7 @@ const MENU_NAME: Record<Locale, string> = {
 
 const IN_LANGUAGE: Record<Locale, string> = {
   es: "es-ES",
+  ca: "ca",
   en: "en",
   it: "it",
   fr: "fr",
@@ -90,6 +92,7 @@ export function menuJsonLd(lang: Locale) {
  */
 const MENU_DEL_DIA_NAME: Record<Locale, string> = {
   es: "Menú del día",
+  ca: "Menú del dia",
   en: "Lunch Menu (Menú del Día)",
   it: "Menù pranzo (menú del día)",
   fr: "Menu du midi (menú del día)",
@@ -99,6 +102,7 @@ const MENU_DEL_DIA_NAME: Record<Locale, string> = {
 
 const MENU_DEL_DIA_DESC: Record<Locale, string> = {
   es: "Menú del día semanal por 14,90 €: primero, segundo, pan, bebida y postre. De martes a viernes, de 13:00 a 16:00. Aceptamos Ticket Restaurant® y Edenred.",
+  ca: "Menú del dia setmanal per 14,90 €: primer, segon, pa, beguda i postres. De dimarts a divendres, de 13:00 a 16:00. Acceptem Ticket Restaurant® i Edenred.",
   en: "Weekly lunch menu for €14.90: starter, main course, bread, drink and dessert. Tuesday to Friday, 1:00–4:00 pm. Ticket Restaurant® and Edenred accepted.",
   it: "Menu settimanale del pranzo a 14,90 €: antipasto, piatto principale, pane, bevanda e dessert. Da martedì a venerdì, dalle 13:00 alle 16:00. Si accettano Ticket Restaurant® ed Edenred.",
   fr: "Menu du midi hebdomadaire à 14,90 € : entrée, plat, pain, boisson et dessert. Du mardi au vendredi, de 13 h à 16 h. Nous acceptons les Ticket Restaurant® et Edenred.",
@@ -138,6 +142,7 @@ export function beveragesJsonLd(lang: Locale) {
     name: (
       {
         es: "Carta de Bebidas de Positano",
+        ca: "Carta de Begudes de Positano",
         en: "Positano Drinks",
         it: "Carta delle bevande di Positano",
         fr: "Carte des boissons du Positano",

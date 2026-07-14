@@ -4,6 +4,7 @@ import DishVideoButton from "./reels/DishVideoButton";
 
 const VEGAN_LABEL: Record<Locale, string> = {
   es: "Vegano",
+  ca: "Vegà",
   en: "Vegan",
   it: "Vegano",
   fr: "Végétalien",

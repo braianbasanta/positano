@@ -14,6 +14,15 @@ const COPY = {
     quote: "«La pasión por la buena comida corre por nuestras venas.»",
     alt: "Vista del pueblo de Positano (Costa Amalfitana, Italia), origen de nuestra pizzería napolitana en Barcelona",
   },
+  ca: {
+    eyebrow: "La Casa",
+    heading: "De la Campània a Barcelona",
+    p1: "La nostra història és un viatge culinari: la fusió perfecta entre tradició i modernitat, on cada plat explica alguna cosa.",
+    p2: "Comença amb l'Antonio, el Massimo i el Vincenzo, nascuts i criats a la Campània, on el seu amor per la cuina es va cultivar des de ben petits — en descobrir que la cuina era l'ànima de la llar.",
+    p3: "Després d'anys perfeccionant aquest art, van portar el seu talent a Barcelona. Així va néixer Positano, la nostra pizzeria napolitana i restaurant italià a Barcelona, en ple Eixample, on convergeix la gastronomia del sud d'Itàlia amb l'encant vibrant de la ciutat.",
+    quote: "«La passió pel bon menjar ens corre per les venes.»",
+    alt: "Vista del poble de Positano (Costa Amalfitana, Itàlia), origen de la nostra pizzeria napolitana a Barcelona",
+  },
   en: {
     eyebrow: "Our House",
     heading: "From Campania to Barcelona",

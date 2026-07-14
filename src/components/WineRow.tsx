@@ -12,7 +12,7 @@ export default function WineRow({
   const notes = pickLang(wine, "notes", lang);
   const meta = [wine.region, wine.grape].filter(Boolean).join(" · ");
   const glassLabel = (
-    { es: "copa", en: "glass", it: "calice", fr: "verre", de: "Glas", nl: "glas" } as Record<Locale, string>
+    { es: "copa", ca: "copa", en: "glass", it: "calice", fr: "verre", de: "Glas", nl: "glas" } as Record<Locale, string>
   )[lang];
 
   return (

@@ -14,6 +14,13 @@ const COPY = {
     forkCount: "opiniones en TheFork",
     cta: "Ver todas las reseñas en Google",
   },
+  ca: {
+    eyebrow: "Ressenyes",
+    heading: "El que diuen els nostres clients",
+    count: "ressenyes a Google",
+    forkCount: "opinions a TheFork",
+    cta: "Veure totes les ressenyes a Google",
+  },
   en: {
     eyebrow: "Reviews",
     heading: "What our guests are saying",

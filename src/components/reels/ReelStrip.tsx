@@ -15,6 +15,15 @@ const COPY = {
     cta: "Ver la carta completa",
     cartaHref: "/menu",
   },
+  ca: {
+    eyebrow: "Carta en vídeo",
+    heading: "Cada plat, en moviment",
+    intro:
+      "Abans de triar, mira-ho. Així surt cada plat de la nostra cuina — gravat tal com arriba a la teva taula.",
+    note: "I més de 45 plats: antipasti, pastes fresques, risotti, carns, peixos i 18 pizzes napolitanes.",
+    cta: "Veure la carta completa",
+    cartaHref: "/ca/carta",
+  },
   en: {
     eyebrow: "Menu in video",
     heading: "Every dish, in motion",

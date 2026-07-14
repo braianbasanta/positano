@@ -69,6 +69,7 @@ export default function ReelCard({
   const dishName = pickLang(dish, "name", lang) ?? dish.name;
   const WATCH: Record<Locale, string> = {
     es: "Ver vídeo de",
+    ca: "Veure el vídeo de",
     en: "Watch video of",
     it: "Guarda il video di",
     fr: "Voir la vidéo de",

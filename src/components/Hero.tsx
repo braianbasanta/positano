@@ -18,6 +18,20 @@ const COPY = {
     scrollAria: "Bajar a la siguiente sección",
     bgAlt: "Positano, pizzería napolitana en el Eixample de Barcelona — ilustración del pueblo de la Costa Amalfitana",
   },
+  ca: {
+    srHeading: "Positano · Pizzeria napolitana i restaurant italià a l'Eixample, Barcelona",
+    tagline:
+      "La napolitana de l'Eixample on tothom torna sempre.",
+    reservar: "Reservar taula",
+    reservasHref: "/ca/reservar-taula",
+    pedir: "Demanar online",
+    pedirHref: "/ca/pizza-a-domicili",
+    carta: "Veure la carta",
+    cartaHref: "/ca/carta",
+    descubre: "Descobreix",
+    scrollAria: "Baixa a la secció següent",
+    bgAlt: "Positano, pizzeria napolitana a l'Eixample de Barcelona — il·lustració del poble de la Costa Amalfitana",
+  },
   en: {
     srHeading: "Positano · Neapolitan Pizzeria & Italian Restaurant in Barcelona",
     tagline:

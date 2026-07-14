@@ -5,6 +5,7 @@ import type { Locale } from "@/lib/i18n";
 
 const VIEW_PHOTO: Record<Locale, string> = {
   es: "Ver foto de",
+  ca: "Veure la foto de",
   en: "View photo of",
   it: "Vedi la foto di",
   fr: "Voir la photo de",

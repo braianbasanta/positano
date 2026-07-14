@@ -17,6 +17,7 @@ export type Wine = {
   notesFr?: string;
   notesDe?: string;
   notesNl?: string;
+  notesCa?: string;
   /** Vino destacado de la carta. */
   featured?: boolean;
   /** Foto de la botella (ruta en /public). */
@@ -31,6 +32,7 @@ export type WineCategory = {
   nameFr?: string;
   nameDe?: string;
   nameNl?: string;
+  nameCa?: string;
   items: Wine[];
 };
 
@@ -43,6 +45,7 @@ export const wines: WineCategory[] = [
     nameFr: "Mousseux",
     nameDe: "Schaumwein",
     nameNl: "Mousserend",
+    nameCa: "Bombolles",
     items: [
       {
         name: "Prosecco DOC Treviso Extra Dry",
@@ -59,6 +62,7 @@ export const wines: WineCategory[] = [
         notesFr: "Doux, avec des notes de fleur d'acacia, de pomme et de poire. Bulles fines, frais et délicatement fruité.",
         notesDe: "Weich, mit Noten von Akazienblüten, Apfel und Birne. Feine Perlage, frisch und zart fruchtig.",
         notesNl: "Zacht, met tonen van acaciabloesem, appel en peer. Fijne bubbels, fris en subtiel fruitig.",
+        notesCa: "Suau, amb notes de flor d'acàcia, poma i pera. Bombolla fina, fresc i delicadament afruitat.",
       },
       {
         name: "Lambrusco Rosato Diamante",
@@ -76,6 +80,7 @@ export const wines: WineCategory[] = [
         notesFr: "Notes de framboise, de grenade et de canneberge. Rafraîchissant, moelleux et légèrement sucré.",
         notesDe: "Noten von Himbeere, Granatapfel und Preiselbeere. Erfrischend, weich und sanft süß.",
         notesNl: "Tonen van framboos, granaatappel en cranberry. Verfrissend, zacht en lichtzoet.",
+        notesCa: "Notes de gerd, magrana i nabiu vermell. Refrescant, suau i amb un toc de dolçor.",
       },
       {
         name: "Lambrusco Rosso Diamante",
@@ -93,6 +98,7 @@ export const wines: WineCategory[] = [
         notesFr: "Notes de fraise et de groseille. Savoureux, fruité et légèrement sucré.",
         notesDe: "Noten von Erdbeere und roter Johannisbeere. Herzhaft, fruchtig und sanft süß.",
         notesNl: "Tonen van aardbei en rode bessen. Hartig, fruitig en lichtzoet.",
+        notesCa: "Notes de maduixa i grosella vermella. Gustós, afruitat i amb un toc de dolçor.",
       },
     ],
   },
@@ -104,6 +110,7 @@ export const wines: WineCategory[] = [
     nameFr: "Rosé",
     nameDe: "Rosé",
     nameNl: "Rosé",
+    nameCa: "Rosats",
     items: [
       {
         name: "Tempranillo Rosado",
@@ -119,6 +126,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe rose pâle. Arômes délicats de fraise et de framboise, avec une touche de mandarine. Bouche souple et équilibrée.",
         notesDe: "Blassrosa. Zartes Aroma von Erdbeere und Himbeere mit einem Hauch von Mandarine. Weich und ausgewogen.",
         notesNl: "Lichtroze. Zacht aroma van aardbei en framboos met een vleugje mandarijn. Soepel en evenwichtig.",
+        notesCa: "Color rosa clar. Aroma suau de maduixa i gerd amb una nota de mandarina. Suau i equilibrat.",
       },
     ],
   },
@@ -130,6 +138,7 @@ export const wines: WineCategory[] = [
     nameFr: "Vins blancs",
     nameDe: "Weißweine",
     nameNl: "Witte wijnen",
+    nameCa: "Blancs",
     items: [
       {
         name: "Bianco Salento IGT",
@@ -146,6 +155,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe jaune paille aux reflets dorés. Arômes parfumés de fleurs blanches, d'abricot et de banane. Sec, souple et savoureux.",
         notesDe: "Strohgelb mit goldenen Reflexen. Duftende Aromen von weißen Blüten, Aprikose und Banane. Trocken, weich und geschmacksintensiv.",
         notesNl: "Strogeel met gouden accenten. Geurige aroma’s van witte bloemen, abrikoos en banaan. Droog, zacht en smaakvol.",
+        notesCa: "Groc palla amb reflexos daurats. Aromes fragants de flors blanques, albercoc i plàtan. Sec, suau i saborós.",
       },
       {
         name: "Grillo Sicilia DOC",
@@ -163,6 +173,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe jaune intense. Nez de fruits mûrs et tropicaux avec une touche de chèvrefeuille. Savoureux, fruité et corsé.",
         notesDe: "Intensives Gelb. Aroma von reifen und tropischen Früchten mit einem Hauch von Geißblatt. Geschmacksintensiv, fruchtig und vollmundig.",
         notesNl: "Intens geel. Geur van rijp en tropisch fruit met een vleugje kamperfoelie. Smaakvol, fruitig en vol van smaak.",
+        notesCa: "Groc intens. Aroma de fruita madura i tropical amb una nota de xuclamel. Saborós, afruitat i de bon cos.",
       },
       {
         name: "Pinot Grigio Oltrepò Pavese DOC",
@@ -178,6 +189,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe jaune paille, souple et délicat, avec des notes de poire, de pomme et de fleurs blanches. Frais et légèrement sec.",
         notesDe: "Strohgelb, weich und zart mit Noten von Birne, Apfel und weißen Blüten. Frisch und leicht trocken.",
         notesNl: "Strogeel, zacht en delicaat met tonen van peer, appel en witte bloemen. Fris en licht droog.",
+        notesCa: "Groc palla, suau i delicat amb notes de pera, poma i flors blanques. Fresc i lleugerament sec.",
       },
       {
         name: "I Muri Bianco Puglia IGP",
@@ -194,6 +206,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe jaune paille aux reflets dorés. Nez intense de fruits mûrs avec des notes de fruits jaunes. Frais, facile à boire et harmonieux.",
         notesDe: "Strohgelb mit goldenen Reflexen. Intensives Aroma von reifen Früchten mit Noten von gelben Früchten. Frisch, leicht zu trinken und harmonisch.",
         notesNl: "Strogele kleur met gouden accenten. Intens aroma van rijp fruit met tonen van geel fruit. Fris, makkelijk drinkbaar en harmonieus.",
+        notesCa: "Groc palla amb reflexos daurats. Aroma intens de fruita madura amb tocs de fruita groga. Fresc, fàcil de beure i harmoniós.",
       },
       {
         name: "Verdejo-Sauvignon Blanc",
@@ -209,6 +222,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe jaune aux reflets verdâtres. Arômes puissants de mangue, d'ananas et d'anis. Savoureux, doux et rafraîchissant.",
         notesDe: "Gelb mit grünlichen Reflexen. Kräftiges Aroma von Mango, Ananas und Anis. Vollmundig, süß und erfrischend.",
         notesNl: "Geel met groene tinten. Krachtig aroma van mango, ananas en anijs. Smaakvol, zoet en verfrissend.",
+        notesCa: "Groc amb reflexos verdosos. Aroma potent de mango, pinya i anís. Gustós, dolç i refrescant.",
       },
       {
         name: "Fantini Chardonnay Terre di Chieti IGT",
@@ -225,6 +239,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe jaune paille éclatante, avec un arôme persistant de fruits tropicaux. Corsé, équilibré et intense.",
         notesDe: "Leuchtendes Strohgelb mit einem anhaltenden Aroma nach tropischen Früchten. Vollmundig, ausgewogen und intensiv.",
         notesNl: "Helder strogele kleur, met een aanhoudend aroma van tropisch fruit. Vol, evenwichtig en intens.",
+        notesCa: "Groc palla brillant, amb aroma persistent de fruita tropical. De bon cos, equilibrat i intens.",
       },
       {
         name: "Soave Classico DOC",
@@ -240,6 +255,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe jaune paille pâle, avec des notes fruitées de pomme et de pêche et de délicates notes florales. Frais, savoureux et équilibré.",
         notesDe: "Blasses Strohgelb mit fruchtigen Noten von Apfel und Pfirsich sowie zarten blumigen Anklängen. Frisch, aromatisch und ausgewogen.",
         notesNl: "Licht strogeel, met fruitige accenten van appel en perzik en subtiele bloemige tonen. Fris, smaakvol en evenwichtig.",
+        notesCa: "Groc palla clar, amb tocs afruitats de poma i préssec i delicades notes florals. Fresc, saborós i equilibrat.",
       },
       {
         name: "Calalenta Pecorino Terre di Chieti IGT",
@@ -256,6 +272,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe jaune paille intense, avec un nez doux et frais, des notes fruitées et un bon corps.",
         notesDe: "Intensives Strohgelb, mit einem sanften, frischen Aroma, fruchtigen Noten und gutem Körper.",
         notesNl: "Intens strogeel, met een zacht, fris aroma, fruitige tonen en een goede body.",
+        notesCa: "Groc palla intens, amb aroma suau i fresc, notes afruitades i bon cos.",
       },
       {
         name: "Falanghina del Sannio DOC",
@@ -272,6 +289,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe jaune paille aux reflets verdâtres. Nez délicat de fleurs blanches, de pêche mûre et de melon. Frais, souple et équilibré.",
         notesDe: "Strohgelb mit grünlichen Reflexen. Zartes Aroma von weißen Blüten, reifem Pfirsich und Melone. Frisch, zart und ausgewogen.",
         notesNl: "Strogeel met groenachtige tinten. Zacht aroma van witte bloemen, perzik en meloen. Fris, zacht en evenwichtig.",
+        notesCa: "Groc palla amb reflexos verdosos. Aroma suau de flors blanques, préssec pla i meló. Fresc, suau i equilibrat.",
       },
       {
         name: "Lacryma Christi Bianco del Vesuvio DOC",
@@ -288,6 +306,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe jaune paille aux arômes de genêt, de pomme Golden, de mandarine et d'herbes aromatiques. Sec, frais et minéral.",
         notesDe: "Strohgelb mit Aromen von Ginster, Golden Apple, Mandarine und Kräutern. Trocken, frisch und mineralisch.",
         notesNl: "Strogeel van kleur met aroma's van brem, Golden-appel, mandarijn en kruiden. Droog, fris en mineraal.",
+        notesCa: "Groc palla amb aromes de ginesta, poma Golden, mandarina i herbes. Sec, fresc i mineral.",
       },
       {
         name: "Sauvignon Friuli Colli Orientali DOC",
@@ -304,6 +323,7 @@ export const wines: WineCategory[] = [
         notesFr: "Robe jaune paille aux reflets verdâtres. Arômes de menthe, de citron vert et de pamplemousse. Frais et souple, avec des notes fruitées.",
         notesDe: "Strohgelb mit grünlichen Reflexen. Aromen von Minze, Limette und Grapefruit. Frisch und weich mit fruchtigen Noten.",
         notesNl: "Strogeel met groenachtige tinten. Aroma’s van munt, limoen en grapefruit. Fris en zacht met fruitige accenten.",
+        notesCa: "Groc palla amb reflexos verdosos. Aromes de menta, llima i aranja. Fresc i suau amb tocs afruitats.",
       },
     ],
   },
@@ -315,6 +335,7 @@ export const wines: WineCategory[] = [
     nameFr: "Vins rouges",
     nameDe: "Rotweine",
     nameNl: "Rode wijnen",
+    nameCa: "Vins Negres",
     items: [
       {
         name: "Salento Rosso IGT",
@@ -331,6 +352,7 @@ export const wines: WineCategory[] = [
         notesFr: "Vin rouge du Salento aux arômes de fruits rouges mûrs, souple et chaleureux, aux tanins doux.",
         notesDe: "Ein Rotwein aus dem Salento mit Noten von reifen roten Früchten, weich und warm, mit sanften Tanninen.",
         notesNl: "Rode wijn uit Salento met rijp rood fruit, zacht en warm, met milde tannines.",
+        notesCa: "Vi negre del Salento de fruita vermella madura, suau i càlid, amb tanins amables.",
       },
       {
         name: "Merlot Trentino DOC",
@@ -346,6 +368,7 @@ export const wines: WineCategory[] = [
         notesFr: "Merlot alpin, fruité et moelleux, aux notes de prune et à la finale veloutée.",
         notesDe: "Alpine Merlot, fruchtig und geschmeidig, mit Noten von Pflaumen und einem samtigen Abgang.",
         notesNl: "Alpine Merlot, fruitig en soepel, met tonen van pruimen en een fluweelzachte afdronk.",
+        notesCa: "Merlot alpí, afruitat i suau, amb notes de pruna i un final vellutat.",
       },
       {
         name: "Montepulciano d'Abruzzo DOC",
@@ -362,6 +385,7 @@ export const wines: WineCategory[] = [
         notesFr: "Arômes de prune noire, de mûre et de groseille. Moyennement corsé, rond et persistant.",
         notesDe: "Aromen von schwarzen Pflaumen, Brombeeren und roten Johannisbeeren. Mittelkräftig, rund und lang anhaltend.",
         notesNl: "Aroma's van zwarte pruim, bramen en rode bessen. Medium body, rond en lang in de afdronk.",
+        notesCa: "Aromes de pruna negra, móra i grosella. De cos mitjà, rodó i amb bona persistència.",
       },
       {
         name: "Campania Aglianico IGT",
@@ -377,6 +401,7 @@ export const wines: WineCategory[] = [
         notesFr: "Aglianico de Campanie aux arômes de fruits noirs et d'épices. Structuré, savoureux et persistant.",
         notesDe: "Aglianico aus Kampanien mit Noten von schwarzen Früchten und Gewürzen. Strukturiert, würzig und lang anhaltend.",
         notesNl: "Aglianico uit Campania met tonen van zwart fruit en kruiden. Gestructureerd, hartig en met een lange afdronk.",
+        notesCa: "Aglianico de Campània de fruita negra i espècies. Estructurat, saborós i persistent.",
       },
       {
         name: "Il Passo Verde Nero d'Avola DOP Bio",
@@ -393,6 +418,7 @@ export const wines: WineCategory[] = [
         notesFr: "Arôme puissant de fruits rouges mûrs, de confiture de cerises et de vanille. Corsé, généreux, intense et persistant. Vin bio.",
         notesDe: "Kräftiges Aroma von reifen roten Früchten, Kirschkonfitüre und Vanille. Vollmundig, üppig, intensiv und lang anhaltend. Bio-Wein.",
         notesNl: "Krachtig aroma van rijp rood fruit, kersenjam en vanille. Vol, rijk, intens en langdurig. Biologische wijn.",
+        notesCa: "Aroma potent de fruita vermella madura, confitura de cireres i vainilla. De bon cos, llaminer, intens i persistent. Vi ecològic.",
       },
       {
         name: "Lacryma Christi Rosso del Vesuvio DOC",
@@ -409,6 +435,7 @@ export const wines: WineCategory[] = [
         notesFr: "Couleur rubis. Arômes de fruits des bois avec une agréable note poivrée. Sec et frais, moyennement corsé.",
         notesDe: "Rubinrote Farbe. Aromen von Waldfrüchten mit einer angenehmen pfeffrigen Note. Trocken und frisch, von mittlerem Körper.",
         notesNl: "Robijnrode kleur. Aroma’s van bosvruchten met een aangename peperige toets. Droog en fris, met een gemiddelde body.",
+        notesCa: "Color robí. Aromes de fruits del bosc amb una agradable nota de pebre. Sec i fresc, de cos mitjà.",
       },
       {
         name: "Rubrato Aglianico Irpino DOC",
@@ -425,6 +452,7 @@ export const wines: WineCategory[] = [
         notesFr: "Arômes de prune, de fruits des bois, de réglisse et une note balsamique. Corsé, savoureux et sec.",
         notesDe: "Aromen von Pflaume, Waldfrüchten, Lakritz und einer balsamischen Note. Vollmundig, würzig und trocken.",
         notesNl: "Aroma's van pruim, bosvruchten, zoethout en een vleugje balsamico. Vol van smaak, hartig en droog.",
+        notesCa: "Aromes de pruna, fruits del bosc, regalèssia i una nota balsàmica. De bon cos, saborós i sec.",
       },
       {
         name: "Chianti Classico Riserva DOCG",
@@ -440,6 +468,7 @@ export const wines: WineCategory[] = [
         notesFr: "Un Sangiovese toscan élevé en tant que « Riserva » : arômes de cerise, d'épices et une touche de poivre noir. Intense, élégant et avec une longue finale.",
         notesDe: "Ein toskanischer Sangiovese, als Riserva gereift: Kirsche, Gewürze und ein Hauch von schwarzem Pfeffer. Intensiv, elegant und mit langem Abgang.",
         notesNl: "Toscaanse Sangiovese, gerijpt als Riserva: kersen, kruiden en een vleugje zwarte peper. Intens, elegant en met een lange afdronk.",
+        notesCa: "Sangiovese de la Toscana criat com a Riserva: cirera, espècies i un toc de pebre negre. Intens, elegant i de final llarg.",
       },
       {
         name: "Rosso di Montalcino DOC",
@@ -456,6 +485,7 @@ export const wines: WineCategory[] = [
         notesFr: "Rouge rubis, aux arômes fruités de mûre et de framboise, avec des notes de café et de tabac. Ample, harmonieux et équilibré, avec une belle longueur en bouche.",
         notesDe: "Rubinrot, mit fruchtigen Aromen von Brombeere und Himbeere sowie Noten von Kaffee und Tabak. Vollmundig, harmonisch und ausgewogen, mit gutem Abgang.",
         notesNl: "Robuust rood, met fruitige aroma’s van bramen en frambozen en tonen van koffie en tabak. Vol, harmonieus en evenwichtig, met een mooie afdronk.",
+        notesCa: "Vermell robí, amb aromes afruitats de móra i gerd i notes de cafè i tabac. Ampli, harmoniós i equilibrat, amb bona persistència.",
       },
     ],
   },
@@ -474,6 +504,7 @@ export const beers: WineCategory[] = [
     nameFr: "Bières",
     nameDe: "Biere",
     nameNl: "Bieren",
+    nameCa: "Cerveses",
     items: [
       {
         name: "Caña Estrella",
@@ -485,6 +516,7 @@ export const beers: WineCategory[] = [
         notesFr: "Estrella Damm à la pression, fraîche et légère.",
         notesDe: "Estrella Damm vom Fass, frisch und leicht.",
         notesNl: "Estrella Damm van de tap, fris en licht.",
+        notesCa: "Estrella Damm de barril, fresca i lleugera.",
       },
       {
         name: "Caña Clara",
@@ -496,6 +528,7 @@ export const beers: WineCategory[] = [
         notesFr: "Bière blonde légère à la pression, douce et rafraîchissante.",
         notesDe: "Helles Lagerbier vom Fass, mild und erfrischend.",
         notesNl: "Licht bier van de tap, zacht en verfrissend.",
+        notesCa: "Cervesa clara de barril, suau i refrescant.",
       },
       {
         name: "Jarra Estrella",
@@ -507,6 +540,7 @@ export const beers: WineCategory[] = [
         notesFr: "Estrella Damm à la pinte.",
         notesDe: "Estrella Damm als Pint.",
         notesNl: "Estrella Damm per pint.",
+        notesCa: "Estrella Damm en gerra.",
       },
       {
         name: "Jarra Clara",
@@ -518,6 +552,7 @@ export const beers: WineCategory[] = [
         notesFr: "Une bière blonde légère à la pinte.",
         notesDe: "Helles Lagerbier im Pint.",
         notesNl: "Licht bier per pint.",
+        notesCa: "Cervesa clara en gerra.",
       },
       {
         name: "Turia",
@@ -530,6 +565,7 @@ export const beers: WineCategory[] = [
         notesFr: "Bière ambrée valencienne, maltée et onctueuse.",
         notesDe: "Valencianisches Amberbier, malzig und mild.",
         notesNl: "Valenciaans amberbier, moutig en zacht.",
+        notesCa: "Cervesa torrada valenciana, maltosa i suau.",
       },
       {
         name: "Jarra Turia",
@@ -541,6 +577,7 @@ export const beers: WineCategory[] = [
         notesFr: "Une pinte de bière ambrée Turia.",
         notesDe: "Turia Amber-Bier, ein Pint.",
         notesNl: "Turia amberbier per pint.",
+        notesCa: "Turia torrada en gerra.",
       },
       {
         name: "Peroni Nastro Azzurro",
@@ -555,6 +592,7 @@ export const beers: WineCategory[] = [
         notesFr: "Bière blonde italienne, légère, rafraîchissante et très agréable à boire.",
         notesDe: "Italienisches Lagerbier, leicht, spritzig und sehr süffig.",
         notesNl: "Italiaans pils, licht, fris en heel lekker om te drinken.",
+        notesCa: "Lager italiana, lleugera, cruixent i molt bevible.",
       },
       {
         name: "Voll-Damm Doble Malta",
@@ -571,6 +609,7 @@ export const beers: WineCategory[] = [
         notesFr: "Bière ambrée double malt, intense et maltée, au corps puissant.",
         notesDe: "Doppelt gemälztes Bernsteinfarbenes Bier, intensiv und malzig, mit kräftigem Körper.",
         notesNl: "Dubbelgemout amberbier, intens en moutig, met een krachtige body.",
+        notesCa: "Cervesa torrada de doble malt, intensa i maltosa, de cos potent.",
       },
       {
         name: "Birra Messina Cristalli di Sale",
@@ -587,6 +626,7 @@ export const beers: WineCategory[] = [
         notesFr: "Bière blonde sicilienne brassée avec du sel marin de Sicile. Légère, savoureuse et très rafraîchissante.",
         notesDe: "Sizilianisches Lagerbier, gebraut mit Meersalz aus Sizilien. Leicht, würzig und sehr erfrischend.",
         notesNl: "Siciliaans pils, gebrouwen met zeezout uit Sicilië. Licht, hartig en heel verfrissend.",
+        notesCa: "Lager siciliana elaborada amb sal marina de Sicília. Lleugera, saborosa i molt refrescant.",
       },
       {
         name: "Free Damm",
@@ -601,6 +641,7 @@ export const beers: WineCategory[] = [
         notesFr: "Bière blonde sans alcool (0,0 %), légère et rafraîchissante.",
         notesDe: "Alkoholfreies Lagerbier (0,0 %), leicht und erfrischend.",
         notesNl: "Alcoholvrij pils (0,0%), licht en verfrissend.",
+        notesCa: "Lager sense alcohol (0,0 %), lleugera i refrescant.",
       },
       {
         name: "Free Damm Tostada",
@@ -615,6 +656,7 @@ export const beers: WineCategory[] = [
         notesFr: "Bière ambrée sans alcool (0,0 %), maltée et douce.",
         notesDe: "Alkoholfreies bernsteinfarbenes Bier (0,0 %), malzig und mild.",
         notesNl: "Alcoholvrij amberbier (0,0%), moutig en zacht.",
+        notesCa: "Torrada sense alcohol (0,0 %), maltosa i suau.",
       },
     ],
   },
@@ -626,6 +668,7 @@ export const beers: WineCategory[] = [
     nameFr: "Bières artisanales",
     nameDe: "Craft-Biere",
     nameNl: "Ambachtelijke bieren",
+    nameCa: "Cerveses Artesanes",
     items: [
       {
         name: "Kbirr Cuore di Napoli",
@@ -640,6 +683,7 @@ export const beers: WineCategory[] = [
         notesFr: "Une bière artisanale napolitaine, pleine de caractère et de personnalité.",
         notesDe: "Neapolitanisches Craft-Bier, charaktervoll und voller Persönlichkeit.",
         notesNl: "Napolitaans ambachtelijk bier, karaktervol en vol persoonlijkheid.",
+        notesCa: "Cervesa artesana napolitana, amb caràcter i de gran personalitat.",
       },
       {
         name: "Kbirr Natavota Lager",
@@ -654,6 +698,7 @@ export const beers: WineCategory[] = [
         notesFr: "Bière blonde artisanale napolitaine, pure et équilibrée.",
         notesDe: "Neapolitanisches Craft-Lagerbier, rein und ausgewogen.",
         notesNl: "Napolitaans ambachtelijk pilsbier, zuiver en evenwichtig.",
+        notesCa: "Lager artesana napolitana, neta i equilibrada.",
       },
       {
         name: "Kbirr Pulcinella",
@@ -668,6 +713,7 @@ export const beers: WineCategory[] = [
         notesFr: "Bière artisanale napolitaine, douce et aromatique.",
         notesDe: "Neapolitanisches Craft-Bier, mild und aromatisch.",
         notesNl: "Napolitaans ambachtelijk bier, zacht en aromatisch.",
+        notesCa: "Cervesa artesana napolitana, suau i aromàtica.",
       },
       {
         name: "Kbirr Nata Vot Strong & Chocolate",
@@ -682,6 +728,7 @@ export const beers: WineCategory[] = [
         notesFr: "Bière artisanale napolitaine intense, aux notes de chocolat.",
         notesDe: "Kräftiges neapolitanisches Craft-Bier mit Schokoladennoten.",
         notesNl: "Krachtig Napolitaans ambachtelijk bier, met chocoladetonen.",
+        notesCa: "Cervesa artesana napolitana intensa, amb notes de xocolata.",
       },
       {
         name: "IPA Baladin",
@@ -696,6 +743,7 @@ export const beers: WineCategory[] = [
         notesFr: "IPA artisanale italienne, houblonnée, aromatique et pleine de caractère.",
         notesDe: "Italienisches Craft-IPA, hopfig, aromatisch und voller Charakter.",
         notesNl: "Italiaanse ambachtelijke IPA, hoppig, aromatisch en vol karakter.",
+        notesCa: "IPA artesana italiana, lupulada, aromàtica i amb caràcter.",
       },
     ],
   },
@@ -708,6 +756,7 @@ export type FeaturedWine = Wine & {
   tagFr?: string;
   tagDe?: string;
   tagNl?: string;
+  tagCa?: string;
 };
 
 /** Los dos Lambruscos destacados, mostrados en cabecera de la carta. */
@@ -722,4 +771,5 @@ export const featuredWines: FeaturedWine[] = wines
     tagFr: "Lambrusco · Émilie-Romagne",
     tagDe: "Lambrusco · Emilia-Romagna",
     tagNl: "Lambrusco · Emilia-Romagna",
+    tagCa: "Lambrusco · Emília-Romanya",
   }));

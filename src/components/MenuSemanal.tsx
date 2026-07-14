@@ -15,6 +15,15 @@ const COPY = {
     bebidas: "Bebidas",
     note: "Cambiamos el menú cada semana con producto fresco de mercado. Lo publicamos también en nuestras stories de Instagram.",
   },
+  ca: {
+    eyebrow: "La carta del migdia",
+    heading: "Els plats d'aquesta setmana",
+    primeros: "Primers",
+    segundos: "Segons",
+    postres: "Postres",
+    bebidas: "Begudes",
+    note: "Canviem el menú cada setmana amb producte fresc de mercat. També el publiquem a les nostres stories d'Instagram.",
+  },
   en: {
     eyebrow: "This week's lunch menu",
     heading: "This week's dishes",
@@ -77,12 +86,32 @@ const MESES_EN: Record<string, string> = {
   diciembre: "December",
 };
 
-// "Semana del 9 al 13 de junio" → "Week of 9–13 June"
+const MESES_CA: Record<string, string> = {
+  enero: "gener",
+  febrero: "febrer",
+  marzo: "març",
+  abril: "abril",
+  mayo: "maig",
+  junio: "juny",
+  julio: "juliol",
+  agosto: "agost",
+  septiembre: "setembre",
+  octubre: "octubre",
+  noviembre: "novembre",
+  diciembre: "desembre",
+};
+
+// "Semana del 9 al 13 de junio" → "Week of 9–13 June" / "Setmana del 9 al 13 de juny"
 function semanaLabel(semana: string, lang: Locale): string {
   if (lang === "es") return semana;
   const m = semana.match(/del?\s+(\d+)\s+al?\s+(\d+)\s+de\s+(\w+)/i);
   if (!m) return semana;
   const [, from, to, mes] = m;
+  if (lang === "ca") {
+    const monthCa = MESES_CA[mes.toLowerCase()] ?? mes;
+    const de = /^[aeiou]/i.test(monthCa) ? "d'" : "de ";
+    return `Setmana del ${from} al ${to} ${de}${monthCa}`;
+  }
   const month = MESES_EN[mes.toLowerCase()] ?? mes;
   return `Week of ${from}–${to} ${month}`;
 }

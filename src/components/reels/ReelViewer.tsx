@@ -41,6 +41,7 @@ export default function ReelViewer({
     { close: string; closeVideo: string; prev: string; next: string; dishFallback: string; videoOf: string }
   > = {
     es: { close: "Cerrar", closeVideo: "Cerrar vídeo", prev: "Plato anterior", next: "Plato siguiente", dishFallback: "Vídeo del plato", videoOf: "Vídeo de" },
+    ca: { close: "Tancar", closeVideo: "Tancar el vídeo", prev: "Plat anterior", next: "Plat següent", dishFallback: "Vídeo del plat", videoOf: "Vídeo de" },
     en: { close: "Close", closeVideo: "Close video", prev: "Previous dish", next: "Next dish", dishFallback: "Dish video", videoOf: "Video of" },
     it: { close: "Chiudi", closeVideo: "Chiudi il video", prev: "Piatto precedente", next: "Piatto successivo", dishFallback: "Video del piatto", videoOf: "Video di" },
     fr: { close: "Fermer", closeVideo: "Fermer la vidéo", prev: "Plat précédent", next: "Plat suivant", dishFallback: "Vidéo du plat", videoOf: "Vidéo de" },

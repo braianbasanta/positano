@@ -21,6 +21,19 @@ const COPY = {
       { q: "¿Tienen opciones vegetarianas?", a: "Sí. Contamos con opciones vegetarianas como la pizza Ortolana, la Búfala, la lasaña vegetariana, ensaladas y antipasti como la parmesana de berenjena o la burrata." },
     ],
   },
+  ca: {
+    eyebrow: "Preguntes freqüents",
+    heading: "Tot el que vols saber",
+    faqs: [
+      { q: "On és Positano Pizzería?", a: "Som al Carrer del Rosselló, 24, a l'Eixample de Barcelona (08029). Pots trucar-nos al +34 933 51 59 13." },
+      { q: "Quin és l'horari de Positano Pizzería?", a: "Els dilluns tanquem. De dimarts a dijous obrim de 13:00 a 16:00 i de 20:00 a 23:30. Els divendres de 13:00 a 16:00 i de 20:00 a 00:00. Els dissabtes de 13:00 a 00:00 i els diumenges de 13:00 a 23:30, en horari continu." },
+      { q: "Quin tipus de pizza fan a Positano?", a: "Fem autèntica pizza napolitana amb massa de fermentació de 48 hores, cuita al forn de llenya i elaborada amb ingredients DOP italians. També oferim pasta fresca casolana, antipasti, amanides i postres." },
+      { q: "Què fa de Positano un bon restaurant italià a Barcelona?", a: "Positano és un restaurant italià a l'Eixample de Barcelona portat per tres napolitans de la Campània. Servim cuina del sud d'Itàlia tal com es fa allà: pizza napolitana de forn de llenya, pasta fresca casolana, antipasti i postres italianes. Si busques una pizzeria a Barcelona amb producte autèntic i sense dreceres, aquest és el teu lloc." },
+      { q: "Positano Pizzería fa pizza a domicili?", a: "Sí, portem la nostra pizza napolitana, pasta fresca i antipasti a domicili a Barcelona a través d'Uber Eats i Glovo. El radi exacte de repartiment el veuràs en introduir la teva adreça. També acceptem Ticket Restaurant®." },
+      { q: "Es pot reservar taula a Positano Pizzería?", a: "Sí, pots reservar taula online des de la nostra pàgina de reserves amb confirmació immediata, o trucant al +34 933 51 59 13." },
+      { q: "Teniu opcions vegetarianes?", a: "Sí. Tenim opcions vegetarianes com la pizza Ortolana, la Búfala, la lasanya vegetariana, amanides i antipasti com la parmesana d'albergínia o la burrata." },
+    ],
+  },
   en: {
     eyebrow: "Frequently asked questions",
     heading: "Everything you want to know",

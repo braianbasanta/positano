@@ -6,6 +6,7 @@ export type Dish = {
   nameFr?: string;
   nameDe?: string;
   nameNl?: string;
+  nameCa?: string;
   /** Clave estable 1:1 con el reel del plato (ver src/data/reels.ts). */
   slug: string;
   price: string;
@@ -15,6 +16,7 @@ export type Dish = {
   descFr?: string;
   descDe?: string;
   descNl?: string;
+  descCa?: string;
   /**
    * Régimen alimentario del plato (criterio lacto-ovo: vegetariano incluye
    * quesos y huevo). "vegan" implica también vegetariano en los filtros.
@@ -31,6 +33,7 @@ export type MenuCategory = {
   nameFr?: string;
   nameDe?: string;
   nameNl?: string;
+  nameCa?: string;
   items: Dish[];
 };
 
@@ -43,6 +46,7 @@ export const menu: MenuCategory[] = [
     nameFr: "Salades",
     nameDe: "Salate",
     nameNl: "Salades",
+    nameCa: "Amanides",
     items: [
       {
         name: "Ensalada César",
@@ -51,6 +55,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Salade César",
         nameDe: "Caesar-Salat",
         nameNl: "Caesar-salade",
+        nameCa: "Amanida Cèsar",
         slug: "ensalada-cesar",
         price: "12,90 €",
         desc: "Variado de lechuga, pollo crujiente, virutas de parmesano DOP y picatostes.",
@@ -59,6 +64,7 @@ export const menu: MenuCategory[] = [
         descFr: "Mélange de salades, poulet croustillant, copeaux de parmesan AOP et croûtons.",
         descDe: "Gemischter Salat, knuspriges Hähnchen, DOP-Parmesan-Späne und Croutons.",
         descNl: "Gemengde sla, knapperige kip, schilfers van DOP-parmezaan en croutons.",
+        descCa: "Barreja d'enciam, pollastre cruixent, encenalls de parmesà DOP i crostons.",
       },
       {
         name: "Ensalada de Queso de Cabra",
@@ -67,6 +73,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Salade au fromage de chèvre",
         nameDe: "Ziegenkäsesalat",
         nameNl: "Salade met geitenkaas",
+        nameCa: "Amanida de Formatge de Cabra",
         slug: "ensalada-queso-cabra",
         diet: "veg",
         price: "12,90 €",
@@ -76,6 +83,7 @@ export const menu: MenuCategory[] = [
         descFr: "Fromage de chèvre à la roquette, aux noix et au miel.",
         descDe: "Ziegenkäse mit Rucola, Walnüssen und Honig.",
         descNl: "Geitenkaas met rucola, walnoten en honing.",
+        descCa: "Formatge de cabra amb ruca, nous i mel.",
       },
     ],
   },
@@ -87,6 +95,7 @@ export const menu: MenuCategory[] = [
     nameFr: "Antipasti",
     nameDe: "Antipasti",
     nameNl: "Antipasti",
+    nameCa: "Antipasti",
     items: [
       {
         name: "Olivas Sicilianas",
@@ -95,6 +104,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Olives siciliennes",
         nameDe: "Sizilianische Oliven",
         nameNl: "Siciliaanse olijven",
+        nameCa: "Olives Sicilianes",
         slug: "olivas-sicilianas",
         diet: "vegan",
         price: "4,50 €",
@@ -112,6 +122,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Focaccia à la tomate",
         nameDe: "Tomaten-Focaccia",
         nameNl: "Focaccia met tomaat",
+        nameCa: "Focaccia de Tomàquet",
         slug: "focaccia-tomate",
         diet: "vegan",
         price: "5,90 €",
@@ -123,6 +134,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Burrata des Pouilles",
         nameDe: "Burrata aus Apulien",
         nameNl: "Burrata uit Puglia",
+        nameCa: "Burrata de la Pulla",
         slug: "burrata-pugliese",
         diet: "veg",
         price: "12,90 €",
@@ -132,6 +144,7 @@ export const menu: MenuCategory[] = [
         descFr: "125 g de burrata des Pouilles aux tomates vertes, datterino et jaunes.",
         descDe: "125 g Burrata aus Apulien mit grünen, Datterino- und gelben Tomaten.",
         descNl: "125 g burrata uit Puglia met groene, datterino- en gele tomaten.",
+        descCa: "Burrata de la Pulla de 125 g amb tomàquet verd, datterino i groc.",
       },
       {
         name: "Burrata Frita Pugliese",
@@ -140,6 +153,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Burrata des Pouilles frite",
         nameDe: "Gebratene Burrata aus Apulien",
         nameNl: "Gefrituurde burrata uit Puglia",
+        nameCa: "Burrata Fregida de la Pulla",
         slug: "burrata-frita-pugliese",
         diet: "veg",
         price: "14,50 €",
@@ -149,6 +163,7 @@ export const menu: MenuCategory[] = [
         descFr: "Frit dans une panure aux pistaches et fourré à la confiture de tomates.",
         descDe: "In einer Pistazienkruste frittiert und mit Tomatenkonfitüre gefüllt.",
         descNl: "Gebakken in een pistachekorst en gevuld met tomatenjam.",
+        descCa: "Fregida en una base de pistatxo i farcida de melmelada de tomàquet.",
       },
       {
         name: "Caprese de Búfala Campana DOP 2.0",
@@ -157,6 +172,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Caprese 2.0 à la mozzarella de bufflonne de Campanie AOP",
         nameDe: "Caprese 2.0 mit Büffelmilch aus Kampanien (DOP)",
         nameNl: "Campania Buffalo DOP Caprese 2.0",
+        nameCa: "Caprese de Búfala Campana DOP 2.0",
         slug: "caprese-bufala-dop",
         diet: "veg",
         price: "13,90 €",
@@ -166,6 +182,7 @@ export const menu: MenuCategory[] = [
         descFr: "Fromage de bufflonne de Campanie AOP accompagné d’un trio de tomates jaunes, de tomates « datterino » et de tomates séchées au soleil.",
         descDe: "Büffelmozzarella aus Kampanien (DOP) mit einem Trio aus gelben Tomaten, Datterino-Tomaten und sonnengetrockneten Tomaten.",
         descNl: "Campania-buffelmozzarella DOP met een trio van gele, datterino- en zongedroogde tomaten.",
+        descCa: "Búfala campana DOP amb un tris de tomàquet groc, datterino i tomàquet sec.",
       },
       {
         name: "Provolone al Horno",
@@ -174,6 +191,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Provolone au four",
         nameDe: "Gebackener Provolone",
         nameNl: "Gebakken Provolone",
+        nameCa: "Provolone al Forn",
         slug: "provolone-al-horno",
         diet: "veg",
         price: "13,90 €",
@@ -183,6 +201,7 @@ export const menu: MenuCategory[] = [
         descFr: "Cuite au four avec des tomates cerises et du pesto, servie avec de la focaccia.",
         descDe: "Im Ofen mit Kirschtomaten und Pesto gebacken, serviert mit Focaccia.",
         descNl: "Gebakken met cherrytomaatjes en pesto, geserveerd met focaccia.",
+        descCa: "Al forn amb tomàquet cherry i pesto, acompanyat de focaccia.",
       },
       {
         name: "Parmesana de Berenjena",
@@ -191,6 +210,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Aubergines à la parmigiana",
         nameDe: "Auberginen-Parmigiana",
         nameNl: "Aubergine Parmigiana",
+        nameCa: "Albergínia a la Parmesana",
         slug: "parmesana-berenjena",
         diet: "veg",
         price: "12,90 €",
@@ -200,6 +220,7 @@ export const menu: MenuCategory[] = [
         descFr: "Aubergines gratinées au four à bois.",
         descDe: "Im Holzofen überbackene Auberginen.",
         descNl: "Gegratineerde aubergine uit de houtgestookte oven.",
+        descCa: "Albergínia gratinada al forn de llenya.",
       },
       {
         name: "Montanaras Fritas",
@@ -208,6 +229,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Montanare frits",
         nameDe: "Gebratene Montanare",
         nameNl: "Gebakken Montanare",
+        nameCa: "Montanaras Fregides",
         slug: "montanaras-fritas",
         diet: "veg",
         price: "13,90 €",
@@ -217,6 +239,7 @@ export const menu: MenuCategory[] = [
         descFr: "Pâte à pizza frite et légère, à la tomate et au parmesan.",
         descDe: "Zarter, frittierter Pizzateig mit Tomaten und Parmesan.",
         descNl: "Lekker knapperig gebakken pizzadeeg met tomaat en parmezaan.",
+        descCa: "Massa de pizza fregida i delicada, amb tomàquet i parmesà.",
       },
       {
         name: "Albóndigas de Carne",
@@ -225,6 +248,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Boulettes de viande",
         nameDe: "Fleischbällchen",
         nameNl: "Gehaktballetjes",
+        nameCa: "Mandonguilles de Carn",
         slug: "albondigas-de-carne",
         price: "12,90 €",
         desc: "Albóndigas caseras mixtas con salsa de tomate y parmesano DOP.",
@@ -233,6 +257,7 @@ export const menu: MenuCategory[] = [
         descFr: "Boulettes de viande maison à la sauce tomate et au parmesan AOP.",
         descDe: "Hausgemachte gemischte Fleischbällchen mit Tomatensoße und Parmesan (DOP).",
         descNl: "Zelfgemaakte gemengde gehaktballetjes met tomatensaus en DOP-parmezaan.",
+        descCa: "Mandonguilles casolanes mixtes amb salsa de tomàquet i parmesà DOP.",
       },
       {
         name: "Calamares Fritos",
@@ -241,6 +266,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Calamars frits",
         nameDe: "Frittierte Calamari",
         nameNl: "Gefrituurde calamares",
+        nameCa: "Calamars Fregits",
         slug: "calamares-fritos",
         price: "13,90 €",
         desc: "Aros de calamar fritos y crujientes.",
@@ -249,6 +275,7 @@ export const menu: MenuCategory[] = [
         descFr: "Anneaux de calamars frits croustillants.",
         descDe: "Knusprig frittierte Tintenfischringe.",
         descNl: "Knapperig gebakken calamari-ringen.",
+        descCa: "Anelles de calamar fregides i cruixents.",
       },
       {
         name: "Carpaccio de Solomillo",
@@ -257,6 +284,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Carpaccio de filet de bœuf",
         nameDe: "Rinderfilet-Carpaccio",
         nameNl: "Carpaccio van ossenhaas",
+        nameCa: "Carpaccio de Filet",
         slug: "carpaccio-solomillo",
         price: "17,90 €",
         desc: "De ternera, con rúcula y caviar de frambuesa.",
@@ -265,6 +293,7 @@ export const menu: MenuCategory[] = [
         descFr: "Carpaccio de bœuf à la roquette et au caviar de framboises.",
         descDe: "Rindercarpaccio mit Rucola und Himbeerkaviar.",
         descNl: "Carpaccio van rundvlees met rucola en frambozenkaviaar.",
+        descCa: "De vedella, amb ruca i caviar de gerd.",
       },
       {
         name: "Steak Tartar",
@@ -273,6 +302,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Steak tartare",
         nameDe: "Steak Tartar",
         nameNl: "Steak tartare",
+        nameCa: "Steak Tartar",
         slug: "steak-tartar",
         price: "17,90 €",
         desc: "Ternera cruda, cebolla, alcaparras, perejil, mostaza, tabasco y huevo.",
@@ -281,6 +311,7 @@ export const menu: MenuCategory[] = [
         descFr: "Viande de bœuf crue, oignon, câpres, persil, moutarde, Tabasco et œuf.",
         descDe: "Rohes Rindfleisch, Zwiebeln, Kapern, Petersilie, Senf, Tabasco und Ei.",
         descNl: "Rauw rundvlees, ui, kappertjes, peterselie, mosterd, Tabasco en ei.",
+        descCa: "Vedella crua, ceba, tàperes, julivert, mostassa, tabasco i ou.",
       },
     ],
   },
@@ -292,6 +323,7 @@ export const menu: MenuCategory[] = [
     nameFr: "Nos pâtes",
     nameDe: "Unsere Pasta",
     nameNl: "Onze pasta",
+    nameCa: "La Nostra Pasta",
     items: [
       {
         name: "Lasaña Tradicional",
@@ -300,6 +332,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Lasagnes traditionnelles",
         nameDe: "Traditionelle Lasagne",
         nameNl: "Traditionele lasagne",
+        nameCa: "Lasanya Tradicional",
         slug: "lasana-tradicional",
         price: "14,90 €",
         desc: "Pasta fresca gratinada al horno con boloñesa, mozzarella y parmesano.",
@@ -308,6 +341,7 @@ export const menu: MenuCategory[] = [
         descFr: "Pâtes fraîches cuites au four, à la bolognaise, à la mozzarella et au parmesan.",
         descDe: "Im Ofen gebackene frische Pasta mit Bolognese, Mozzarella und Parmesan.",
         descNl: "Vers gebakken pasta uit de oven met bolognesesaus, mozzarella en parmezaan.",
+        descCa: "Pasta fresca gratinada al forn amb bolonyesa, mozzarella i parmesà.",
       },
       {
         name: "Lasaña Vegetariana",
@@ -316,6 +350,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Lasagnes végétariennes",
         nameDe: "Vegetarische Lasagne",
         nameNl: "Vegetarische lasagne",
+        nameCa: "Lasanya Vegetariana",
         slug: "lasana-vegetariana",
         diet: "veg",
         price: "14,50 €",
@@ -325,6 +360,7 @@ export const menu: MenuCategory[] = [
         descFr: "Pâtes fraîches au four aux courgettes, poivrons, oignons, champignons et mozzarella.",
         descDe: "Gebackene frische Pasta mit Zucchini, Paprika, Zwiebeln, Pilzen und Mozzarella.",
         descNl: "Gebakken verse pasta met courgette, paprika, ui, champignons en mozzarella.",
+        descCa: "Pasta fresca gratinada amb carbassó, pebrot, ceba, xampinyó i mozzarella.",
       },
       {
         name: "Tagliatelle con Albóndigas Caseras",
@@ -333,6 +369,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Tagliatelles aux boulettes de viande maison",
         nameDe: "Tagliatelle mit hausgemachten Fleischbällchen",
         nameNl: "Tagliatelle met zelfgemaakte gehaktballetjes",
+        nameCa: "Tagliatelle amb Mandonguilles Casolanes",
         slug: "tagliatelle-albondigas",
         price: "15,90 €",
         desc: "Salsa de tomate con albóndigas al ragú como las hacía la abuela, con parmesano.",
@@ -341,6 +378,7 @@ export const menu: MenuCategory[] = [
         descFr: "Sauce tomate aux boulettes de viande à la manière de grand-mère, avec du parmesan.",
         descDe: "Tomatensauce mit Ragù-Fleischbällchen ganz nach Omas Art, mit Parmesan.",
         descNl: "Tomatensaus met ragù-gehaktballetjes, net zoals oma die maakte, met parmezaan.",
+        descCa: "Salsa de tomàquet amb mandonguilles al ragú com les feia l'àvia, amb parmesà.",
       },
       {
         name: "Paccheri Genovese",
@@ -352,6 +390,7 @@ export const menu: MenuCategory[] = [
         descFr: "Bœuf mijoté pendant 48 heures, oignons et parmesan AOP.",
         descDe: "48 Stunden lang langsam gegartes Rindfleisch, Zwiebeln und Parmesan mit geschützter Ursprungsbezeichnung (DOP).",
         descNl: "48 uur lang langzaam gegaard rundvlees, ui en DOP-parmezaan.",
+        descCa: "Vedella cuinada 48 h a baixa temperatura, ceba i parmesà DOP.",
       },
       {
         name: "Scialatelli a la Scarpariello",
@@ -360,6 +399,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Scialatelli alla Scarpariello",
         nameDe: "Scialatelli alla Scarpariello",
         nameNl: "Scialatelli alla Scarpariello",
+        nameCa: "Scialatelli alla Scarpariello",
         slug: "scialatelli-scarpariello",
         diet: "veg",
         price: "14,90 €",
@@ -369,6 +409,7 @@ export const menu: MenuCategory[] = [
         descFr: "Aux tomates datterino et au fromage fumé.",
         descDe: "Mit Datterino-Tomaten und geräuchertem Käse.",
         descNl: "Met datterino-tomaten en gerookte kaas.",
+        descCa: "Amb tomàquet datterino i formatge fumat.",
       },
       {
         name: "Spaghetti Carbonara",
@@ -380,6 +421,7 @@ export const menu: MenuCategory[] = [
         descFr: "Servi dans une meule de pecorino. Minimum 2 personnes (prix par personne).",
         descDe: "Zum Abschluss ein Stück Pecorino. Mindestens 2 Personen (Preis pro Person).",
         descNl: "Geserveerd in een pecorino-wiel. Minimaal 2 personen (prijs per persoon).",
+        descCa: "En roda de pecorino. Mínim 2 persones (preu per persona).",
       },
       {
         name: "Tagliatelle con Trufa Fresca",
@@ -388,6 +430,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Tagliatelles à la truffe fraîche",
         nameDe: "Tagliatelle mit frischem Trüffel",
         nameNl: "Tagliatelle met verse truffel",
+        nameCa: "Tagliatelle amb Tòfona Fresca",
         slug: "tagliatelle-trufa",
         diet: "veg",
         price: "21,90 €",
@@ -397,6 +440,7 @@ export const menu: MenuCategory[] = [
         descFr: "Pâtes fraîches à la truffe noire fraîchement râpée.",
         descDe: "Frische Pasta mit frisch geriebenem schwarzem Trüffel.",
         descNl: "Verse pasta met versgeraspte zwarte truffel.",
+        descCa: "Pasta fresca amb tòfona negra acabada de ratllar.",
       },
       {
         name: "Linguini Frutti di Mare",
@@ -408,6 +452,7 @@ export const menu: MenuCategory[] = [
         descFr: "Crevettes, palourdes, moules, seiches, langoustines, tomates fraîches et vin blanc.",
         descDe: "Garnelen, Venusmuscheln, Miesmuscheln, Tintenfisch, Riesengarnelen, frische Tomaten und Weißwein.",
         descNl: "Garnalen, venusschelpen, mosselen, inktvis, reuzengarnalen, verse tomaat en witte wijn.",
+        descCa: "Gambes, cloïsses, musclos, sípia, llagostí, tomàquet fresc i vi blanc.",
       },
       {
         name: "Scialatelli con Bogavante",
@@ -416,6 +461,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Scialatelli au homard",
         nameDe: "Scialatelli mit Hummer",
         nameNl: "Scialatelli met kreeft",
+        nameCa: "Scialatelli amb Llamàntol",
         slug: "scialatelli-bogavante",
         price: "21,90 €",
         desc: "Pasta fresca con bogavante, tomate amarillo y pistacho de Bronte.",
@@ -424,6 +470,7 @@ export const menu: MenuCategory[] = [
         descFr: "Pâtes fraîches au homard, à la tomate jaune et aux pistaches de Bronte.",
         descDe: "Frische Pasta mit Hummer, gelben Tomaten und Pistazien aus Bronte.",
         descNl: "Verse pasta met kreeft, gele tomaat en Bronte-pistachenoten.",
+        descCa: "Pasta fresca amb llamàntol, tomàquet groc i pistatxo de Bronte.",
       },
       {
         name: "Paccheri con Cigala",
@@ -432,6 +479,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Paccheri aux langoustines",
         nameDe: "Paccheri mit Langustinen",
         nameNl: "Paccheri met langoustines",
+        nameCa: "Paccheri amb Cigala",
         slug: "paccheri-cigala",
         price: "18,90 €",
         desc: "Salsa con cigala, calamares, tomate y burrata pugliese.",
@@ -440,6 +488,7 @@ export const menu: MenuCategory[] = [
         descFr: "Sauce aux langoustines, calamars, tomates et burrata des Pouilles.",
         descDe: "Soße mit Langustinen, Tintenfisch, Tomaten und Burrata aus Apulien.",
         descNl: "Saus met langoustines, inktvis, tomaat en burrata uit Puglia.",
+        descCa: "Salsa amb cigala, calamars, tomàquet i burrata de la Pulla.",
       },
     ],
   },
@@ -451,6 +500,7 @@ export const menu: MenuCategory[] = [
     nameFr: "Pâtes fraîches",
     nameDe: "Frische Pasta",
     nameNl: "Verse pasta",
+    nameCa: "Pasta Fresca",
     items: [
       {
         name: "Raviolotto",
@@ -463,6 +513,7 @@ export const menu: MenuCategory[] = [
         descFr: "Farcis à la ricotta et aux épinards, accompagnés d'une sauce au beurre et à la sauge.",
         descDe: "Gefüllt mit Ricotta und Spinat in einer Butter-Salbei-Soße.",
         descNl: "Gevuld met ricotta en spinazie in een saus van boter en salie.",
+        descCa: "Farcit de ricotta i espinacs amb salsa de mantega i sàlvia.",
       },
       {
         name: "Panciotti",
@@ -475,6 +526,7 @@ export const menu: MenuCategory[] = [
         descFr: "Farcies aux aubergines et à la scamorza, accompagnées d'une sauce au beurre et au basilic.",
         descDe: "Gefüllt mit Auberginen und Scamorza in einer Butter-Basilikum-Sauce.",
         descNl: "Gevuld met aubergine en scamorza in een saus van boter en basilicum.",
+        descCa: "Farcit d'albergínia i scamorza amb salsa de mantega i alfàbrega.",
       },
       {
         name: "Gnocchi Sorrentina",
@@ -483,6 +535,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Gnocchi alla Sorrentina",
         nameDe: "Gnocchi alla Sorrentina",
         nameNl: "Gnocchi alla Sorrentina",
+        nameCa: "Gnocchi alla Sorrentina",
         slug: "gnocchi-sorrentina",
         diet: "veg",
         price: "13,90 €",
@@ -492,6 +545,7 @@ export const menu: MenuCategory[] = [
         descFr: "Sauce tomate, mozzarella, basilic et parmesan AOP, gratiné au four.",
         descDe: "Tomatensauce, Mozzarella, Basilikum und Parmesan (DOP), im Ofen überbacken.",
         descNl: "Tomatensaus, mozzarella, basilicum en DOP-parmezaan, gegratineerd in de oven.",
+        descCa: "Salsa de tomàquet, mozzarella, alfàbrega i parmesà DOP, gratinat al forn.",
       },
     ],
   },
@@ -503,6 +557,7 @@ export const menu: MenuCategory[] = [
     nameFr: "Risottos",
     nameDe: "Risotti",
     nameNl: "Risotto's",
+    nameCa: "Risottos",
     items: [
       {
         name: "Risotto con Calabacín y Gambas",
@@ -511,6 +566,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Risotto aux courgettes et aux crevettes",
         nameDe: "Risotto mit Zucchini und Garnelen",
         nameNl: "Risotto met courgette en garnalen",
+        nameCa: "Risotto amb Carbassó i Gambes",
         slug: "risotto-calabacin-gambas",
         price: "18,90 €",
         desc: "Con carpaccio de gambas y calabacín.",
@@ -519,6 +575,7 @@ export const menu: MenuCategory[] = [
         descFr: "Avec un carpaccio de crevettes et des courgettes.",
         descDe: "Mit Garnelen-Carpaccio und Zucchini.",
         descNl: "Met garnalencarpaccio en courgette.",
+        descCa: "Amb carpaccio de gambes i carbassó.",
       },
       {
         name: "Risotto ai Funghi",
@@ -531,6 +588,7 @@ export const menu: MenuCategory[] = [
         descFr: "Aux champignons variés et à l'huile de truffe.",
         descDe: "Mit gemischten Pilzen und Trüffelöl.",
         descNl: "Met gemengde paddenstoelen en truffelolie.",
+        descCa: "Amb barreja de bolets i oli de tòfona.",
       },
     ],
   },
@@ -542,6 +600,7 @@ export const menu: MenuCategory[] = [
     nameFr: "Plats principaux",
     nameDe: "Hauptgerichte",
     nameNl: "Hoofdgerechten",
+    nameCa: "Plats Principals",
     items: [
       {
         name: "Solomillo de Ternera",
@@ -550,6 +609,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Filet de bœuf",
         nameDe: "Rinderfilet",
         nameNl: "Ossenhaas",
+        nameCa: "Filet de Vedella",
         slug: "solomillo-ternera",
         price: "25,90 €",
         desc: "Salsa de pimienta negra, trufa fresca y parmentier de patatas.",
@@ -558,6 +618,7 @@ export const menu: MenuCategory[] = [
         descFr: "Sauce au poivre noir, truffe fraîche et parmentier de pommes de terre.",
         descDe: "Schwarzpfeffersauce, frischer Trüffel und Kartoffel-Parmentier.",
         descNl: "Zwarte pepersaus, verse truffel en aardappelparmentier.",
+        descCa: "Salsa de pebre negre, tòfona fresca i parmentier de patata.",
       },
       {
         name: "Filete de Salmón",
@@ -566,6 +627,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Filet de saumon",
         nameDe: "Lachsfilet",
         nameNl: "Zalmfilet",
+        nameCa: "Filet de Salmó",
         slug: "filete-salmon",
         price: "20,90 €",
         desc: "Con pistacho de Bronte y verduras salteadas.",
@@ -574,6 +636,7 @@ export const menu: MenuCategory[] = [
         descFr: "Aux pistaches de Bronte et aux légumes sautés.",
         descDe: "Mit Bronte-Pistazien und sautiertem Gemüse.",
         descNl: "Met Bronte-pistachenoten en gebakken groenten.",
+        descCa: "Amb pistatxo de Bronte i verdures saltejades.",
       },
     ],
   },
@@ -585,6 +648,7 @@ export const menu: MenuCategory[] = [
     nameFr: "Nos pizzas",
     nameDe: "Unsere Pizzen",
     nameNl: "Onze pizza's",
+    nameCa: "Le Nostre Pizze",
     items: [
       {
         name: "Marinara",
@@ -597,6 +661,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, ail, basilic et huile d'olive vierge extra.",
         descDe: "Marrazzo-Tomaten, Knoblauch, Basilikum und natives Olivenöl extra.",
         descNl: "Marrazzo-tomaat, knoflook, basilicum en extra vierge olijfolie.",
+        descCa: "Tomàquet Marrazzo, all, alfàbrega i oli d'oliva verge extra.",
       },
       {
         name: "Margherita",
@@ -609,6 +674,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, « fior di latte » de Campanie, basilic et huile d'olive vierge extra.",
         descDe: "Marrazzo-Tomaten, „Fior di Latte“ aus Kampanien, Basilikum und natives Olivenöl extra.",
         descNl: "Marrazzo-tomaat, fior di latte uit Campanië, basilicum en extra vierge olijfolie.",
+        descCa: "Tomàquet Marrazzo, fior di latte campano, alfàbrega i oli d'oliva verge extra.",
       },
       {
         name: "Diavola",
@@ -620,6 +686,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, fior di latte de Campanie, spianata épicée et basilic.",
         descDe: "Marrazzo-Tomaten, „Fior di Latte“ aus Kampanien, würzige Spianata und Basilikum.",
         descNl: "Marrazzo-tomaat, fior di latte uit Campanië, pittige spianata en basilicum.",
+        descCa: "Tomàquet Marrazzo, fior di latte campano, spianata picant i alfàbrega.",
       },
       {
         name: "Prosciutto e Funghi",
@@ -631,6 +698,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, fior di latte de Campanie, jambon cuit, champignons et basilic.",
         descDe: "Marrazzo-Tomaten, „Fior di Latte“ aus Kampanien, gekochter Schinken, Pilze und Basilikum.",
         descNl: "Marrazzo-tomaat, fior di latte uit Campanië, gekookte ham, champignons en basilicum.",
+        descCa: "Tomàquet Marrazzo, fior di latte campano, pernil dolç, xampinyons i alfàbrega.",
       },
       {
         name: "Capricciosa",
@@ -642,6 +710,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, fior di latte de Campanie, jambon cuit, champignons, artichauts et olives noires.",
         descDe: "Marrazzo-Tomaten, „Fior di Latte“ aus Kampanien, gekochter Schinken, Pilze, Artischocken und schwarze Oliven.",
         descNl: "Marrazzo-tomaat, fior di latte uit Campanië, gekookte ham, champignons, artisjokken en zwarte olijven.",
+        descCa: "Tomàquet Marrazzo, fior di latte campano, pernil dolç, xampinyons, carxofes i olives negres.",
       },
       {
         name: "Calzone Positano",
@@ -653,6 +722,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, fior di latte de Campanie, jambon cuit, ricotta et basilic.",
         descDe: "Marrazzo-Tomaten, „Fior di Latte“ aus Kampanien, gekochter Schinken, Ricotta und Basilikum.",
         descNl: "Marrazzo-tomaat, fior di latte uit Campanië, gekookte ham, ricotta en basilicum.",
+        descCa: "Tomàquet Marrazzo, fior di latte campano, pernil dolç, ricotta i alfàbrega.",
       },
       {
         name: "Siciliana",
@@ -665,6 +735,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, « fior di latte » de Campanie, aubergine frite, copeaux de ricotta salée et basilic.",
         descDe: "Marrazzo-Tomaten, „Fior di Latte“ aus Kampanien, gebratene Auberginen, gesalzene Ricotta-Späne und Basilikum.",
         descNl: "Marrazzo-tomaat, fior di latte uit Campanië, gebakken aubergine, geschaafde gezouten ricotta en basilicum.",
+        descCa: "Tomàquet Marrazzo, fior di latte campano, albergínia fregida, làmines de ricotta salada i alfàbrega.",
       },
       {
         name: "Ibérica",
@@ -673,6 +744,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Iberica",
         nameDe: "Iberica",
         nameNl: "Iberica",
+        nameCa: "Iberica",
         slug: "iberica",
         price: "21,90 €",
         desc: "Tomate Marrazzo, fior di latte campano, jamón ibérico, láminas de parmesano y albahaca.",
@@ -681,6 +753,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, « fior di latte » de Campanie, jambon ibérique, copeaux de parmesan et basilic.",
         descDe: "Marrazzo-Tomaten, „Fior di Latte“ aus Kampanien, iberischer Schinken, Parmesanspäne und Basilikum.",
         descNl: "Marrazzo-tomaat, fior di latte uit Campanië, Iberische ham, parmezaanse kaasvlokken en basilicum.",
+        descCa: "Tomàquet Marrazzo, fior di latte campano, pernil ibèric, làmines de parmesà i alfàbrega.",
       },
       {
         name: "Italia",
@@ -692,6 +765,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, « fior di latte » de Campanie, jambon de Parme affiné 24 mois, roquette et parmesan.",
         descDe: "Marrazzo-Tomaten, „Fior di Latte“ aus Kampanien, 24 Monate gereifter Parmaschinken, Rucola und Parmesan.",
         descNl: "Marrazzo-tomaat, fior di latte uit Campanië, 24 maanden gerijpte Parmaham, rucola en parmezaan.",
+        descCa: "Tomàquet Marrazzo, fior di latte campano, pernil de Parma curat 24 mesos, ruca i parmesà.",
       },
       {
         name: "Provola e Pepe",
@@ -704,6 +778,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, provola fumée, poivre noir, basilic et huile d'olive vierge extra.",
         descDe: "Marrazzo-Tomaten, geräucherter Provola, schwarzer Pfeffer, Basilikum und natives Olivenöl extra.",
         descNl: "Marrazzo-tomaat, gerookte provola, zwarte peper, basilicum en extra vierge olijfolie.",
+        descCa: "Tomàquet Marrazzo, provola fumada, pebre negre, alfàbrega i oli d'oliva verge extra.",
       },
       {
         name: "Búfala",
@@ -712,6 +787,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Bufala",
         nameDe: "Bufala",
         nameNl: "Bufala",
+        nameCa: "Bufala",
         slug: "bufala",
         diet: "veg",
         price: "14,90 €",
@@ -721,6 +797,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, lait de bufflonne de Campanie AOP, basilic et huile d'olive vierge extra.",
         descDe: "Marrazzo-Tomaten, Büffelmozzarella aus Kampanien (DOP), Basilikum und natives Olivenöl extra.",
         descNl: "Marrazzo-tomaat, DOP-buffelmozzarella uit Campanië, basilicum en extra vierge olijfolie.",
+        descCa: "Tomàquet Marrazzo, búfala campana DOP, alfàbrega i oli d'oliva verge extra.",
       },
       {
         name: "Ortolana",
@@ -733,6 +810,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate Marrazzo, fior di latte de Campanie, oignon rouge, poivron et champignons.",
         descDe: "Marrazzo-Tomaten, „Fior di Latte“ aus Kampanien, rote Zwiebeln, Paprika und Pilze.",
         descNl: "Marrazzo-tomaat, fior di latte uit Campanië, rode ui, paprika en champignons.",
+        descCa: "Tomàquet Marrazzo, fior di latte campano, ceba vermella, pebrot i xampinyons.",
       },
       {
         name: "Salsiccia e Friarelli",
@@ -744,6 +822,7 @@ export const menu: MenuCategory[] = [
         descFr: "Fior di latte de Campanie, saucisse de Caserte, friarielli et tarallo napolitain.",
         descDe: "„Fior di latte“ aus Kampanien, Wurst aus Caserta, Friarielli und neapolitanischer Tarallo.",
         descNl: "Fior di latte uit Campania, worst uit Caserta, friarielli en Napolitaanse tarallo.",
+        descCa: "Fior di latte campano, botifarra de Caserta, friarielli i tarallo napolità.",
       },
       {
         name: "Cinque Formaggi",
@@ -756,6 +835,7 @@ export const menu: MenuCategory[] = [
         descFr: "Fior di latte de Campanie, gorgonzola AOP, grana padano affiné 24 mois, provolone et ricotta.",
         descDe: "Fior di Latte aus Kampanien, Gorgonzola DOP, 24 Monate gereifter Grana Padano, Provolone und Ricotta.",
         descNl: "Fior di latte uit Campania, Gorgonzola DOP, Grana Padano van 24 maanden, provolone en ricotta.",
+        descCa: "Fior di latte campano, gorgonzola DOP, grana padano de 24 mesos, provolone i ricotta.",
       },
       {
         name: "Mortadella",
@@ -767,6 +847,7 @@ export const menu: MenuCategory[] = [
         descFr: "Fior di latte de Campanie, crème de pistache de Bronte, mortadelle IGP et burrata des Pouilles.",
         descDe: "„Fior di Latte“ aus Kampanien, Pistaziencreme aus Bronte, Mortadella mit geschützter geografischer Angabe (IGP) und Burrata aus Apulien.",
         descNl: "Fior di latte uit Campania, pistachecrème uit Bronte, IGP-mortadella en burrata uit Puglia.",
+        descCa: "Fior di latte campano, crema de pistatxo de Bronte, mortadella IGP i burrata de la Pulla.",
       },
       {
         name: "Roma",
@@ -778,6 +859,7 @@ export const menu: MenuCategory[] = [
         descFr: "Fior di latte de Campanie, crème d'artichauts, guanciale croustillant et parmesan affiné 24 mois.",
         descDe: "Fior di Latte aus Kampanien, Artischockencreme, knuspriger Guanciale und 24 Monate gereifter Parmesan.",
         descNl: "Fior di latte uit Campania, artisjokcrème, knapperige guanciale en 24 maanden gerijpte parmezaan.",
+        descCa: "Fior di latte campano, crema de carxofa, guanciale cruixent i parmesà curat 24 mesos.",
       },
       {
         name: "Eboli",
@@ -789,6 +871,7 @@ export const menu: MenuCategory[] = [
         descFr: "Fior di latte de Campanie, provolone, spianata épicée, oignon rouge et croûte farcie à la ricotta.",
         descDe: "Fior di Latte aus Kampanien, Provolone, würzige Spianata, rote Zwiebeln und ein mit Ricotta gefüllter Pizzarand.",
         descNl: "Fior di latte uit Campania, provolone, pittige spianata, rode ui en een met ricotta gevulde korst.",
+        descCa: "Fior di latte campano, provolone, spianata picant, ceba vermella i vora farcida de ricotta.",
       },
       {
         name: "Tartufo",
@@ -801,6 +884,7 @@ export const menu: MenuCategory[] = [
         descFr: "Fior di latte de Campanie, crème de truffe, jaune d'œuf, grana padano affiné 24 mois et basilic.",
         descDe: "Fior di Latte aus Kampanien, Trüffelcreme, Eigelb, 24 Monate gereifter Grana Padano und Basilikum.",
         descNl: "Fior di latte uit Campania, truffelcrème, eigeel, 24 maanden gerijpte Grana Padano en basilicum.",
+        descCa: "Fior di latte campano, crema de tòfona, rovell d'ou, grana padano de 24 mesos i alfàbrega.",
       },
       {
         name: "Tonno e Cipolle",
@@ -812,6 +896,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tomate, « fior di latte » de Campanie, ventrèche de thon, olives noires, oignon rouge, basilic et huile d'olive vierge extra.",
         descDe: "Tomate, „Fior di Latte“ aus Kampanien, Thunfischbauch, schwarze Oliven, rote Zwiebel, Basilikum und natives Olivenöl extra.",
         descNl: "Tomaat, fior di latte uit Campanië, tonijnbuik, zwarte olijven, rode ui, basilicum en extra vierge olijfolie.",
+        descCa: "Tomàquet, fior di latte campano, ventresca de tonyina, olives negres, ceba vermella, alfàbrega i oli d'oliva verge extra.",
       },
       {
         name: "La Nonna",
@@ -823,6 +908,7 @@ export const menu: MenuCategory[] = [
         descFr: "Fondue à la tomate, à la mozzarella, aux boulettes de viande maison, à la ricotta et au parmesan AOP.",
         descDe: "Fondue mit Tomaten, Mozzarella, hausgemachten Fleischbällchen, Ricotta und Parmesan (DOP).",
         descNl: "Fondue van tomaat, mozzarella, zelfgemaakte gehaktballetjes, ricotta en DOP-parmezaan.",
+        descCa: "Tomàquet, mozzarella, mandonguilles casolanes, ricotta i fondue de parmesà DOP.",
       },
       {
         name: "Bambino Felice",
@@ -834,6 +920,7 @@ export const menu: MenuCategory[] = [
         descFr: "Fior di latte de Campanie, saucisses de Francfort, frites et fondue au parmesan.",
         descDe: "Fior di Latte aus Kampanien, Frankfurter Würstchen, Pommes frites und Parmesan-Fondue.",
         descNl: "Fior di latte uit Campania, frankfurter, frietjes en parmezaanse fondue.",
+        descCa: "Fior di latte campano, frankfurt, patates fregides i fondue de parmesà.",
       },
     ],
   },
@@ -845,6 +932,7 @@ export const menu: MenuCategory[] = [
     nameFr: "Desserts",
     nameDe: "Desserts",
     nameNl: "Desserts",
+    nameCa: "Dolços",
     items: [
       {
         name: "Tiramisú",
@@ -857,6 +945,7 @@ export const menu: MenuCategory[] = [
         descFr: "Le grand classique napolitain à base de mascarpone, de café et de cacao.",
         descDe: "Der neapolitanische Klassiker aus Mascarpone, Kaffee und Kakao.",
         descNl: "De Napolitaanse klassieker met mascarpone, koffie en cacao.",
+        descCa: "El clàssic napolità de mascarpone, cafè i cacau.",
       },
       {
         name: "Tiramisú de Pistacho",
@@ -865,6 +954,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Tiramisu à la pistache",
         nameDe: "Tiramisu mit Pistazien",
         nameNl: "Tiramisu met pistachenoten",
+        nameCa: "Tiramisú de Pistatxo",
         slug: "tiramisu-pistacho",
         diet: "veg",
         price: "6,50 €",
@@ -874,6 +964,7 @@ export const menu: MenuCategory[] = [
         descFr: "Tiramisu à la crème de pistaches de Bronte.",
         descDe: "Tiramisu mit Bronte-Pistaziencreme.",
         descNl: "Tiramisu met Bronte-pistachecrème.",
+        descCa: "Tiramisú amb crema de pistatxo de Bronte.",
       },
       {
         name: "Nutelloto",
@@ -886,6 +977,7 @@ export const menu: MenuCategory[] = [
         descFr: "Dessert crémeux aux noisettes et au cacao.",
         descDe: "Cremiges Dessert mit Haselnüssen und Kakao.",
         descNl: "Romig dessert met hazelnoot en cacao.",
+        descCa: "Postre cremós d'avellana i cacau.",
       },
       {
         name: "Rafaello",
@@ -898,6 +990,7 @@ export const menu: MenuCategory[] = [
         descFr: "Dessert à la noix de coco et aux amandes.",
         descDe: "Kokos-Mandel-Dessert.",
         descNl: "Zoetigheid met kokos en amandel.",
+        descCa: "Dolç de coco i ametlla.",
       },
       {
         name: "Babà",
@@ -910,6 +1003,7 @@ export const menu: MenuCategory[] = [
         descFr: "Gâteau éponge napolitain imbibé de rhum.",
         descDe: "Mit Rum getränkter neapolitanischer Biskuitkuchen.",
         descNl: "Napolitaanse biscuit gedrenkt in rum.",
+        descCa: "Pa de pessic napolità remullat en rom.",
       },
       {
         name: "Pan di Stelle",
@@ -922,6 +1016,7 @@ export const menu: MenuCategory[] = [
         descFr: "Crème aux noisettes et biscuit au cacao.",
         descDe: "Haselnusscreme und Kakaokeks.",
         descNl: "Hazelnootcrème en cacaokoekje.",
+        descCa: "Crema d'avellana i galeta de cacau.",
       },
       {
         name: "Cheesecake ai Frutti di Bosco",
@@ -934,6 +1029,7 @@ export const menu: MenuCategory[] = [
         descFr: "Gâteau au fromage aux fruits des bois.",
         descDe: "Käsekuchen mit Waldbeeren.",
         descNl: "Cheesecake met bosvruchten.",
+        descCa: "Pastís de formatge amb fruits del bosc.",
       },
       {
         name: "Delizia al Limone",
@@ -946,6 +1042,7 @@ export const menu: MenuCategory[] = [
         descFr: "Un grand classique de la côte amalfitaine, accompagné d'une crème au citron.",
         descDe: "Der Klassiker der Amalfiküste mit Zitronencreme.",
         descNl: "De klassieker van de kust van Amalfi, met citroencrème.",
+        descCa: "El clàssic de la Costa Amalfitana, amb crema de llimona.",
       },
       {
         name: "Oreo",
@@ -958,6 +1055,7 @@ export const menu: MenuCategory[] = [
         descFr: "Dessert crémeux aux biscuits Oreo.",
         descDe: "Cremiges Oreo-Keks-Dessert.",
         descNl: "Romig Oreo-koekjesdessert.",
+        descCa: "Postre cremós de galeta Oreo.",
       },
       {
         name: "Tre Cioccolato",
@@ -966,6 +1064,7 @@ export const menu: MenuCategory[] = [
         nameFr: "Trois chocolats",
         nameDe: "Drei Schokoladensorten",
         nameNl: "Drie soorten chocolade",
+        nameCa: "Tres Xocolates",
         slug: "tre-cioccolato",
         diet: "veg",
         price: "6,90 €",
@@ -975,6 +1074,7 @@ export const menu: MenuCategory[] = [
         descFr: "Mousse aux trois chocolats.",
         descDe: "Mousse aus drei Schokoladensorten.",
         descNl: "Mousse met drie soorten chocolade.",
+        descCa: "Mousse de tres xocolates.",
       },
       {
         name: "Tortino Vesuvio con Ceresa",
@@ -987,6 +1087,7 @@ export const menu: MenuCategory[] = [
         descFr: "Gâteau chaud au cœur fondant et à la cerise.",
         descDe: "Warmer Kuchen mit flüssigem Kern und Kirsche.",
         descNl: "Warme cake met een vloeibare vulling en kersen.",
+        descCa: "Pastís calent amb cor fos i cirera.",
       },
       {
         name: "Tortino Essenza Napoletana (Pastiera)",
@@ -999,6 +1100,7 @@ export const menu: MenuCategory[] = [
         descFr: "La pastiera napolitaine, une tarte à la ricotta et à la farine de blé.",
         descDe: "Die neapolitanische Pastiera, eine Torte aus Ricotta und Weizenmehl.",
         descNl: "De Napolitaanse pastiera, een taart met ricotta en tarwe.",
+        descCa: "La pastiera napolitana, un pastís de ricotta i blat.",
       },
     ],
   },
@@ -1018,6 +1120,7 @@ export const featured: FeaturedDish[] = [
     descFr: "Tomate Marrazzo, « fior di latte » de Campanie et basilic.",
     descDe: "Marrazzo-Tomaten, „Fior di Latte“ aus Kampanien und Basilikum.",
     descNl: "Marrazzo-tomaat, fior di latte uit Campanië en basilicum.",
+    descCa: "Tomàquet Marrazzo, fior di latte campano i alfàbrega.",
   },
   {
     tag: "Pizza",
@@ -1030,6 +1133,7 @@ export const featured: FeaturedDish[] = [
     descFr: "Crème de truffe, jaune d'œuf et Grana Padano affiné 24 mois.",
     descDe: "Trüffelcreme, Eigelb und 24 Monate gereifter Grana Padano.",
     descNl: "Truffelcrème, eigeel en 24 maanden gerijpte Grana Padano.",
+    descCa: "Crema de tòfona, rovell d'ou i grana padano de 24 mesos.",
   },
   {
     tag: "Pasta",
@@ -1039,6 +1143,7 @@ export const featured: FeaturedDish[] = [
     nameFr: "Tagliatelles à la truffe fraîche",
     nameDe: "Tagliatelle mit frischem Trüffel",
     nameNl: "Tagliatelle met verse truffel",
+    nameCa: "Tagliatelle amb Tòfona Fresca",
     slug: "tagliatelle-trufa",
     price: "21,90 €",
     desc: "Pasta fresca con trufa negra recién rallada.",
@@ -1047,6 +1152,7 @@ export const featured: FeaturedDish[] = [
     descFr: "Pâtes fraîches à la truffe noire fraîchement râpée.",
     descDe: "Frische Pasta mit frisch geriebenem schwarzem Trüffel.",
     descNl: "Verse pasta met versgeraspte zwarte truffel.",
+    descCa: "Pasta fresca amb tòfona negra acabada de ratllar.",
   },
   {
     tag: "Pizza",
@@ -1059,6 +1165,7 @@ export const featured: FeaturedDish[] = [
     descFr: "Tomate Marrazzo, « fior di latte » de Campanie et spianata épicée.",
     descDe: "Marrazzo-Tomaten, „Fior di Latte“ aus Kampanien und würzige Spianata.",
     descNl: "Marrazzo-tomaat, fior di latte uit Campanië en pittige spianata.",
+    descCa: "Tomàquet Marrazzo, fior di latte campano i spianata picant.",
   },
   {
     tag: "Pasta",
@@ -1071,6 +1178,7 @@ export const featured: FeaturedDish[] = [
     descFr: "Crevettes, palourdes, moules, seiches et langoustines.",
     descDe: "Garnelen, Venusmuscheln, Miesmuscheln, Tintenfisch und Riesengarnelen.",
     descNl: "Garnalen, venusschelpen, mosselen, inktvis en reuzengarnalen.",
+    descCa: "Gambes, cloïsses, musclos, sípia i llagostí.",
   },
   {
     tag: "Secondi",
@@ -1080,6 +1188,7 @@ export const featured: FeaturedDish[] = [
     nameFr: "Filet de bœuf",
     nameDe: "Rinderfilet",
     nameNl: "Ossenhaas",
+    nameCa: "Filet de Vedella",
     slug: "solomillo-ternera",
     price: "25,90 €",
     desc: "Pimienta negra, trufa fresca y parmentier de patatas.",
@@ -1088,6 +1197,7 @@ export const featured: FeaturedDish[] = [
     descFr: "Poivre noir, truffe fraîche et parmentier de pommes de terre.",
     descDe: "Schwarzer Pfeffer, frischer Trüffel und Kartoffel-Parmentier.",
     descNl: "Zwarte peper, verse truffel en aardappelparmentier.",
+    descCa: "Pebre negre, tòfona fresca i parmentier de patata.",
   },
 ];
 

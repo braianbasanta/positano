@@ -26,6 +26,14 @@ const COPY: Record<
     link: "Más información",
     href: "/politica-de-cookies-ue",
   },
+  ca: {
+    text: "Utilitzem galetes per millorar la teva experiència i entendre què t'agrada. Accepta-les i ens ajudes a seguir millorant.",
+    accept: "Acceptar",
+    reject: "Rebutjar",
+    link: "Més informació",
+    // La política de cookies no existe en CA: la ES es más natural que la EN.
+    href: "/politica-de-cookies-ue",
+  },
   en: {
     text: "We use cookies to improve your experience and understand what you like. Accept them and help us keep getting better.",
     accept: "Accept",
@@ -171,7 +179,13 @@ export default function ConsentBanner({ lang = "es" }: { lang?: Locale }) {
       <div
         role="dialog"
         aria-live="polite"
-        aria-label={lang === "es" ? "Aviso de cookies" : "Cookie notice"}
+        aria-label={
+          lang === "es"
+            ? "Aviso de cookies"
+            : lang === "ca"
+              ? "Avís de galetes"
+              : "Cookie notice"
+        }
         className="fixed inset-x-0 bottom-0 z-[100] border-t-2 border-lemon/50 bg-ink px-6 py-6 text-cream shadow-[0_-12px_44px_rgba(0,0,0,0.55)] md:py-7"
       >
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-5 sm:flex-row sm:justify-between">

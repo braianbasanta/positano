@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
 
-export type Locale = "es" | "en" | "it" | "fr" | "de" | "nl";
+export type Locale = "es" | "ca" | "en" | "it" | "fr" | "de" | "nl";
 
-export const LOCALES: readonly Locale[] = ["es", "en", "it", "fr", "de", "nl"];
+export const LOCALES: readonly Locale[] = ["es", "ca", "en", "it", "fr", "de", "nl"];
 
 export const SITE_URL = "https://positanopizzeriabcn.com";
 
 /**
  * Tabla de páginas → slug por idioma. El español vive en la raíz (sin
- * prefijo) y el resto bajo /en/, /it/, /fr/, /de/, /nl/. Esta tabla alimenta
+ * prefijo) y el resto bajo /ca/, /en/, /it/, /fr/, /de/, /nl/. Esta tabla alimenta
  * los `hreflang`, el selector de idioma del header y el sitemap. Los slugs
  * están optimizados por keyword en cada idioma (patrón heredado de EN).
  *
- * IT/FR/DE/NL solo tienen el núcleo turista (home, carta, bebidas, reservas
- * y 2 landings); el resto de páginas cae al fallback EN en los enlaces.
+ * CA/IT/FR/DE/NL tienen el set completo salvo las páginas legales (solo
+ * ES/EN); lo que no existe en un idioma cae al fallback EN en los enlaces.
  */
 export const PAGES: Record<string, Partial<Record<Locale, string>>> = {
-  home: { es: "/", en: "/en", it: "/it", fr: "/fr", de: "/de", nl: "/nl" },
+  home: { es: "/", ca: "/ca", en: "/en", it: "/it", fr: "/fr", de: "/de", nl: "/nl" },
   menu: {
     es: "/menu",
+    ca: "/ca/carta",
     en: "/en/menu",
     it: "/it/menu",
     fr: "/fr/carte",
@@ -27,6 +28,7 @@ export const PAGES: Record<string, Partial<Record<Locale, string>>> = {
   },
   bebidas: {
     es: "/bebidas",
+    ca: "/ca/begudes",
     en: "/en/drinks",
     it: "/it/bevande",
     fr: "/fr/boissons",
@@ -35,6 +37,7 @@ export const PAGES: Record<string, Partial<Record<Locale, string>>> = {
   },
   reservas: {
     es: "/reservas",
+    ca: "/ca/reservar-taula",
     en: "/en/book-a-table",
     it: "/it/prenota-un-tavolo",
     fr: "/fr/reserver-une-table",
@@ -43,6 +46,7 @@ export const PAGES: Record<string, Partial<Record<Locale, string>>> = {
   },
   napolitana: {
     es: "/pizza-napolitana-barcelona",
+    ca: "/ca/pizza-napolitana-barcelona",
     en: "/en/neapolitan-pizza-barcelona",
     it: "/it/pizza-napoletana-barcellona",
     fr: "/fr/pizza-napolitaine-barcelone",
@@ -51,6 +55,7 @@ export const PAGES: Record<string, Partial<Record<Locale, string>>> = {
   },
   mejorPizzeria: {
     es: "/mejor-pizzeria-barcelona",
+    ca: "/ca/millor-pizzeria-barcelona",
     en: "/en/best-pizza-barcelona",
     it: "/it/migliore-pizza-barcellona",
     fr: "/fr/meilleure-pizza-barcelone",
@@ -59,6 +64,7 @@ export const PAGES: Record<string, Partial<Record<Locale, string>>> = {
   },
   eixample: {
     es: "/pizzeria-eixample",
+    ca: "/ca/pizzeria-eixample",
     en: "/en/italian-restaurant-eixample",
     it: "/it/ristorante-italiano-eixample",
     fr: "/fr/restaurant-italien-eixample",
@@ -67,6 +73,7 @@ export const PAGES: Record<string, Partial<Record<Locale, string>>> = {
   },
   italiano: {
     es: "/restaurante-italiano-barcelona",
+    ca: "/ca/restaurant-italia-barcelona",
     en: "/en/italian-restaurant-barcelona",
     it: "/it/ristorante-italiano-barcellona",
     fr: "/fr/restaurant-italien-barcelone",
@@ -75,6 +82,7 @@ export const PAGES: Record<string, Partial<Record<Locale, string>>> = {
   },
   menuDelDia: {
     es: "/menu-del-dia",
+    ca: "/ca/menu-del-dia",
     en: "/en/lunch-menu-barcelona",
     it: "/it/menu-pranzo-barcellona",
     fr: "/fr/menu-dejeuner-barcelone",
@@ -83,6 +91,7 @@ export const PAGES: Record<string, Partial<Record<Locale, string>>> = {
   },
   domicilio: {
     es: "/pizza-domicilio",
+    ca: "/ca/pizza-a-domicili",
     en: "/en/pizza-delivery-barcelona",
     it: "/it/pizza-a-domicilio-barcellona",
     fr: "/fr/livraison-pizza-barcelone",
@@ -91,6 +100,7 @@ export const PAGES: Record<string, Partial<Record<Locale, string>>> = {
   },
   empleo: {
     es: "/trabaja-con-nosotros",
+    ca: "/ca/treballa-amb-nosaltres",
     en: "/en/careers",
     it: "/it/lavora-con-noi",
     fr: "/fr/recrutement",
@@ -140,7 +150,8 @@ export function localizedHref(pathname: string, target: Locale): string {
 }
 
 /** Sufijo de campo por idioma en los data files (name → nameEn/nameIt/...). */
-const FIELD_SUFFIX: Record<Exclude<Locale, "es">, "En" | "It" | "Fr" | "De" | "Nl"> = {
+const FIELD_SUFFIX: Record<Exclude<Locale, "es">, "En" | "It" | "Fr" | "De" | "Nl" | "Ca"> = {
+  ca: "Ca",
   en: "En",
   it: "It",
   fr: "Fr",
@@ -166,6 +177,7 @@ export function pickLang<T extends object>(
 /** Código hreflang de cada idioma. Solo ES lleva región (audiencia local). */
 export const HREFLANG: Record<Locale, string> = {
   es: "es-ES",
+  ca: "ca",
   en: "en",
   it: "it",
   fr: "fr",
@@ -224,6 +236,7 @@ export function alternatesForEn(enPath: string): Metadata["alternates"] {
 /** Locale de Open Graph por idioma. */
 const OG_LOCALE: Record<Locale, string> = {
   es: "es_ES",
+  ca: "ca_ES",
   en: "en_GB",
   it: "it_IT",
   fr: "fr_FR",
@@ -239,7 +252,8 @@ const OG_LOCALE: Record<Locale, string> = {
  * og:image file-based del segmento padre, así que referenciamos aquí las
  * copias estáticas en /public/og/ (exportadas de opengraph-image.tsx; si se
  * cambia ese diseño, regenerarlas: curl de /opengraph-image-* → public/og/).
- * Solo hay og:image ES/EN; los demás idiomas comparten la EN.
+ * Solo hay og:image ES/EN; CA (audiencia local) comparte la ES y los demás
+ * idiomas la EN.
  * Uso: `...socialFor({ title, description, path, locale })` en `metadata`.
  */
 export function socialFor(opts: {
@@ -250,7 +264,7 @@ export function socialFor(opts: {
 }): Pick<Metadata, "openGraph" | "twitter"> {
   const { title, description, path, locale = "es" } = opts;
   const url = `${SITE_URL}${path === "/" ? "" : path}`;
-  const ogImageLocale = locale === "es" ? "es" : "en";
+  const ogImageLocale = locale === "es" || locale === "ca" ? "es" : "en";
   return {
     openGraph: {
       type: "website",

@@ -38,6 +38,36 @@ const COLUMNS: Record<Locale, Column[]> = {
       ],
     },
   ],
+  ca: [
+    {
+      title: "Navegació",
+      links: [
+        { label: "La casa", href: "/ca#la-casa" },
+        { label: "La Carta", href: "/ca/carta" },
+        { label: "Begudes", href: "/ca/begudes" },
+        { label: "Pizza napolitana a Barcelona", href: "/ca/pizza-napolitana-barcelona" },
+        { label: "La millor pizzeria de Barcelona", href: "/ca/millor-pizzeria-barcelona" },
+        { label: "Menú del dia", href: "/ca/menu-del-dia" },
+        { label: "Pizzeria a l'Eixample", href: "/ca/pizzeria-eixample" },
+        { label: "Restaurant italià a Barcelona", href: "/ca/restaurant-italia-barcelona" },
+        { label: "Pizza a domicili", href: "/ca/pizza-a-domicili" },
+        { label: "Visita'ns", href: "/ca#visitanos" },
+        { label: "Treballa amb nosaltres", href: "/ca/treballa-amb-nosaltres" },
+      ],
+    },
+    {
+      title: "Contacte",
+      links: [
+        { label: "Carrer del Rosselló, 24", href: "/ca#visitanos" },
+        { label: "08029 · Barcelona", href: "/ca#visitanos" },
+        { label: "+34 933 515 913", href: "tel:+34933515913" },
+        {
+          label: "positanopizzeria2023@gmail.com",
+          href: "mailto:positanopizzeria2023@gmail.com",
+        },
+      ],
+    },
+  ],
   en: [
     {
       title: "Navigation",
@@ -192,6 +222,7 @@ const COLUMNS: Record<Locale, Column[]> = {
 
 const TAGLINE: Record<Locale, string> = {
   es: "El sabor de Nápoles, en el corazón de Barcelona.",
+  ca: "El sabor de Nàpols, al cor de Barcelona.",
   en: "A taste of Naples, in the heart of Barcelona.",
   it: "Il sapore di Napoli, nel cuore di Barcellona.",
   fr: "Le goût de Naples, au cœur de Barcelone.",
@@ -203,6 +234,12 @@ const LEGAL: Record<Locale, { label: string; href: string }[]> = {
   es: [
     { label: "Aviso legal", href: "/aviso-legal" },
     { label: "Privacidad", href: "/politica-de-privacidad" },
+    { label: "Cookies", href: "/politica-de-cookies-ue" },
+  ],
+  // Las legales no existen en CA: para audiencia local, las ES antes que las EN.
+  ca: [
+    { label: "Avís legal", href: "/aviso-legal" },
+    { label: "Privacitat", href: "/politica-de-privacidad" },
     { label: "Cookies", href: "/politica-de-cookies-ue" },
   ],
   en: [

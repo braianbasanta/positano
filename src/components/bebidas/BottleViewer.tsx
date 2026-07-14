@@ -33,6 +33,7 @@ export default function BottleViewer({
 }: BottleViewerProps) {
   const LABELS: Record<Locale, { close: string; prev: string; next: string; photo: string }> = {
     es: { close: "Cerrar", prev: "Anterior", next: "Siguiente", photo: "Foto de la botella" },
+    ca: { close: "Tancar", prev: "Anterior", next: "Següent", photo: "Foto de l'ampolla" },
     en: { close: "Close", prev: "Previous", next: "Next", photo: "Bottle photo" },
     it: { close: "Chiudi", prev: "Precedente", next: "Avanti", photo: "Foto della bottiglia" },
     fr: { close: "Fermer", prev: "Précédent", next: "Suivant", photo: "Photo de la bouteille" },

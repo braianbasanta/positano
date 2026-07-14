@@ -54,6 +54,37 @@ const COPY = {
       { title: "Contacto", lines: CONTACT_LINES },
     ] as InfoBlock[],
   },
+  ca: {
+    eyebrow: "Visita'ns",
+    heading: "T'esperem a l'Eixample de Barcelona",
+    intro:
+      "Reserva la teva taula o passa a prendre alguna cosa a la barra. La casa sempre té un lloc per a tu.",
+    mapHl: "ca",
+    mapTitle: "Ubicació de Positano Pizzería a Barcelona",
+    reservar: "Reservar taula",
+    reservasHref: "/ca/reservar-taula",
+    llamar: "Truca'ns",
+    info: [
+      {
+        title: "On som",
+        lines: [
+          { text: "Carrer del Rosselló, 24", href: PLACE_URL },
+          { text: "08029 · Barcelona", href: PLACE_URL },
+        ],
+      },
+      {
+        title: "Horari",
+        schedule: [
+          { day: "Dt – Dj", hours: "13:00 – 16:00 · 20:00 – 23:30" },
+          { day: "Divendres", hours: "13:00 – 16:00 · 20:00 – 00:00" },
+          { day: "Dissabte", hours: "13:00 – 00:00" },
+          { day: "Diumenge", hours: "13:00 – 23:30" },
+          { day: "Dilluns", hours: "Tancat" },
+        ],
+      },
+      { title: "Contacte", lines: CONTACT_LINES },
+    ] as InfoBlock[],
+  },
   en: {
     eyebrow: "Visit us",
     heading: "We're waiting for you in the Eixample, Barcelona",

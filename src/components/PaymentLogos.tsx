@@ -10,6 +10,7 @@ const LOGOS: { src: string; alt: string; width: number; height: number }[] = [
 
 const COPY = {
   es: { aria: "Métodos de pago aceptados" },
+  ca: { aria: "Mètodes de pagament acceptats" },
   en: { aria: "Accepted payment methods" },
   it: { aria: "Metodi di pagamento accettati" },
   fr: { aria: "Modes de paiement acceptés" },

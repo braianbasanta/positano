@@ -18,6 +18,18 @@ const COPY = {
     igLabel: "El menú de cada día, en Instagram",
     landingHref: "/menu-del-dia",
   },
+  ca: {
+    eyebrow: "Menú del dia",
+    heading: "De dimarts a divendres, mengem com a casa",
+    intro:
+      "Primer, segon, pa, beguda i postres. Un menú complet que renovem cada setmana amb producte fresc de mercat.",
+    label: "Menú de migdia",
+    incluido: "Beguda i postres inclosos",
+    note: "Publiquem el menú del dia a les nostres stories d'Instagram. Fes-hi un cop d'ull abans de venir i descobreix què es cuina al migdia.",
+    cta: "Veure el menú del dia",
+    igLabel: "El menú de cada dia, a Instagram",
+    landingHref: "/ca/menu-del-dia",
+  },
   en: {
     eyebrow: "Menu of the day",
     heading: "Tuesday to Friday, we eat like at home",

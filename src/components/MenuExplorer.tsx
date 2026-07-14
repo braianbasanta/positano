@@ -16,6 +16,13 @@ const COPY = {
     vegan: "Vegano",
     empty: "No hay platos para este filtro.",
   },
+  ca: {
+    label: "Filtrar la carta",
+    all: "Tot",
+    veg: "Vegetarià",
+    vegan: "Vegà",
+    empty: "No hi ha plats per a aquest filtre.",
+  },
   en: {
     label: "Filter the menu",
     all: "All",
