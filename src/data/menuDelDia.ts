@@ -42,7 +42,7 @@ export const menuDelDia: MenuDelDiaData = {
     { name: "Rigatoni con pesto de brócoli" },
   ],
   segundos: [
-    { name: "Risotto con crema de cigala y tomate amarillo", surcharge: "+3 €" },
+    { name: "Risotto con crema cigala y tomate amarillo", surcharge: "+3 €" },
     { name: "Milanesa de ternera con patatas fritas" },
     { name: "Solomillo de cerdo con puré de patatas" },
     { name: "Muslo de pollo con patatas al horno" },
