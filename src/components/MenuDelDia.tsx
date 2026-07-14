@@ -14,8 +14,8 @@ const COPY = {
     label: "Menú almuerzo",
     incluido: "Bebida y postre incluidos",
     note: "Publicamos el menú del día en nuestras stories de Instagram. Échale un vistazo antes de venir y descubre qué se cocina al mediodía.",
-    cta: "Ver menú del día en Instagram",
-    landingLabel: "Más sobre el menú del día",
+    cta: "Ver el menú del día",
+    igLabel: "El menú de cada día, en Instagram",
     landingHref: "/menu-del-dia",
   },
   en: {
@@ -26,8 +26,8 @@ const COPY = {
     label: "Menu of the day",
     incluido: "Drink and dessert included",
     note: "We post each day's menu on our Instagram stories. Take a look before you come and see what's cooking at midday.",
-    cta: "See the menu of the day on Instagram",
-    landingLabel: "More about the menu of the day",
+    cta: "See the menu of the day",
+    igLabel: "Each day's menu on Instagram",
     landingHref: "/en/lunch-menu-barcelona",
   },
   it: {
@@ -38,8 +38,8 @@ const COPY = {
     label: "Menu del giorno",
     incluido: "Bevanda e dessert inclusi",
     note: "Pubblichiamo il menu del giorno sulle nostre storie di Instagram. Dai un'occhiata prima di venire, così scopri cosa c'è in menu a pranzo.",
-    cta: "Dai un'occhiata al menu del giorno su Instagram",
-    landingLabel: "Maggiori informazioni sul menu del giorno",
+    cta: "Vedi il menu del giorno",
+    igLabel: "Il menu di ogni giorno su Instagram",
     landingHref: "/it/menu-pranzo-barcellona",
   },
   fr: {
@@ -50,8 +50,8 @@ const COPY = {
     label: "Menu du jour",
     incluido: "Boisson et dessert compris",
     note: "Nous publions le menu du jour sur nos stories Instagram. Jetez-y un œil avant de venir pour découvrir ce que nous vous proposons à midi.",
-    cta: "Découvrez le menu du jour sur Instagram",
-    landingLabel: "En savoir plus sur le menu du jour",
+    cta: "Voir le menu du jour",
+    igLabel: "Le menu de chaque jour sur Instagram",
     landingHref: "/fr/menu-dejeuner-barcelone",
   },
   de: {
@@ -62,8 +62,8 @@ const COPY = {
     label: "Tagesmenü",
     incluido: "Getränk und Dessert inklusive",
     note: "Wir veröffentlichen das Tagesmenü in unseren Instagram-Stories. Schauen Sie doch vor Ihrem Besuch dort vorbei und sehen Sie sich an, was mittags auf dem Speiseplan steht.",
-    cta: "Das Tagesmenü finden Sie auf Instagram",
-    landingLabel: "Weitere Informationen zum Tagesmenü",
+    cta: "Zum Tagesmenü",
+    igLabel: "Das Menü von jedem Tag auf Instagram",
     landingHref: "/de/mittagsmenue-barcelona",
   },
   nl: {
@@ -74,8 +74,8 @@ const COPY = {
     label: "Dagmenu",
     incluido: "Drankje en toetje inbegrepen",
     note: "We zetten het menu van elke dag op onze Instagram Stories. Neem even een kijkje voordat je langskomt, zodat je weet wat er ’s middags op het menu staat.",
-    cta: "Bekijk het dagmenu op Instagram",
-    landingLabel: "Meer over het dagmenu",
+    cta: "Bekijk het dagmenu",
+    igLabel: "Het menu van elke dag op Instagram",
     landingHref: "/nl/lunchmenu-barcelona",
   },
 } satisfies Record<Locale, Record<string, string>>;
@@ -130,9 +130,7 @@ export default function MenuDelDia({ lang = "es" }: { lang?: Locale }) {
           </p>
 
           <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={t.landingHref}
             className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream shadow-[0_10px_28px_rgba(29,39,80,0.25)] transition-all duration-300 hover:bg-lemon hover:text-ink"
           >
             {t.cta}
@@ -142,10 +140,12 @@ export default function MenuDelDia({ lang = "es" }: { lang?: Locale }) {
           </a>
 
           <a
-            href={t.landingHref}
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 text-[0.84rem] uppercase tracking-[0.22em] text-lemon transition-colors hover:text-ink"
           >
-            {t.landingLabel}
+            {t.igLabel}
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
