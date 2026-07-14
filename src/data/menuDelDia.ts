@@ -3,7 +3,7 @@
 //  Para cambiarlo: edita solo este archivo. Mantén la estructura.
 //  - "+3 €" en surcharge = suplemento sobre el precio del menú.
 //  - Vacío surcharge = incluido en el menú.
-//  Última actualización: semana del 7 al 11 de julio de 2026.
+//  Última actualización: semana del 15 al 18 de julio de 2026.
 // ─────────────────────────────────────────────────────────────────────────
 
 export type MenuDelDiaItem = {
@@ -30,29 +30,29 @@ export type MenuDelDiaData = {
 };
 
 export const menuDelDia: MenuDelDiaData = {
-  semana: "Semana del 7 al 11 de julio",
+  semana: "Semana del 15 al 18 de julio",
   precio: "14,90 €",
   suplementoTerraza: "10%",
   primeros: [
-    { name: "Ensalada mixta con atún, olivas negras, tomate cherry y orégano" },
+    { name: "Ensalada mixta con queso feta, olivas negras, tomate cherry y orégano" },
     { name: "Burrata pugliese con tomate cherry y rúcula", surcharge: "+3 €" },
-    { name: "Gazpacho andaluz casero" },
+    { name: "Sopa de melón y menta" },
     { name: "Albóndigas de ternera con parmesano y tomate" },
-    { name: "Bruschetta con provola y friarelli" },
-    { name: "Pasta fría" },
+    { name: "Hummus de garbanzo casero" },
+    { name: "Rigatoni con pesto de brócoli" },
   ],
   segundos: [
-    { name: "Risotto ai funghi", surcharge: "+3 €" },
-    { name: "Milanesa de pollo con patatas fritas" },
+    { name: "Risotto con crema de cigala y tomate amarillo", surcharge: "+3 €" },
+    { name: "Milanesa de ternera con patatas fritas" },
     { name: "Solomillo de cerdo con puré de patatas" },
-    { name: "Hamburguesa de ternera con queso provolone y cebolla roja" },
-    { name: "Dorada al horno con espárragos" },
+    { name: "Muslo de pollo con patatas al horno" },
+    { name: "Tacos de atún con espárragos" },
     {
       name: "Pizza a elegir (Margherita, Diavola, Jamón y champiñón, Calzone al forno, Ortolana)",
     },
   ],
   postres: [
-    { name: "Cheesecake de frutos rojos" },
+    { name: "Panna cotta" },
     { name: "Macedonia de fruta" },
     { name: "Yogur con miel y nueces" },
     { name: "Helado" },
