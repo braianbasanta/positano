@@ -1,7 +1,7 @@
 // Funciones puras de agregación (sin imports de datos) para que sirvan igual en
 // el server y en el cliente: el dashboard filtra por rango de meses y recalcula
 // todo en el navegador a partir de los arrays crudos (DISH 686 + TheFork 92).
-import type { DishReserva, ForkMonthRow, MonthStats } from "./types";
+import type { DishMonthRow, DishReserva, ForkMonthRow, MonthStats } from "./types";
 
 const MESES_ABR = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
 const MESES_LARGO = [
@@ -28,11 +28,12 @@ export function weekdayOf(date: string): number {
   return new Date(y, m - 1, d).getDay();
 }
 
-// Lista de meses "YYYY-MM" presentes en cualquiera de las dos fuentes, ordenada.
-export function allMonths(dish: DishReserva[], fork: ForkMonthRow[]): string[] {
+// Lista de meses "YYYY-MM" presentes en cualquiera de las fuentes, ordenada.
+export function allMonths(dish: DishReserva[], fork: ForkMonthRow[], dishMeses: DishMonthRow[] = []): string[] {
   const set = new Set<string>();
   for (const r of dish) set.add(monthOf(r.date));
   for (const r of fork) set.add(r.period);
+  for (const r of dishMeses) set.add(r.period);
   return [...set].sort();
 }
 
@@ -47,16 +48,24 @@ export function filterFork(fork: ForkMonthRow[], from: string, to: string): Fork
   return fork.filter((r) => inRange(r.period, from, to));
 }
 
-export function monthStats(period: string, dish: DishReserva[], fork: ForkMonthRow[]): MonthStats {
+export function monthStats(
+  period: string,
+  dish: DishReserva[],
+  fork: ForkMonthRow[],
+  dishMeses: DishMonthRow[] = [],
+): MonthStats {
   const d = dish.filter((r) => monthOf(r.date) === period);
   const f = fork.filter((r) => r.period === period);
   const sum = (k: keyof ForkMonthRow) => f.reduce((a, r) => a + (r[k] as number), 0);
   const cancel = sum("cancellations") + sum("lateCancellations");
   const bookings = sum("bookings");
+  // Visitantes: manda el dato oficial del panel de DISH; si un mes no está en
+  // la matriz, se cae al sumatorio de guests del export del widget.
+  const oficial = dishMeses.find((r) => r.period === period)?.visitors;
   return {
     period,
     dishReservas: d.length,
-    dishComensales: d.reduce((a, r) => a + r.guests, 0),
+    dishComensales: oficial ?? d.reduce((a, r) => a + r.guests, 0),
     forkCovers: sum("covers"),
     forkBookings: bookings,
     forkCena: f.filter((r) => r.service === "Cena").reduce((a, r) => a + r.covers, 0),
@@ -68,10 +77,16 @@ export function monthStats(period: string, dish: DishReserva[], fork: ForkMonthR
   };
 }
 
-export function monthSeries(dish: DishReserva[], fork: ForkMonthRow[], from: string, to: string): MonthStats[] {
-  return allMonths(dish, fork)
+export function monthSeries(
+  dish: DishReserva[],
+  fork: ForkMonthRow[],
+  from: string,
+  to: string,
+  dishMeses: DishMonthRow[] = [],
+): MonthStats[] {
+  return allMonths(dish, fork, dishMeses)
     .filter((p) => inRange(p, from, to))
-    .map((p) => monthStats(p, dish, fork));
+    .map((p) => monthStats(p, dish, fork, dishMeses));
 }
 
 export interface Totals {
@@ -87,7 +102,6 @@ export interface Totals {
   forkSolicitadas: number;
   pctDescuento: number;
   tasaCancelacion: number;
-  mediaDishComensales: number;
 }
 
 export function totalsFrom(stats: MonthStats[]): Totals {
@@ -113,7 +127,6 @@ export function totalsFrom(stats: MonthStats[]): Totals {
     ...acc,
     pctDescuento: acc.forkCovers ? (acc.forkConDescuento / acc.forkCovers) * 100 : 0,
     tasaCancelacion: acc.forkSolicitadas ? ((acc.forkCancelaciones + acc.forkNoShows) / acc.forkSolicitadas) * 100 : 0,
-    mediaDishComensales: acc.dishReservas ? acc.dishComensales / acc.dishReservas : 0,
   };
 }
 
@@ -159,24 +172,23 @@ export function dishByPartySize(dish: DishReserva[]): { size: number; reservas: 
   return [...map.entries()].map(([size, reservas]) => ({ size, reservas })).sort((a, b) => a.size - b.size);
 }
 
-// Comparativa interanual: comensales DISH por mes del año, una serie por año.
-// Devuelve filas {monthIndex, label, "2024", "2025", ...} para un line chart.
+// Comparativa interanual: visitantes DISH (panel oficial) por mes del año, una
+// serie por año. Filas {monthIndex, label, "2023", "2024", ...} para un line chart.
 export interface YoYRow {
   monthIndex: number;
   label: string;
   [year: string]: number | string;
 }
-export function dishYoY(dish: DishReserva[]): { rows: YoYRow[]; years: string[] } {
-  const years = [...new Set(dish.map((r) => r.date.slice(0, 4)))].sort();
+export function dishYoY(dishMeses: DishMonthRow[]): { rows: YoYRow[]; years: string[] } {
+  const years = [...new Set(dishMeses.map((r) => r.period.slice(0, 4)))].sort();
   const rows: YoYRow[] = Array.from({ length: 12 }, (_, i) => {
     const row: YoYRow = { monthIndex: i, label: MESES_ABR[i] };
-    for (const y of years) row[y] = 0;
     return row;
   });
-  for (const r of dish) {
-    const y = r.date.slice(0, 4);
-    const mi = Number(r.date.slice(5, 7)) - 1;
-    rows[mi][y] = (rows[mi][y] as number) + r.guests;
+  for (const r of dishMeses) {
+    const y = r.period.slice(0, 4);
+    const mi = Number(r.period.slice(5, 7)) - 1;
+    rows[mi][y] = ((rows[mi][y] as number) ?? 0) + r.visitors;
   }
   return { rows, years };
 }

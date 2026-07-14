@@ -33,7 +33,7 @@ import {
   movingAvg,
   totalsFrom,
 } from "@/lib/reservas/compute";
-import type { DishReserva, ForkMonthRow } from "@/lib/reservas/types";
+import type { DishMonthRow, DishReserva, ForkMonthRow } from "@/lib/reservas/types";
 
 const INK = "#1d2750";
 const LEMON = "#c49b5a";
@@ -74,8 +74,16 @@ function Card({ title, hint, children }: { title: string; hint?: string; childre
   );
 }
 
-export default function ReservasDashboard({ dish, fork }: { dish: DishReserva[]; fork: ForkMonthRow[] }) {
-  const months = useMemo(() => allMonths(dish, fork), [dish, fork]);
+export default function ReservasDashboard({
+  dish,
+  dishMeses,
+  fork,
+}: {
+  dish: DishReserva[];
+  dishMeses: DishMonthRow[];
+  fork: ForkMonthRow[];
+}) {
+  const months = useMemo(() => allMonths(dish, fork, dishMeses), [dish, fork, dishMeses]);
   const first = months[0];
   const last = months[months.length - 1];
 
@@ -86,7 +94,7 @@ export default function ReservasDashboard({ dish, fork }: { dish: DishReserva[];
   // Datos filtrados al rango elegido.
   const fDish = useMemo(() => filterDish(dish, from, to), [dish, from, to]);
   const fFork = useMemo(() => filterFork(fork, from, to), [fork, from, to]);
-  const serie = useMemo(() => monthSeries(dish, fork, from, to), [dish, fork, from, to]);
+  const serie = useMemo(() => monthSeries(dish, fork, from, to, dishMeses), [dish, fork, from, to, dishMeses]);
   const totals = useMemo(() => totalsFrom(serie), [serie]);
 
   // Serie mensual con línea de tendencia (media móvil 3 meses de cubiertos online).
@@ -112,7 +120,7 @@ export default function ReservasDashboard({ dish, fork }: { dish: DishReserva[];
   const byWeekday = useMemo(() => dishByWeekday(fDish), [fDish]);
   const byHour = useMemo(() => dishByHour(fDish), [fDish]);
   const byPartySize = useMemo(() => dishByPartySize(fDish), [fDish]);
-  const yoy = useMemo(() => dishYoY(dish), [dish]); // YoY siempre con todo el histórico
+  const yoy = useMemo(() => dishYoY(dishMeses), [dishMeses]); // YoY siempre con todo el histórico
   const ultimasDish = useMemo(
     () => [...fDish].sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time)).slice(0, 200),
     [fDish],
@@ -241,9 +249,9 @@ export default function ReservasDashboard({ dish, fork }: { dish: DishReserva[];
           accent={LEMON}
         />
         <Kpi
-          label="Reservas DISH (web)"
-          value={n0(totals.dishReservas)}
-          sub={`${n0(totals.dishComensales)} comensales · ${totals.mediaDishComensales.toFixed(1)}/reserva`}
+          label="Visitantes DISH (web)"
+          value={n0(totals.dishComensales)}
+          sub="Dato oficial del panel de DISH"
         />
         <Kpi
           label="Cubiertos con descuento"
@@ -263,7 +271,7 @@ export default function ReservasDashboard({ dish, fork }: { dish: DishReserva[];
         <div className="mt-6 grid gap-5">
           <Card
             title="Cubiertos online por mes"
-            hint="Barras = cena/comida de TheFork + comensales de la web. Línea = tendencia (media de 3 meses). 2024 solo tiene DISH."
+            hint="Barras = cena/comida de TheFork + visitantes de DISH (dato oficial de su panel). Línea = tendencia (media de 3 meses). Antes de abr-2025 solo hay DISH."
           >
             <ResponsiveContainer width="100%" height={320}>
               <ComposedChart data={serieChart} margin={{ top: 8, right: 8, left: -16, bottom: 40 }}>
@@ -282,7 +290,7 @@ export default function ReservasDashboard({ dish, fork }: { dish: DishReserva[];
 
           <Card
             title="Comparativa año contra año (mejora)"
-            hint="Comensales de la web (DISH) por mes, una línea por año. Si la línea de un año va por encima de la del anterior, ese mes ha mejorado."
+            hint="Visitantes de DISH por mes (dato oficial de su panel, desde abr-2023), una línea por año. Si la línea de un año va por encima de la del anterior, ese mes ha mejorado. El mes en curso está incompleto."
           >
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={yoy.rows} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
@@ -484,7 +492,7 @@ function Glosario() {
   const items: { term: string; desc: string }[] = [
     {
       term: "DISH (web)",
-      desc: "Reservas que entran por el botón de reservar de nuestra propia web. Son clientes que ya nos buscaban.",
+      desc: "Reservas que entran por el botón de reservar de nuestra propia web. Son clientes que ya nos buscaban. Las cifras mensuales son los visitantes que reporta el propio panel de DISH.",
     },
     {
       term: "TheFork Network",

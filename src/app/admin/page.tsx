@@ -18,19 +18,9 @@ const SECTIONS = [
     desc: "Cubiertos y reservas de DISH (web) y TheFork: evolución, canales, descuentos y cancelaciones.",
   },
   {
-    href: "/admin/clics",
-    title: "Clics de anuncios",
-    desc: "Conteo server-side de los redirects /go/* (Google Ads ES vs EN): fiable aunque rechacen cookies.",
-  },
-  {
     href: "/admin/plan",
     title: "Plan de facturación",
     desc: "Objetivos de media diaria, techo de cada día y hoja de ruta a corto, medio y largo plazo.",
-  },
-  {
-    href: "/admin/reviews",
-    title: "Reseñas",
-    desc: "Borradores asistidos de respuestas a reseñas de Google.",
   },
 ];
 

@@ -14,6 +14,14 @@ export interface DishReserva {
   notes: string | null;
 }
 
+// Visitantes MENSUALES según el panel oficial de DISH (Informes → Resumen →
+// Visitantes). Es la cifra buena para totales: más histórico (abr-2023) y no
+// depende del export del widget. El último mes suele estar parcial.
+export interface DishMonthRow {
+  period: string; // "YYYY-MM"
+  visitors: number;
+}
+
 export type ForkService = "Cena" | "Comida";
 
 export interface ForkMonthRow {
