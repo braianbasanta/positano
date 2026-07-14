@@ -30,6 +30,54 @@ const COPY = {
     landingLabel: "More about the menu of the day",
     landingHref: "/en/lunch-menu-barcelona",
   },
+  it: {
+    eyebrow: "Menu del giorno",
+    heading: "Da martedì a venerdì mangiamo come a casa",
+    intro:
+      "Antipasto, piatto principale, pane, una bevanda e dessert. Un menu del giorno completo che aggiorniamo ogni settimana con prodotti freschi del mercato.",
+    label: "Menu del giorno",
+    incluido: "Bevanda e dessert inclusi",
+    note: "Pubblichiamo il menu del giorno sulle nostre storie di Instagram. Dai un'occhiata prima di venire, così scopri cosa c'è in menu a pranzo.",
+    cta: "Dai un'occhiata al menu del giorno su Instagram",
+    landingLabel: "Maggiori informazioni sul menu del giorno",
+    landingHref: "/it/menu-pranzo-barcellona",
+  },
+  fr: {
+    eyebrow: "Menu du jour",
+    heading: "Du mardi au vendredi, nous mangeons comme à la maison",
+    intro:
+      "Une entrée, un plat principal, du pain, une boisson et un dessert. Un menu du jour complet que nous renouvelons chaque semaine avec des produits frais du marché.",
+    label: "Menu du jour",
+    incluido: "Boisson et dessert compris",
+    note: "Nous publions le menu du jour sur nos stories Instagram. Jetez-y un œil avant de venir pour découvrir ce que nous vous proposons à midi.",
+    cta: "Découvrez le menu du jour sur Instagram",
+    landingLabel: "En savoir plus sur le menu du jour",
+    landingHref: "/fr/menu-dejeuner-barcelone",
+  },
+  de: {
+    eyebrow: "Tagesmenü",
+    heading: "Von Dienstag bis Freitag essen wir wie zu Hause",
+    intro:
+      "Vorspeise, Hauptgericht, Brot, ein Getränk und Dessert. Ein komplettes Tagesmenü, das wir jede Woche mit frischen Produkten vom Markt neu zusammenstellen.",
+    label: "Tagesmenü",
+    incluido: "Getränk und Dessert inklusive",
+    note: "Wir veröffentlichen das Tagesmenü in unseren Instagram-Stories. Schauen Sie doch vor Ihrem Besuch dort vorbei und sehen Sie sich an, was mittags auf dem Speiseplan steht.",
+    cta: "Das Tagesmenü finden Sie auf Instagram",
+    landingLabel: "Weitere Informationen zum Tagesmenü",
+    landingHref: "/de/mittagsmenue-barcelona",
+  },
+  nl: {
+    eyebrow: "Dagmenu",
+    heading: "Van dinsdag tot en met vrijdag eten we net als thuis",
+    intro:
+      "Voorgerecht, hoofdgerecht, brood, een drankje en een toetje. Een compleet dagmenu dat we elke week vernieuwen met verse producten van de markt.",
+    label: "Dagmenu",
+    incluido: "Drankje en toetje inbegrepen",
+    note: "We zetten het menu van elke dag op onze Instagram Stories. Neem even een kijkje voordat je langskomt, zodat je weet wat er ’s middags op het menu staat.",
+    cta: "Bekijk het dagmenu op Instagram",
+    landingLabel: "Meer over het dagmenu",
+    landingHref: "/nl/lunchmenu-barcelona",
+  },
 } satisfies Record<Locale, Record<string, string>>;
 
 export default function MenuDelDia({ lang = "es" }: { lang?: Locale }) {

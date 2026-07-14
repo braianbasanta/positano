@@ -31,13 +31,15 @@ export default function BottleViewer({
   onClose,
   lang = "es",
 }: BottleViewerProps) {
-  const en = lang === "en";
-  const t = {
-    close: en ? "Close" : "Cerrar",
-    prev: en ? "Previous" : "Anterior",
-    next: en ? "Next" : "Siguiente",
-    photo: en ? "Bottle photo" : "Foto de la botella",
+  const LABELS: Record<Locale, { close: string; prev: string; next: string; photo: string }> = {
+    es: { close: "Cerrar", prev: "Anterior", next: "Siguiente", photo: "Foto de la botella" },
+    en: { close: "Close", prev: "Previous", next: "Next", photo: "Bottle photo" },
+    it: { close: "Chiudi", prev: "Precedente", next: "Avanti", photo: "Foto della bottiglia" },
+    fr: { close: "Fermer", prev: "Précédent", next: "Suivant", photo: "Photo de la bouteille" },
+    de: { close: "Schließen", prev: "Zurück", next: "Weiter", photo: "Foto der Flasche" },
+    nl: { close: "Sluiten", prev: "Vorige", next: "Volgende", photo: "Foto van de fles" },
   };
+  const t = LABELS[lang];
   const n = bottles.length;
   const [index, setIndex] = useState(() =>
     Math.min(Math.max(startIndex, 0), Math.max(n - 1, 0)),

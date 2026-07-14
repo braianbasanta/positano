@@ -24,6 +24,42 @@ const COPY = {
     cta: "View the full menu",
     cartaHref: "/en/menu",
   },
+  it: {
+    eyebrow: "Menu nel video",
+    heading: "Ogni piatto, in movimento",
+    intro:
+      "Guardalo prima di scegliere. Ecco come ogni piatto esce dalla nostra cucina: ripreso esattamente nel momento in cui arriva sulla tua tavola.",
+    note: "E oltre 45 piatti: antipasti, pasta fresca, risotti, carne, pesce e 18 pizze napoletane.",
+    cta: "Guarda il menu completo",
+    cartaHref: "/it/menu",
+  },
+  fr: {
+    eyebrow: "Menu dans la vidéo",
+    heading: "Chaque plat, en mouvement",
+    intro:
+      "Découvrez-le avant de faire votre choix. Voici comment chaque plat quitte notre cuisine — filmé exactement au moment où il arrive sur votre table.",
+    note: "Et plus de 45 plats : antipasti, pâtes fraîches, risottos, viandes, poissons et 18 pizzas napolitaines.",
+    cta: "Consultez le menu complet",
+    cartaHref: "/fr/carte",
+  },
+  de: {
+    eyebrow: "Menü im Video",
+    heading: "Jedes Gericht – in Bewegung",
+    intro:
+      "Sehen Sie es sich an, bevor Sie sich entscheiden. So verlässt jedes Gericht unsere Küche – genau so gefilmt, wie es auf Ihren Tisch kommt.",
+    note: "Und über 45 Gerichte: Antipasti, frische Pasta, Risotti, Fleisch, Fisch und 18 neapolitanische Pizzen.",
+    cta: "Die vollständige Speisekarte anzeigen",
+    cartaHref: "/de/speisekarte",
+  },
+  nl: {
+    eyebrow: "Menu in de video",
+    heading: "Elk gerecht, in beweging",
+    intro:
+      "Bekijk het voordat je een keuze maakt. Zo verlaat elk gerecht onze keuken — gefilmd precies op het moment dat het bij jou op tafel komt.",
+    note: "En meer dan 45 gerechten: antipasti, verse pasta, risotto’s, vlees, vis en 18 Napolitaanse pizza’s.",
+    cta: "Bekijk het volledige menu",
+    cartaHref: "/nl/menukaart",
+  },
 } satisfies Record<Locale, Record<string, string>>;
 
 /**

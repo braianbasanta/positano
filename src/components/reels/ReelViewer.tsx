@@ -13,7 +13,7 @@ import {
 } from "react";
 import { allDishes } from "@/data/menu";
 import { getReel } from "@/data/reels";
-import type { Locale } from "@/lib/i18n";
+import { pickLang, type Locale } from "@/lib/i18n";
 
 type ReelViewerProps = {
   slugs: string[];
@@ -32,19 +32,23 @@ export default function ReelViewer({
   onClose,
   lang = "es",
 }: ReelViewerProps) {
-  const en = lang === "en";
   const dishName = (d: { name: string; nameEn?: string }) =>
-    en ? d.nameEn ?? d.name : d.name;
+    pickLang(d, "name", lang) ?? d.name;
   const dishDesc = (d: { desc?: string; descEn?: string }) =>
-    en ? d.descEn ?? d.desc : d.desc;
-  const t = {
-    close: en ? "Close" : "Cerrar",
-    closeVideo: en ? "Close video" : "Cerrar vídeo",
-    prev: en ? "Previous dish" : "Plato anterior",
-    next: en ? "Next dish" : "Plato siguiente",
-    dishFallback: en ? "Dish video" : "Vídeo del plato",
-    videoOf: (name: string) => (en ? `Video of ${name}` : `Vídeo de ${name}`),
+    pickLang(d, "desc", lang);
+  const LABELS: Record<
+    Locale,
+    { close: string; closeVideo: string; prev: string; next: string; dishFallback: string; videoOf: string }
+  > = {
+    es: { close: "Cerrar", closeVideo: "Cerrar vídeo", prev: "Plato anterior", next: "Plato siguiente", dishFallback: "Vídeo del plato", videoOf: "Vídeo de" },
+    en: { close: "Close", closeVideo: "Close video", prev: "Previous dish", next: "Next dish", dishFallback: "Dish video", videoOf: "Video of" },
+    it: { close: "Chiudi", closeVideo: "Chiudi il video", prev: "Piatto precedente", next: "Piatto successivo", dishFallback: "Video del piatto", videoOf: "Video di" },
+    fr: { close: "Fermer", closeVideo: "Fermer la vidéo", prev: "Plat précédent", next: "Plat suivant", dishFallback: "Vidéo du plat", videoOf: "Vidéo de" },
+    de: { close: "Schließen", closeVideo: "Video schließen", prev: "Vorheriges Gericht", next: "Nächstes Gericht", dishFallback: "Video des Gerichts", videoOf: "Video von" },
+    nl: { close: "Sluiten", closeVideo: "Video sluiten", prev: "Vorige gerecht", next: "Volgend gerecht", dishFallback: "Video van het gerecht", videoOf: "Video van" },
   };
+  const base = LABELS[lang];
+  const t = { ...base, videoOf: (name: string) => `${base.videoOf} ${name}` };
   const n = slugs.length;
   const [index, setIndex] = useState(() =>
     Math.min(Math.max(startIndex, 0), n - 1),

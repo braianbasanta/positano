@@ -32,6 +32,62 @@ const COPY = {
     scrollAria: "Scroll to the next section",
     bgAlt: "Positano, a Neapolitan pizzeria in the Eixample, Barcelona — illustration of the Amalfi Coast village",
   },
+  it: {
+    srHeading: "Positano · Pizzeria napoletana e ristorante italiano a Barcellona",
+    tagline:
+      "La napoletana dell’Eixample dove tutti tornano sempre.",
+    reservar: "Prenota un tavolo",
+    reservasHref: "/it/prenota-un-tavolo",
+    pedir: "Ordina online",
+    pedirHref: "/it/pizza-a-domicilio-barcellona",
+    carta: "Visualizza il menu",
+    cartaHref: "/it/menu",
+    descubre: "Scopri",
+    scrollAria: "Scorri fino alla sezione successiva",
+    bgAlt: "Positano, una pizzeria napoletana nell’Eixample, a Barcellona — illustrazione del paesino della Costiera Amalfitana",
+  },
+  fr: {
+    srHeading: "Positano · Pizzeria napolitaine et restaurant italien à Barcelone",
+    tagline:
+      "La pizzeria napolitaine de l'Eixample où tout le monde revient.",
+    reservar: "Réserver une table",
+    reservasHref: "/fr/reserver-une-table",
+    pedir: "Commander en ligne",
+    pedirHref: "/fr/livraison-pizza-barcelone",
+    carta: "Afficher le menu",
+    cartaHref: "/fr/carte",
+    descubre: "Découvrez",
+    scrollAria: "Faites défiler jusqu'à la section suivante",
+    bgAlt: "Positano, une pizzeria napolitaine située dans le quartier de l'Eixample, à Barcelone — illustration représentant ce village de la côte amalfitaine",
+  },
+  de: {
+    srHeading: "Positano · Neapolitanische Pizzeria und italienisches Restaurant in Barcelona",
+    tagline:
+      "Die neapolitanische Pizzeria im Eixample, in die jeder immer wieder zurückkehrt.",
+    reservar: "Einen Tisch reservieren",
+    reservasHref: "/de/tisch-reservieren",
+    pedir: "Online bestellen",
+    pedirHref: "/de/pizza-lieferservice-barcelona",
+    carta: "Menü anzeigen",
+    cartaHref: "/de/speisekarte",
+    descubre: "Entdecken Sie",
+    scrollAria: "Blättern Sie zum nächsten Abschnitt",
+    bgAlt: "Positano, eine neapolitanische Pizzeria im Stadtteil Eixample in Barcelona – Illustration des Ortes an der Amalfiküste",
+  },
+  nl: {
+    srHeading: "Positano · Napolitaanse pizzeria & Italiaans restaurant in Barcelona",
+    tagline:
+      "De Napolitaanse plek in de Eixample waar iedereen steeds weer naar terugkomt.",
+    reservar: "Reserveer een tafel",
+    reservasHref: "/nl/tafel-reserveren",
+    pedir: "Bestel online",
+    pedirHref: "/nl/pizza-bezorgen-barcelona",
+    carta: "Menu bekijken",
+    cartaHref: "/nl/menukaart",
+    descubre: "Ontdek",
+    scrollAria: "Scroll naar het volgende gedeelte",
+    bgAlt: "Positano, een Napolitaanse pizzeria in de wijk Eixample in Barcelona — illustratie van het dorpje aan de kust van Amalfi",
+  },
 } satisfies Record<Locale, Record<string, string>>;
 
 export default function Hero({ lang = "es" }: { lang?: Locale }) {

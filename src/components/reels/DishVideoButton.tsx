@@ -4,6 +4,15 @@ import { getReel, orderedReelSlugs } from "@/data/reels";
 import { useReelViewer } from "./ReelViewerProvider";
 import type { Locale } from "@/lib/i18n";
 
+const WATCH: Record<Locale, string> = {
+  es: "Ver vídeo de",
+  en: "Watch video of",
+  it: "Guarda il video di",
+  fr: "Voir la vidéo de",
+  de: "Video ansehen von",
+  nl: "Bekijk de video van",
+};
+
 /**
  * Glifo discreto de "ver vídeo" junto al nombre del plato en /menu.
  * Abre el visor inmersivo recorriendo toda la carta.
@@ -25,7 +34,7 @@ export default function DishVideoButton({
     <button
       type="button"
       onClick={() => open(orderedReelSlugs, orderedReelSlugs.indexOf(slug))}
-      aria-label={lang === "en" ? `Watch video of ${name}` : `Ver vídeo de ${name}`}
+      aria-label={`${WATCH[lang]} ${name}`}
       className="inline-flex h-5 w-5 shrink-0 translate-y-px items-center justify-center rounded-full border border-lemon/40 text-lemon/70 transition-colors duration-300 hover:border-lemon hover:bg-lemon hover:text-ink"
     >
       <svg viewBox="0 0 24 24" className="h-2.5 w-2.5" aria-hidden>

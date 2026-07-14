@@ -3,6 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import type { FeaturedDish } from "@/data/menu";
 import type { Locale } from "@/lib/i18n";
+
+const NAV_LABELS: Record<Locale, { prev: string; next: string }> = {
+  es: { prev: "Anterior", next: "Siguiente" },
+  en: { prev: "Previous", next: "Next" },
+  it: { prev: "Precedente", next: "Avanti" },
+  fr: { prev: "Précédent", next: "Suivant" },
+  de: { prev: "Zurück", next: "Weiter" },
+  nl: { prev: "Vorige", next: "Volgende" },
+};
 import ReelCard from "./ReelCard";
 
 export default function ReelCarousel({
@@ -62,7 +71,7 @@ export default function ReelCarousel({
         type="button"
         onClick={() => scrollBy(-1)}
         disabled={!canPrev}
-        aria-label={lang === "en" ? "Previous" : "Anterior"}
+        aria-label={NAV_LABELS[lang].prev}
         className="absolute left-2 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/10 text-cream backdrop-blur-sm transition-all duration-300 hover:bg-lemon hover:text-ink disabled:pointer-events-none disabled:opacity-0 md:flex"
       >
         <Arrow direction="left" />
@@ -71,7 +80,7 @@ export default function ReelCarousel({
         type="button"
         onClick={() => scrollBy(1)}
         disabled={!canNext}
-        aria-label={lang === "en" ? "Next" : "Siguiente"}
+        aria-label={NAV_LABELS[lang].next}
         className="absolute right-2 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/10 text-cream backdrop-blur-sm transition-all duration-300 hover:bg-lemon hover:text-ink disabled:pointer-events-none disabled:opacity-0 md:flex"
       >
         <Arrow direction="right" />

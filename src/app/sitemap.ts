@@ -1,64 +1,60 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL, alternatePath } from "@/lib/i18n";
+import { SITE_URL, PAGES, LOCALES, HREFLANG } from "@/lib/i18n";
 
-// Páginas ES (raíz) con par EN. La home y las landings espejo declaran
-// hreflang recíproco vía `alternates.languages`.
-const PAIRED: { path: string; priority: number }[] = [
-  { path: "/", priority: 1 },
-  { path: "/menu", priority: 0.8 },
-  { path: "/reservas", priority: 0.9 },
-  { path: "/bebidas", priority: 0.6 },
-  { path: "/pizza-napolitana-barcelona", priority: 0.7 },
-  { path: "/pizzeria-eixample", priority: 0.7 },
-  { path: "/restaurante-italiano-barcelona", priority: 0.7 },
-  { path: "/mejor-pizzeria-barcelona", priority: 0.8 },
-  { path: "/menu-del-dia", priority: 0.8 },
-  { path: "/pizza-domicilio", priority: 0.7 },
-  { path: "/trabaja-con-nosotros", priority: 0.5 },
-  { path: "/aviso-legal", priority: 0.3 },
-  { path: "/politica-de-privacidad", priority: 0.3 },
-  { path: "/politica-de-cookies-ue", priority: 0.3 },
-];
+// Prioridad por página (clave de PAGES en lib/i18n). Cada página se emite en
+// todos los idiomas en los que existe, con el bloque hreflang completo.
+const PRIORITY: Record<string, number> = {
+  home: 1,
+  menu: 0.8,
+  reservas: 0.9,
+  bebidas: 0.6,
+  napolitana: 0.7,
+  eixample: 0.7,
+  italiano: 0.7,
+  mejorPizzeria: 0.8,
+  menuDelDia: 0.8,
+  domicilio: 0.7,
+  empleo: 0.5,
+  avisoLegal: 0.3,
+  privacidad: 0.3,
+  cookies: 0.3,
+};
 
-// Landings sólo en inglés (sin equivalente ES). /en/best-pizza-barcelona pasó
-// a PAIRED al crear su par /mejor-pizzeria-barcelona.
-const EN_ONLY: { path: string; priority: number }[] = [];
-
-// Páginas sólo en español (sin equivalente EN): no declaran hreflang cruzado.
+// Páginas sólo en español (sin equivalente en otros idiomas): sin hreflang.
 const ES_ONLY: { path: string; priority: number }[] = [
   { path: "/nuestra-historia", priority: 0.8 },
   { path: "/grupos-barcelona", priority: 0.7 },
 ];
 
+const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
-  for (const { path, priority } of PAIRED) {
-    const enPath = alternatePath(path, "en");
-    const esUrl = `${SITE_URL}${path === "/" ? "" : path}`;
-    const languages = {
-      "es-ES": esUrl,
-      en: `${SITE_URL}${enPath}`,
-      "x-default": esUrl,
-    };
-    entries.push({
-      url: `${SITE_URL}${path === "/" ? "" : path}`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority,
-      alternates: { languages },
-    });
-    entries.push({
-      url: `${SITE_URL}${enPath}`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority,
-      alternates: { languages },
-    });
+  for (const [key, slugs] of Object.entries(PAGES)) {
+    const priority = PRIORITY[key] ?? 0.5;
+    const languages: Record<string, string> = {};
+    for (const locale of LOCALES) {
+      const path = slugs[locale];
+      if (path) languages[HREFLANG[locale]] = abs(path);
+    }
+    if (slugs.es) languages["x-default"] = abs(slugs.es);
+
+    for (const locale of LOCALES) {
+      const path = slugs[locale];
+      if (!path) continue;
+      entries.push({
+        url: abs(path),
+        lastModified,
+        changeFrequency: "monthly",
+        priority,
+        alternates: { languages },
+      });
+    }
   }
 
-  for (const { path, priority } of [...EN_ONLY, ...ES_ONLY]) {
+  for (const { path, priority } of ES_ONLY) {
     entries.push({
       url: `${SITE_URL}${path}`,
       lastModified,

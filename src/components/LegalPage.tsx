@@ -39,7 +39,7 @@ export default function LegalPage({
               {doc.title}
             </h1>
             <p className="mt-5 text-[0.82rem] uppercase tracking-[0.24em] text-cream/55">
-              {updatedLabel}: {LEGAL_UPDATED[lang]}
+              {updatedLabel}: {LEGAL_UPDATED[lang === "es" ? "es" : "en"]}
             </p>
           </div>
         </section>

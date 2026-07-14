@@ -21,6 +21,34 @@ const COPY = {
     forkCount: "reviews on TheFork",
     cta: "Read all reviews on Google",
   },
+  it: {
+    eyebrow: "Recensioni",
+    heading: "Cosa dicono i nostri ospiti",
+    count: "recensioni su Google",
+    forkCount: "recensioni su TheFork",
+    cta: "Leggi tutte le recensioni su Google",
+  },
+  fr: {
+    eyebrow: "Avis",
+    heading: "Ce que disent nos clients",
+    count: "avis sur Google",
+    forkCount: "avis sur TheFork",
+    cta: "Consultez tous les avis sur Google",
+  },
+  de: {
+    eyebrow: "Rezensionen",
+    heading: "Was unsere Gäste sagen",
+    count: "Bewertungen bei Google",
+    forkCount: "Bewertungen auf TheFork",
+    cta: "Lesen Sie alle Bewertungen auf Google",
+  },
+  nl: {
+    eyebrow: "Recensies",
+    heading: "Wat onze gasten zeggen",
+    count: "recensies op Google",
+    forkCount: "recensies op TheFork",
+    cta: "Lees alle recensies op Google",
+  },
 } satisfies Record<Locale, Record<string, string>>;
 
 export default function Resenas({

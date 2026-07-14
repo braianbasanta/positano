@@ -11,12 +11,12 @@ import { useEffect } from "react";
 // Al aceptar/rechazar enviamos la señal de consentimiento a GTM y la
 // persistimos en localStorage.
 
+import type { Locale } from "@/lib/i18n";
+
 const STORAGE_KEY = "positano_consent";
 
-type Lang = "es" | "en";
-
 const COPY: Record<
-  Lang,
+  Locale,
   { text: string; accept: string; reject: string; link: string; href: string }
 > = {
   es: {
@@ -31,6 +31,34 @@ const COPY: Record<
     accept: "Accept",
     reject: "Decline",
     link: "Learn more",
+    href: "/en/cookie-policy",
+  },
+  it: {
+    text: "Usiamo i cookie per migliorare la tua esperienza e capire cosa ti piace. Accettali e aiutaci a migliorare sempre di più.",
+    accept: "Accetta",
+    reject: "Declino",
+    link: "Scopri di più",
+    href: "/en/cookie-policy",
+  },
+  fr: {
+    text: "Nous utilisons des cookies pour améliorer votre expérience et mieux cerner vos préférences. Acceptez-les et aidez-nous ainsi à continuer à nous améliorer.",
+    accept: "Accepter",
+    reject: "Refus",
+    link: "En savoir plus",
+    href: "/en/cookie-policy",
+  },
+  de: {
+    text: "Wir verwenden Cookies, um Ihr Nutzererlebnis zu verbessern und zu verstehen, was Ihnen gefällt. Bitte akzeptieren Sie diese, damit wir uns weiter verbessern können.",
+    accept: "Akzeptieren",
+    reject: "Rückgang",
+    link: "Erfahren Sie mehr",
+    href: "/en/cookie-policy",
+  },
+  nl: {
+    text: "We gebruiken cookies om je ervaring te verbeteren en te begrijpen wat je leuk vindt. Accepteer ze en help ons zo om steeds beter te worden.",
+    accept: "Accepteren",
+    reject: "Afname",
+    link: "Meer informatie",
     href: "/en/cookie-policy",
   },
 };
@@ -86,7 +114,7 @@ function pushPageView() {
   });
 }
 
-export default function ConsentBanner({ lang = "es" }: { lang?: Lang }) {
+export default function ConsentBanner({ lang = "es" }: { lang?: Locale }) {
   const t = COPY[lang];
 
   // Solo side-effects: si el visitante ya decidió antes, reaplicamos su

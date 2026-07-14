@@ -4,7 +4,7 @@ import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import DishRow from "@/components/DishRow";
 import { menu, type Dish } from "@/data/menu";
-import type { Locale } from "@/lib/i18n";
+import { pickLang, type Locale } from "@/lib/i18n";
 
 type Filter = "all" | "veg" | "vegan";
 
@@ -22,6 +22,34 @@ const COPY = {
     veg: "Vegetarian",
     vegan: "Vegan",
     empty: "No dishes for this filter.",
+  },
+  it: {
+    label: "Filtra il menu",
+    all: "Tutto",
+    veg: "Vegetariano",
+    vegan: "Vegano",
+    empty: "Non ci sono piatti per questo filtro.",
+  },
+  fr: {
+    label: "Filtrer le menu",
+    all: "Tout",
+    veg: "Végétarien",
+    vegan: "Végétalien",
+    empty: "Ce filtre ne concerne aucun plat.",
+  },
+  de: {
+    label: "Das Menü filtern",
+    all: "Alle",
+    veg: "Vegetarisch",
+    vegan: "Vegan",
+    empty: "Für diesen Filter gibt es keine Gerichte.",
+  },
+  nl: {
+    label: "Het menu filteren",
+    all: "Alles",
+    veg: "Vegetarisch",
+    vegan: "Veganistisch",
+    empty: "Er zijn geen gerechten voor dit filter.",
   },
 } as const;
 
@@ -87,9 +115,7 @@ export default function MenuExplorer({ lang = "es" }: { lang?: Locale }) {
                 <div className="flex items-center justify-center gap-5">
                   <span className="h-px w-10 bg-lemon/50 sm:w-16" />
                   <h2 className="text-center font-display text-3xl uppercase tracking-[0.14em] text-lemon md:text-4xl">
-                    {lang === "en"
-                      ? category.nameEn ?? category.name
-                      : category.name}
+                    {pickLang(category, "name", lang) ?? category.name}
                   </h2>
                   <span className="h-px w-10 bg-lemon/50 sm:w-16" />
                 </div>

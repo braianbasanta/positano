@@ -26,6 +26,38 @@ const COPY: Record<
     close: "Close",
     iframe: "Book a table at Positano",
   },
+  it: {
+    href: "/it/prenota-un-tavolo",
+    label: "Prenota",
+    aria: "Prenota un tavolo",
+    title: "Prenota il tuo tavolo",
+    close: "Chiudi",
+    iframe: "Prenota un tavolo a Positano",
+  },
+  fr: {
+    href: "/fr/reserver-une-table",
+    label: "Réserver",
+    aria: "Réserver une table",
+    title: "Réservez votre table",
+    close: "Fermer",
+    iframe: "Réservez une table au Positano",
+  },
+  de: {
+    href: "/de/tisch-reservieren",
+    label: "Reservieren",
+    aria: "Einen Tisch reservieren",
+    title: "Reservieren Sie Ihren Tisch",
+    close: "Schließen",
+    iframe: "Reservieren Sie einen Tisch im „Positano“",
+  },
+  nl: {
+    href: "/nl/tafel-reserveren",
+    label: "Reserveer",
+    aria: "Reserveer een tafel",
+    title: "Reserveer je tafel",
+    close: "Sluiten",
+    iframe: "Reserveer een tafel bij Positano",
+  },
 };
 
 export default function FloatingReserva({ lang = "es" }: { lang?: Locale }) {

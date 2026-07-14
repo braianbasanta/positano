@@ -1,5 +1,5 @@
 import type { Wine } from "@/data/wines";
-import type { Locale } from "@/lib/i18n";
+import { pickLang, type Locale } from "@/lib/i18n";
 import BottleViewButton from "./bebidas/BottleViewButton";
 
 export default function WineRow({
@@ -9,9 +9,11 @@ export default function WineRow({
   wine: Wine;
   lang?: Locale;
 }) {
-  const notes = lang === "en" ? wine.notesEn ?? wine.notes : wine.notes;
+  const notes = pickLang(wine, "notes", lang);
   const meta = [wine.region, wine.grape].filter(Boolean).join(" · ");
-  const glassLabel = lang === "en" ? "glass" : "copa";
+  const glassLabel = (
+    { es: "copa", en: "glass", it: "calice", fr: "verre", de: "Glas", nl: "glas" } as Record<Locale, string>
+  )[lang];
 
   return (
     <li>

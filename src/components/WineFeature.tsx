@@ -1,5 +1,5 @@
 import type { FeaturedWine } from "@/data/wines";
-import type { Locale } from "@/lib/i18n";
+import { pickLang, type Locale } from "@/lib/i18n";
 import Lemon from "./Lemon";
 import BottleImage from "./bebidas/BottleImage";
 
@@ -10,8 +10,8 @@ export default function WineFeature({
   wine: FeaturedWine;
   lang?: Locale;
 }) {
-  const notes = lang === "en" ? wine.notesEn ?? wine.notes : wine.notes;
-  const tag = lang === "en" ? wine.tagEn : wine.tag;
+  const notes = pickLang(wine, "notes", lang);
+  const tag = pickLang(wine, "tag", lang);
 
   return (
     <article className="group flex overflow-hidden rounded-2xl border border-lemon/30 bg-ink/40 text-left backdrop-blur-sm transition-colors duration-300 hover:border-lemon/60">

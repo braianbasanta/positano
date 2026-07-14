@@ -11,6 +11,10 @@ const LOGOS: { src: string; alt: string; width: number; height: number }[] = [
 const COPY = {
   es: { aria: "Métodos de pago aceptados" },
   en: { aria: "Accepted payment methods" },
+  it: { aria: "Metodi di pagamento accettati" },
+  fr: { aria: "Modes de paiement acceptés" },
+  de: { aria: "Akzeptierte Zahlungsmethoden" },
+  nl: { aria: "Geaccepteerde betaalmethoden" },
 } satisfies Record<Locale, Record<string, string>>;
 
 export default function PaymentLogos({

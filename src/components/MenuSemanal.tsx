@@ -24,6 +24,42 @@ const COPY = {
     bebidas: "Drinks",
     note: "We change the menu every week with fresh market produce. We also post it on our Instagram stories.",
   },
+  it: {
+    eyebrow: "Il menu del pranzo di questa settimana",
+    heading: "I piatti di questa settimana",
+    primeros: "Antipasti",
+    segundos: "Piatti principali",
+    postres: "Dolci",
+    bebidas: "Bevande",
+    note: "Cambiamo il menu ogni settimana con prodotti freschi del mercato. Lo pubblichiamo anche nelle nostre storie su Instagram.",
+  },
+  fr: {
+    eyebrow: "Le menu du déjeuner de cette semaine",
+    heading: "Les plats de cette semaine",
+    primeros: "Entrées",
+    segundos: "Plats principaux",
+    postres: "Desserts",
+    bebidas: "Boissons",
+    note: "Nous changeons le menu chaque semaine en fonction des produits frais du marché. Nous le publions également sur nos stories Instagram.",
+  },
+  de: {
+    eyebrow: "Das Mittagsmenü dieser Woche",
+    heading: "Die Gerichte dieser Woche",
+    primeros: "Vorspeisen",
+    segundos: "Hauptgerichte",
+    postres: "Desserts",
+    bebidas: "Getränke",
+    note: "Wir ändern die Speisekarte jede Woche und verwenden dabei frische Produkte vom Markt. Wir veröffentlichen sie außerdem in unseren Instagram-Stories.",
+  },
+  nl: {
+    eyebrow: "Het lunchmenu van deze week",
+    heading: "De gerechten van deze week",
+    primeros: "Voorgerechten",
+    segundos: "Hoofdgerechten",
+    postres: "Desserts",
+    bebidas: "Drankjes",
+    note: "We passen het menu elke week aan met verse producten van de markt. We zetten het ook op onze Instagram Stories.",
+  },
 } satisfies Record<Locale, Record<string, string>>;
 
 const MESES_EN: Record<string, string> = {

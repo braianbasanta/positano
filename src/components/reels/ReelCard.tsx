@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { allDishes } from "@/data/menu";
 import { getReel, orderedReelSlugs } from "@/data/reels";
 import { useReelViewer } from "./ReelViewerProvider";
-import type { Locale } from "@/lib/i18n";
+import { pickLang, type Locale } from "@/lib/i18n";
 
 /**
  * Tarjeta de reel 9:16 con autoplay silenciado en loop perezoso.
@@ -66,13 +66,21 @@ export default function ReelCard({
 
   if (!reel || !dish) return null;
 
-  const dishName = lang === "en" ? dish.nameEn ?? dish.name : dish.name;
+  const dishName = pickLang(dish, "name", lang) ?? dish.name;
+  const WATCH: Record<Locale, string> = {
+    es: "Ver vídeo de",
+    en: "Watch video of",
+    it: "Guarda il video di",
+    fr: "Voir la vidéo de",
+    de: "Video ansehen von",
+    nl: "Bekijk de video van",
+  };
 
   return (
     <button
       type="button"
       onClick={() => open(orderedReelSlugs, orderedReelSlugs.indexOf(slug))}
-      aria-label={lang === "en" ? `Watch video of ${dishName}` : `Ver vídeo de ${dishName}`}
+      aria-label={`${WATCH[lang]} ${dishName}`}
       className={`group relative block aspect-[9/16] w-full overflow-hidden bg-ink outline-none ring-lemon/0 transition-all duration-300 hover:ring-2 hover:ring-lemon/70 focus-visible:ring-2 focus-visible:ring-lemon ${className ?? ""}`}
     >
       <video

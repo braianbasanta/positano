@@ -1,6 +1,15 @@
 import type { Dish } from "@/data/menu";
-import type { Locale } from "@/lib/i18n";
+import { pickLang, type Locale } from "@/lib/i18n";
 import DishVideoButton from "./reels/DishVideoButton";
+
+const VEGAN_LABEL: Record<Locale, string> = {
+  es: "Vegano",
+  en: "Vegan",
+  it: "Vegano",
+  fr: "Végétalien",
+  de: "Vegan",
+  nl: "Veganistisch",
+};
 
 export default function DishRow({
   dish,
@@ -9,16 +18,12 @@ export default function DishRow({
   dish: Dish;
   lang?: Locale;
 }) {
-  const name = lang === "en" ? dish.nameEn ?? dish.name : dish.name;
-  const desc = lang === "en" ? dish.descEn ?? dish.desc : dish.desc;
+  const name = pickLang(dish, "name", lang) ?? dish.name;
+  const desc = pickLang(dish, "desc", lang);
   const dietLabel = dish.diet
     ? dish.diet === "vegan"
-      ? lang === "en"
-        ? "Vegan"
-        : "Vegano"
-      : lang === "en"
-        ? "Veg"
-        : "Veg"
+      ? VEGAN_LABEL[lang]
+      : "Veg"
     : null;
   return (
     <li>

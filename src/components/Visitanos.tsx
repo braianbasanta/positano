@@ -85,6 +85,130 @@ const COPY = {
       { title: "Contact", lines: CONTACT_LINES },
     ] as InfoBlock[],
   },
+  it: {
+    eyebrow: "Vieni a trovarci",
+    heading: "Ti aspettiamo nell'Eixample, a Barcellona",
+    intro:
+      "Prenota un tavolo o passa a bere qualcosa al bar. Da noi c'è sempre un posto per te.",
+    mapHl: "en inform",
+    mapTitle: "Dove si trova la Pizzeria Positano a Barcellona",
+    reservar: "Prenota un tavolo",
+    reservasHref: "/it/prenota-un-tavolo",
+    llamar: "Chiamaci",
+    info: [
+      {
+        title: "Where we are",
+        lines: [
+          { text: "Carrer del Rosselló, 24", href: PLACE_URL },
+          { text: "08029 · Barcelona", href: PLACE_URL },
+        ],
+      },
+      {
+        title: "Opening hours",
+        schedule: [
+          { day: "Tue – Thu", hours: "1:00 – 4:00 pm · 8:00 – 11:30 pm" },
+          { day: "Friday", hours: "1:00 – 4:00 pm · 8:00 pm – 12:00 am" },
+          { day: "Saturday", hours: "1:00 pm – 12:00 am" },
+          { day: "Sunday", hours: "1:00 – 11:30 pm" },
+          { day: "Monday", hours: "Closed" },
+        ],
+      },
+      { title: "Contact", lines: CONTACT_LINES },
+    ] as InfoBlock[],
+  },
+  fr: {
+    eyebrow: "Venez nous rendre visite",
+    heading: "Nous vous attendons dans le quartier de l'Eixample, à Barcelone",
+    intro:
+      "Réservez une table ou passez prendre un verre au bar. Il y a toujours une place pour vous chez nous.",
+    mapHl: "fr",
+    mapTitle: "Emplacement de la pizzeria Positano à Barcelone",
+    reservar: "Réserver une table",
+    reservasHref: "/fr/reserver-une-table",
+    llamar: "Appelez-nous",
+    info: [
+      {
+        title: "Where we are",
+        lines: [
+          { text: "Carrer del Rosselló, 24", href: PLACE_URL },
+          { text: "08029 · Barcelona", href: PLACE_URL },
+        ],
+      },
+      {
+        title: "Opening hours",
+        schedule: [
+          { day: "Tue – Thu", hours: "1:00 – 4:00 pm · 8:00 – 11:30 pm" },
+          { day: "Friday", hours: "1:00 – 4:00 pm · 8:00 pm – 12:00 am" },
+          { day: "Saturday", hours: "1:00 pm – 12:00 am" },
+          { day: "Sunday", hours: "1:00 – 11:30 pm" },
+          { day: "Monday", hours: "Closed" },
+        ],
+      },
+      { title: "Contact", lines: CONTACT_LINES },
+    ] as InfoBlock[],
+  },
+  de: {
+    eyebrow: "Besuchen Sie uns",
+    heading: "Wir erwarten Sie im Stadtteil Eixample in Barcelona",
+    intro:
+      "Reservieren Sie einen Tisch oder kommen Sie auf einen Drink an der Bar vorbei. Bei uns ist immer ein Platz für Sie frei.",
+    mapHl: "de",
+    mapTitle: "Standort der Pizzeria „Positano“ in Barcelona",
+    reservar: "Einen Tisch reservieren",
+    reservasHref: "/de/tisch-reservieren",
+    llamar: "Rufen Sie uns an",
+    info: [
+      {
+        title: "Where we are",
+        lines: [
+          { text: "Carrer del Rosselló, 24", href: PLACE_URL },
+          { text: "08029 · Barcelona", href: PLACE_URL },
+        ],
+      },
+      {
+        title: "Opening hours",
+        schedule: [
+          { day: "Tue – Thu", hours: "1:00 – 4:00 pm · 8:00 – 11:30 pm" },
+          { day: "Friday", hours: "1:00 – 4:00 pm · 8:00 pm – 12:00 am" },
+          { day: "Saturday", hours: "1:00 pm – 12:00 am" },
+          { day: "Sunday", hours: "1:00 – 11:30 pm" },
+          { day: "Monday", hours: "Closed" },
+        ],
+      },
+      { title: "Contact", lines: CONTACT_LINES },
+    ] as InfoBlock[],
+  },
+  nl: {
+    eyebrow: "Kom eens langs",
+    heading: "We wachten op je in de wijk Eixample in Barcelona",
+    intro:
+      "Reserveer een tafel of kom even langs voor een drankje aan de bar. Bij ons is er altijd wel een plekje voor je.",
+    mapHl: "nl",
+    mapTitle: "Locatie van Pizzería Positano in Barcelona",
+    reservar: "Reserveer een tafel",
+    reservasHref: "/nl/tafel-reserveren",
+    llamar: "Bel ons",
+    info: [
+      {
+        title: "Where we are",
+        lines: [
+          { text: "Carrer del Rosselló, 24", href: PLACE_URL },
+          { text: "08029 · Barcelona", href: PLACE_URL },
+        ],
+      },
+      {
+        title: "Opening hours",
+        schedule: [
+          { day: "Tue – Thu", hours: "1:00 – 4:00 pm · 8:00 – 11:30 pm" },
+          { day: "Friday", hours: "1:00 – 4:00 pm · 8:00 pm – 12:00 am" },
+          { day: "Saturday", hours: "1:00 pm – 12:00 am" },
+          { day: "Sunday", hours: "1:00 – 11:30 pm" },
+          { day: "Monday", hours: "Closed" },
+        ],
+      },
+      { title: "Contact", lines: CONTACT_LINES },
+    ] as InfoBlock[],
+  },
 } satisfies Record<Locale, Record<string, unknown>>;
 
 export default function Visitanos({ lang = "es" }: { lang?: Locale }) {

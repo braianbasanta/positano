@@ -68,11 +68,135 @@ const COLUMNS: Record<Locale, Column[]> = {
       ],
     },
   ],
+  it: [
+    {
+      title: "Navigazione",
+      links: [
+        { label: "La nostra storia", href: "/it#la-casa" },
+        { label: "Menu", href: "/it/menu" },
+        { label: "Bevande", href: "/it/bevande" },
+        { label: "Pizza napoletana", href: "/it/pizza-napoletana-barcellona" },
+        { label: "La migliore pizza di Barcellona", href: "/it/migliore-pizza-barcellona" },
+        { label: "Ristorante italiano a Barcellona", href: "/it/ristorante-italiano-barcellona" },
+        { label: "Menu del giorno", href: "/it/menu-pranzo-barcellona" },
+        { label: "Ristorante italiano nell'Eixample", href: "/it/ristorante-italiano-eixample" },
+        { label: "Consegna pizza a domicilio", href: "/it/pizza-a-domicilio-barcellona" },
+        { label: "Vieni a trovarci", href: "/it#visitanos" },
+        { label: "Opportunità di lavoro", href: "/it/lavora-con-noi" },
+      ],
+    },
+    {
+      title: "Contatti",
+      links: [
+        { label: "Carrer del Rosselló, 24", href: "/it#visitanos" },
+        { label: "08029 · Barcellona", href: "/it#visitanos" },
+        { label: "+34 933 515 913", href: "tel:+34933515913" },
+        {
+          label: "positanopizzeria2023@gmail.com",
+          href: "mailto:positanopizzeria2023@gmail.com",
+        },
+      ],
+    },
+  ],
+  fr: [
+    {
+      title: "Navigation",
+      links: [
+        { label: "Notre histoire", href: "/fr#la-casa" },
+        { label: "Menu", href: "/fr/carte" },
+        { label: "Boissons", href: "/fr/boissons" },
+        { label: "Pizza napolitaine", href: "/fr/pizza-napolitaine-barcelone" },
+        { label: "La meilleure pizza de Barcelone", href: "/fr/meilleure-pizza-barcelone" },
+        { label: "Restaurant italien à Barcelone", href: "/fr/restaurant-italien-barcelone" },
+        { label: "Menu du jour", href: "/fr/menu-dejeuner-barcelone" },
+        { label: "Restaurant italien dans l'Eixample", href: "/fr/restaurant-italien-eixample" },
+        { label: "Livraison de pizzas", href: "/fr/livraison-pizza-barcelone" },
+        { label: "Venez nous rendre visite", href: "/fr#visitanos" },
+        { label: "Carrières", href: "/fr/recrutement" },
+      ],
+    },
+    {
+      title: "Contact",
+      links: [
+        { label: "24, rue du Rosselló", href: "/fr#visitanos" },
+        { label: "08029 · Barcelone", href: "/fr#visitanos" },
+        { label: "+34 933 515 913", href: "tel:+34933515913" },
+        {
+          label: "positanopizzeria2023@gmail.com",
+          href: "mailto:positanopizzeria2023@gmail.com",
+        },
+      ],
+    },
+  ],
+  de: [
+    {
+      title: "Navigation",
+      links: [
+        { label: "Unsere Geschichte", href: "/de#la-casa" },
+        { label: "Menü", href: "/de/speisekarte" },
+        { label: "Getränke", href: "/de/getraenke" },
+        { label: "Neapolitanische Pizza", href: "/de/neapolitanische-pizza-barcelona" },
+        { label: "Die beste Pizza in Barcelona", href: "/de/beste-pizza-barcelona" },
+        { label: "Italienisches Restaurant in Barcelona", href: "/de/italienisches-restaurant-barcelona" },
+        { label: "Tagesmenü", href: "/de/mittagsmenue-barcelona" },
+        { label: "Italienisches Restaurant im Eixample", href: "/de/italienisches-restaurant-eixample" },
+        { label: "Pizzalieferung", href: "/de/pizza-lieferservice-barcelona" },
+        { label: "Besuchen Sie uns", href: "/de#visitanos" },
+        { label: "Karriere", href: "/de/karriere" },
+      ],
+    },
+    {
+      title: "Kontakt",
+      links: [
+        { label: "Carrer del Rosselló 24", href: "/de#visitanos" },
+        { label: "08029 · Barcelona", href: "/de#visitanos" },
+        { label: "+34 933 515 913", href: "tel:+34933515913" },
+        {
+          label: "positanopizzeria2023@gmail.com",
+          href: "mailto:positanopizzeria2023@gmail.com",
+        },
+      ],
+    },
+  ],
+  nl: [
+    {
+      title: "Navigatie",
+      links: [
+        { label: "Ons verhaal", href: "/nl#la-casa" },
+        { label: "Menu", href: "/nl/menukaart" },
+        { label: "Drankjes", href: "/nl/dranken" },
+        { label: "Napolitaanse pizza", href: "/nl/napolitaanse-pizza-barcelona" },
+        { label: "De lekkerste pizza van Barcelona", href: "/nl/beste-pizza-barcelona" },
+        { label: "Italiaans restaurant in Barcelona", href: "/nl/italiaans-restaurant-barcelona" },
+        { label: "Dagmenu", href: "/nl/lunchmenu-barcelona" },
+        { label: "Italiaans restaurant in de wijk Eixample", href: "/nl/italiaans-restaurant-eixample" },
+        { label: "Pizzabezorging", href: "/nl/pizza-bezorgen-barcelona" },
+        { label: "Kom eens langs", href: "/nl#visitanos" },
+        { label: "Carrière", href: "/nl/vacatures" },
+      ],
+    },
+    {
+      title: "Contact",
+      links: [
+        { label: "Carrer del Rosselló, 24", href: "/nl#visitanos" },
+        { label: "08029 · Barcelona", href: "/nl#visitanos" },
+        { label: "+34 933 515 913", href: "tel:+34933515913" },
+        {
+          label: "positanopizzeria2023@gmail.com",
+          href: "mailto:positanopizzeria2023@gmail.com",
+        },
+      ],
+    },
+  ],
 };
 
 const TAGLINE: Record<Locale, string> = {
   es: "El sabor de Nápoles, en el corazón de Barcelona.",
   en: "A taste of Naples, in the heart of Barcelona.",
+  it: "Il sapore di Napoli, nel cuore di Barcellona.",
+  fr: "Le goût de Naples, au cœur de Barcelone.",
+  de: "Der Geschmack Neapels, im Herzen Barcelonas.",
+  nl: "De smaak van Napels, in het hart van Barcelona.",
 };
 
 const LEGAL: Record<Locale, { label: string; href: string }[]> = {
@@ -83,6 +207,26 @@ const LEGAL: Record<Locale, { label: string; href: string }[]> = {
   ],
   en: [
     { label: "Legal notice", href: "/en/legal-notice" },
+    { label: "Privacy", href: "/en/privacy-policy" },
+    { label: "Cookies", href: "/en/cookie-policy" },
+  ],
+  it: [
+    { label: "Note legali", href: "/en/legal-notice" },
+    { label: "Privacy", href: "/en/privacy-policy" },
+    { label: "Cookie", href: "/en/cookie-policy" },
+  ],
+  fr: [
+    { label: "Mentions légales", href: "/en/legal-notice" },
+    { label: "Confidentialité", href: "/en/privacy-policy" },
+    { label: "Cookies", href: "/en/cookie-policy" },
+  ],
+  de: [
+    { label: "Rechtliche Hinweise", href: "/en/legal-notice" },
+    { label: "Datenschutz", href: "/en/privacy-policy" },
+    { label: "Cookies", href: "/en/cookie-policy" },
+  ],
+  nl: [
+    { label: "Juridische kennisgeving", href: "/en/legal-notice" },
     { label: "Privacy", href: "/en/privacy-policy" },
     { label: "Cookies", href: "/en/cookie-policy" },
   ],

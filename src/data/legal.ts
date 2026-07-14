@@ -33,7 +33,8 @@ export type LegalDoc = {
 
 const b = LEGAL_BUSINESS;
 
-export const LEGAL: Record<Locale, { aviso: LegalDoc; privacidad: LegalDoc; cookies: LegalDoc }> = {
+// Documentos legales solo en ES/EN; los idiomas nuevos enlazan a la versión EN.
+export const LEGAL: Record<"es" | "en", { aviso: LegalDoc; privacidad: LegalDoc; cookies: LegalDoc }> = {
   es: {
     aviso: {
       eyebrow: "Información legal",
