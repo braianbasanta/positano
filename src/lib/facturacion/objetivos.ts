@@ -98,11 +98,18 @@ export function mediaDiariaObjetivo(): number {
 // miércoles) tiene un objetivo más alto, y eso es correcto — así queda
 // siempre alineado con la suma de los objetivos semanales, en vez de una
 // referencia congelada.
-export function objetivoMensual(year: number, monthIndex: number): number {
+// `closedDates`: fechas con cierre puntual registrado en la caja (closed=true:
+// festivo, semifinal...) — se descuentan del objetivo, igual que en el semanal.
+export function objetivoMensual(
+  year: number,
+  monthIndex: number,
+  closedDates?: ReadonlySet<string>,
+): number {
   const lastDay = new Date(year, monthIndex + 1, 0).getDate();
   let total = 0;
   for (let day = 1; day <= lastDay; day++) {
     const date = `${year}-${String(monthIndex + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    if (closedDates?.has(date)) continue;
     total += objetivoDelDia(date) ?? 0;
   }
   return total;

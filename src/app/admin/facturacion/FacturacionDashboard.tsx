@@ -394,8 +394,13 @@ export default function FacturacionDashboard({
 
   // Objetivo del mes = suma de los objetivos diarios de ESTE mes concreto (no
   // un número fijo): así queda siempre alineado con la suma semanal, sin
-  // importar cuántos findes de semana caigan en el mes.
-  const objetivoMes = objetivoMensual(year, month);
+  // importar cuántos findes de semana caigan en el mes. Los cierres puntuales
+  // registrados (closed) se descuentan, igual que en el objetivo semanal.
+  const closedDates = useMemo(
+    () => new Set(days.filter((d) => d.closed).map((d) => d.date)),
+    [days],
+  );
+  const objetivoMes = objetivoMensual(year, month, closedDates);
   const monthGoalPct = objetivoMes ? (calc.sel.total / objetivoMes) * 100 : 0;
   const monthGoalGap = objetivoMes - calc.sel.total; // >0 = falta · <0 = superado
 

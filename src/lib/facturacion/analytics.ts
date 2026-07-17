@@ -231,13 +231,18 @@ export function weeklySummary(
     const sunday = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 6, 12);
     // Objetivo de la semana = suma de los objetivos diarios de TODOS sus días
     // (lunes→domingo) que caen dentro del mes seleccionado, haya o no registro
-    // todavía. Así la semana en curso muestra su meta completa.
+    // todavía. Así la semana en curso muestra su meta completa. Los días con
+    // cierre puntual registrado (closed: festivo, semifinal...) no suman: la
+    // meta de una semana de 5 días operativos es la de 5 días, no la de 6.
     let objetivo = 0;
     if (objetivoDelDia) {
+      const closedDates = new Set(arr.filter((d) => d.closed).map((d) => d.date));
       for (let i = 0; i < 7; i++) {
         const dd = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i, 12);
         if (dd.getFullYear() === year && dd.getMonth() === monthIndex) {
-          objetivo += objetivoDelDia(toISODate(dd)) ?? 0;
+          const iso = toISODate(dd);
+          if (closedDates.has(iso)) continue;
+          objetivo += objetivoDelDia(iso) ?? 0;
         }
       }
     }
