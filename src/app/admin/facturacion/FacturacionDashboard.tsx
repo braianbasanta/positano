@@ -401,6 +401,15 @@ export default function FacturacionDashboard({
     [days],
   );
   const objetivoMes = objetivoMensual(year, month, closedDates);
+
+  // Comparativas mes/año en €/DÍA OPERATIVO, no caja bruta del tramo: un
+  // cierre puntual (p. ej. mar 14/07, semifinal) o un lunes más en el tramo
+  // no debe leerse como caída del negocio. La caja bruta queda de referencia
+  // en el subtítulo. Es la misma vara que la media diaria del acuerdo.
+  const avgDay = (t: { total: number; operatingDays: number }) =>
+    t.operatingDays ? t.total / t.operatingDays : 0;
+  const vsPrevAvg = pct(avgDay(calc.sel), avgDay(calc.prev));
+  const vsYoyAvg = pct(avgDay(calc.sel), avgDay(calc.yoy));
   const monthGoalPct = objetivoMes ? (calc.sel.total / objetivoMes) * 100 : 0;
   const monthGoalGap = objetivoMes - calc.sel.total; // >0 = falta · <0 = superado
 
@@ -459,16 +468,20 @@ export default function FacturacionDashboard({
           sub={`${calc.sel.operatingDays} días operativos`}
         />
         <Kpi
-          label="vs mes anterior"
-          value={pctLabel(pct(calc.sel.total, calc.prev.total))}
-          sub={`${eur0(calc.prev.total)} mismo tramo`}
-          tone={pct(calc.sel.total, calc.prev.total)}
+          label="vs mes anterior (€/día)"
+          value={pctLabel(vsPrevAvg)}
+          sub={`${eur0(avgDay(calc.prev))}/día op. mismo tramo · caja ${pctLabel(pct(calc.sel.total, calc.prev.total))}`}
+          tone={vsPrevAvg}
         />
         <Kpi
-          label="vs año pasado"
-          value={pctLabel(pct(calc.sel.total, calc.yoy.total))}
-          sub={calc.yoy.total ? `${eur0(calc.yoy.total)} mismo tramo` : "sin datos año previo"}
-          tone={pct(calc.sel.total, calc.yoy.total)}
+          label="vs año pasado (€/día)"
+          value={pctLabel(vsYoyAvg)}
+          sub={
+            calc.yoy.total
+              ? `${eur0(avgDay(calc.yoy))}/día op. mismo tramo · caja ${pctLabel(pct(calc.sel.total, calc.yoy.total))}`
+              : "sin datos año previo"
+          }
+          tone={vsYoyAvg}
         />
         <Kpi
           label="Media diaria"
