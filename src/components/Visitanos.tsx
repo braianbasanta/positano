@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Lemon from "./Lemon";
 import LemonBranch from "./LemonBranch";
 import Reveal from "./Reveal";
@@ -349,12 +350,12 @@ export default function Visitanos({ lang = "es" }: { lang?: Locale }) {
         </div>
 
         <Reveal className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <a
+          <Link
             href={t.reservasHref}
             className="rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink hover:tracking-[0.27em]"
           >
             {t.reservar}
-          </a>
+          </Link>
           <a
             href="tel:+34933515913"
             className="rounded-full border border-ink/45 px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-colors duration-300 hover:bg-ink hover:text-cream"

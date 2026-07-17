@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Lemon from "./Lemon";
 import LemonBranch from "./LemonBranch";
 import Reveal from "./Reveal";
@@ -141,7 +142,7 @@ export default function MenuDelDia({ lang = "es" }: { lang?: Locale }) {
             {t.note}
           </p>
 
-          <a
+          <Link
             href={t.landingHref}
             className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream shadow-[0_10px_28px_rgba(29,39,80,0.25)] transition-all duration-300 hover:bg-lemon hover:text-ink"
           >
@@ -149,7 +150,7 @@ export default function MenuDelDia({ lang = "es" }: { lang?: Locale }) {
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
-          </a>
+          </Link>
 
           <a
             href={INSTAGRAM_URL}

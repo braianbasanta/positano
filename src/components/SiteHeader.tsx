@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LOCALES, type Locale, alternatePath } from "@/lib/i18n";
 
@@ -96,6 +97,8 @@ export default function SiteHeader({ lang = "es" }: { lang?: Locale }) {
   const links = NAV[lang];
   const copy = COPY[lang];
   const otherLocales = LOCALES.filter((l) => l !== lang);
+  // El selector de idioma se queda con <a>: cada idioma vive en su propio
+  // root layout y esa navegación es full-page load de todos modos.
   const hrefFor = (l: Locale) => alternatePath(pathname ?? copy.home, l);
 
   // El CTA "Reservar" sale dorado SIEMPRE, salvo encima del hero de la home
@@ -132,7 +135,7 @@ export default function SiteHeader({ lang = "es" }: { lang?: Locale }) {
             scrolled ? "py-3" : "py-4 md:py-5"
           }`}
         >
-          <a href={copy.home} onClick={() => setOpen(false)} className="leading-none">
+          <Link href={copy.home} onClick={() => setOpen(false)} className="leading-none">
             <span
               className={`block font-display text-base tracking-[0.32em] transition-colors md:text-lg ${
                 solid ? "text-ink" : "text-cream"
@@ -147,11 +150,11 @@ export default function SiteHeader({ lang = "es" }: { lang?: Locale }) {
             >
               BARCELONA
             </span>
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-7 lg:flex">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className={`group relative text-[0.8rem] uppercase tracking-[0.16em] transition-colors ${
@@ -166,7 +169,7 @@ export default function SiteHeader({ lang = "es" }: { lang?: Locale }) {
                     solid ? "bg-ink" : "bg-cream"
                   }`}
                 />
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -209,7 +212,7 @@ export default function SiteHeader({ lang = "es" }: { lang?: Locale }) {
                 </div>
               ) : null}
             </div>
-            <a
+            <Link
               href={copy.reservas}
               className={`hidden rounded-full px-4 py-1.5 text-[0.76rem] uppercase tracking-[0.2em] transition-all duration-300 sm:block ${
                 heroTransparent
@@ -218,7 +221,7 @@ export default function SiteHeader({ lang = "es" }: { lang?: Locale }) {
               }`}
             >
               {copy.reservar}
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
@@ -255,22 +258,22 @@ export default function SiteHeader({ lang = "es" }: { lang?: Locale }) {
         }`}
       >
         {links.map((link) => (
-          <a
+          <Link
             key={link.href}
             href={link.href}
             onClick={() => setOpen(false)}
             className="font-display text-3xl tracking-wide text-ink"
           >
             {link.label}
-          </a>
+          </Link>
         ))}
-        <a
+        <Link
           href={copy.reservas}
           onClick={() => setOpen(false)}
           className="mt-4 rounded-full bg-ink px-8 py-3.5 text-[0.88rem] uppercase tracking-[0.22em] text-cream"
         >
           {RESERVAR_MESA[lang]}
-        </a>
+        </Link>
         <div className="absolute inset-x-0 bottom-6 flex justify-center gap-5">
           {otherLocales.map((l) => (
             <a

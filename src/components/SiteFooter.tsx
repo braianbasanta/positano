@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Lemon from "./Lemon";
 import SocialLinks from "./SocialLinks";
 import type { Locale } from "@/lib/i18n";
@@ -303,22 +304,34 @@ export default function SiteFooter({ lang = "es" }: { lang?: Locale }) {
                 {column.title}
               </h3>
               <ul className="mt-5 space-y-3">
-                {column.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      target={link.href.startsWith("http") ? "_blank" : undefined}
-                      rel={
-                        link.href.startsWith("http")
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
-                      className="font-serif text-lg text-cream/80 transition-colors hover:text-cream"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
+                {column.links.map((link) =>
+                  link.href.startsWith("/") ? (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="font-serif text-lg text-cream/80 transition-colors hover:text-cream"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ) : (
+                    // tel:, mailto: y externos se quedan con <a>.
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        target={link.href.startsWith("http") ? "_blank" : undefined}
+                        rel={
+                          link.href.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        className="font-serif text-lg text-cream/80 transition-colors hover:text-cream"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           ))}
@@ -328,12 +341,12 @@ export default function SiteFooter({ lang = "es" }: { lang?: Locale }) {
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {LEGAL[lang].map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   href={item.href}
                   className="transition-colors hover:text-cream/80"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

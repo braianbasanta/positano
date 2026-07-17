@@ -30,14 +30,6 @@ export const metadata: Metadata = {
   title: "Positano · Neapolitan Pizza & Italian Restaurant in the Eixample",
   description:
     `Neapolitan pizzeria and Italian restaurant in the Eixample, Barcelona: fresh pasta, carbonara and wood-fired pizza. ${reviewStatsEn.rating}★ from ${reviewStatsEn.count} reviews.`,
-  keywords: [
-    "italian restaurant barcelona",
-    "neapolitan pizza barcelona",
-    "best pizza barcelona",
-    "pizza barcelona",
-    "italian restaurant eixample",
-    "pizza delivery barcelona",
-  ],
   alternates: alternatesForEn("/en"),
   openGraph: {
     type: "website",

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Lemon from "./Lemon";
 import LemonBranch from "./LemonBranch";
 import Reveal from "./Reveal";
@@ -216,7 +217,7 @@ export default function LaMasa({ lang = "es" }: { lang?: Locale }) {
             <p className="mt-8 font-serif text-2xl italic leading-snug text-ink">
               {t.quote}
             </p>
-            <a
+            <Link
               href={t.ctaHref}
               className="group mt-6 inline-flex items-center gap-2 text-[0.84rem] uppercase tracking-[0.22em] text-lemon transition-colors hover:text-ink"
             >
@@ -224,7 +225,7 @@ export default function LaMasa({ lang = "es" }: { lang?: Locale }) {
               <span className="transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
-            </a>
+            </Link>
           </Reveal>
         </div>
 

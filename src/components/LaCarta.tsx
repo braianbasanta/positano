@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Lemon from "./Lemon";
 import LemonBranch from "./LemonBranch";
 import Reveal from "./Reveal";
@@ -55,7 +56,7 @@ export default function LaCarta() {
             Y más de 45 platos: antipasti, pastas frescas, risotti, carnes,
             pescados y 18 pizzas napolitanas.
           </p>
-          <a
+          <Link
             href="/menu"
             className="group inline-flex items-center gap-3 rounded-full bg-ink px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-cream transition-all duration-300 hover:bg-lemon hover:text-ink"
           >
@@ -63,7 +64,7 @@ export default function LaCarta() {
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>

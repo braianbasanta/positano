@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 
 // Banner de cookies + Google Consent Mode v2.
 //
@@ -191,12 +192,12 @@ export default function ConsentBanner({ lang = "es" }: { lang?: Locale }) {
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-5 sm:flex-row sm:justify-between">
           <p className="text-center font-serif text-base leading-relaxed sm:text-left md:text-lg">
             {t.text}{" "}
-            <a
+            <Link
               href={t.href}
               className="text-lemon underline underline-offset-2 hover:text-cream"
             >
               {t.link}
-            </a>
+            </Link>
           </p>
           <div className="flex w-full shrink-0 gap-3 sm:w-auto">
             <button

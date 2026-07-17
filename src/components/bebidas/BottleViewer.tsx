@@ -31,14 +31,14 @@ export default function BottleViewer({
   onClose,
   lang = "es",
 }: BottleViewerProps) {
-  const LABELS: Record<Locale, { close: string; prev: string; next: string; photo: string }> = {
-    es: { close: "Cerrar", prev: "Anterior", next: "Siguiente", photo: "Foto de la botella" },
-    ca: { close: "Tancar", prev: "Anterior", next: "Següent", photo: "Foto de l'ampolla" },
-    en: { close: "Close", prev: "Previous", next: "Next", photo: "Bottle photo" },
-    it: { close: "Chiudi", prev: "Precedente", next: "Avanti", photo: "Foto della bottiglia" },
-    fr: { close: "Fermer", prev: "Précédent", next: "Suivant", photo: "Photo de la bouteille" },
-    de: { close: "Schließen", prev: "Zurück", next: "Weiter", photo: "Foto der Flasche" },
-    nl: { close: "Sluiten", prev: "Vorige", next: "Volgende", photo: "Foto van de fles" },
+  const LABELS: Record<Locale, { close: string; prev: string; next: string; photo: string; bottle: string }> = {
+    es: { close: "Cerrar", prev: "Anterior", next: "Siguiente", photo: "Foto de la botella", bottle: "Botella de" },
+    ca: { close: "Tancar", prev: "Anterior", next: "Següent", photo: "Foto de l'ampolla", bottle: "Ampolla de" },
+    en: { close: "Close", prev: "Previous", next: "Next", photo: "Bottle photo", bottle: "Bottle of" },
+    it: { close: "Chiudi", prev: "Precedente", next: "Avanti", photo: "Foto della bottiglia", bottle: "Bottiglia di" },
+    fr: { close: "Fermer", prev: "Précédent", next: "Suivant", photo: "Photo de la bouteille", bottle: "Bouteille de" },
+    de: { close: "Schließen", prev: "Zurück", next: "Weiter", photo: "Foto der Flasche", bottle: "Flasche" },
+    nl: { close: "Sluiten", prev: "Vorige", next: "Volgende", photo: "Foto van de fles", bottle: "Fles" },
   };
   const t = LABELS[lang];
   const n = bottles.length;
@@ -234,7 +234,7 @@ export default function BottleViewer({
               {bottle.image ? (
                 <Image
                   src={bottle.image}
-                  alt={`Botella de ${bottle.name}`}
+                  alt={`${t.bottle} ${bottle.name}`}
                   fill
                   sizes="(max-width: 768px) 94vw, 60vh"
                   draggable={false}

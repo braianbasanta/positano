@@ -33,7 +33,6 @@ export const metadata: Metadata = {
   title: "Positano · Pizzeria napoletana e ristorante italiano nell'Eixample",
   description:
     `Pizzeria napoletana e ristorante italiano nell'Eixample, a Barcellona: pasta fresca, carbonara e pizza cotta nel forno a legna. ${reviewStats.rating}★ su ${reviewCount} recensioni.`,
-  keywords: ["ristorante italiano barcellona", "pizzeria napoletana barcellona", "migliore pizza barcellona", "pizza barcellona", "ristorante italiano eixample", "pizzeria eixample barcellona"],
   alternates: alternatesForPage("home", "it"),
   openGraph: {
     type: "website",

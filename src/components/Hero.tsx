@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Lemon from "./Lemon";
 import HeroBackground from "./HeroBackground";
 import type { Locale } from "@/lib/i18n";
@@ -155,25 +156,25 @@ export default function Hero({ lang = "es" }: { lang?: Locale }) {
             className="hero-rise mt-9 flex flex-col gap-4"
             style={{ animationDelay: "0.74s" }}
           >
-            <a
+            <Link
               href={t.reservasHref}
               className="rounded-full bg-[linear-gradient(160deg,#d6b579_0%,#c49b5a_52%,#b68b46_100%)] px-9 py-[1.35rem] text-center font-bold text-[1.1rem] uppercase tracking-[0.22em] text-ink ring-1 ring-ink/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_14px_34px_-8px_rgba(0,0,0,0.5),0_5px_14px_-3px_rgba(0,0,0,0.35)] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:tracking-[0.25em] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_22px_46px_-10px_rgba(0,0,0,0.55),0_8px_20px_-4px_rgba(0,0,0,0.4)] active:scale-[0.98] md:text-[1.25rem]"
             >
               {t.reservar}
-            </a>
+            </Link>
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <a
+              <Link
                 href={t.pedirHref}
                 className="flex items-center justify-center whitespace-nowrap rounded-full border-2 border-cream/85 bg-ink/55 px-2 py-[1.1rem] text-center font-semibold text-sm uppercase tracking-[0.12em] text-cream backdrop-blur-sm shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:bg-cream hover:text-ink sm:px-6 sm:text-base sm:tracking-[0.2em]"
               >
                 {t.pedir}
-              </a>
-              <a
+              </Link>
+              <Link
                 href={t.cartaHref}
                 className="flex items-center justify-center whitespace-nowrap rounded-full border-2 border-cream/85 bg-ink/55 px-2 py-[1.1rem] text-center font-semibold text-sm uppercase tracking-[0.12em] text-cream backdrop-blur-sm shadow-[0_10px_28px_rgba(0,0,0,0.35)] transition-colors duration-300 hover:bg-cream hover:text-ink sm:px-6 sm:text-base sm:tracking-[0.2em]"
               >
                 {t.carta}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

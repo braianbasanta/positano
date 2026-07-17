@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Lemon from "../Lemon";
 import LemonBranch from "../LemonBranch";
 import Reveal from "../Reveal";
@@ -106,7 +107,7 @@ export default function ReelStrip({ lang = "es" }: { lang?: Locale }) {
           <p className="max-w-xl font-serif text-lg italic text-cream/75">
             {t.note}
           </p>
-          <a
+          <Link
             href={t.cartaHref}
             className="group inline-flex items-center gap-3 rounded-full bg-lemon px-9 py-4 text-[0.9rem] uppercase tracking-[0.22em] text-ink transition-all duration-300 hover:bg-cream hover:tracking-[0.27em]"
           >
@@ -114,7 +115,7 @@ export default function ReelStrip({ lang = "es" }: { lang?: Locale }) {
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>

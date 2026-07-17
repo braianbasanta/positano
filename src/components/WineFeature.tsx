@@ -19,6 +19,7 @@ export default function WineFeature({
         <BottleImage
           image={wine.image}
           name={wine.name}
+          lang={lang}
           sizes="(max-width: 768px) 40vw, 220px"
           className="w-2/5 shrink-0"
         />

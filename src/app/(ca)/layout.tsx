@@ -33,7 +33,6 @@ export const metadata: Metadata = {
   title: "Positano · Pizza napolitana i restaurant italià a l'Eixample",
   description:
     `Pizzeria napolitana i restaurant italià a l'Eixample de Barcelona: pasta fresca, carbonara i pizza al forn de llenya. ${reviewStats.rating}★ amb ${reviewCount} ressenyes.`,
-  keywords: ["restaurant italià barcelona", "pizza napolitana barcelona", "millor pizzeria barcelona", "pizzeria eixample", "pizzeria barcelona"],
   alternates: alternatesForPage("home", "ca"),
   openGraph: {
     type: "website",

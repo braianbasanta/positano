@@ -4,7 +4,12 @@
 //  - "+3 €" en surcharge = suplemento sobre el precio del menú.
 //  - Vacío surcharge = incluido en el menú.
 //  Última actualización: semana del 15 al 18 de julio de 2026.
+//  Al cambiar la semana, actualiza también `menuDelDiaUpdatedAt` (la usa el
+//  sitemap como lastmod real de la página del menú del día).
 // ─────────────────────────────────────────────────────────────────────────
+
+/** Fecha ISO del último cambio del menú — actualizar junto con `semana`. */
+export const menuDelDiaUpdatedAt = "2026-07-14";
 
 export type MenuDelDiaItem = {
   name: string;

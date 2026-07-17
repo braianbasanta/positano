@@ -33,7 +33,6 @@ export const metadata: Metadata = {
   title: 'Positano · Napolitaanse pizza & Italiaans restaurant in de Eixample',
   description:
     `Napolitaanse pizzeria en Italiaans restaurant in de wijk Eixample in Barcelona: verse pasta, carbonara en pizza uit de houtoven. ${reviewStats.rating}★ op basis van ${reviewCount} beoordelingen.`,
-  keywords: ["italiaans restaurant barcelona", "napolitaanse pizza barcelona", "beste pizza barcelona", "pizza barcelona", "italiaans restaurant eixample", "pizzeria eixample barcelona"],
   alternates: alternatesForPage("home", "nl"),
   openGraph: {
     type: "website",

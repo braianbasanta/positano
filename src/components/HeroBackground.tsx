@@ -79,6 +79,27 @@ export default function HeroBackground({ alt }: { alt: string }) {
 
   return (
     <div className="absolute inset-0">
+      {/* Preload del poster (es el LCP): getImageProps, a diferencia de
+          <Image>, no emite el <link rel="preload">, así que sin esto el
+          navegador no lo pide hasta parsear todo el HTML. React los hoistea
+          al <head>; el atributo media evita descargar ambas variantes. */}
+      <link
+        rel="preload"
+        as="image"
+        media="(max-width: 767px)"
+        imageSrcSet={posterMobile}
+        imageSizes="100vw"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        media="(min-width: 768px)"
+        imageSrcSet={posterDesktop}
+        imageSizes="100vw"
+        fetchPriority="high"
+      />
+
       {/* Poster: cubre el LCP de inmediato y queda detrás del vídeo. */}
       <picture>
         <source media="(min-width: 768px)" srcSet={posterDesktop} />
@@ -86,6 +107,7 @@ export default function HeroBackground({ alt }: { alt: string }) {
         <img
           {...posterImg}
           srcSet={posterMobile}
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover object-[50%_55%]"
         />
       </picture>

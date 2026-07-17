@@ -1,3 +1,6 @@
+/** Fecha ISO del último cambio de la carta — actualizar al tocar platos o precios (la usa el sitemap como lastmod). */
+export const menuUpdatedAt = "2026-07-14";
+
 export type Dish = {
   name: string;
   /** Nombre por idioma (si difiere); los nombres italianos se mantienen. */
