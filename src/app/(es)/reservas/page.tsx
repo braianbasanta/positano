@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import HeroBackground from "@/components/HeroBackground";
+import ReelStrip from "@/components/reels/ReelStrip";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
 import JsonLd from "@/components/JsonLd";
@@ -66,19 +68,22 @@ export default function ReservasPage() {
       <JsonLd data={faqJsonLd} />
       <SiteHeader />
       <main>
-        {/* Banda de título */}
-        <section className="relative overflow-hidden bg-ink px-6 pb-10 pt-28 text-center md:pb-12 md:pt-32">
-          <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
-          <LemonBranch variant="bottom" className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
-          <div className="relative mx-auto max-w-2xl">
+        {/* Banda de título con el vídeo del restaurante de fondo (como la home) */}
+        <section className="relative flex min-h-[62svh] items-center overflow-hidden bg-ink px-6 pb-16 pt-28 text-center md:min-h-[68svh] md:pt-32">
+          <HeroBackground alt="El local de Positano, pizzería napolitana en el Eixample de Barcelona" />
+          <div className="pointer-events-none absolute inset-0 z-10 bg-ink/35" />
+          <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(ellipse_60%_55%_at_center,rgba(29,39,80,0.78)_0%,rgba(29,39,80,0.4)_55%,rgba(29,39,80,0)_78%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40 bg-gradient-to-b from-ink/85 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-44 bg-gradient-to-t from-ink to-transparent" />
+          <div className="relative z-20 mx-auto max-w-2xl">
             <span className="flex items-center justify-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
               <Lemon className="h-5 w-5" />
               Reservas
             </span>
-            <h1 className="mt-5 font-display text-5xl uppercase leading-[1] tracking-[0.03em] text-lemon md:text-7xl">
+            <h1 className="mt-5 font-display text-5xl uppercase leading-[1] tracking-[0.03em] text-lemon [filter:drop-shadow(0_2px_10px_rgba(0,0,0,0.5))] md:text-7xl">
               Reserva tu mesa
             </h1>
-            <p className="mt-6 font-serif text-lg leading-relaxed text-cream/85 md:text-xl">
+            <p className="hero-glow mt-6 font-serif text-lg leading-relaxed text-cream/90 md:text-xl">
               Elige día, hora y número de comensales. Recibirás la
               confirmación al momento.
             </p>
@@ -119,6 +124,9 @@ export default function ReservasPage() {
             </p>
           </div>
         </section>
+
+        {/* Carta en vídeo: que el que aún duda vea lo que sale de la cocina */}
+        <ReelStrip />
 
         {/* Sobre tu reserva + FAQ */}
         <section className="relative overflow-hidden bg-cream px-6 pb-24 pt-2 md:pb-28">
