@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import HeroBackground from "@/components/HeroBackground";
 import Reveal from "@/components/Reveal";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
@@ -57,22 +58,25 @@ export default function BestPizzaBarcelonaPage() {
       />
       <SiteHeader lang="en" />
       <main>
-        {/* Title band */}
-        <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-36 text-center md:pt-44">
-          <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
-          <LemonBranch variant="bottom" className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
-          <div className="relative mx-auto max-w-2xl">
+        {/* Title band with the restaurant video behind it */}
+        <section className="relative flex min-h-[62svh] items-center overflow-hidden bg-ink px-6 pb-20 pt-36 text-center md:pt-44 md:min-h-[68svh]">
+                    <HeroBackground alt="Positano, a Neapolitan pizzeria in the Eixample, Barcelona — the restaurant" />
+          <div className="pointer-events-none absolute inset-0 z-10 bg-ink/35" />
+          <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(ellipse_60%_55%_at_center,rgba(29,39,80,0.78)_0%,rgba(29,39,80,0.4)_55%,rgba(29,39,80,0)_78%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40 bg-gradient-to-b from-ink/85 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-44 bg-gradient-to-t from-ink to-transparent" />
+          <div className="relative z-20 mx-auto max-w-2xl">
             <span className="flex items-center justify-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
               <Lemon className="h-5 w-5" />
               Rated ★{reviewStatsEn.rating} on Google
             </span>
-            <h1 className="mt-5 font-display text-5xl uppercase leading-[1] tracking-[0.03em] text-lemon md:text-7xl">
+            <h1 className="mt-5 font-display text-5xl uppercase leading-[1] tracking-[0.03em] text-lemon [filter:drop-shadow(0_2px_10px_rgba(0,0,0,0.5))] md:text-7xl">
               The best pizza in Barcelona
             </h1>
-            <p className="mt-4 font-serif text-xl italic text-cream/80 md:text-2xl">
+            <p className="hero-glow mt-4 font-serif text-xl italic text-cream/90 md:text-2xl">
               Real pizza from Naples, in the Eixample
             </p>
-            <p className="mt-6 font-serif text-lg leading-relaxed text-cream/85 md:text-xl">
+            <p className="hero-glow mt-6 font-serif text-lg leading-relaxed text-cream/90 md:text-xl">
               Looking for the best pizza in Barcelona? At Positano we make
               authentic Neapolitan pizza with 48-hour fermented dough, a
               wood-fired oven and Italian DOP ingredients — the way it's done in

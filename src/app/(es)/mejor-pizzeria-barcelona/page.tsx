@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import HeroBackground from "@/components/HeroBackground";
 import Reveal from "@/components/Reveal";
 import Lemon from "@/components/Lemon";
 import LemonBranch from "@/components/LemonBranch";
@@ -116,22 +117,25 @@ export default function MejorPizzeriaBarcelonaPage() {
       <JsonLd data={faqJsonLd} />
       <SiteHeader lang="es" />
       <main>
-        {/* Banda de título */}
-        <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-36 text-center md:pt-44">
-          <LemonBranch className="pointer-events-none absolute -right-16 -top-10 h-80 w-auto rotate-[150deg] text-lemon/20" />
-          <LemonBranch variant="bottom" className="pointer-events-none absolute -bottom-24 -left-16 h-80 w-auto -rotate-12 text-lemon/15" />
-          <div className="relative mx-auto max-w-2xl">
+        {/* Banda de título con el vídeo del restaurante de fondo */}
+        <section className="relative flex min-h-[62svh] items-center overflow-hidden bg-ink px-6 pb-20 pt-36 text-center md:pt-44 md:min-h-[68svh]">
+                    <HeroBackground alt="El local de Positano, pizzería napolitana en el Eixample de Barcelona" />
+          <div className="pointer-events-none absolute inset-0 z-10 bg-ink/35" />
+          <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(ellipse_60%_55%_at_center,rgba(29,39,80,0.78)_0%,rgba(29,39,80,0.4)_55%,rgba(29,39,80,0)_78%)]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-40 bg-gradient-to-b from-ink/85 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-44 bg-gradient-to-t from-ink to-transparent" />
+          <div className="relative z-20 mx-auto max-w-2xl">
             <span className="flex items-center justify-center gap-3 text-[0.82rem] uppercase tracking-[0.34em] text-lemon">
               <Lemon className="h-5 w-5" />
               Valorada con ★{reviewStats.rating} en Google
             </span>
-            <h1 className="mt-5 font-display text-5xl uppercase leading-[1] tracking-[0.03em] text-lemon md:text-7xl">
+            <h1 className="mt-5 font-display text-5xl uppercase leading-[1] tracking-[0.03em] text-lemon [filter:drop-shadow(0_2px_10px_rgba(0,0,0,0.5))] md:text-7xl">
               La mejor pizzería de Barcelona, según quienes ya han venido
             </h1>
-            <p className="mt-4 font-serif text-xl italic text-cream/80 md:text-2xl">
+            <p className="hero-glow mt-4 font-serif text-xl italic text-cream/90 md:text-2xl">
               No lo decimos nosotros: lo dicen {reviewStats.count} reseñas en Google
             </p>
-            <p className="mt-6 font-serif text-lg leading-relaxed text-cream/85 md:text-xl">
+            <p className="hero-glow mt-6 font-serif text-lg leading-relaxed text-cream/90 md:text-xl">
               Positano es una de las italianas mejor valoradas de Barcelona,
               con {reviewStats.rating}★ en Google. Y lo que más repiten nuestros
               clientes no es solo la pizza: es el trato cercano de tres
