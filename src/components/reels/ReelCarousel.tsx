@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import type { FeaturedDish } from "@/data/menu";
+import { useLayoutEffect, useRef, useState } from "react";
+import type { Dish } from "@/data/menu";
 import type { Locale } from "@/lib/i18n";
 
 const NAV_LABELS: Record<Locale, { prev: string; next: string }> = {
@@ -13,27 +13,58 @@ const NAV_LABELS: Record<Locale, { prev: string; next: string }> = {
   de: { prev: "Zurück", next: "Weiter" },
   nl: { prev: "Vorige", next: "Volgende" },
 };
+
+const HINT_LABELS: Record<Locale, string> = {
+  es: "Desliza para ver más",
+  ca: "Llisca per veure'n més",
+  en: "Swipe to see more",
+  it: "Scorri per vederne di più",
+  fr: "Faites glisser pour en voir plus",
+  de: "Wischen für mehr",
+  nl: "Veeg om meer te zien",
+};
 import ReelCard from "./ReelCard";
 
 export default function ReelCarousel({
   items,
   lang = "es",
+  itemClassName = "w-[60vw] sm:w-[232px]",
+  cardClassName,
+  showDesc = false,
+  hint = false,
+  trackClassName,
 }: {
-  items: FeaturedDish[];
+  items: Dish[];
   lang?: Locale;
+  /** Ancho del hueco de cada tarjeta en el track. */
+  itemClassName?: string;
+  /** Clases extra para la tarjeta (p. ej. esquinas redondeadas en la carta). */
+  cardClassName?: string;
+  /** Overlay completo con descripción en cada tarjeta — modo carta. */
+  showDesc?: boolean;
+  /** Barra de progreso + texto "desliza" bajo el track (afordancia móvil). */
+  hint?: boolean;
+  /** Padding extra del track (p. ej. `px-6 scroll-px-6` cuando va full-bleed). */
+  trackClassName?: string;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
+  const [progress, setProgress] = useState(0); // 0..1 del scroll horizontal
+  // Arranca en 0 (= "desborda") para que el SSR pinte la fila alineada a la
+  // izquierda: centrar una fila que desborda cortaría las primeras tarjetas.
+  const [visibleRatio, setVisibleRatio] = useState(0); // viewport/contenido
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = trackRef.current;
     if (!el) return;
 
     const update = () => {
-      const max = el.scrollWidth - el.clientWidth - 1;
+      const max = el.scrollWidth - el.clientWidth;
       setCanPrev(el.scrollLeft > 1);
-      setCanNext(el.scrollLeft < max);
+      setCanNext(el.scrollLeft < max - 1);
+      setVisibleRatio(el.scrollWidth > 0 ? el.clientWidth / el.scrollWidth : 1);
+      setProgress(max > 0 ? el.scrollLeft / max : 0);
     };
 
     update();
@@ -43,7 +74,8 @@ export default function ReelCarousel({
       el.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, []);
+    // Se re-mide al cambiar la lista (los filtros de la carta alteran el ancho).
+  }, [items]);
 
   const scrollBy = (dir: 1 | -1) => {
     const el = trackRef.current;
@@ -55,17 +87,47 @@ export default function ReelCarousel({
     <div className="relative">
       <div
         ref={trackRef}
-        className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        className={
+          "flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden" +
+          // Si las tarjetas no llenan el ancho, la fila se centra.
+          (visibleRatio >= 1 ? " justify-center" : "") +
+          (trackClassName ? ` ${trackClassName}` : "")
+        }
       >
         {items.map((dish) => (
           <div
             key={dish.slug}
-            className="w-[60vw] shrink-0 snap-start sm:w-[232px]"
+            className={`${itemClassName} shrink-0 snap-start`}
           >
-            <ReelCard slug={dish.slug} lang={lang} />
+            <ReelCard
+              slug={dish.slug}
+              lang={lang}
+              showDesc={showDesc}
+              className={cardClassName}
+            />
           </div>
         ))}
       </div>
+
+      {hint && visibleRatio > 0 && visibleRatio < 1 && (
+        <div className="mt-5 flex items-center justify-center gap-3">
+          <div
+            className="relative h-1 w-28 overflow-hidden rounded-full bg-ink/15"
+            aria-hidden
+          >
+            <div
+              className="absolute inset-y-0 left-0 rounded-full bg-lemon"
+              style={{
+                width: `${visibleRatio * 100}%`,
+                transform: `translateX(${progress * (1 / visibleRatio - 1) * 100}%)`,
+              }}
+            />
+          </div>
+          <p className="text-[0.72rem] uppercase tracking-[0.3em] text-ink-soft">
+            {HINT_LABELS[lang]}
+          </p>
+        </div>
+      )}
 
       {/* Flechas laterales — solo desktop */}
       <button

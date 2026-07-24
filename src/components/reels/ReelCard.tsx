@@ -11,14 +11,27 @@ import { pickLang, type Locale } from "@/lib/i18n";
  * Solo reproduce mientras está en viewport. Al pulsarla abre el visor
  * inmersivo recorriendo toda la carta.
  */
+const VEGAN_LABEL: Record<Locale, string> = {
+  es: "Vegano",
+  ca: "Vegà",
+  en: "Vegan",
+  it: "Vegano",
+  fr: "Végétalien",
+  de: "Vegan",
+  nl: "Veganistisch",
+};
+
 export default function ReelCard({
   slug,
   className,
   lang = "es",
+  showDesc = false,
 }: {
   slug: string;
   className?: string;
   lang?: Locale;
+  /** Overlay completo (nombre, precio, descripción y régimen) — modo carta. */
+  showDesc?: boolean;
 }) {
   const { open } = useReelViewer();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -105,15 +118,44 @@ export default function ReelCard({
         </svg>
       </span>
 
-      {/* Degradado + nombre y precio */}
-      <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-ink via-ink/45 to-transparent px-4 pb-4 pt-14 text-left">
-        <span className="font-display text-base leading-tight text-cream">
-          {dishName}
+      {/* Degradado + nombre y precio (con descripción en modo carta) */}
+      {showDesc ? (
+        <span className="pointer-events-none absolute inset-x-0 bottom-0 block bg-gradient-to-t from-ink via-ink/55 to-transparent px-4 pb-4 pt-16 text-left sm:px-5 sm:pb-5">
+          <span className="flex items-baseline justify-between gap-3">
+            <span className="font-display text-lg leading-tight text-cream sm:text-xl">
+              {dishName}
+            </span>
+            <span className="shrink-0 font-serif text-base text-lemon">
+              {dish.price}
+            </span>
+          </span>
+          {pickLang(dish, "desc", lang) ? (
+            <span className="mt-1.5 block font-serif text-[0.82rem] italic leading-snug text-cream/80">
+              {pickLang(dish, "desc", lang)}
+            </span>
+          ) : null}
+          {dish.diet ? (
+            <span
+              className={`mt-2 inline-flex items-center rounded-full px-2 py-0.5 font-sans text-[0.6rem] font-semibold uppercase tracking-[0.12em] ${
+                dish.diet === "vegan"
+                  ? "bg-emerald-600 text-cream"
+                  : "border border-emerald-300/70 text-emerald-200"
+              }`}
+            >
+              {dish.diet === "vegan" ? VEGAN_LABEL[lang] : "Veg"}
+            </span>
+          ) : null}
         </span>
-        <span className="shrink-0 font-serif text-sm text-lemon">
-          {dish.price}
+      ) : (
+        <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-ink via-ink/45 to-transparent px-4 pb-4 pt-14 text-left">
+          <span className="font-display text-base leading-tight text-cream">
+            {dishName}
+          </span>
+          <span className="shrink-0 font-serif text-sm text-lemon">
+            {dish.price}
+          </span>
         </span>
-      </span>
+      )}
     </button>
   );
 }

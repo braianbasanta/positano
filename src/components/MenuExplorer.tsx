@@ -3,7 +3,9 @@
 import { useState } from "react";
 import Reveal from "@/components/Reveal";
 import DishRow from "@/components/DishRow";
+import ReelCarousel from "@/components/reels/ReelCarousel";
 import { menu, type Dish } from "@/data/menu";
+import { getReel } from "@/data/reels";
 import { pickLang, type Locale } from "@/lib/i18n";
 
 type Filter = "all" | "veg" | "vegan";
@@ -116,24 +118,54 @@ export default function MenuExplorer({ lang = "es" }: { lang?: Locale }) {
         </p>
       ) : (
         <div className="mx-auto flex max-w-5xl flex-col gap-20">
-          {categories.map((category) => (
-            <Reveal key={category.id}>
-              <section id={category.id} className="scroll-mt-24">
-                <div className="flex items-center justify-center gap-5">
-                  <span className="h-px w-10 bg-lemon/50 sm:w-16" />
-                  <h2 className="text-center font-display text-3xl uppercase tracking-[0.14em] text-lemon md:text-4xl">
-                    {pickLang(category, "name", lang) ?? category.name}
-                  </h2>
-                  <span className="h-px w-10 bg-lemon/50 sm:w-16" />
-                </div>
-                <ul className="mx-auto mt-10 grid max-w-4xl gap-x-14 gap-y-7 md:grid-cols-2">
-                  {category.items.map((dish) => (
-                    <DishRow key={dish.name} dish={dish} lang={lang} />
-                  ))}
-                </ul>
-              </section>
-            </Reveal>
-          ))}
+          {categories.map((category) => {
+            // Estilo Da Nanni: los platos con video van en un carrusel con
+            // toda la info sobre el propio video; los (pocos) sin video
+            // quedan en lista de texto debajo para no perder ningún plato.
+            const videoDishes = category.items.filter((dish) =>
+              getReel(dish.slug),
+            );
+            const textDishes = category.items.filter(
+              (dish) => !getReel(dish.slug),
+            );
+            return (
+              <Reveal key={category.id}>
+                <section id={category.id} className="scroll-mt-24">
+                  <div className="flex items-center justify-center gap-5">
+                    <span className="h-px w-10 bg-lemon/50 sm:w-16" />
+                    <h2 className="text-center font-display text-3xl uppercase tracking-[0.14em] text-lemon md:text-4xl">
+                      {pickLang(category, "name", lang) ?? category.name}
+                    </h2>
+                    <span className="h-px w-10 bg-lemon/50 sm:w-16" />
+                  </div>
+                  {videoDishes.length > 0 && (
+                    <div className="mt-10 mx-[calc(50%-50vw)]">
+                      <ReelCarousel
+                        items={videoDishes}
+                        lang={lang}
+                        showDesc
+                        hint
+                        itemClassName="w-[240px] sm:w-[300px]"
+                        cardClassName="rounded-2xl shadow-lg shadow-ink/10"
+                        trackClassName="px-6 scroll-px-6"
+                      />
+                    </div>
+                  )}
+                  {textDishes.length > 0 && (
+                    <ul
+                      className={`mx-auto grid max-w-4xl gap-x-14 gap-y-7 md:grid-cols-2 ${
+                        videoDishes.length > 0 ? "mt-8" : "mt-10"
+                      }`}
+                    >
+                      {textDishes.map((dish) => (
+                        <DishRow key={dish.name} dish={dish} lang={lang} />
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              </Reveal>
+            );
+          })}
         </div>
       )}
     </>
