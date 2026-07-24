@@ -28,6 +28,15 @@
   ni el radio 1,5 km. **La semana del 21–26/07 es la primera lectura limpia** de todo el setup
   actual (techo 3€ + radio 1,5 km + solo Search), sin Mundial y con el martes 21 como primer
   martes comparable.
+- **Viernes 24/07: techo CPC 3→4 € + headlines "restaurante" en 3 RSA** (decisión Braian tras el
+  diagnóstico: mar 21 y mié 22 la Search NO gastó el presupuesto — IS perdido por RANKING 87-89%
+  con lost-budget ~0%, QS 1-3 en las keywords genéricas de proximidad). Swaps: "ES | Dónde comer"
+  +"Restaurante Italiano Eixample"/"Tu Restaurante en Barcelona" (la kw "restaurantes cerca de mi"
+  QS 1 no tenía ni una mención de "restaurante"), "EN | Where to eat" +"Your Italian Restaurant in
+  BCN", "EN" +"Italian Restaurant Near You" (fuera el headline de delivery). → **El martes 28 ya NO
+  valida el techo 3€** (el martes 21 récord se da por respuesta); desde el sáb 25 todo se lee con
+  techo 4€. Vigilar: gasto/día (¿vuelve a 40€?), CPC medio (0,29-0,39 antes) y picos de finde tipo
+  dom 12/07. Los fixes de landing del deep audit están EN PRODUCCIÓN desde el 17/07 (commit b7b8896).
 
 ## Tabla
 
